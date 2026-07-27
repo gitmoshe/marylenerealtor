@@ -55,7 +55,7 @@ export function Nav() {
         <div className="hidden lg:block" />
 
         <Link to="/" aria-label="Marylene Realtor — home" className="justify-self-start lg:justify-self-center">
-          <Wordmark tone={solid ? "ink" : "ivory"} />
+          <Wordmark size="compact" tone={solid ? "ink" : "ivory"} />
         </Link>
 
         <div className="flex items-center justify-end gap-5">
