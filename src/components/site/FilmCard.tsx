@@ -1,3 +1,4 @@
+import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import type { Film } from "@/lib/site-data";
 
@@ -51,13 +52,17 @@ export function FilmCard({
   headingLevel?: "h2" | "h3";
 }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
+  const title = t(`films.item.${film.id}.title`) || film.title;
+  const caption = t(`films.item.${film.id}.caption`) || film.caption;
+  const description = t(`films.item.${film.id}.description`) || film.description;
   return (
     <article className={cn("flex flex-col", className)}>
-      <EmbedFrame embed={film.embed} title={film.title} format={film.format} />
+      <EmbedFrame embed={film.embed} title={title} format={film.format} />
       <div className={cn("mt-5", film.format === "9:16" && "mx-auto max-w-[21rem] w-full")}>
-        <p className="label-caps text-[0.58rem] tracking-[0.22em] text-lagoon">{film.caption}</p>
-        <Heading className="mt-3 font-serif text-xl leading-snug text-ink">{film.title}</Heading>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{film.description}</p>
+        <p className="label-caps text-[0.58rem] tracking-[0.22em] text-lagoon">{caption}</p>
+        <Heading className="mt-3 font-serif text-xl leading-snug text-ink">{title}</Heading>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
     </article>
   );

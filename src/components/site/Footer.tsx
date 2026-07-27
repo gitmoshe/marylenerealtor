@@ -1,44 +1,46 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, MessageCircle, Mail } from "lucide-react";
 import { Monogram } from "./Wordmark";
-
-const columns = [
-  {
-    title: "Explore",
-    links: [
-      { to: "/properties", label: "Properties" },
-      { to: "/property-management", label: "Property Management" },
-      { to: "/films", label: "Videos" },
-    ],
-  },
-  {
-    title: "Maison",
-    links: [
-      { to: "/meet-marylene", label: "Meet Marylene" },
-      { to: "/la-riviera", label: "La Riviera" },
-      { to: "/contact", label: "Contact" },
-    ],
-  },
-] as const;
+import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
+  const { t } = useI18n();
+
+  const columns = [
+    {
+      titleKey: "home.footer.explore",
+      links: [
+        { to: "/properties", labelKey: "nav.properties" },
+        { to: "/property-management", labelKey: "nav.management" },
+        { to: "/films", labelKey: "nav.films" },
+      ],
+    },
+    {
+      titleKey: "home.footer.maison",
+      links: [
+        { to: "/meet-marylene", labelKey: "nav.meet" },
+        { to: "/la-riviera", labelKey: "nav.riviera" },
+        { to: "/contact", labelKey: "nav.contact" },
+      ],
+    },
+  ] as const;
+
   return (
     <footer className="bg-ink px-6 pt-24 pb-10 text-ivory sm:px-10">
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Monogram />
-            <p className="overline mt-6 text-gold">Luxury Real Estate · Mayan Riviera</p>
+            <p className="overline mt-6 text-gold">{t("home.footer.tagline")}</p>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory/60">
-              Certified and registered realtor, property manager and Mayan Riviera lifestyle
-              ambassador. Serving clients in French, English and Spanish.
+              {t("home.footer.about")}
             </p>
             <div className="mt-7 flex items-center gap-5 text-ivory/70">
               <a
                 href="https://instagram.com/marylene_realtor"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Instagram"
+                aria-label={t("home.footer.igLabel")}
                 className="transition-colors duration-300 hover:text-gold"
               >
                 <Instagram strokeWidth={1} className="size-5" />
@@ -47,14 +49,14 @@ export function Footer() {
                 href="https://wa.me/529840000000"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="WhatsApp"
+                aria-label={t("home.footer.waLabel")}
                 className="transition-colors duration-300 hover:text-gold"
               >
                 <MessageCircle strokeWidth={1} className="size-5" />
               </a>
               <a
                 href="mailto:hello@marylenerealtor.com"
-                aria-label="Email"
+                aria-label={t("home.footer.emailLabel")}
                 className="transition-colors duration-300 hover:text-gold"
               >
                 <Mail strokeWidth={1} className="size-5" />
@@ -63,8 +65,8 @@ export function Footer() {
           </div>
 
           {columns.map((col) => (
-            <nav key={col.title} aria-label={col.title}>
-              <p className="overline text-ivory/50">{col.title}</p>
+            <nav key={col.titleKey} aria-label={t(col.titleKey)}>
+              <p className="overline text-ivory/50">{t(col.titleKey)}</p>
               <ul className="mt-6 space-y-3">
                 {col.links.map((l) => (
                   <li key={l.to}>
@@ -72,7 +74,7 @@ export function Footer() {
                       to={l.to}
                       className="text-sm text-ivory/80 transition-colors duration-300 hover:text-gold"
                     >
-                      {l.label}
+                      {t(l.labelKey)}
                     </Link>
                   </li>
                 ))}
@@ -84,10 +86,9 @@ export function Footer() {
         <div className="mt-16 h-px w-full bg-ivory/10" />
 
         <div className="mt-8 flex flex-col gap-3 text-xs text-ivory/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>In collaboration with LATITUD Properties.</p>
+          <p>{t("home.footer.collab")}</p>
           <p>
-            © {new Date().getFullYear()} Marylene Maglio. Riviera Maya, Quintana Roo, Mexico. All
-            rights reserved.
+            © {new Date().getFullYear()} {t("home.footer.copyright")}
           </p>
         </div>
       </div>

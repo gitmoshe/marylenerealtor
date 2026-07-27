@@ -16,9 +16,9 @@ const links = [
 ] as const satisfies readonly { to: string; key: TKey }[];
 
 const languages: { code: Lang; label: string }[] = [
-  { code: "fr", label: "FR" },
-  { code: "en", label: "EN" },
   { code: "es", label: "ES" },
+  { code: "en", label: "EN" },
+  { code: "fr", label: "FR" },
 ];
 
 export function Nav() {

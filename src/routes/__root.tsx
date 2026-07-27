@@ -15,24 +15,24 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { NewsletterBand } from "@/components/site/NewsletterBand";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import { LanguageProvider } from "@/lib/i18n";
+import { LanguageProvider, useI18n } from "@/lib/i18n";
 import { ButtonLink } from "@/components/site/ui";
 
 function NotFoundComponent() {
+  const { t } = useI18n();
   return (
     <section className="flex min-h-[100svh] flex-col items-center justify-center bg-background px-6 py-32 text-center sm:px-10">
-      <span className="overline block text-gold">Error 404</span>
+      <span className="overline block text-gold">{t("home.notFound.overline")}</span>
       <span className="rule-gold mx-auto mt-5 w-12" aria-hidden="true" />
       <h1 className="mt-8 max-w-3xl font-serif text-4xl leading-[1.1] text-ink sm:text-6xl">
-        Lost? The Riviera has a
-        <span className="block italic">way of finding you.</span>
+        {t("home.notFound.titleLine1")}
+        <span className="block italic">{t("home.notFound.titleLine2")}</span>
       </h1>
       <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground">
-        This page has drifted off the map. The coast, the residences and the videos are all still
-        here.
+        {t("home.notFound.body")}
       </p>
       <ButtonLink to="/" variant="gold" className="mt-12">
-        Return Home
+        {t("home.notFound.button")}
       </ButtonLink>
     </section>
   );

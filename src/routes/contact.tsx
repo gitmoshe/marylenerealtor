@@ -198,9 +198,9 @@ function Contact() {
                 <li className="flex items-start gap-4">
                   <MapPin strokeWidth={1} className="mt-0.5 size-5 shrink-0 text-gold" />
                   <span className="text-muted-foreground">
-                    Riviera Maya, Quintana Roo, Mexico
+                    {t("properties.contact.addressLine")}
                     <span className="mt-1 block text-xs">
-                      Playa del Carmen · Tulum · Puerto Aventuras · Cancún
+                      {t("properties.contact.addressAreas")}
                     </span>
                   </span>
                 </li>
@@ -239,8 +239,7 @@ function Contact() {
                 <CalendarCheck strokeWidth={1} className="size-4" /> {t("contact.book")}
               </ButtonAnchor>
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-                Consultations are held in French, English or Spanish, by video or in person on the
-                coast.
+                {t("properties.contact.consultationsNote")}
               </p>
             </div>
           </Reveal>

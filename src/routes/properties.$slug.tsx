@@ -2,6 +2,7 @@ import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { properties, type Property } from "@/lib/site-data";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/properties/$slug")({
   loader: ({ params }): { property: Property } => {
@@ -33,6 +34,15 @@ export const Route = createFileRoute("/properties/$slug")({
 
 function PropertyDetail() {
   const { property } = Route.useLoaderData() as { property: Property };
+  const { t } = useI18n();
+
+  const tf = (key: string, fallback: string) => {
+    const val = t(key);
+    return val === key ? fallback : val;
+  };
+
+  const line = tf(`properties.item.${property.slug}.line`, property.line);
+  const description = tf(`properties.item.${property.slug}.description`, property.description);
 
   return (
     <>
@@ -48,7 +58,7 @@ function PropertyDetail() {
         <div className="absolute inset-x-0 bottom-0 px-6 pb-14 sm:px-10">
           <Container>
             <Overline tone="ivory" className="text-ivory/80">
-              {property.location} · {property.type}
+              {property.location} · {t(`properties.type.${property.type}`)}
             </Overline>
             <h1 className="mt-5 font-serif text-5xl text-ivory sm:text-6xl">{property.name}</h1>
             <p className="mt-4 font-serif text-2xl text-gold">{property.price}</p>
@@ -59,27 +69,31 @@ function PropertyDetail() {
       <Section>
         <Container className="grid gap-14 md:grid-cols-12">
           <Reveal className="md:col-span-7">
-            <Overline>The Residence</Overline>
+            <Overline>{t("properties.detail.residenceOverline")}</Overline>
             <GoldRule className="mt-6" />
-            <p className="mt-8 font-serif text-2xl leading-[1.4]">{property.line}</p>
+            <p className="mt-8 font-serif text-2xl leading-[1.4]">{line}</p>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-              {property.description}
+              {description}
             </p>
 
             <div className="mt-14">
-              <Overline>Specifications</Overline>
+              <Overline>{t("properties.detail.specsOverline")}</Overline>
               <dl className="mt-6 grid grid-cols-2 gap-x-10 sm:grid-cols-3">
                 {property.specs.map((s) => (
                   <div key={s.label} className="border-b border-border py-4">
-                    <dt className="label-caps text-[0.58rem] text-muted-foreground">{s.label}</dt>
-                    <dd className="mt-2 font-serif text-xl">{s.value}</dd>
+                    <dt className="label-caps text-[0.58rem] text-muted-foreground">
+                      {tf(`properties.spec.${s.label}`, s.label)}
+                    </dt>
+                    <dd className="mt-2 font-serif text-xl">
+                      {tf(`properties.specValue.${s.value}`, s.value)}
+                    </dd>
                   </div>
                 ))}
               </dl>
             </div>
 
             <div className="mt-14">
-              <Overline>Gallery</Overline>
+              <Overline>{t("properties.detail.galleryOverline")}</Overline>
               <div className="mt-6 grid grid-cols-2 gap-4">
                 {properties
                   .filter((p) => p.slug !== property.slug)
@@ -88,7 +102,7 @@ function PropertyDetail() {
                     <div key={p.slug} className="hover-zoom">
                       <img
                         src={p.image}
-                        alt={`${property.name} — interior and grounds`}
+                        alt={`${property.name} — ${t("properties.detail.galleryAlt")}`}
                         width={1280}
                         height={960}
                         loading="lazy"
@@ -105,25 +119,29 @@ function PropertyDetail() {
               className="border border-border bg-card p-8 md:sticky md:top-40"
               onSubmit={(e) => e.preventDefault()}
             >
-              <Overline>Enquire</Overline>
-              <p className="mt-4 font-serif text-2xl">About {property.name}</p>
+              <Overline>{t("properties.enquire.overline")}</Overline>
+              <p className="mt-4 font-serif text-2xl">
+                {t("properties.enquire.about").replace("{name}", property.name)}
+              </p>
               <div className="mt-8 space-y-5">
-                <Field label="Name" name="name" />
-                <Field label="Email" name="email" type="email" />
-                <Field label="Phone" name="phone" type="tel" />
+                <Field label={t("properties.enquire.name")} name="name" />
+                <Field label={t("properties.enquire.email")} name="email" type="email" />
+                <Field label={t("properties.enquire.phone")} name="phone" type="tel" />
                 <div>
                   <label
                     htmlFor="message"
                     className="label-caps text-[0.58rem] text-muted-foreground"
                   >
-                    Message
+                    {t("properties.enquire.message")}
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
                     maxLength={1000}
-                    defaultValue={`I would like more information about ${property.name} (${property.specs[5]?.value ?? property.slug}).`}
+                    defaultValue={t("properties.enquire.messageTemplate")
+                      .replace("{name}", property.name)
+                      .replace("{ref}", property.specs[5]?.value ?? property.slug)}
                     className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
                   />
                 </div>
@@ -132,10 +150,10 @@ function PropertyDetail() {
                 type="submit"
                 className="label-caps mt-8 w-full bg-gold py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
               >
-                Send Enquiry
+                {t("properties.enquire.submit")}
               </button>
               <p className="mt-5 text-xs text-muted-foreground">
-                Replies within one business day, in French, English or Spanish.
+                {t("properties.enquire.replies")}
               </p>
             </form>
           </Reveal>
@@ -145,12 +163,12 @@ function PropertyDetail() {
       <Section className="border-t border-border bg-secondary/50">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <h2 className="font-serif text-4xl">Continue looking.</h2>
+            <h2 className="font-serif text-4xl">{t("properties.detail.continueLooking")}</h2>
             <Link
               to="/properties"
               className="label-caps link-underline text-[0.68rem] hover:text-gold"
             >
-              All Properties
+              {t("properties.detail.allProperties")}
             </Link>
           </div>
           <div className="mt-12 grid gap-10 sm:grid-cols-3">
@@ -176,7 +194,7 @@ function PropertyDetail() {
           </div>
           <div className="mt-16 text-center">
             <ButtonLink to="/contact" variant="outline">
-              Book a Private Consultation
+              {t("properties.enquire.book")}
             </ButtonLink>
           </div>
         </Container>

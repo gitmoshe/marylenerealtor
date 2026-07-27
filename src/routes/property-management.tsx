@@ -3,6 +3,7 @@ import { CalendarCheck, ClipboardList, Sparkles, LineChart, Wrench, Users } from
 import property1 from "@/assets/property-1.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/property-management")({
   head: () => ({
@@ -26,59 +27,34 @@ export const Route = createFileRoute("/property-management")({
   component: PropertyManagement,
 });
 
-const pillars = [
-  {
-    icon: LineChart,
-    title: "Rental Management",
-    copy: "Listing, pricing, calendar and channel management, with occupancy reviewed month by month rather than left to run.",
-  },
-  {
-    icon: Wrench,
-    title: "Maintenance",
-    copy: "Preventive schedules for pools, air conditioning, humidity and hurricane season, handled by trades we have used for years.",
-  },
-  {
-    icon: Users,
-    title: "Guest Experience",
-    copy: "Arrivals met in person, housekeeping to hotel standard, and a local number guests can actually call.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Reporting",
-    copy: "Quarterly statements with income, expenses and photographs of your property as it stands that week.",
-  },
-];
-
-const steps = [
-  {
-    title: "The Assessment",
-    copy: "We walk the property, review its condition and set an honest revenue expectation for the year ahead.",
-  },
-  {
-    title: "The Proposal",
-    copy: "A written scope, a fee structure with nothing hidden inside it, and a start date.",
-  },
-  {
-    title: "The Handover",
-    copy: "Keys, utilities, insurance and staff transferred. You return to your life; the house stays cared for.",
-  },
-];
-
 function PropertyManagement() {
+  const { t } = useI18n();
+
+  const pillars = [
+    { icon: LineChart, title: t("management.pillar1.title"), copy: t("management.pillar1.copy") },
+    { icon: Wrench, title: t("management.pillar2.title"), copy: t("management.pillar2.copy") },
+    { icon: Users, title: t("management.pillar3.title"), copy: t("management.pillar3.copy") },
+    { icon: ClipboardList, title: t("management.pillar4.title"), copy: t("management.pillar4.copy") },
+  ];
+
+  const steps = [
+    { title: t("management.step1.title"), copy: t("management.step1.copy") },
+    { title: t("management.step2.title"), copy: t("management.step2.copy") },
+    { title: t("management.step3.title"), copy: t("management.step3.copy") },
+  ];
+
   return (
     <>
       <Section className="pt-44 pb-0 md:pt-52">
         <Container>
           <Reveal className="max-w-3xl">
-            <Overline>For Owners</Overline>
+            <Overline>{t("management.hero.overline")}</Overline>
             <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              Your house, kept as
-              <span className="block italic">though you were here.</span>
+              {t("management.hero.title.line1")}
+              <span className="block italic">{t("management.hero.title.line2")}</span>
             </h1>
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
-              Most owners on this coast live somewhere else. Management exists so that distance
-              never shows — in the condition of the property, in its income, or in what a guest
-              finds on arrival.
+              {t("management.hero.lead")}
             </p>
           </Reveal>
         </Container>
@@ -89,7 +65,7 @@ function PropertyManagement() {
           <Reveal className="hover-zoom">
             <img
               src={property1}
-              alt="Managed beachfront terrace in Playa del Carmen"
+              alt={t("management.hero.imageAlt")}
               width={1280}
               height={960}
               loading="lazy"
@@ -114,27 +90,16 @@ function PropertyManagement() {
       <Section className="border-y border-border bg-secondary/50">
         <Container className="grid gap-14 md:grid-cols-12">
           <Reveal className="md:col-span-5">
-            <Overline tone="lagoon">Owners Abroad</Overline>
+            <Overline tone="lagoon">{t("management.abroad.overline")}</Overline>
             <h2 className="mt-6 font-serif text-4xl leading-tight sm:text-5xl">
-              Montréal, Chicago, Paris.
+              {t("management.abroad.title")}
             </h2>
             <GoldRule className="mt-8" />
           </Reveal>
           <Reveal delay={140} className="space-y-6 text-sm leading-relaxed text-muted-foreground md:col-span-7">
-            <p>
-              Owning in Mexico from another country raises the same questions every time: who holds
-              the keys, who pays the CFE bill, who answers when the pump fails in August, and how do
-              I know any of it is true.
-            </p>
-            <p>
-              The answer is a single point of contact who works in your language and reports on a
-              fixed rhythm. Statements arrive quarterly, in writing. Photographs accompany them.
-              Anything unusual reaches you the same day, not at year end.
-            </p>
-            <p>
-              Time zones are accommodated. So is the preference — common among French and Canadian
-              owners — to keep a property for family use and rent it only in defined windows.
-            </p>
+            <p>{t("management.abroad.p1")}</p>
+            <p>{t("management.abroad.p2")}</p>
+            <p>{t("management.abroad.p3")}</p>
           </Reveal>
         </Container>
       </Section>
@@ -142,8 +107,8 @@ function PropertyManagement() {
       <Section>
         <Container>
           <Reveal>
-            <Overline>How It Works</Overline>
-            <h2 className="mt-6 font-serif text-4xl sm:text-5xl">Three steps.</h2>
+            <Overline>{t("management.steps.overline")}</Overline>
+            <h2 className="mt-6 font-serif text-4xl sm:text-5xl">{t("management.steps.title")}</h2>
           </Reveal>
           <div className="mt-14 grid gap-12 md:grid-cols-3">
             {steps.map((s, i) => (
@@ -162,14 +127,13 @@ function PropertyManagement() {
           <Reveal>
             <Sparkles strokeWidth={0.75} className="mx-auto size-8 text-gold" />
             <h2 className="mt-8 font-serif text-4xl leading-tight sm:text-5xl">
-              Request a management proposal.
+              {t("management.cta.title")}
             </h2>
             <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-ivory/65">
-              Send the address and a few photographs. You will receive a scope, a fee structure and
-              a realistic revenue projection within three business days.
+              {t("management.cta.lead")}
             </p>
             <ButtonLink to="/contact" variant="gold" className="mt-10">
-              <CalendarCheck strokeWidth={1} className="size-4" /> Request a Proposal
+              <CalendarCheck strokeWidth={1} className="size-4" /> {t("management.cta.button")}
             </ButtonLink>
           </Reveal>
         </Container>
