@@ -60,7 +60,7 @@ function FilmsPage() {
                 category === null ? "text-gold" : "text-ink/70",
               )}
             >
-              All Films
+              All
             </button>
             {filmCategories.map((c) => (
               <button
