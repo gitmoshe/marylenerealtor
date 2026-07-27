@@ -8,6 +8,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { FilmCard } from "@/components/site/FilmCard";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { films, properties, testimonials } from "@/lib/site-data";
+import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,6 +71,7 @@ function Index() {
 }
 
 function Hero() {
+  const { t } = useI18n();
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
       <img
@@ -86,30 +88,29 @@ function Hero() {
       <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 text-center sm:px-10">
         <Reveal>
           <Overline tone="ivory" className="text-ivory/85">
-            Riviera Maya · Mexico
+            {t("hero.overline")}
           </Overline>
           <span className="rule-gold mx-auto mt-5 w-12 opacity-80" />
         </Reveal>
         <Reveal delay={120}>
           <h1 className="mt-8 font-serif text-[2.9rem] leading-[1.03] text-ivory sm:text-7xl md:text-8xl lg:text-[6.5rem]">
-            Where the Caribbean
-            <span className="block italic">Meets Home.</span>
+            {t("hero.titleLine1")}
+            <span className="block italic">{t("hero.titleLine2")}</span>
           </h1>
         </Reveal>
         <Reveal delay={240}>
           <span className="rule-gold mx-auto mt-10 w-20" />
           <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed font-light text-ivory/75">
-            Luxury real estate, property management and life on the Mayan Riviera — guided in
-            French, English &amp; Spanish.
+            {t("hero.subtitle")}
           </p>
         </Reveal>
         <Reveal delay={360}>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <ButtonLink to="/properties" variant="gold">
-              Explore Properties
+              {t("hero.ctaPrimary")}
             </ButtonLink>
             <ButtonLink to="/films" variant="ghost">
-              Watch the Films
+              {t("hero.ctaSecondary")}
             </ButtonLink>
           </div>
         </Reveal>
@@ -160,6 +161,7 @@ function StatsRow() {
 }
 
 function IntroEditorial() {
+  const { t } = useI18n();
   return (
     <Section>
       <Container className="grid items-center gap-14 md:grid-cols-12">
@@ -176,7 +178,7 @@ function IntroEditorial() {
           </div>
         </Reveal>
         <Reveal delay={150} className="md:col-span-7 md:pl-6 lg:pl-16">
-          <Overline>Meet Marylene</Overline>
+          <Overline>{t("sections.meetOverline")}</Overline>
           <GoldRule className="mt-6" />
           <p className="mt-8 font-serif text-[1.65rem] leading-[1.35] text-ink sm:text-[2rem]">
             “I came from France for a season and stayed for a life. What I offer my clients is the
@@ -192,7 +194,7 @@ function IntroEditorial() {
             to="/meet-marylene"
             className="label-caps link-underline mt-10 inline-flex items-center gap-3 text-[0.68rem] text-ink transition-colors duration-300 hover:text-gold"
           >
-            Her story <ArrowRight strokeWidth={1} className="size-4" />
+            {t("sections.meetLink")} <ArrowRight strokeWidth={1} className="size-4" />
           </Link>
         </Reveal>
       </Container>
@@ -201,20 +203,21 @@ function IntroEditorial() {
 }
 
 function FilmsPreview() {
+  const { t } = useI18n();
   const selection = films.slice(0, 3);
   return (
     <Section className="bg-secondary/50">
       <Container>
         <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
-            <Overline>The Films</Overline>
-            <h2 className="mt-5 font-serif text-4xl sm:text-5xl">Properties, in motion.</h2>
+            <Overline>{t("sections.filmsOverline")}</Overline>
+            <h2 className="mt-5 font-serif text-4xl sm:text-5xl">{t("sections.filmsTitle")}</h2>
           </div>
           <Link
             to="/films"
             className="label-caps link-underline text-[0.68rem] transition-colors duration-300 hover:text-gold"
           >
-            View All Films
+            {t("sections.filmsLink")}
           </Link>
         </Reveal>
 
@@ -231,20 +234,21 @@ function FilmsPreview() {
 }
 
 function FeaturedProperties() {
+  const { t } = useI18n();
   const featured = properties.slice(0, 3);
   return (
     <Section>
       <Container>
         <Reveal className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <div>
-            <Overline>Selected Residences</Overline>
-            <h2 className="mt-5 font-serif text-4xl sm:text-5xl">Featured properties.</h2>
+            <Overline>{t("sections.selectedOverline")}</Overline>
+            <h2 className="mt-5 font-serif text-4xl sm:text-5xl">{t("sections.selectedTitle")}</h2>
           </div>
           <Link
             to="/properties"
             className="label-caps link-underline text-[0.68rem] transition-colors duration-300 hover:text-gold"
           >
-            All Properties
+            {t("sections.selectedLink")}
           </Link>
         </Reveal>
 
@@ -303,6 +307,7 @@ function Services() {
 }
 
 function RivieraTeaser() {
+  const { t } = useI18n();
   return (
     <section className="grid items-stretch md:grid-cols-2">
       <div className="hover-zoom">
@@ -317,9 +322,9 @@ function RivieraTeaser() {
       </div>
       <Reveal className="flex items-center px-6 py-20 sm:px-14 md:py-28">
         <div className="max-w-md">
-          <Overline tone="lagoon">La Riviera</Overline>
+          <Overline tone="lagoon">{t("sections.rivieraOverline")}</Overline>
           <h2 className="mt-6 font-serif text-4xl leading-tight sm:text-5xl">
-            A coast worth knowing properly.
+            {t("sections.rivieraTitle")}
           </h2>
           <span className="rule-gold mt-8 w-16" />
           <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
@@ -328,7 +333,7 @@ function RivieraTeaser() {
             lunch — honestly, and without a sales pitch.
           </p>
           <ButtonLink to="/la-riviera" variant="outline" className="mt-10">
-            Read the Guide
+            {t("sections.rivieraCta")}
           </ButtonLink>
         </div>
       </Reveal>
@@ -337,6 +342,7 @@ function RivieraTeaser() {
 }
 
 function Testimonials() {
+  const { t } = useI18n();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -349,7 +355,7 @@ function Testimonials() {
   return (
     <Section>
       <Container className="max-w-3xl text-center">
-        <Overline className="mx-auto">In Their Words</Overline>
+        <Overline className="mx-auto">{t("sections.testimonialsOverline")}</Overline>
         <blockquote className="mt-12 min-h-[13rem] sm:min-h-[11rem]">
           <p
             key={index}
@@ -380,22 +386,23 @@ function Testimonials() {
 }
 
 function FinalCta() {
+  const { t } = useI18n();
   return (
     <Section className="bg-ink text-ivory">
       <Container className="max-w-2xl text-center">
         <Reveal>
           <Overline tone="gold" className="mx-auto">
-            Private Advisory
+            {t("sections.ctaOverline")}
           </Overline>
           <h2 className="mt-8 font-serif text-4xl leading-tight sm:text-6xl">
-            Begin Your Riviera Story.
+            {t("sections.ctaTitle")}
           </h2>
           <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-ivory/65">
             A first conversation costs nothing and clarifies everything — budget, timing, area and
             whether the Riviera Maya is right for you at all.
           </p>
           <ButtonLink to="/contact" variant="gold" className="mt-12">
-            Book a Private Consultation
+            {t("sections.ctaButton")}
           </ButtonLink>
         </Reveal>
       </Container>
