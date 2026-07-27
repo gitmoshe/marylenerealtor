@@ -5,7 +5,6 @@ import { FilmCard } from "@/components/site/FilmCard";
 import { InstagramCard } from "@/components/site/InstagramCard";
 import { Container, Overline, Section } from "@/components/site/ui";
 import { filmCategories, films } from "@/lib/site-data";
-import { filmCategories, films } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/films")({
