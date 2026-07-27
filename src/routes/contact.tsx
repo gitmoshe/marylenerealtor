@@ -3,6 +3,8 @@ import { useState, type FormEvent } from "react";
 import { Instagram, MessageCircle, Mail, MapPin, CalendarCheck } from "lucide-react";
 import { z } from "zod";
 import { Reveal } from "@/components/site/Reveal";
+import { PhotoFrame } from "@/components/site/PhotoFrame";
+import { photos } from "@/lib/photos";
 import { ButtonAction, ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { cn } from "@/lib/utils";
 import { useI18n, type TKey } from "@/lib/i18n";
@@ -184,6 +186,11 @@ function Contact() {
           </Reveal>
 
           <Reveal delay={140} className="md:col-span-5 md:pl-6">
+            <PhotoFrame
+              photo={photos.portrait}
+              className="mb-8 aspect-[4/3] w-full"
+              position="top"
+            />
             <div className="border border-border bg-card p-8">
               <Overline>{t("contact.directOverline")}</Overline>
               <GoldRule className="mt-6" />
