@@ -16,7 +16,7 @@ export const commonDict: Dict = {
     "nav.language": "Language",
 
     "hero.overline": "Riviera Maya · Mexico",
-    "hero.titleLine1": "Your Life in the Riviera Maya",
+    "hero.titleLine1": "Your Riveira Maya Life",
     "hero.titleLine2": "Begins Here.",
     "hero.subtitle":
       "Luxury real estate, property management and coastal living — guided in Spanish, English & French.",
