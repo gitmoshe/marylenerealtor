@@ -129,7 +129,7 @@ function Contact() {
                         interest === i ? "text-gold" : "text-ink/70",
                       )}
                     >
-                      {i}
+                      {t(interestKeys[i])}
                     </button>
                   ))}
                 </div>
