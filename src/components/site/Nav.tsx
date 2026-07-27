@@ -130,26 +130,29 @@ export function Nav() {
         ))}
       </nav>
 
-      {/* Overlay menu */}
+      {/* Full-screen overlay menu (mobile / tablet) */}
       <div
         className={cn(
-          "overflow-hidden border-t border-border/50 bg-background transition-[max-height,opacity] duration-700",
-          open ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
+          "fixed inset-0 top-0 z-40 bg-background transition-[opacity,visibility] duration-500 lg:hidden",
+          open ? "visible opacity-100" : "invisible opacity-0",
         )}
       >
-        <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-8 sm:px-10" aria-label="Menu">
+        <nav
+          className="flex h-[100svh] flex-col justify-center gap-2 px-8 pt-24 pb-16 sm:px-12"
+          aria-label="Menu"
+        >
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="border-b border-border/50 py-4 font-serif text-2xl text-ink transition-colors duration-300 hover:text-gold"
+              className="border-b border-border/50 py-4 font-serif text-[1.9rem] leading-tight text-ink transition-colors duration-300 hover:text-gold sm:text-4xl"
               activeProps={{ className: "text-gold" }}
               activeOptions={{ exact: l.to === "/" }}
             >
               {t(l.key)}
             </Link>
           ))}
-          <div className="mt-6 flex items-center gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-5">
             <div className="flex items-center gap-1 text-ink/70">
               {languages.map((l) => (
                 <button
@@ -157,7 +160,7 @@ export function Nav() {
                   type="button"
                   onClick={() => setLang(l.code)}
                   className={cn(
-                    "label-caps px-1.5 text-[0.65rem] hover:text-gold",
+                    "label-caps px-1.5 text-[0.7rem] hover:text-gold",
                     lang === l.code && "text-gold",
                   )}
                   aria-pressed={lang === l.code}
@@ -169,7 +172,7 @@ export function Nav() {
             </div>
             <Link
               to="/contact"
-              className="label-caps bg-gold px-6 py-3 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+              className="label-caps bg-gold px-7 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
             >
               {t("nav.consultation")}
             </Link>
