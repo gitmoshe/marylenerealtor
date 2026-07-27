@@ -50,6 +50,7 @@ export function Nav() {
   const solid = !overHero || scrolled || open;
 
   return (
+    <>
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-700",
@@ -136,6 +137,7 @@ export function Nav() {
           </Link>
         ))}
       </nav>
+    </header>
 
       {/* Full-screen overlay menu (mobile / tablet) */}
       <div
@@ -186,6 +188,6 @@ export function Nav() {
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
