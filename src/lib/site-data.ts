@@ -148,8 +148,12 @@ export const intents = ["Buy", "Invest"] as const;
 export type Film = {
   id: string;
   title: string;
+  /** Small tracked-caps caption, e.g. "VILLA TOUR — TULUM" */
+  caption: string;
+  description: string;
   category: "Property Tours" | "Riviera Life" | "Client Stories";
   format: "16:9" | "9:16";
+  /** Standard iframe embed URL — paste a YouTube or Vimeo embed link */
   embed: string;
 };
 
@@ -157,6 +161,8 @@ export const films: Film[] = [
   {
     id: "f1",
     title: "Casa Lumière — Beachfront Penthouse",
+    caption: "Villa Tour — Playa del Carmen",
+    description: "Three terraces, one uninterrupted sightline to the water.",
     category: "Property Tours",
     format: "16:9",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -164,6 +170,8 @@ export const films: Film[] = [
   {
     id: "f2",
     title: "Morning in Tulum",
+    caption: "Riviera Life — Tulum",
+    description: "First light on the beach road, before the town wakes.",
     category: "Riviera Life",
     format: "9:16",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -171,6 +179,8 @@ export const films: Film[] = [
   {
     id: "f3",
     title: "Villa Selva — Full Tour",
+    caption: "Villa Tour — Tulum",
+    description: "A jungle house built around a courtyard and a single old tree.",
     category: "Property Tours",
     format: "16:9",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -178,6 +188,8 @@ export const films: Film[] = [
   {
     id: "f4",
     title: "The Dubois Family Finds Home",
+    caption: "Client Story — Lyon to Playa",
+    description: "Six months of searching, told in ninety seconds.",
     category: "Client Stories",
     format: "9:16",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -185,6 +197,8 @@ export const films: Film[] = [
   {
     id: "f5",
     title: "Cenotes of the Yucatán",
+    caption: "Riviera Life — Yucatán",
+    description: "The freshwater world beneath the limestone, half an hour inland.",
     category: "Riviera Life",
     format: "16:9",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -192,6 +206,8 @@ export const films: Film[] = [
   {
     id: "f6",
     title: "Résidence Turquoise — Lagoon Views",
+    caption: "Condo Tour — Puerto Aventuras",
+    description: "A marina-side residence with dolphins below the terrace.",
     category: "Property Tours",
     format: "9:16",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -199,6 +215,8 @@ export const films: Film[] = [
   {
     id: "f7",
     title: "Buying from Montréal",
+    caption: "Client Story — Montréal",
+    description: "How a purchase was completed entirely by film and video call.",
     category: "Client Stories",
     format: "16:9",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -206,6 +224,8 @@ export const films: Film[] = [
   {
     id: "f8",
     title: "A Table in Playa",
+    caption: "Riviera Life — Playa del Carmen",
+    description: "Where I take clients when the paperwork is finally signed.",
     category: "Riviera Life",
     format: "9:16",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -213,6 +233,8 @@ export const films: Film[] = [
   {
     id: "f9",
     title: "Maison Riviera — Pre-construction",
+    caption: "Development Tour — Playa del Carmen",
+    description: "Walking the plans, the plot and the rooftop line before it exists.",
     category: "Property Tours",
     format: "16:9",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
