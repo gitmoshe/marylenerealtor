@@ -1,10 +1,10 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
-import { properties } from "@/lib/site-data";
+import { properties, type Property } from "@/lib/site-data";
 
 export const Route = createFileRoute("/properties/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { property: Property } => {
     const property = properties.find((p) => p.slug === params.slug);
     if (!property) throw notFound();
     return { property };
