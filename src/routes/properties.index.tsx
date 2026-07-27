@@ -76,7 +76,12 @@ function FilterRow({
 }
 
 function PropertiesPage() {
-  const [location, setLocation] = useState<string | null>(null);
+  const search = Route.useSearch();
+  const initialLocation =
+    search.location && (locations as readonly string[]).includes(search.location)
+      ? search.location
+      : null;
+  const [location, setLocation] = useState<string | null>(initialLocation);
   const [type, setType] = useState<string | null>(null);
   const [intent, setIntent] = useState<string | null>(null);
 
