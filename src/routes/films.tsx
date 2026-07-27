@@ -48,7 +48,7 @@ function FilmsPage() {
         </Container>
       </Section>
 
-      <Section className="pb-0">
+      <Section className="pt-16 pb-0 md:pt-20">
         <Container>
           <Reveal className="flex flex-wrap gap-x-8 gap-y-3 border-y border-border py-6">
             <button

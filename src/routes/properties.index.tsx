@@ -104,7 +104,7 @@ function PropertiesPage() {
         </Container>
       </Section>
 
-      <Section className="pb-0">
+      <Section className="pt-16 pb-0 md:pt-20">
         <Container>
           <Reveal className="space-y-5 border-y border-border py-8">
             <FilterRow label="Location" options={locations} value={location} onChange={setLocation} />
