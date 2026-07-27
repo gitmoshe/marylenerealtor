@@ -129,6 +129,35 @@ function CredibilityBar() {
   );
 }
 
+const stats = [
+  { value: "10", label: "Years on the Riviera" },
+  { value: "180+", label: "Properties sold & managed" },
+  { value: "14", label: "Client nationalities" },
+  { value: "3", label: "Languages spoken" },
+];
+
+function StatsRow() {
+  return (
+    <Section className="py-20 md:py-24">
+      <Container>
+        <div className="grid grid-cols-2 gap-y-12 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <Reveal
+              key={s.label}
+              delay={i * 110}
+              className="px-4 text-center md:border-l md:border-border md:first:border-l-0"
+            >
+              <p className="font-serif text-5xl leading-none text-ink sm:text-6xl">{s.value}</p>
+              <span className="rule-gold mx-auto mt-5 w-8" />
+              <p className="label-caps mt-5 text-[0.58rem] text-muted-foreground">{s.label}</p>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
 function IntroEditorial() {
   return (
     <Section>
