@@ -47,8 +47,8 @@ const pillars = [
     index: "03",
     title: "The Ambassador",
     lead: "Storyteller of Riviera life.",
-    copy: "Films, guides and introductions. The coast told honestly through her lens and her social presence — its schools, its builders, its beaches, its quieter streets — so that a decision made from Montréal or Paris is made with open eyes.",
-    points: ["Property films & reels", "Neighbourhood guides", "@marylene_realtor"],
+    copy: "Videos, guides and introductions. The coast told honestly through her lens and her social presence — its schools, its builders, its beaches, its quieter streets — so that a decision made from Montréal or Paris is made with open eyes.",
+    points: ["Property videos & reels", "Neighbourhood guides", "@marylene_realtor"],
   },
 ];
 
@@ -117,10 +117,10 @@ function MeetMarylene() {
                 — including when the honest answer is to wait, or to buy elsewhere.
               </p>
               <p>
-                Her clients come from Canada, the United States and Europe, and are advised in
-                French, English or Spanish as they prefer. Most first meet the coastline through her
-                films. They stay because the reality matches the frame, and because nothing is
-                oversold along the way.
+              Her clients come from Canada, the United States and Europe, and are advised in
+              French, English or Spanish as they prefer. Most first meet the coastline through her
+              videos. They stay because the reality matches the frame, and because nothing is
+              oversold along the way.
               </p>
               <p>
                 Discretion is the working method: a small number of clients, files kept private, and

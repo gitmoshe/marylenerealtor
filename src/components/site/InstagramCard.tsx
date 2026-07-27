@@ -11,7 +11,7 @@ export function InstagramCard() {
             Follow the journey — <span className="italic">@marylene_realtor</span> on Instagram
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            New films weekly — tours, cenotes, terraces and the parts of the coast that never reach
+            New videos weekly — tours, cenotes, terraces and the parts of the coast that never reach
             a listing.
           </p>
         </div>

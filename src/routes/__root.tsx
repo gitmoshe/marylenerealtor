@@ -28,7 +28,7 @@ function NotFoundComponent() {
         <span className="block italic">way of finding you.</span>
       </h1>
       <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground">
-        This page has drifted off the map. The coast, the residences and the films are all still
+        This page has drifted off the map. The coast, the residences and the videos are all still
         here.
       </p>
       <ButtonLink to="/" variant="gold" className="mt-12">
