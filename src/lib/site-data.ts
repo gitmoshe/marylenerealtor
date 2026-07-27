@@ -252,7 +252,7 @@ export const testimonials = [
   },
   {
     quote:
-      "We bought a condo we had only seen through her films. Two years later it still looks exactly as she showed us, and it has never sat empty.",
+      "We bought a condo we had only seen through her videos. Two years later it still looks exactly as she showed us, and it has never sat empty.",
     name: "J. & M. Harrow",
     origin: "Chicago",
   },

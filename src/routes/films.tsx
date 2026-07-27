@@ -10,16 +10,16 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/films")({
   head: () => ({
     meta: [
-      { title: "The Films — Riviera Maya Property Tours & Life | Marylene Realtor" },
+      { title: "Videos — Riviera Maya Property Tours & Life | Marylene Realtor" },
       {
         name: "description",
         content:
-          "Riviera Maya property tours, coastal life and client stories filmed by realtor Marylene Maglio, who also handles property management on the coast.",
+          "Riviera Maya property tours, coastal life and client stories on video by realtor Marylene Maglio, who also handles property management on the coast.",
       },
-      { property: "og:title", content: "The Films — Riviera Maya | Marylene Realtor" },
+      { property: "og:title", content: "Videos — Riviera Maya | Marylene Realtor" },
       {
         property: "og:description",
-        content: "Property tours, Riviera life and client stories, filmed on the Mayan Riviera.",
+        content: "Property tours, Riviera life and client stories, on video on the Mayan Riviera.",
       },
       { property: "og:url", content: "/films" },
     ],
@@ -39,7 +39,7 @@ function FilmsPage() {
           <Reveal className="max-w-3xl">
             <Overline>Media</Overline>
             <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              The Films.
+              Videos.
             </h1>
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
               Every property is filmed before it is described. What you see is the house as it is,

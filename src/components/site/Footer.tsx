@@ -8,7 +8,7 @@ const columns = [
     links: [
       { to: "/properties", label: "Properties" },
       { to: "/property-management", label: "Property Management" },
-      { to: "/films", label: "The Films" },
+      { to: "/films", label: "Videos" },
     ],
   },
   {
