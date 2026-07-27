@@ -39,7 +39,7 @@ export function Wordmark({
           className={cn(
             "overline whitespace-nowrap",
             compact
-              ? "text-[0.32rem] tracking-[0.3em] sm:text-[0.35rem]"
+              ? "text-[0.4rem] tracking-[0.3em] sm:text-[0.42rem]"
               : "text-[0.63rem] tracking-[0.42em] sm:text-[0.9rem]",
           )}
         >
