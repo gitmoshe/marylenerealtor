@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useI18n } from "@/lib/i18n";
 import { Reveal } from "@/components/site/Reveal";
 import { FilmCard } from "@/components/site/FilmCard";
 import { InstagramCard } from "@/components/site/InstagramCard";
@@ -29,6 +30,7 @@ export const Route = createFileRoute("/films")({
 });
 
 function FilmsPage() {
+  const { t } = useI18n();
   const [category, setCategory] = useState<string | null>(null);
   const shown = category ? films.filter((f) => f.category === category) : films;
 
@@ -37,13 +39,12 @@ function FilmsPage() {
       <Section className="pt-44 pb-0 md:pt-52">
         <Container>
           <Reveal className="max-w-3xl">
-            <Overline>Media</Overline>
+            <Overline>{t("films.overline")}</Overline>
             <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              Videos.
+              {t("films.title")}
             </h1>
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
-              Every property is filmed before it is described. What you see is the house as it is,
-              at the hour it looks like itself.
+              {t("films.intro")}
             </p>
           </Reveal>
         </Container>
@@ -60,7 +61,7 @@ function FilmsPage() {
                 category === null ? "text-gold" : "text-ink/70",
               )}
             >
-              All
+              {t("films.category.all")}
             </button>
             {filmCategories.map((c) => (
               <button
@@ -72,7 +73,7 @@ function FilmsPage() {
                   category === c ? "text-gold" : "text-ink/70",
                 )}
               >
-                {c}
+                {t(`films.category.${c}`)}
               </button>
             ))}
           </Reveal>

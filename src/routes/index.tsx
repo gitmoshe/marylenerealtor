@@ -38,24 +38,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const services = [
-  {
-    icon: Home,
-    title: "Buy & Sell",
-    copy: "Curated search, honest valuation and negotiation handled end to end, in your language.",
-  },
-  {
-    icon: KeyRound,
-    title: "Property Management",
-    copy: "Rental performance, maintenance and guest experience for owners who live elsewhere.",
-  },
-  {
-    icon: Compass,
-    title: "Relocation & Investment",
-    copy: "Residency, banking, notaries and neighbourhoods — the practical side of moving a life.",
-  },
-];
-
 function Index() {
   return (
     <>
@@ -79,7 +61,7 @@ function Hero() {
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
       <img
         src={heroVilla}
-        alt="Luxury white-stone villa with an infinity pool overlooking the Caribbean in the Riviera Maya"
+        alt={t("home.hero.imgAlt")}
         width={1920}
         height={1280}
         fetchPriority="high"
@@ -125,38 +107,41 @@ function Hero() {
 }
 
 function CredibilityBar() {
+  const { t } = useI18n();
   return (
     <div className="border-y border-border bg-secondary/60 px-6 py-5 sm:px-10">
       <p className="label-caps mx-auto max-w-6xl text-center text-[0.6rem] leading-relaxed text-ink/65 sm:text-[0.68rem]">
-        Certified &amp; Registered Realtor <span className="text-lagoon">·</span> Property Sales
-        &amp; Management <span className="text-lagoon">·</span> Playa del Carmen — Tulum — Cancún{" "}
-        <span className="text-lagoon">·</span> FR / EN / ES
+        {t("home.credibility.certified")} <span className="text-lagoon">·</span>{" "}
+        {t("home.credibility.sales")} <span className="text-lagoon">·</span>{" "}
+        {t("home.credibility.cities")} <span className="text-lagoon">·</span>{" "}
+        {t("home.credibility.langs")}
       </p>
     </div>
   );
 }
 
 const stats = [
-  { value: "10", label: "Years on the Riviera" },
-  { value: "180+", label: "Properties sold & managed" },
-  { value: "14", label: "Client nationalities" },
-  { value: "3", label: "Languages spoken" },
+  { value: "10", key: "home.stats.0.label" },
+  { value: "180+", key: "home.stats.1.label" },
+  { value: "14", key: "home.stats.2.label" },
+  { value: "3", key: "home.stats.3.label" },
 ];
 
 function StatsRow() {
+  const { t } = useI18n();
   return (
     <Section className="py-20 md:py-24">
       <Container>
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal
-              key={s.label}
+              key={s.key}
               delay={i * 110}
               className="px-4 text-center md:border-l md:border-border md:first:border-l-0"
             >
               <p className="font-serif text-5xl leading-none text-ink sm:text-6xl">{s.value}</p>
               <span className="rule-gold mx-auto mt-5 w-8" />
-              <p className="label-caps mt-5 text-[0.58rem] text-muted-foreground">{s.label}</p>
+              <p className="label-caps mt-5 text-[0.58rem] text-muted-foreground">{t(s.key)}</p>
             </Reveal>
           ))}
         </div>
@@ -174,14 +159,10 @@ function IntroEditorial() {
           <Overline>{t("sections.meetOverline")}</Overline>
           <GoldRule className="mt-6" />
           <p className="mt-8 font-serif text-[1.65rem] leading-[1.35] text-ink sm:text-[2rem]">
-            “I came from France for a season and stayed for a life. What I offer my clients is the
-            same thing I once needed — someone who knows the coast intimately, and who tells the
-            truth about it.”
+            “{t("home.intro.quote")}”
           </p>
           <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
-            Marylene Maglio is a certified and registered realtor and property manager based in the
-            Riviera Maya. She represents buyers, sellers and absentee owners across Playa del
-            Carmen, Tulum, Puerto Aventuras and Cancún, working in French, English and Spanish.
+            {t("home.intro.body")}
           </p>
           <Link
             to="/meet-marylene"
@@ -284,17 +265,31 @@ function FeaturedProperties() {
 }
 
 function Services() {
+  const { t } = useI18n();
+  const services = [
+    { icon: Home, titleKey: "home.services.buy.title", copyKey: "home.services.buy.copy" },
+    {
+      icon: KeyRound,
+      titleKey: "home.services.management.title",
+      copyKey: "home.services.management.copy",
+    },
+    {
+      icon: Compass,
+      titleKey: "home.services.relocation.title",
+      copyKey: "home.services.relocation.copy",
+    },
+  ];
   return (
     <Section className="border-y border-border bg-secondary/50">
       <Container>
         <div className="grid gap-14 md:grid-cols-3">
           {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 120}>
+            <Reveal key={s.titleKey} delay={i * 120}>
               <s.icon strokeWidth={0.75} className="size-8 text-gold" />
-              <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>
+              <h3 className="mt-6 font-serif text-2xl">{t(s.titleKey)}</h3>
               <span className="rule-gold mt-5 w-10" />
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
-                {s.copy}
+                {t(s.copyKey)}
               </p>
             </Reveal>
           ))}
@@ -318,9 +313,7 @@ function RivieraTeaser() {
           </h2>
           <span className="rule-gold mt-8 w-16" />
           <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
-            Between Cancún and Tulum lie five very different places, each with its own rhythm,
-            architecture and reason to buy. The guide is written the way I would explain it over
-            lunch — honestly, and without a sales pitch.
+            {t("home.riviera.body")}
           </p>
           <ButtonLink to="/la-riviera" variant="outline" className="mt-10">
             {t("sections.rivieraCta")}
@@ -340,7 +333,11 @@ function Testimonials() {
     return () => clearInterval(id);
   }, []);
 
-  const active = testimonials[index];
+  const active = {
+    quote: t(`home.testimonials.${index}.quote`),
+    name: t(`home.testimonials.${index}.name`),
+    origin: t(`home.testimonials.${index}.origin`),
+  };
 
   return (
     <Section>
@@ -358,11 +355,11 @@ function Testimonials() {
           </footer>
         </blockquote>
         <div className="mt-10 flex justify-center gap-3">
-          {testimonials.map((t, i) => (
+          {testimonials.map((testimonial, i) => (
             <button
-              key={t.name}
+              key={testimonial.name}
               type="button"
-              aria-label={`Testimonial ${i + 1}`}
+              aria-label={`${t("home.testimonials.ariaLabel")} ${i + 1}`}
               onClick={() => setIndex(i)}
               className={`h-px w-10 transition-colors duration-500 ${
                 i === index ? "bg-gold" : "bg-border"
@@ -388,8 +385,7 @@ function FinalCta() {
             {t("sections.ctaTitle")}
           </h2>
           <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-ivory/65">
-            A first conversation costs nothing and clarifies everything — budget, timing, area and
-            whether the Riviera Maya is right for you at all.
+            {t("home.cta.body")}
           </p>
           <ButtonLink to="/contact" variant="gold" className="mt-12">
             {t("sections.ctaButton")}
