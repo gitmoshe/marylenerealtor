@@ -1,0 +1,163 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
+import { Reveal } from "@/components/site/Reveal";
+import { Container, Overline, Section } from "@/components/site/ui";
+import { intents, locations, properties, propertyTypes } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
+
+export const Route = createFileRoute("/properties/")({
+  head: () => ({
+    meta: [
+      { title: "Properties for Sale — Playa del Carmen, Tulum & Cancún | Marylene Realtor" },
+      {
+        name: "description",
+        content:
+          "A curated selection of villas, condos, land and pre-construction residences across the Riviera Maya, with pricing in USD.",
+      },
+      { property: "og:title", content: "Properties for Sale — Riviera Maya | Marylene Realtor" },
+      {
+        property: "og:description",
+        content:
+          "Villas, condos, land and pre-construction residences in Playa del Carmen, Tulum, Puerto Aventuras and Cancún.",
+      },
+      { property: "og:url", content: "/properties" },
+    ],
+    links: [{ rel: "canonical", href: "/properties" }],
+  }),
+  component: PropertiesPage;
+});
+
+function FilterRow({
+  label,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  options: readonly string[];
+  value: string | null;
+  onChange: (v: string | null) => void;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+      <span className="label-caps w-24 shrink-0 text-[0.6rem] text-muted-foreground">{label}</span>
+      <div className="flex flex-wrap gap-x-6 gap-y-3">
+        <button
+          type="button"
+          onClick={() => onChange(null)}
+          className={cn(
+            "label-caps text-[0.65rem] transition-colors duration-300 hover:text-gold",
+            value === null ? "text-gold" : "text-ink/70",
+          )}
+        >
+          All
+        </button>
+        {options.map((o) => (
+          <button
+            key={o}
+            type="button"
+            onClick={() => onChange(value === o ? null : o)}
+            className={cn(
+              "label-caps text-[0.65rem] transition-colors duration-300 hover:text-gold",
+              value === o ? "text-gold" : "text-ink/70",
+            )}
+          >
+            {o}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PropertiesPage() {
+  const [location, setLocation] = useState<string | null>(null);
+  const [type, setType] = useState<string | null>(null);
+  const [intent, setIntent] = useState<string | null>(null);
+
+  const results = useMemo(
+    () =>
+      properties.filter(
+        (p) =>
+          (!location || p.location === location) &&
+          (!type || p.type === type) &&
+          (!intent || p.intent === intent),
+      ),
+    [location, type, intent],
+  );
+
+  return (
+    <>
+      <Section className="pt-44 pb-0 md:pt-52">
+        <Container>
+          <Reveal className="max-w-3xl">
+            <Overline>The Collection</Overline>
+            <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
+              Properties on the
+              <span className="block italic">Riviera Maya.</span>
+            </h1>
+            <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
+              A short list, kept deliberately short. Each residence has been visited, filmed and
+              verified. Pricing in USD.
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section className="pb-0">
+        <Container>
+          <Reveal className="space-y-5 border-y border-border py-8">
+            <FilterRow label="Location" options={locations} value={location} onChange={setLocation} />
+            <FilterRow label="Type" options={propertyTypes} value={type} onChange={setType} />
+            <FilterRow label="Intent" options={intents} value={intent} onChange={setIntent} />
+          </Reveal>
+          <p className="label-caps mt-6 text-[0.6rem] text-muted-foreground">
+            {results.length} {results.length === 1 ? "residence" : "residences"}
+          </p>
+        </Container>
+      </Section>
+
+      <Section className="pt-14">
+        <Container>
+          <div className="grid gap-12 sm:grid-cols-2">
+            {results.map((p, i) => (
+              <Reveal key={p.slug} delay={(i % 2) * 120}>
+                <Link to="/properties/$slug" params={{ slug: p.slug }} className="group block">
+                  <div className="hover-zoom">
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      width={1280}
+                      height={960}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+                    <div className="min-w-0">
+                      <p className="label-caps text-[0.62rem] text-lagoon">
+                        {p.location} · {p.type}
+                      </p>
+                      <h2 className="mt-3 font-serif text-2xl transition-colors duration-300 group-hover:text-gold">
+                        {p.name}
+                      </h2>
+                      <p className="mt-2 text-sm text-muted-foreground">{p.line}</p>
+                    </div>
+                    <p className="shrink-0 font-serif text-lg">{p.price}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+
+          {results.length === 0 && (
+            <p className="py-16 text-center font-serif text-2xl text-muted-foreground">
+              Nothing matches that combination at present. Tell me what you are looking for and I
+              will find it.
+            </p>
+          )}
+        </Container>
+      </Section>
+    </>
+  );
+}
