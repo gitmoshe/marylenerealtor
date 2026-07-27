@@ -5,6 +5,7 @@ import heroVilla from "@/assets/hero-villa.jpg";
 import portrait from "@/assets/portrait-marylene.jpg";
 import coastline from "@/assets/coastline.jpg";
 import { Reveal } from "@/components/site/Reveal";
+import { FilmCard } from "@/components/site/FilmCard";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { films, properties, testimonials } from "@/lib/site-data";
 
