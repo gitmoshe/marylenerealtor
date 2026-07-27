@@ -29,16 +29,25 @@ export const Route = createFileRoute("/meet-marylene")({
 
 const pillars = [
   {
+    index: "01",
     title: "The Realtor",
-    copy: "Representation on both sides of a transaction, with valuations grounded in what actually closed — not what was asked. Every contract, notary appointment and fideicomiso explained before it is signed.",
+    lead: "Certified & registered, Quintana Roo.",
+    copy: "Sales and representation across Playa del Carmen, Tulum and Cancún, in collaboration with LATITUD Properties. Valuations grounded in what actually closed, and every contract, notary appointment and fideicomiso explained before a signature is asked for.",
+    points: ["Buyer & seller representation", "Playa del Carmen · Tulum · Cancún", "LATITUD Properties"],
   },
   {
+    index: "02",
     title: "The Property Manager",
-    copy: "Homes cared for as though occupied. Maintenance schedules, rental performance, guest arrivals and quarterly reporting for owners who are thousands of kilometres away.",
+    lead: "End-to-end care for owners abroad.",
+    copy: "Homes kept as though occupied. Maintenance calendars, rental performance, guest arrivals, staff, utilities and quarterly reporting — handled locally for owners who are thousands of kilometres away, and never asked to chase an update.",
+    points: ["Maintenance & staffing", "Rental strategy & guest care", "Quarterly owner reporting"],
   },
   {
+    index: "03",
     title: "The Ambassador",
-    copy: "Films, guides and introductions. A working knowledge of the coast — its schools, its builders, its restaurants and its quieter streets — offered freely to the people who choose it.",
+    lead: "Storyteller of Riviera life.",
+    copy: "Films, guides and introductions. The coast told honestly through her lens and her social presence — its schools, its builders, its beaches, its quieter streets — so that a decision made from Montréal or Paris is made with open eyes.",
+    points: ["Property films & reels", "Neighbourhood guides", "@marylene_realtor"],
   },
 ];
 
@@ -50,6 +59,12 @@ const credentials = [
   "Based in Playa del Carmen since 2016",
 ];
 
+const affiliations = [
+  { name: "LATITUD Properties", note: "Brokerage partner" },
+  { name: null, note: "Affiliation" },
+  { name: null, note: "Affiliation" },
+];
+
 function MeetMarylene() {
   return (
     <>
@@ -57,10 +72,15 @@ function MeetMarylene() {
         <Container>
           <Reveal className="max-w-3xl">
             <Overline>Meet Marylene</Overline>
+            <GoldRule className="mt-6" />
             <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
               A French eye on a
               <span className="block italic">Caribbean coast.</span>
             </h1>
+            <p className="mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              European discretion and rigour, applied to Caribbean real estate — for clients from
+              Canada, the United States and Europe, each spoken to in their own language.
+            </p>
           </Reveal>
         </Container>
       </Section>
@@ -90,24 +110,28 @@ function MeetMarylene() {
             <GoldRule className="mt-8" />
             <div className="mt-8 space-y-6 text-sm leading-relaxed text-muted-foreground">
               <p>
-                Marylene Maglio was raised in France and trained in a culture where service is
-                quiet, precise and personal. She came to the Riviera Maya for a season, recognised
-                what the coast was becoming, and built a practice here instead.
+                Marylene Maglio was born in France and raised in a culture where service is quiet,
+                precise and personal. Her professional life was international long before it was
+                Mexican — a habit of moving between languages, cities and codes of conduct that
+                turned out to be the exact preparation this coast required.
               </p>
               <p>
-                What followed was a decade of learning the place properly: which builders finish on
-                time, which streets flood, which towers rent and which simply photograph well. That
-                knowledge is the whole of her value, and she gives it plainly — including when the
-                honest answer is to wait, or to buy elsewhere.
+                She came to the Riviera Maya for a season, recognised what the place was becoming
+                and chose it as home. What followed was a decade of learning it properly: which
+                builders finish on time, which streets flood, which towers rent and which simply
+                photograph well. That knowledge is the whole of her value, and she gives it plainly
+                — including when the honest answer is to wait, or to buy elsewhere.
               </p>
               <p>
-                Her clients are French, Canadian, American and European. Most arrive knowing the
-                coastline only through her films. They stay because the reality matches the frame.
+                Her clients come from Canada, the United States and Europe, and are advised in
+                French, English or Spanish as they prefer. Most first meet the coastline through her
+                films. They stay because the reality matches the frame, and because nothing is
+                oversold along the way.
               </p>
               <p>
-                She works in French, English and Spanish, and handles the parts of a purchase that
-                rarely appear in a listing — the notary, the bank trust, the utilities, the first
-                gardener, the second set of keys.
+                Discretion is the working method: a small number of clients, files kept private, and
+                the unglamorous parts of a purchase handled personally — the notary, the bank trust,
+                the utilities, the first gardener and the second set of keys.
               </p>
             </div>
 
@@ -132,20 +156,55 @@ function MeetMarylene() {
         <Container>
           <Reveal>
             <Overline>Three Roles</Overline>
+            <GoldRule className="mt-6" />
             <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">
               One practice, held to a single standard.
             </h2>
           </Reveal>
-          <div className="mt-16 grid gap-12 md:grid-cols-3">
+          <div className="mt-16 grid gap-px border-t border-border bg-border md:grid-cols-3">
             {pillars.map((p, i) => (
-              <Reveal key={p.title} delay={i * 120}>
-                <span className="font-serif text-4xl text-gold/50">0{i + 1}</span>
+              <Reveal key={p.title} delay={i * 120} className="bg-background p-8 md:p-10">
+                <span className="font-serif text-4xl text-gold/50">{p.index}</span>
                 <h3 className="mt-5 font-serif text-2xl">{p.title}</h3>
                 <span className="rule-gold mt-5 w-10" />
-                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{p.copy}</p>
+                <p className="mt-5 font-serif text-lg italic leading-snug text-ink">{p.lead}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.copy}</p>
+                <ul className="mt-7 space-y-2">
+                  {p.points.map((pt) => (
+                    <li key={pt} className="label-caps text-[0.6rem] text-lagoon">
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={200} className="mt-20 text-center">
+            <p className="script-sign text-5xl text-gold sm:text-6xl">— Marylene</p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section className="py-20 md:py-24">
+        <Container>
+          <Reveal className="text-center">
+            <Overline>Credentials &amp; Affiliations</Overline>
+          </Reveal>
+          <Reveal delay={120} className="mt-10 grid gap-6 sm:grid-cols-3">
+            {affiliations.map((a, i) => (
+              <div
+                key={i}
+                className="flex h-28 items-center justify-center border border-border px-6 text-center"
+              >
+                {a.name ? (
+                  <span className="label-caps text-[0.7rem] text-ink">{a.name}</span>
+                ) : (
+                  <span className="label-caps text-[0.6rem] text-muted-foreground/60">{a.note}</span>
+                )}
+              </div>
+            ))}
+          </Reveal>
         </Container>
       </Section>
 
