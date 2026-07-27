@@ -5,7 +5,12 @@ import { Container, Overline, Section } from "@/components/site/ui";
 import { intents, locations, properties, propertyTypes } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
+type PropertiesSearch = { location?: string };
+
 export const Route = createFileRoute("/properties/")({
+  validateSearch: (search: Record<string, unknown>): PropertiesSearch => ({
+    location: typeof search.location === "string" ? search.location : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Properties for Sale — Playa del Carmen, Tulum & Cancún | Marylene Realtor" },
