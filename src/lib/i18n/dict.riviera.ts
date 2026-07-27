@@ -1,10 +1,10 @@
 import type { Dict } from "../i18n-types";
 
-/** La Riviera page — hero, area guides and "Why the Riviera Maya" section. */
+/** Riviera Maya page — hero, area guides and "Why the Riviera Maya" section. */
 export const rivieraDict: Dict = {
   en: {
     "riviera.hero.overline": "The Ambassador's Guide",
-    "riviera.hero.title": "La Riviera.",
+    "riviera.hero.title": "Riviera Maya.",
     "riviera.hero.subtitle":
       "One hundred and thirty kilometres of coast, and five places that could not be less alike.",
 
@@ -47,7 +47,7 @@ export const rivieraDict: Dict = {
   },
   fr: {
     "riviera.hero.overline": "Le guide de l'ambassadrice",
-    "riviera.hero.title": "La Riviera.",
+    "riviera.hero.title": "Riviera Maya.",
     "riviera.hero.subtitle":
       "Cent trente kilomètres de côte, et cinq lieux qui ne se ressemblent en rien.",
 
@@ -90,7 +90,7 @@ export const rivieraDict: Dict = {
   },
   es: {
     "riviera.hero.overline": "La guía de la embajadora",
-    "riviera.hero.title": "La Riviera.",
+    "riviera.hero.title": "Riviera Maya.",
     "riviera.hero.subtitle":
       "Ciento treinta kilómetros de costa, y cinco lugares que no podrían ser más distintos.",
 

@@ -19,7 +19,7 @@ export const homeDict: Dict = {
     "home.intro.quote":
       "I came from France for a season and stayed for a life. What I offer my clients is the same thing I once needed — someone who knows the coast intimately and who tells the truth about it.",
     "home.intro.body":
-      "Marylene Maglio is a certified and registered realtor and property manager based in the Riviera Maya. She represents buyers, sellers and absentee owners across Playa del Carmen, Tulum, Puerto Aventuras and Cancún, working in French, English and Spanish.",
+      "Marylene Maglio is a certified and registered realtor and property manager based in the Riviera Maya. She represents buyers, sellers and absentee owners across Playa del Carmen, Tulum, Puerto Aventuras and Cancún, working in Spanish, English and French.",
 
     "home.services.buy.title": "Buy & Sell",
     "home.services.buy.copy":
@@ -51,9 +51,9 @@ export const homeDict: Dict = {
     "home.cta.body":
       "A first conversation costs nothing and clarifies everything — budget, timing, area and whether the Riviera Maya is right for you at all.",
 
-    "home.footer.tagline": "Luxury Real Estate · Mayan Riviera",
+    "home.footer.tagline": "Luxury Real Estate · Riviera Maya",
     "home.footer.about":
-      "Certified and registered realtor, property manager and Mayan Riviera lifestyle ambassador. Serving clients in French, English and Spanish.",
+      "Certified and registered realtor, property manager and Riviera Maya lifestyle ambassador. Serving clients in Spanish, English and French.",
     "home.footer.explore": "Explore",
     "home.footer.maison": "Maison",
     "home.footer.igLabel": "Instagram",
@@ -81,7 +81,7 @@ export const homeDict: Dict = {
     "home.whatsapp.aria": "Message Marylene on WhatsApp",
 
     "home.notFound.overline": "Error 404",
-    "home.notFound.titleLine1": "Lost? The Riviera has a",
+    "home.notFound.titleLine1": "Lost? The Riviera Maya has a",
     "home.notFound.titleLine2": "way of finding you.",
     "home.notFound.body":
       "This page has drifted off the map. The coast, the residences and the videos are all still here.",
@@ -96,7 +96,7 @@ export const homeDict: Dict = {
     "home.credibility.cities": "Playa del Carmen — Tulum — Cancún",
     "home.credibility.langs": "FR / EN / ES",
 
-    "home.stats.0.label": "Années sur la Riviera",
+    "home.stats.0.label": "Années sur la Riviera Maya",
     "home.stats.1.label": "Propriétés vendues et gérées",
     "home.stats.2.label": "Nationalités de clients",
     "home.stats.3.label": "Langues parlées",
@@ -104,7 +104,7 @@ export const homeDict: Dict = {
     "home.intro.quote":
       "Je suis venue de France pour une saison et j'y suis restée pour une vie. Ce que j'offre à mes clients est ce dont j'avais moi-même eu besoin — quelqu'un qui connaît la côte intimement et qui en dit la vérité.",
     "home.intro.body":
-      "Marylene Maglio est agent immobilier et gestionnaire de biens certifiée et agréée, installée sur la Riviera Maya. Elle représente acheteurs, vendeurs et propriétaires non-résidents à Playa del Carmen, Tulum, Puerto Aventuras et Cancún, en français, en anglais et en espagnol.",
+      "Marylene Maglio est agent immobilier et gestionnaire de biens certifiée et agréée, installée sur la Riviera Maya. Elle représente acheteurs, vendeurs et propriétaires non-résidents à Playa del Carmen, Tulum, Puerto Aventuras et Cancún, en espagnol, en anglais et en français.",
 
     "home.services.buy.title": "Achat & vente",
     "home.services.buy.copy":
@@ -138,7 +138,7 @@ export const homeDict: Dict = {
 
     "home.footer.tagline": "Immobilier de prestige · Riviera Maya",
     "home.footer.about":
-      "Agent immobilier et gestionnaire de biens certifiée et agréée, ambassadrice de l'art de vivre sur la Riviera Maya. Au service de ses clients en français, en anglais et en espagnol.",
+      "Agent immobilier et gestionnaire de biens certifiée et agréée, ambassadrice de l'art de vivre sur la Riviera Maya. Au service de ses clients en espagnol, en anglais et en français.",
     "home.footer.explore": "Explorer",
     "home.footer.maison": "Maison",
     "home.footer.igLabel": "Instagram",
@@ -166,7 +166,7 @@ export const homeDict: Dict = {
     "home.whatsapp.aria": "Écrire à Marylene sur WhatsApp",
 
     "home.notFound.overline": "Erreur 404",
-    "home.notFound.titleLine1": "Perdu ? La Riviera a",
+    "home.notFound.titleLine1": "Perdu ? La Riviera Maya a",
     "home.notFound.titleLine2": "toujours su vous retrouver.",
     "home.notFound.body":
       "Cette page s'est égarée. La côte, les résidences et les vidéos, elles, sont toujours là.",
@@ -181,7 +181,7 @@ export const homeDict: Dict = {
     "home.credibility.cities": "Playa del Carmen — Tulum — Cancún",
     "home.credibility.langs": "FR / EN / ES",
 
-    "home.stats.0.label": "Años en la Riviera",
+    "home.stats.0.label": "Años en la Riviera Maya",
     "home.stats.1.label": "Propiedades vendidas y administradas",
     "home.stats.2.label": "Nacionalidades de clientes",
     "home.stats.3.label": "Idiomas hablados",
@@ -189,7 +189,7 @@ export const homeDict: Dict = {
     "home.intro.quote":
       "Vine de Francia por una temporada y me quedé para toda una vida. Lo que ofrezco a mis clientes es justo lo que yo misma necesité — alguien que conoce la costa a fondo y que dice la verdad sobre ella.",
     "home.intro.body":
-      "Marylene Maglio es agente inmobiliaria y administradora de propiedades certificada y registrada, radicada en la Riviera Maya. Representa a compradores, vendedores y propietarios ausentes en Playa del Carmen, Tulum, Puerto Aventuras y Cancún, y trabaja en francés, inglés y español.",
+      "Marylene Maglio es agente inmobiliaria y administradora de propiedades certificada y registrada, radicada en la Riviera Maya. Representa a compradores, vendedores y propietarios ausentes en Playa del Carmen, Tulum, Puerto Aventuras y Cancún, y trabaja en español, inglés y francés.",
 
     "home.services.buy.title": "Compra & venta",
     "home.services.buy.copy":
@@ -223,7 +223,7 @@ export const homeDict: Dict = {
 
     "home.footer.tagline": "Bienes raíces de lujo · Riviera Maya",
     "home.footer.about":
-      "Agente inmobiliaria y administradora de propiedades certificada y registrada, embajadora del estilo de vida de la Riviera Maya. Atiende a sus clientes en francés, inglés y español.",
+      "Agente inmobiliaria y administradora de propiedades certificada y registrada, embajadora del estilo de vida de la Riviera Maya. Atiende a sus clientes en español, inglés y francés.",
     "home.footer.explore": "Explorar",
     "home.footer.maison": "Maison",
     "home.footer.igLabel": "Instagram",
@@ -251,7 +251,7 @@ export const homeDict: Dict = {
     "home.whatsapp.aria": "Escribir a Marylene por WhatsApp",
 
     "home.notFound.overline": "Error 404",
-    "home.notFound.titleLine1": "¿Perdido? La Riviera tiene",
+    "home.notFound.titleLine1": "¿Perdido? La Riviera Maya tiene",
     "home.notFound.titleLine2": "su manera de encontrarlo.",
     "home.notFound.body":
       "Esta página se ha perdido en el camino. La costa, las residencias y los videos siguen aquí.",

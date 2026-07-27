@@ -14,14 +14,14 @@ export const aboutDict: Dict = {
     "about.story.p2":
       "She came to the Riviera Maya for a season, recognised what the place was becoming and chose it as home. What followed was a decade of learning it properly: which builders finish on time, which streets flood, which towers rent and which simply photograph well. That knowledge is the whole of her value, and she gives it plainly — including when the honest answer is to wait, or to buy elsewhere.",
     "about.story.p3":
-      "Her clients come from Canada, the United States and Europe, and are advised in French, English or Spanish as they prefer. Most first meet the coastline through her videos. They stay because the reality matches the frame, and because nothing is oversold along the way.",
+      "Her clients come from Canada, the United States and Europe, and are advised in Spanish, English or French as they prefer. Most first meet the coastline through her videos. They stay because the reality matches the frame, and because nothing is oversold along the way.",
     "about.story.p4":
       "Discretion is the working method: a small number of clients, files kept private, and the unglamorous parts of a purchase handled personally — the notary, the bank trust, the utilities, the first gardener and the second set of keys.",
     "about.credentials.overline": "Credentials",
     "about.credentials.item1": "Certified & Registered Realtor, Quintana Roo",
     "about.credentials.item2": "Property Sales & Management",
     "about.credentials.item3": "In collaboration with LATITUD Properties",
-    "about.credentials.item4": "Trilingual practice — French, English, Spanish",
+    "about.credentials.item4": "Trilingual practice — Spanish, English, French",
     "about.credentials.item5": "Based in Playa del Carmen since 2016",
     "about.pillars.overline": "Three Roles",
     "about.pillars.title": "One practice, held to a single standard.",
@@ -95,7 +95,7 @@ export const aboutDict: Dict = {
     "about.pillar2.point2": "Stratégie locative et accueil des invités",
     "about.pillar2.point3": "Rapports trimestriels aux propriétaires",
     "about.pillar3.title": "L'ambassadrice",
-    "about.pillar3.lead": "Conteuse de la vie sur la Riviera.",
+    "about.pillar3.lead": "Conteuse de la vie sur la Riviera Maya.",
     "about.pillar3.copy":
       "Vidéos guides et présentations. La côte racontée honnêtement à travers son regard et sa présence sur les réseaux — ses écoles ses constructeurs ses plages ses rues plus tranquilles — pour qu'une décision prise depuis Montréal ou Paris se fasse les yeux grands ouverts.",
     "about.pillar3.point1": "Vidéos et reels immobiliers",
@@ -150,7 +150,7 @@ export const aboutDict: Dict = {
     "about.pillar2.point2": "Estrategia de renta y atención a huéspedes",
     "about.pillar2.point3": "Reportes trimestrales al propietario",
     "about.pillar3.title": "La embajadora",
-    "about.pillar3.lead": "Narradora de la vida en la Riviera.",
+    "about.pillar3.lead": "Narradora de la vida en la Riviera Maya.",
     "about.pillar3.copy":
       "Videos guías y presentaciones. La costa contada con honestidad a través de su lente y su presencia en redes — sus escuelas sus constructores sus playas sus calles más tranquilas — para que una decisión tomada desde Montreal o París se tome con los ojos bien abiertos.",
     "about.pillar3.point1": "Videos y reels de propiedades",

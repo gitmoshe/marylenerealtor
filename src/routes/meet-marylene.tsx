@@ -19,7 +19,7 @@ export const Route = createFileRoute("/meet-marylene")({
       {
         property: "og:description",
         content:
-          "Certified realtor, property manager and Mayan Riviera lifestyle ambassador, working in French, English and Spanish.",
+          "Certified realtor, property manager and Riviera Maya lifestyle ambassador, working in Spanish, English and French.",
       },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "/meet-marylene" },

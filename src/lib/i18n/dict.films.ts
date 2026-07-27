@@ -57,7 +57,7 @@ export const filmsDict: Dict = {
 
     "films.category.all": "Toutes",
     "films.category.Property Tours": "Visites de propriétés",
-    "films.category.Riviera Life": "Vie sur la Riviera",
+    "films.category.Riviera Life": "Vie sur la Riviera Maya",
     "films.category.Client Stories": "Témoignages clients",
 
     "films.item.f1.title": "Casa Lumière — Penthouse en bord de mer",
@@ -65,7 +65,7 @@ export const filmsDict: Dict = {
     "films.item.f1.description": "Trois terrasses, une seule perspective ininterrompue sur l'eau.",
 
     "films.item.f2.title": "Matin à Tulum",
-    "films.item.f2.caption": "Vie sur la Riviera — Tulum",
+    "films.item.f2.caption": "Vie sur la Riviera Maya — Tulum",
     "films.item.f2.description": "La première lumière sur la route de la plage, avant que la ville ne s'éveille.",
 
     "films.item.f3.title": "Villa Selva — Visite complète",
@@ -77,7 +77,7 @@ export const filmsDict: Dict = {
     "films.item.f4.description": "Six mois de recherche, racontés en quatre-vingt-dix secondes.",
 
     "films.item.f5.title": "Les cénotes du Yucatán",
-    "films.item.f5.caption": "Vie sur la Riviera — Yucatán",
+    "films.item.f5.caption": "Vie sur la Riviera Maya — Yucatán",
     "films.item.f5.description": "Le monde d'eau douce sous le calcaire, à une demi-heure des terres.",
 
     "films.item.f6.title": "Résidence Turquoise — Vue sur la lagune",
@@ -89,7 +89,7 @@ export const filmsDict: Dict = {
     "films.item.f7.description": "Comment un achat a été conclu entièrement par vidéos et appels.",
 
     "films.item.f8.title": "Une table à Playa",
-    "films.item.f8.caption": "Vie sur la Riviera — Playa del Carmen",
+    "films.item.f8.caption": "Vie sur la Riviera Maya — Playa del Carmen",
     "films.item.f8.description": "Là où j'emmène mes clients une fois les papiers enfin signés.",
 
     "films.item.f9.title": "Maison Riviera — Pré-construction",
@@ -104,7 +104,7 @@ export const filmsDict: Dict = {
 
     "films.category.all": "Todos",
     "films.category.Property Tours": "Recorridos de propiedades",
-    "films.category.Riviera Life": "Vida en la Riviera",
+    "films.category.Riviera Life": "Vida en la Riviera Maya",
     "films.category.Client Stories": "Historias de clientes",
 
     "films.item.f1.title": "Casa Lumière — Penthouse frente al mar",
@@ -112,7 +112,7 @@ export const filmsDict: Dict = {
     "films.item.f1.description": "Tres terrazas, una sola vista ininterrumpida hacia el agua.",
 
     "films.item.f2.title": "Una mañana en Tulum",
-    "films.item.f2.caption": "Vida en la Riviera — Tulum",
+    "films.item.f2.caption": "Vida en la Riviera Maya — Tulum",
     "films.item.f2.description": "La primera luz en el camino de la playa, antes de que el pueblo despierte.",
 
     "films.item.f3.title": "Villa Selva — Recorrido completo",
@@ -124,7 +124,7 @@ export const filmsDict: Dict = {
     "films.item.f4.description": "Seis meses de búsqueda, contados en noventa segundos.",
 
     "films.item.f5.title": "Cenotes de Yucatán",
-    "films.item.f5.caption": "Vida en la Riviera — Yucatán",
+    "films.item.f5.caption": "Vida en la Riviera Maya — Yucatán",
     "films.item.f5.description": "El mundo de agua dulce bajo la piedra caliza, a media hora tierra adentro.",
 
     "films.item.f6.title": "Residencia Turquesa — Vistas a la laguna",
@@ -136,7 +136,7 @@ export const filmsDict: Dict = {
     "films.item.f7.description": "Cómo se completó una compra enteramente por video y videollamada.",
 
     "films.item.f8.title": "Una mesa en Playa",
-    "films.item.f8.caption": "Vida en la Riviera — Playa del Carmen",
+    "films.item.f8.caption": "Vida en la Riviera Maya — Playa del Carmen",
     "films.item.f8.description": "A donde llevo a mis clientes cuando por fin se firman los papeles.",
 
     "films.item.f9.title": "Maison Riviera — Preconstrucción",

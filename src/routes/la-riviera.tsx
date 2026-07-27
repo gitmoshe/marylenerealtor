@@ -18,13 +18,13 @@ function slugify(name: string) {
 export const Route = createFileRoute("/la-riviera")({
   head: () => ({
     meta: [
-      { title: "La Riviera — A Guide to the Riviera Maya | Marylene Realtor" },
+      { title: "Riviera Maya — An Area Guide | Marylene Realtor" },
       {
         name: "description",
         content:
           "A Riviera Maya guide by realtor Marylene Maglio — Playa del Carmen, Tulum, Puerto Aventuras, Akumal and Cancún, with property management insight.",
       },
-      { property: "og:title", content: "La Riviera — A Guide to the Riviera Maya" },
+      { property: "og:title", content: "Riviera Maya — An Area Guide" },
       {
         property: "og:description",
         content:

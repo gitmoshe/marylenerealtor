@@ -64,7 +64,7 @@ export const propertiesDict: Dict = {
     "properties.enquire.messageTemplate":
       "I would like more information about {name} ({ref}).",
     "properties.enquire.submit": "Send Enquiry",
-    "properties.enquire.replies": "Replies within one business day, in French, English or Spanish.",
+    "properties.enquire.replies": "Replies within one business day, in Spanish, English or French.",
     "properties.enquire.book": "Book a Private Consultation",
 
     "properties.item.casa-lumiere.line": "Beachfront penthouse with a private rooftop terrace.",
@@ -94,7 +94,7 @@ export const propertiesDict: Dict = {
     "properties.contact.addressLine": "Riviera Maya, Quintana Roo, Mexico",
     "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Aventuras · Cancún",
     "properties.contact.consultationsNote":
-      "Consultations are held in French, English or Spanish, by video or in person on the coast.",
+      "Consultations are held in Spanish, English or French, by video or in person on the coast.",
   },
   fr: {
     "properties.hero.overline": "La Collection",
@@ -158,7 +158,7 @@ export const propertiesDict: Dict = {
     "properties.enquire.messageTemplate":
       "Je souhaiterais obtenir plus d'informations sur {name} ({ref}).",
     "properties.enquire.submit": "Envoyer la demande",
-    "properties.enquire.replies": "Réponse sous un jour ouvré, en français, anglais ou espagnol.",
+    "properties.enquire.replies": "Réponse sous un jour ouvré, en espagnol, anglais ou français.",
     "properties.enquire.book": "Réserver une consultation privée",
 
     "properties.item.casa-lumiere.line": "Penthouse en front de mer avec terrasse privée sur le toit.",
@@ -188,7 +188,7 @@ export const propertiesDict: Dict = {
     "properties.contact.addressLine": "Riviera Maya, Quintana Roo, Mexique",
     "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Aventuras · Cancún",
     "properties.contact.consultationsNote":
-      "Les consultations se font en français, anglais ou espagnol, par vidéo ou en personne sur la côte.",
+      "Les consultations se font en espagnol, anglais ou français, par vidéo ou en personne sur la côte.",
   },
   es: {
     "properties.hero.overline": "La Colección",
@@ -252,7 +252,7 @@ export const propertiesDict: Dict = {
     "properties.enquire.messageTemplate":
       "Me gustaría recibir más información sobre {name} ({ref}).",
     "properties.enquire.submit": "Enviar consulta",
-    "properties.enquire.replies": "Respuesta en un día hábil, en francés, inglés o español.",
+    "properties.enquire.replies": "Respuesta en un día hábil, en español, inglés o francés.",
     "properties.enquire.book": "Reservar una consulta privada",
 
     "properties.item.casa-lumiere.line": "Penthouse frente al mar con terraza privada en la azotea.",
@@ -282,6 +282,6 @@ export const propertiesDict: Dict = {
     "properties.contact.addressLine": "Riviera Maya, Quintana Roo, México",
     "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Aventuras · Cancún",
     "properties.contact.consultationsNote":
-      "Las consultas se realizan en francés, inglés o español, por videollamada o en persona en la costa.",
+      "Las consultas se realizan en español, inglés o francés, por videollamada o en persona en la costa.",
   },
 };
