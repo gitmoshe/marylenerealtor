@@ -40,6 +40,13 @@ export function Nav() {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const solid = !overHero || scrolled;
 
   return (
@@ -53,7 +60,7 @@ export function Nav() {
     >
       <div
         className={cn(
-          "mx-auto grid w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 transition-all duration-700 sm:px-10 lg:grid-cols-[1fr_auto_1fr]",
+          "relative z-50 mx-auto grid w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-6 transition-all duration-700 sm:px-10 lg:grid-cols-[1fr_auto_1fr]",
           solid ? "py-4" : "py-6",
         )}
       >
