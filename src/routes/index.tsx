@@ -97,7 +97,7 @@ function Hero() {
         <Reveal delay={240}>
           <span className="rule-gold mx-auto mt-10 w-20" />
           <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed font-light text-ivory/75">
-            Luxury real estate, property management, and life on the Mayan Riviera — guided in
+            Luxury real estate, property management and life on the Mayan Riviera — guided in
             French, English &amp; Spanish.
           </p>
         </Reveal>
