@@ -168,7 +168,7 @@ function Contact() {
                   name="message"
                   rows={5}
                   maxLength={1000}
-                  className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
+                  className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
                 />
                 {errors.message && <p className="mt-2 text-xs text-destructive">{errors.message}</p>}
               </div>
@@ -274,7 +274,7 @@ function Field({
           name === "name" ? "name" : name === "email" ? "email" : name === "phone" ? "tel" : "on"
         }
         inputMode={type === "email" ? "email" : type === "tel" ? "tel" : "text"}
-        className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
+        className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
       />
       {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
     </div>

@@ -53,7 +53,7 @@ export function NewsletterBand() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("home.newsletter.placeholder")}
-              className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
+              className="w-full bg-transparent py-3 text-base outline-none sm:text-sm placeholder:text-muted-foreground/60"
             />
             <button
               type="submit"
