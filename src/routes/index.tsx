@@ -190,6 +190,11 @@ function IntroEditorial() {
             {t("sections.meetLink")} <ArrowRight strokeWidth={1} className="size-4" />
           </Link>
         </Reveal>
+        <Reveal delay={150} className="md:order-2 md:col-span-5 md:mt-16">
+          <div className="hover-zoom relative">
+            <PhotoFrame photo={photos.intro} className="aspect-[4/5] w-full" />
+          </div>
+        </Reveal>
       </Container>
     </Section>
   );
