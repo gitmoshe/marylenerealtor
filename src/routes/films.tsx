@@ -14,7 +14,7 @@ export const Route = createFileRoute("/films")({
       {
         name: "description",
         content:
-          "A cinematic gallery of Riviera Maya property tours, coastal life and client stories, filmed by Marylene Maglio.",
+          "Riviera Maya property tours, coastal life and client stories filmed by realtor Marylene Maglio, who also handles property management on the coast.",
       },
       { property: "og:title", content: "The Films — Riviera Maya | Marylene Realtor" },
       {

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/properties/")({
       {
         name: "description",
         content:
-          "A curated selection of villas, condos, land and pre-construction residences across the Riviera Maya, with pricing in USD.",
+          "Villas, condos, land and pre-construction on the Riviera Maya with realtor Marylene Maglio, plus property management once you own.",
       },
       { property: "og:title", content: "Properties for Sale — Riviera Maya | Marylene Realtor" },
       {

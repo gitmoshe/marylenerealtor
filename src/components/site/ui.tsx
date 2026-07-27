@@ -9,7 +9,6 @@ const variants = {
   gold: "bg-gold text-ivory hover:bg-ink",
   ghost: "border border-ivory/60 text-ivory hover:border-gold hover:text-gold",
   outline: "border border-ink/25 text-ink hover:border-gold hover:text-gold",
-  ink: "bg-ink text-ivory hover:bg-gold",
 } as const;
 
 type Variant = keyof typeof variants;

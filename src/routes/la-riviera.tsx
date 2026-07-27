@@ -12,7 +12,7 @@ export const Route = createFileRoute("/la-riviera")({
       {
         name: "description",
         content:
-          "Area guides to Playa del Carmen, Tulum, Puerto Aventuras, Akumal and Cancún, and why the Riviera Maya holds its value.",
+          "A Riviera Maya guide by realtor Marylene Maglio — Playa del Carmen, Tulum, Puerto Aventuras, Akumal and Cancún, with property management insight.",
       },
       { property: "og:title", content: "La Riviera — A Guide to the Riviera Maya" },
       {
@@ -138,7 +138,7 @@ function LaRiviera() {
         <Container className="max-w-2xl text-center">
           <h2 className="font-serif text-4xl sm:text-5xl">Which coast is yours?</h2>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <ButtonLink to="/properties" variant="ink">
+            <ButtonLink to="/properties" variant="gold">
               Explore Properties
             </ButtonLink>
             <ButtonLink to="/contact" variant="outline">

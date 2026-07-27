@@ -7,11 +7,11 @@ import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components
 export const Route = createFileRoute("/property-management")({
   head: () => ({
     meta: [
-      { title: "Property Management for Owners Abroad — Riviera Maya | Marylene Realtor" },
+      { title: "Riviera Maya Property Management | Marylene Maglio, Realtor" },
       {
         name: "description",
         content:
-          "Rental management, maintenance, guest experience and quarterly reporting for Canadian, American and European owners on the Riviera Maya.",
+          "Riviera Maya property management by realtor Marylene Maglio: rentals, maintenance, guest experience and reporting for owners who live abroad.",
       },
       { property: "og:title", content: "Property Management — Riviera Maya | Marylene Realtor" },
       {

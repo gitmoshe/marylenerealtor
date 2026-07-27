@@ -1,4 +1,5 @@
 import { Instagram } from "lucide-react";
+import { ButtonAnchor } from "./ui";
 
 export function InstagramCard() {
   return (
@@ -15,14 +16,15 @@ export function InstagramCard() {
           </p>
         </div>
       </div>
-      <a
+      <ButtonAnchor
         href="https://www.instagram.com/marylene_realtor/"
         target="_blank"
         rel="noreferrer"
-        className="label-caps shrink-0 bg-gold px-8 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+        variant="gold"
+        className="shrink-0"
       >
         Follow
-      </a>
+      </ButtonAnchor>
     </div>
   );
 }

@@ -16,26 +16,25 @@ import { Footer } from "@/components/site/Footer";
 import { NewsletterBand } from "@/components/site/NewsletterBand";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { LanguageProvider } from "@/lib/i18n";
+import { ButtonLink } from "@/components/site/ui";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
-      </div>
-    </div>
+    <section className="flex min-h-[100svh] flex-col items-center justify-center bg-background px-6 py-32 text-center sm:px-10">
+      <span className="overline block text-gold">Error 404</span>
+      <span className="rule-gold mx-auto mt-5 w-12" aria-hidden="true" />
+      <h1 className="mt-8 max-w-3xl font-serif text-4xl leading-[1.1] text-ink sm:text-6xl">
+        Lost? The Riviera has a
+        <span className="block italic">way of finding you.</span>
+      </h1>
+      <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground">
+        This page has drifted off the map. The coast, the residences and the films are all still
+        here.
+      </p>
+      <ButtonLink to="/" variant="gold" className="mt-12">
+        Return Home
+      </ButtonLink>
+    </section>
   );
 }
 
@@ -102,6 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&family=Pinyon+Script&display=swap",
       },
       { rel: "icon", type: "image/png", href: "/monogram.png" },
+      { rel: "apple-touch-icon", href: "/monogram.png" },
     ],
     scripts: [
       {

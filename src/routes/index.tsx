@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Luxury real estate, property management and life on the Mayan Riviera — guided in French, English and Spanish by Marylene Maglio.",
+          "Marylene Maglio, luxury realtor and property management on the Riviera Maya — homes in Playa del Carmen, Tulum and Cancún, in French, English and Spanish.",
       },
       {
         property: "og:title",
@@ -30,7 +30,10 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:url", content: "/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: heroVilla, fetchPriority: "high" },
+    ],
   }),
   component: Index,
 });
@@ -79,10 +82,12 @@ function Hero() {
         alt="Luxury white-stone villa with an infinity pool overlooking the Caribbean in the Riviera Maya"
         width={1920}
         height={1280}
+        fetchPriority="high"
+        decoding="async"
         className="ken-burns absolute inset-0 size-full object-cover"
       />
       <div
-        className="veil-fade absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/85"
+        className="veil-fade absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/70 to-ink/90 md:from-ink/80 md:via-ink/55 md:to-ink/85"
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 text-center sm:px-10">
@@ -100,7 +105,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={240}>
           <span className="rule-gold mx-auto mt-10 w-20" />
-          <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed font-light text-ivory/75">
+          <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed font-light text-ivory/85">
             {t("hero.subtitle")}
           </p>
         </Reveal>
