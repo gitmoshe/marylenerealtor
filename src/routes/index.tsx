@@ -75,20 +75,21 @@ function Hero() {
         alt="Luxury white-stone villa with an infinity pool overlooking the Caribbean in the Riviera Maya"
         width={1920}
         height={1280}
-        className="absolute inset-0 size-full object-cover"
+        className="ken-burns absolute inset-0 size-full object-cover"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/85"
+        className="veil-fade absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/85"
         aria-hidden="true"
       />
-      <div className="relative z-10 mx-auto max-w-4xl px-6 pt-32 pb-24 text-center sm:px-10">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 text-center sm:px-10">
         <Reveal>
           <Overline tone="ivory" className="text-ivory/85">
             Riviera Maya · Mexico
           </Overline>
+          <span className="rule-gold mx-auto mt-5 w-12 opacity-80" />
         </Reveal>
         <Reveal delay={120}>
-          <h1 className="mt-8 font-serif text-[2.75rem] leading-[1.05] text-ivory sm:text-6xl md:text-7xl">
+          <h1 className="mt-8 font-serif text-[2.9rem] leading-[1.03] text-ivory sm:text-7xl md:text-8xl lg:text-[6.5rem]">
             Where the Caribbean
             <span className="block italic">Meets Home.</span>
           </h1>
@@ -96,7 +97,7 @@ function Hero() {
         <Reveal delay={240}>
           <span className="rule-gold mx-auto mt-10 w-20" />
           <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed font-light text-ivory/75">
-            Luxury real estate, property management, and life on the Mayan Riviera — guided in
+            Luxury real estate, property management and life on the Mayan Riviera — guided in
             French, English &amp; Spanish.
           </p>
         </Reveal>

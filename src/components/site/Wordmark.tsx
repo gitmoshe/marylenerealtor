@@ -3,10 +3,13 @@ import { cn } from "@/lib/utils";
 export function Wordmark({
   className,
   tone = "ink",
+  size = "default",
 }: {
   className?: string;
   tone?: "ink" | "ivory";
+  size?: "default" | "compact";
 }) {
+  const compact = size === "compact";
   return (
     <span
       className={cn(
@@ -15,12 +18,31 @@ export function Wordmark({
         className,
       )}
     >
-      <span className="font-serif text-[1.35rem] tracking-[0.28em] uppercase sm:text-[1.5rem]">
+      <span
+        className={cn(
+          "font-serif uppercase",
+          compact
+            ? "text-[1.05rem] tracking-[0.2em] sm:text-[1.15rem]"
+            : "text-[2.1rem] tracking-[0.22em] sm:text-[3rem]",
+        )}
+      >
         Marylene
       </span>
-      <span className="mt-1 flex w-full items-center gap-2">
+      <span
+        className={cn(
+          "flex w-full items-center",
+          compact ? "mt-[0.3rem] gap-1.5" : "mt-3 gap-3",
+        )}
+      >
         <span className="rule-gold flex-1 opacity-70" />
-        <span className="overline text-[0.55rem] tracking-[0.34em] whitespace-nowrap">
+        <span
+          className={cn(
+            "overline whitespace-nowrap",
+            compact
+              ? "text-[0.4rem] tracking-[0.3em] sm:text-[0.42rem]"
+              : "text-[0.63rem] tracking-[0.42em] sm:text-[0.9rem]",
+          )}
+        >
           Realtor
         </span>
         <span className="rule-gold flex-1 opacity-70" />
@@ -28,6 +50,7 @@ export function Wordmark({
     </span>
   );
 }
+
 
 export function Monogram({ className }: { className?: string }) {
   return (
