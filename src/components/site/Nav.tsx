@@ -47,14 +47,14 @@ export function Nav() {
     };
   }, [open]);
 
-  const solid = !overHero || scrolled;
+  const solid = !overHero || scrolled || open;
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-700",
         solid
-          ? "border-b border-border/60 bg-background/95 backdrop-blur-sm"
+          ? cn("border-b bg-background/95 backdrop-blur-sm", open ? "border-transparent" : "border-border/60")
           : "border-b border-transparent bg-transparent",
       )}
     >
