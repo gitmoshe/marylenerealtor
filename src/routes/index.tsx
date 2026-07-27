@@ -73,12 +73,6 @@ function Hero() {
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 text-center sm:px-10">
-        <Reveal>
-          <Overline tone="ivory" className="text-ivory/85">
-            {t("hero.overline")}
-          </Overline>
-          <span className="rule-gold mx-auto mt-5 w-12 opacity-80" />
-        </Reveal>
         <Reveal delay={120}>
           <h1 className="mt-8 font-serif text-[2.9rem] leading-[1.03] text-ivory sm:text-7xl md:text-8xl lg:text-[6.5rem]">
             {t("hero.titleLine1")}
