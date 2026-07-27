@@ -15,11 +15,11 @@ export const Route = createFileRoute("/property-management")({
           "Riviera Maya property management by realtor Marylene Maglio: rentals, maintenance, guest experience and reporting for owners who live abroad.",
       },
       { property: "og:title", content: "Property Management — Riviera Maya | Marylene Realtor" },
-      {
-        property: "og:description",
-        content:
-          "Full-service management for absentee owners: rentals, maintenance, guest experience and transparent reporting.",
-      },
+        {
+          property: "og:description",
+          content:
+            "Full-service management for investors: rentals, maintenance, guest experience and transparent reporting.",
+        },
       { property: "og:url", content: "/property-management" },
     ],
     links: [{ rel: "canonical", href: "/property-management" }],
