@@ -9,23 +9,24 @@ import { useI18n } from "@/lib/i18n";
 export const Route = createFileRoute("/meet-marylene")({
   head: () => ({
     meta: [
-      { title: "Meet Marylene Maglio — French Realtor on the Riviera Maya" },
+      { title: "Meet Marylene Maglio — Riviera Maya Realtor & Property Manager" },
       {
         name: "description",
         content:
-          "Marylene Maglio, French-born Riviera Maya realtor and property management specialist in Playa del Carmen, Tulum and Cancún — in FR, EN and ES.",
+          "Marylene Maglio, certified Riviera Maya realtor and property manager in Playa del Carmen, Tulum, Cancún and Puerto Aventuras — serving clients in Spanish, English and French.",
       },
-      { property: "og:title", content: "Meet Marylene Maglio — French Realtor on the Riviera Maya" },
+      { property: "og:title", content: "Meet Marylene Maglio — Riviera Maya Realtor & Property Manager" },
       {
         property: "og:description",
         content:
-          "Certified realtor, property manager and Riviera Maya lifestyle ambassador, working in Spanish, English and French.",
+          "Certified realtor, property manager and Riviera Maya storyteller, at home on the coast and working in Spanish, English and French.",
       },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "/meet-marylene" },
     ],
     links: [{ rel: "canonical", href: "/meet-marylene" }],
   }),
+
   component: MeetMarylene,
 });
 
