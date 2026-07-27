@@ -9,14 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PropertyManagementRouteImport } from './routes/property-management'
 import { Route as MeetMaryleneRouteImport } from './routes/meet-marylene'
+import { Route as LaRivieraRouteImport } from './routes/la-riviera'
+import { Route as FilmsRouteImport } from './routes/films'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
 
+const PropertyManagementRoute = PropertyManagementRouteImport.update({
+  id: '/property-management',
+  path: '/property-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MeetMaryleneRoute = MeetMaryleneRouteImport.update({
   id: '/meet-marylene',
   path: '/meet-marylene',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaRivieraRoute = LaRivieraRouteImport.update({
+  id: '/la-riviera',
+  path: '/la-riviera',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmsRoute = FilmsRouteImport.update({
+  id: '/films',
+  path: '/films',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,45 +55,100 @@ const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/films': typeof FilmsRoute
+  '/la-riviera': typeof LaRivieraRoute
   '/meet-marylene': typeof MeetMaryleneRoute
+  '/property-management': typeof PropertyManagementRoute
   '/properties/$slug': typeof PropertiesSlugRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/films': typeof FilmsRoute
+  '/la-riviera': typeof LaRivieraRoute
   '/meet-marylene': typeof MeetMaryleneRoute
+  '/property-management': typeof PropertyManagementRoute
   '/properties/$slug': typeof PropertiesSlugRoute
   '/properties': typeof PropertiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/films': typeof FilmsRoute
+  '/la-riviera': typeof LaRivieraRoute
   '/meet-marylene': typeof MeetMaryleneRoute
+  '/property-management': typeof PropertyManagementRoute
   '/properties/$slug': typeof PropertiesSlugRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/meet-marylene' | '/properties/$slug' | '/properties/'
+  fullPaths:
+    | '/'
+    | '/films'
+    | '/la-riviera'
+    | '/meet-marylene'
+    | '/property-management'
+    | '/properties/$slug'
+    | '/properties/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/meet-marylene' | '/properties/$slug' | '/properties'
-  id: '__root__' | '/' | '/meet-marylene' | '/properties/$slug' | '/properties/'
+  to:
+    | '/'
+    | '/films'
+    | '/la-riviera'
+    | '/meet-marylene'
+    | '/property-management'
+    | '/properties/$slug'
+    | '/properties'
+  id:
+    | '__root__'
+    | '/'
+    | '/films'
+    | '/la-riviera'
+    | '/meet-marylene'
+    | '/property-management'
+    | '/properties/$slug'
+    | '/properties/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FilmsRoute: typeof FilmsRoute
+  LaRivieraRoute: typeof LaRivieraRoute
   MeetMaryleneRoute: typeof MeetMaryleneRoute
+  PropertyManagementRoute: typeof PropertyManagementRoute
   PropertiesSlugRoute: typeof PropertiesSlugRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/property-management': {
+      id: '/property-management'
+      path: '/property-management'
+      fullPath: '/property-management'
+      preLoaderRoute: typeof PropertyManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/meet-marylene': {
       id: '/meet-marylene'
       path: '/meet-marylene'
       fullPath: '/meet-marylene'
       preLoaderRoute: typeof MeetMaryleneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/la-riviera': {
+      id: '/la-riviera'
+      path: '/la-riviera'
+      fullPath: '/la-riviera'
+      preLoaderRoute: typeof LaRivieraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/films': {
+      id: '/films'
+      path: '/films'
+      fullPath: '/films'
+      preLoaderRoute: typeof FilmsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,7 +177,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FilmsRoute: FilmsRoute,
+  LaRivieraRoute: LaRivieraRoute,
   MeetMaryleneRoute: MeetMaryleneRoute,
+  PropertyManagementRoute: PropertyManagementRoute,
   PropertiesSlugRoute: PropertiesSlugRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
 }
