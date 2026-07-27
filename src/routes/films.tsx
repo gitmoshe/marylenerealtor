@@ -80,21 +80,10 @@ function FilmsPage() {
 
       <Section className="pt-14">
         <Container>
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {shown.map((film, i) => (
               <Reveal key={film.id} delay={(i % 3) * 100}>
-                <div className={film.format === "9:16" ? "aspect-[9/16] bg-ink" : "aspect-video bg-ink"}>
-                  <iframe
-                    src={film.embed}
-                    title={film.title}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="size-full"
-                  />
-                </div>
-                <p className="label-caps mt-4 text-[0.6rem] text-lagoon">{film.category}</p>
-                <h2 className="mt-2 font-serif text-xl">{film.title}</h2>
+                <FilmCard film={film} headingLevel="h2" />
               </Reveal>
             ))}
           </div>
