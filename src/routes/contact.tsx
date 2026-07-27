@@ -5,6 +5,7 @@ import { z } from "zod";
 import { Reveal } from "@/components/site/Reveal";
 import { Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { cn } from "@/lib/utils";
+import { useI18n, type TKey } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -28,6 +29,12 @@ export const Route = createFileRoute("/contact")({
 });
 
 const interests = ["Buying", "Selling", "Property management", "Investing"] as const;
+const interestKeys: Record<(typeof interests)[number], TKey> = {
+  Buying: "contact.buying",
+  Selling: "contact.selling",
+  "Property management": "contact.managing",
+  Investing: "contact.investing",
+};
 const languages = ["FR", "EN", "ES"] as const;
 
 const schema = z.object({
@@ -44,6 +51,7 @@ const schema = z.object({
 });
 
 function Contact() {
+  const { t } = useI18n();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
   const [interest, setInterest] = useState<(typeof interests)[number]>("Buying");
@@ -62,8 +70,15 @@ function Contact() {
     });
     if (!parsed.success) {
       const next: Record<string, string> = {};
+      const localised: Record<string, TKey> = {
+        name: "contact.errName",
+        email: "contact.errEmail",
+        message: "contact.errMessage",
+      };
       parsed.error.issues.forEach((i) => {
-        next[String(i.path[0])] = i.message;
+        const field = String(i.path[0]);
+        const key = localised[field];
+        next[field] = key ? t(key) : i.message;
       });
       setErrors(next);
       setSent(false);
@@ -79,10 +94,10 @@ function Contact() {
       <Section className="pt-44 pb-0 md:pt-52">
         <Container>
           <Reveal className="max-w-3xl">
-            <Overline>Contact</Overline>
+            <Overline>{t("contact.overline")}</Overline>
             <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              Begin the
-              <span className="block italic">conversation.</span>
+              {t("contact.titleLine1")}
+              <span className="block italic">{t("contact.titleLine2")}</span>
             </h1>
           </Reveal>
         </Container>
@@ -93,14 +108,14 @@ function Contact() {
           <Reveal className="md:col-span-7">
             <form onSubmit={onSubmit} noValidate className="space-y-8">
               <div className="grid gap-8 sm:grid-cols-2">
-                <Field label="Name" name="name" error={errors.name} />
-                <Field label="Email" name="email" type="email" error={errors.email} />
+                <Field label={t("contact.name")} name="name" error={errors.name} />
+                <Field label={t("contact.email")} name="email" type="email" error={errors.email} />
               </div>
-              <Field label="Phone (optional)" name="phone" type="tel" error={errors.phone} />
+              <Field label={t("contact.phone")} name="phone" type="tel" error={errors.phone} />
 
               <fieldset>
                 <legend className="label-caps text-[0.58rem] text-muted-foreground">
-                  I am interested in
+                  {t("contact.interestLegend")}
                 </legend>
                 <div className="mt-4 flex flex-wrap gap-x-7 gap-y-3">
                   {interests.map((i) => (
@@ -122,7 +137,7 @@ function Contact() {
 
               <fieldset>
                 <legend className="label-caps text-[0.58rem] text-muted-foreground">
-                  Preferred language
+                  {t("contact.languageLegend")}
                 </legend>
                 <div className="mt-4 flex gap-7">
                   {languages.map((l) => (
@@ -144,7 +159,7 @@ function Contact() {
 
               <div>
                 <label htmlFor="message" className="label-caps text-[0.58rem] text-muted-foreground">
-                  Message
+                  {t("contact.message")}
                 </label>
                 <textarea
                   id="message"
@@ -160,13 +175,12 @@ function Contact() {
                 type="submit"
                 className="label-caps w-full bg-gold px-8 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink sm:w-auto"
               >
-                Send Message
+                {t("contact.submit")}
               </button>
 
               {sent && (
                 <p className="font-serif text-xl text-ink">
-                  Thank you — your message has been received. You will hear back within one business
-                  day.
+                  {t("contact.success")}
                 </p>
               )}
             </form>
@@ -174,7 +188,7 @@ function Contact() {
 
           <Reveal delay={140} className="md:col-span-5 md:pl-6">
             <div className="border border-border bg-card p-8">
-              <Overline>Direct</Overline>
+              <Overline>{t("contact.directOverline")}</Overline>
               <GoldRule className="mt-6" />
               <ul className="mt-8 space-y-6 text-sm">
                 <li className="flex items-start gap-4">
@@ -214,13 +228,13 @@ function Contact() {
                 rel="noreferrer"
                 className="label-caps mt-10 flex w-full items-center justify-center gap-2 border border-ink/25 px-6 py-4 text-[0.65rem] text-ink transition-colors duration-500 hover:border-gold hover:text-gold"
               >
-                <MessageCircle strokeWidth={1} className="size-4" /> WhatsApp
+                <MessageCircle strokeWidth={1} className="size-4" /> {t("contact.whatsapp")}
               </a>
               <a
                 href="#"
                 className="label-caps mt-3 flex w-full items-center justify-center gap-2 bg-ink px-6 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-gold"
               >
-                <CalendarCheck strokeWidth={1} className="size-4" /> Book a Consultation
+                <CalendarCheck strokeWidth={1} className="size-4" /> {t("contact.book")}
               </a>
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
                 Consultations are held in French, English or Spanish, by video or in person on the
