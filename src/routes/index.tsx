@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Home, KeyRound, Compass, ArrowRight } from "lucide-react";
 import heroVilla from "@/assets/hero-villa.jpg";
-import portrait from "@/assets/portrait-marylene.jpg";
-import coastline from "@/assets/coastline.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { FilmCard } from "@/components/site/FilmCard";
+import { PhotoFrame } from "@/components/site/PhotoFrame";
+import { photos } from "@/lib/photos";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { films, properties, testimonials } from "@/lib/site-data";
 import { useI18n } from "@/lib/i18n";
@@ -170,19 +170,7 @@ function IntroEditorial() {
   return (
     <Section>
       <Container className="grid items-center gap-14 md:grid-cols-12">
-        <Reveal className="md:col-span-5">
-          <div className="hover-zoom relative">
-            <img
-              src={portrait}
-              alt="Marylene Maglio, realtor on the Riviera Maya"
-              width={1024}
-              height={1408}
-              loading="lazy"
-              className="aspect-[3/4] w-full object-cover"
-            />
-          </div>
-        </Reveal>
-        <Reveal delay={150} className="md:col-span-7 md:pl-6 lg:pl-16">
+        <Reveal className="md:col-span-7 md:order-1 md:pr-6 lg:pr-16">
           <Overline>{t("sections.meetOverline")}</Overline>
           <GoldRule className="mt-6" />
           <p className="mt-8 font-serif text-[1.65rem] leading-[1.35] text-ink sm:text-[2rem]">
@@ -201,6 +189,11 @@ function IntroEditorial() {
           >
             {t("sections.meetLink")} <ArrowRight strokeWidth={1} className="size-4" />
           </Link>
+        </Reveal>
+        <Reveal delay={150} className="md:order-2 md:col-span-5 md:mt-16">
+          <div className="hover-zoom relative">
+            <PhotoFrame photo={photos.intro} className="aspect-[4/5] w-full" />
+          </div>
         </Reveal>
       </Container>
     </Section>
@@ -315,16 +308,8 @@ function RivieraTeaser() {
   const { t } = useI18n();
   return (
     <section className="grid items-stretch md:grid-cols-2">
-      <div className="hover-zoom">
-        <img
-          src={coastline}
-          alt="Turquoise Caribbean coastline of the Riviera Maya from above"
-          width={1600}
-          height={1000}
-          loading="lazy"
-          className="h-full min-h-[340px] w-full object-cover"
-        />
-      </div>
+      <PhotoFrame photo={photos.riviera} className="hover-zoom min-h-[340px] md:h-full" />
+
       <Reveal className="flex items-center px-6 py-20 sm:px-14 md:py-28">
         <div className="max-w-md">
           <Overline tone="lagoon">{t("sections.rivieraOverline")}</Overline>
