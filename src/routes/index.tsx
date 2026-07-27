@@ -308,16 +308,8 @@ function RivieraTeaser() {
   const { t } = useI18n();
   return (
     <section className="grid items-stretch md:grid-cols-2">
-      <div className="hover-zoom">
-        <img
-          src={coastline}
-          alt="Turquoise Caribbean coastline of the Riviera Maya from above"
-          width={1600}
-          height={1000}
-          loading="lazy"
-          className="h-full min-h-[340px] w-full object-cover"
-        />
-      </div>
+      <PhotoFrame photo={photos.riviera} className="hover-zoom min-h-[340px] md:h-full" />
+
       <Reveal className="flex items-center px-6 py-20 sm:px-14 md:py-28">
         <div className="max-w-md">
           <Overline tone="lagoon">{t("sections.rivieraOverline")}</Overline>
