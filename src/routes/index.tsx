@@ -58,6 +58,7 @@ function Index() {
       <Hero />
       <CredibilityBar />
       <IntroEditorial />
+      <StatsRow />
       <FilmsPreview />
       <FeaturedProperties />
       <Services />
