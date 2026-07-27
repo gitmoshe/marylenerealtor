@@ -15,8 +15,7 @@ export const commonDict: Dict = {
     "nav.closeMenu": "Close menu",
     "nav.language": "Language",
 
-    "hero.overline": "Riviera Maya · Mexico",
-    "hero.titleLine1": "Your Riveira Maya Life",
+    "hero.titleLine1": "Your Riviera Maya Life",
     "hero.titleLine2": "Begins Here.",
     "hero.subtitle":
       "Luxury real estate, property management and coastal living — guided in Spanish, English & French.",
@@ -75,7 +74,6 @@ export const commonDict: Dict = {
     "nav.closeMenu": "Fermer le menu",
     "nav.language": "Langue",
 
-    "hero.overline": "Riviera Maya · Mexique",
     "hero.titleLine1": "Votre vie sur la Riviera Maya",
     "hero.titleLine2": "commence ici.",
     "hero.subtitle":
@@ -135,7 +133,6 @@ export const commonDict: Dict = {
     "nav.closeMenu": "Cerrar el menú",
     "nav.language": "Idioma",
 
-    "hero.overline": "Riviera Maya · México",
     "hero.titleLine1": "Su vida en la Riviera Maya",
     "hero.titleLine2": "comienza aquí.",
     "hero.subtitle":
