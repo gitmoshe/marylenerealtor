@@ -16,10 +16,10 @@ export const commonDict: Dict = {
     "nav.language": "Language",
 
     "hero.overline": "Riviera Maya · Mexico",
-    "hero.titleLine1": "Where the Caribbean",
-    "hero.titleLine2": "Meets Home.",
+    "hero.titleLine1": "Your Life in the Riviera Maya",
+    "hero.titleLine2": "Begins Here.",
     "hero.subtitle":
-      "Luxury real estate, property management and life on the Riviera Maya — guided in Spanish, English & French.",
+      "Luxury real estate, property management and coastal living — guided in Spanish, English & French.",
     "hero.ctaPrimary": "Explore Properties",
     "hero.ctaSecondary": "Watch the Videos",
 
@@ -76,10 +76,10 @@ export const commonDict: Dict = {
     "nav.language": "Langue",
 
     "hero.overline": "Riviera Maya · Mexique",
-    "hero.titleLine1": "Là où les Caraïbes",
-    "hero.titleLine2": "deviennent un foyer.",
+    "hero.titleLine1": "Votre vie sur la Riviera Maya",
+    "hero.titleLine2": "commence ici.",
     "hero.subtitle":
-      "Immobilier de prestige, gestion de biens et art de vivre sur la Riviera Maya — accompagné en espagnol, anglais et français.",
+      "Immobilier de prestige, gestion de biens et art de vivre au bord des Caraïbes — accompagné en espagnol, anglais et français.",
     "hero.ctaPrimary": "Découvrir les propriétés",
     "hero.ctaSecondary": "Voir les vidéos",
 
@@ -136,10 +136,10 @@ export const commonDict: Dict = {
     "nav.language": "Idioma",
 
     "hero.overline": "Riviera Maya · México",
-    "hero.titleLine1": "Donde el Caribe",
-    "hero.titleLine2": "se vuelve hogar.",
+    "hero.titleLine1": "Su vida en la Riviera Maya",
+    "hero.titleLine2": "comienza aquí.",
     "hero.subtitle":
-      "Bienes raíces de lujo, administración de propiedades y vida en la Riviera Maya — con asesoría en español, inglés y francés.",
+      "Bienes raíces de lujo, administración de propiedades y vida frente al Caribe — con asesoría en español, inglés y francés.",
     "hero.ctaPrimary": "Ver propiedades",
     "hero.ctaSecondary": "Ver los videos",
 

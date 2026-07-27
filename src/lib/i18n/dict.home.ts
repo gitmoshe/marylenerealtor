@@ -81,7 +81,7 @@ export const homeDict: Dict = {
     "home.whatsapp.aria": "Message Marylene on WhatsApp",
 
     "home.notFound.overline": "Error 404",
-    "home.notFound.titleLine1": "Lost? The Riviera has a",
+    "home.notFound.titleLine1": "Lost? The Riviera Maya has a",
     "home.notFound.titleLine2": "way of finding you.",
     "home.notFound.body":
       "This page has drifted off the map. The coast, the residences and the videos are all still here.",
@@ -166,7 +166,7 @@ export const homeDict: Dict = {
     "home.whatsapp.aria": "Écrire à Marylene sur WhatsApp",
 
     "home.notFound.overline": "Erreur 404",
-    "home.notFound.titleLine1": "Perdu ? Riviera Maya a",
+    "home.notFound.titleLine1": "Perdu ? La Riviera Maya a",
     "home.notFound.titleLine2": "toujours su vous retrouver.",
     "home.notFound.body":
       "Cette page s'est égarée. La côte, les résidences et les vidéos, elles, sont toujours là.",
@@ -251,7 +251,7 @@ export const homeDict: Dict = {
     "home.whatsapp.aria": "Escribir a Marylene por WhatsApp",
 
     "home.notFound.overline": "Error 404",
-    "home.notFound.titleLine1": "¿Perdido? Riviera Maya tiene",
+    "home.notFound.titleLine1": "¿Perdido? La Riviera Maya tiene",
     "home.notFound.titleLine2": "su manera de encontrarlo.",
     "home.notFound.body":
       "Esta página se ha perdido en el camino. La costa, las residencias y los videos siguen aquí.",
