@@ -85,12 +85,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Certified realtor and property manager on Mexico's Riviera Maya. Luxury homes in Playa del Carmen, Tulum and Cancún, guided in French, English and Spanish.",
+          "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún",
       },
       { name: "author", content: "Marylene Maglio" },
       { property: "og:site_name", content: "Marylene Realtor" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico" },
+      { name: "twitter:title", content: "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico" },
+      { property: "og:description", content: "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún" },
+      { name: "twitter:description", content: "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/002c1192-ecb3-4df0-a77f-b45226d49817/id-preview-1ae0fdef--bd749793-014a-4dbd-a53f-84cc609b798c.lovable.app-1785123525985.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/002c1192-ecb3-4df0-a77f-b45226d49817/id-preview-1ae0fdef--bd749793-014a-4dbd-a53f-84cc609b798c.lovable.app-1785123525985.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

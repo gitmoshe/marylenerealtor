@@ -17,16 +17,16 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Marylene Maglio, luxury realtor and property management on the Riviera Maya — homes in Playa del Carmen, Tulum and Cancún, in French, English and Spanish.",
+          "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún",
       },
       {
         property: "og:title",
-        content: "Marylene Maglio | Luxury Realtor — Riviera Maya, Mexico",
+        content: "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico",
       },
       {
         property: "og:description",
         content:
-          "Luxury real estate, property management and life on the Mayan Riviera — guided in French, English and Spanish.",
+          "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún",
       },
       { property: "og:url", content: "/" },
     ],
