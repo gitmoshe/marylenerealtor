@@ -24,7 +24,7 @@ export const Route = createFileRoute("/properties/")({
     ],
     links: [{ rel: "canonical", href: "/properties" }],
   }),
-  component: PropertiesPage;
+  component: PropertiesPage,
 });
 
 function FilterRow({
