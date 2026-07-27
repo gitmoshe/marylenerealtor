@@ -84,7 +84,7 @@ export function Nav() {
                 type="button"
                 onClick={() => setLang(l.code)}
                 className={cn(
-                  "label-caps px-1.5 text-[0.65rem] transition-colors duration-300 hover:text-gold",
+                  "label-caps px-2 py-2 text-[0.65rem] transition-colors duration-300 hover:text-gold",
                   lang === l.code && "text-gold",
                 )}
                 aria-pressed={lang === l.code}
@@ -169,7 +169,7 @@ export function Nav() {
                   type="button"
                   onClick={() => setLang(l.code)}
                   className={cn(
-                    "label-caps px-1.5 text-[0.7rem] hover:text-gold",
+                    "label-caps px-2 py-2 text-[0.7rem] hover:text-gold",
                     lang === l.code && "text-gold",
                   )}
                   aria-pressed={lang === l.code}

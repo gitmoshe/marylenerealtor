@@ -214,6 +214,10 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         name={name}
         type={type}
         maxLength={255}
+        autoComplete={
+          name === "name" ? "name" : name === "email" ? "email" : name === "phone" ? "tel" : "on"
+        }
+        inputMode={type === "email" ? "email" : type === "tel" ? "tel" : "text"}
         className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
       />
     </div>
