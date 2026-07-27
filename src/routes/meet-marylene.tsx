@@ -11,7 +11,7 @@ export const Route = createFileRoute("/meet-marylene")({
       {
         name: "description",
         content:
-          "The story of a French professional who made the Mayan Riviera home: certified realtor, property manager and trilingual advisor in Playa del Carmen, Tulum and Cancún.",
+          "Marylene Maglio, French-born Riviera Maya realtor and property management specialist in Playa del Carmen, Tulum and Cancún — in FR, EN and ES.",
       },
       { property: "og:title", content: "Meet Marylene Maglio — French Realtor on the Riviera Maya" },
       {

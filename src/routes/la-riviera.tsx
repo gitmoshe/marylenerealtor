@@ -12,7 +12,7 @@ export const Route = createFileRoute("/la-riviera")({
       {
         name: "description",
         content:
-          "Area guides to Playa del Carmen, Tulum, Puerto Aventuras, Akumal and Cancún, and why the Riviera Maya holds its value.",
+          "A Riviera Maya guide by realtor Marylene Maglio — Playa del Carmen, Tulum, Puerto Aventuras, Akumal and Cancún, with property management insight.",
       },
       { property: "og:title", content: "La Riviera — A Guide to the Riviera Maya" },
       {

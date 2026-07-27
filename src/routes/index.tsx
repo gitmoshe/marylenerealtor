@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Luxury real estate, property management and life on the Mayan Riviera — guided in French, English and Spanish by Marylene Maglio.",
+          "Marylene Maglio, luxury realtor and property management on the Riviera Maya — homes in Playa del Carmen, Tulum and Cancún, in French, English and Spanish.",
       },
       {
         property: "og:title",

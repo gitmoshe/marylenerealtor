@@ -14,7 +14,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Enquire about buying, selling, property management or investing on the Riviera Maya. Replies in French, English or Spanish within one business day.",
+          "Contact Marylene Maglio, Riviera Maya realtor: buying, selling, investing and property management, answered in French, English or Spanish.",
       },
       { property: "og:title", content: "Contact Marylene Maglio — Riviera Maya Realtor" },
       {

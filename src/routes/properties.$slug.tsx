@@ -12,14 +12,14 @@ export const Route = createFileRoute("/properties/$slug")({
   head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Property unavailable | Marylene Realtor" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Property unavailable — Riviera Maya | Marylene Maglio, Realtor" }, { name: "robots", content: "noindex" }],
       };
     }
     const p = loaderData.property;
     return {
       meta: [
         { title: `${p.name}, ${p.location} — ${p.price} | Marylene Realtor` },
-        { name: "description", content: `${p.line} ${p.location}, Riviera Maya. ${p.price}.` },
+        { name: "description", content: `${p.line} ${p.location}, Riviera Maya — ${p.price}, for sale with realtor Marylene Maglio, property management available.` },
         { property: "og:title", content: `${p.name}, ${p.location}` },
         { property: "og:description", content: p.line },
         { property: "og:type", content: "article" },
