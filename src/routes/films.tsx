@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Instagram } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { FilmCard } from "@/components/site/FilmCard";
+import { InstagramCard } from "@/components/site/InstagramCard";
 import { Container, Overline, Section } from "@/components/site/ui";
 import { filmCategories, films } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -59,7 +60,7 @@ function FilmsPage() {
                 category === null ? "text-gold" : "text-ink/70",
               )}
             >
-              All Films
+              All
             </button>
             {filmCategories.map((c) => (
               <button
@@ -80,21 +81,10 @@ function FilmsPage() {
 
       <Section className="pt-14">
         <Container>
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {shown.map((film, i) => (
               <Reveal key={film.id} delay={(i % 3) * 100}>
-                <div className={film.format === "9:16" ? "aspect-[9/16] bg-ink" : "aspect-video bg-ink"}>
-                  <iframe
-                    src={film.embed}
-                    title={film.title}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="size-full"
-                  />
-                </div>
-                <p className="label-caps mt-4 text-[0.6rem] text-lagoon">{film.category}</p>
-                <h2 className="mt-2 font-serif text-xl">{film.title}</h2>
+                <FilmCard film={film} headingLevel="h2" />
               </Reveal>
             ))}
           </div>
@@ -102,22 +92,9 @@ function FilmsPage() {
       </Section>
 
       <Section className="border-t border-border bg-secondary/50">
-        <Container className="max-w-2xl text-center">
+        <Container>
           <Reveal>
-            <Instagram strokeWidth={0.75} className="mx-auto size-8 text-gold" />
-            <h2 className="mt-8 font-serif text-4xl sm:text-5xl">@marylene_realtor</h2>
-            <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-              New films weekly — tours, cenotes, terraces and the parts of the coast that never
-              reach a listing.
-            </p>
-            <a
-              href="https://instagram.com/marylene_realtor"
-              target="_blank"
-              rel="noreferrer"
-              className="label-caps mt-10 inline-flex items-center gap-2 bg-gold px-8 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
-            >
-              Follow on Instagram
-            </a>
+            <InstagramCard />
           </Reveal>
         </Container>
       </Section>

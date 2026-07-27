@@ -5,6 +5,7 @@ import heroVilla from "@/assets/hero-villa.jpg";
 import portrait from "@/assets/portrait-marylene.jpg";
 import coastline from "@/assets/coastline.jpg";
 import { Reveal } from "@/components/site/Reveal";
+import { FilmCard } from "@/components/site/FilmCard";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { films, properties, testimonials } from "@/lib/site-data";
 
@@ -187,27 +188,10 @@ function FilmsPreview() {
           </Link>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-12 md:grid-cols-3">
           {selection.map((film, i) => (
             <Reveal key={film.id} delay={i * 120}>
-              <div
-                className={
-                  film.format === "9:16"
-                    ? "aspect-[9/16] w-full bg-ink"
-                    : "aspect-video w-full bg-ink"
-                }
-              >
-                <iframe
-                  src={film.embed}
-                  title={film.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="size-full"
-                />
-              </div>
-              <p className="label-caps mt-4 text-[0.62rem] text-lagoon">{film.category}</p>
-              <p className="mt-2 font-serif text-xl">{film.title}</p>
+              <FilmCard film={film} />
             </Reveal>
           ))}
         </div>
