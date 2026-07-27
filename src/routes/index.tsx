@@ -78,7 +78,7 @@ function Hero() {
         className="absolute inset-0 size-full object-cover"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/35 to-ink/80"
+        className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/85"
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto max-w-4xl px-6 pt-32 pb-24 text-center sm:px-10">

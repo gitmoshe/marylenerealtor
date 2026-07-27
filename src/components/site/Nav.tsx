@@ -94,7 +94,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             className={cn(
-              "grid size-10 shrink-0 place-items-center transition-colors duration-300",
+              "grid size-10 shrink-0 place-items-center transition-colors duration-300 lg:hidden",
               solid ? "text-ink hover:text-gold" : "text-ivory hover:text-gold",
             )}
           >
