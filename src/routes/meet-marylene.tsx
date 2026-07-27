@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portrait from "@/assets/portrait-marylene.jpg";
+import { PhotoFrame } from "@/components/site/PhotoFrame";
+import { photos } from "@/lib/photos";
 import coastline from "@/assets/coastline.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
@@ -89,14 +90,7 @@ function MeetMarylene() {
         <Container className="grid gap-14 md:grid-cols-12">
           <Reveal className="md:col-span-5">
             <div className="hover-zoom md:sticky md:top-40">
-              <img
-                src={portrait}
-                alt="Portrait of Marylene Maglio"
-                width={1024}
-                height={1408}
-                loading="lazy"
-                className="aspect-[3/4] w-full object-cover"
-              />
+              <PhotoFrame photo={photos.portrait} className="aspect-[3/4] w-full" priority />
               <p className="label-caps mt-5 text-[0.6rem] text-lagoon">
                 Marylene Maglio · Playa del Carmen
               </p>
