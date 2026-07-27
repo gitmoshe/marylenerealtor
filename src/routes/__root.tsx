@@ -16,6 +16,7 @@ import { Footer } from "@/components/site/Footer";
 import { NewsletterBand } from "@/components/site/NewsletterBand";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { LanguageProvider } from "@/lib/i18n";
+import { ButtonLink } from "@/components/site/ui";
 
 function NotFoundComponent() {
   return (
@@ -30,12 +31,9 @@ function NotFoundComponent() {
         This page has drifted off the map. The coast, the residences and the films are all still
         here.
       </p>
-      <Link
-        to="/"
-        className="label-caps mt-12 inline-flex items-center justify-center bg-gold px-8 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
-      >
+      <ButtonLink to="/" variant="gold" className="mt-12">
         Return Home
-      </Link>
+      </ButtonLink>
     </section>
   );
 }

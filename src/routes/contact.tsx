@@ -3,7 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Instagram, MessageCircle, Mail, MapPin, CalendarCheck } from "lucide-react";
 import { z } from "zod";
 import { Reveal } from "@/components/site/Reveal";
-import { Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { ButtonAction, ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { cn } from "@/lib/utils";
 import { useI18n, type TKey } from "@/lib/i18n";
 
@@ -171,12 +171,9 @@ function Contact() {
                 {errors.message && <p className="mt-2 text-xs text-destructive">{errors.message}</p>}
               </div>
 
-              <button
-                type="submit"
-                className="label-caps w-full bg-gold px-8 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink sm:w-auto"
-              >
+              <ButtonAction type="submit" variant="gold" className="w-full sm:w-auto">
                 {t("contact.submit")}
-              </button>
+              </ButtonAction>
 
               {sent && (
                 <p className="font-serif text-xl text-ink">
@@ -222,20 +219,18 @@ function Contact() {
                 </li>
               </ul>
 
-              <a
+              <ButtonAnchor
                 href="https://wa.me/529840000000"
                 target="_blank"
                 rel="noreferrer"
-                className="label-caps mt-10 flex w-full items-center justify-center gap-2 border border-ink/25 px-6 py-4 text-[0.65rem] text-ink transition-colors duration-500 hover:border-gold hover:text-gold"
+                variant="outline"
+                className="mt-10 flex w-full"
               >
                 <MessageCircle strokeWidth={1} className="size-4" /> {t("contact.whatsapp")}
-              </a>
-              <a
-                href="#"
-                className="label-caps mt-3 flex w-full items-center justify-center gap-2 bg-ink px-6 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-gold"
-              >
+              </ButtonAnchor>
+              <ButtonAnchor href="#" variant="gold" className="mt-3 flex w-full">
                 <CalendarCheck strokeWidth={1} className="size-4" /> {t("contact.book")}
-              </a>
+              </ButtonAnchor>
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
                 Consultations are held in French, English or Spanish, by video or in person on the
                 coast.
