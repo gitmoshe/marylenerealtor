@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Instagram } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { FilmCard } from "@/components/site/FilmCard";
 import { Container, Overline, Section } from "@/components/site/ui";
 import { filmCategories, films } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
