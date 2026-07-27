@@ -3,20 +3,20 @@ import type { Dict } from "../i18n-types";
 export const aboutDict: Dict = {
   en: {
     "about.hero.overline": "Meet Marylene",
-    "about.hero.title.line1": "A French eye on a",
-    "about.hero.title.line2": "Caribbean coast.",
+    "about.hero.title.line1": "At home on the",
+    "about.hero.title.line2": "Riviera Maya.",
     "about.hero.lead":
-      "European discretion and rigour, applied to Caribbean real estate — for clients from Canada, the United States and Europe, each spoken to in their own language.",
+      "Marylene serves clients across Mexico and around the world — Mexican families and investors, and buyers from Canada, the United States and Europe — each in their own language. What unites her work is an exacting eye for detail and a deep respect for the coast she calls home.",
     "about.portrait.caption": "Marylene Maglio · Playa del Carmen",
-    "about.story.opening": "She arrived with a suitcase and a return ticket she never used.",
+    "about.story.opening": "She came for a season, stayed for a life and learned the coast street by street.",
     "about.story.p1":
-      "Marylene Maglio was born in France and raised in a culture where service is quiet, precise and personal. Her professional life was international long before it was Mexican — a habit of moving between languages, cities and codes of conduct that turned out to be the exact preparation this coast required.",
+      "Marylene Maglio is a certified and registered realtor and property manager who has made the Mayan Riviera her home. Her days are spent between Playa del Carmen, Tulum, Cancún and Puerto Aventuras — inside these communities rather than above them, working with the notaries, builders, administrators and neighbours who make a purchase hold together.",
     "about.story.p2":
-      "She came to the Riviera Maya for a season, recognised what the place was becoming and chose it as home. What followed was a decade of learning it properly: which builders finish on time, which streets flood, which towers rent and which simply photograph well. That knowledge is the whole of her value, and she gives it plainly — including when the honest answer is to wait, or to buy elsewhere.",
+      "Mexican homeowners, families and investors come first in her practice. Alongside them she advises buyers from Canada, the United States and Europe, speaking with each in Spanish, English or French as they prefer. The same standard applies to everyone: a clear picture of the property, the paperwork and the neighbourhood, before anything is signed.",
     "about.story.p3":
-      "Her clients come from Canada, the United States and Europe, and are advised in Spanish, English or French as they prefer. Most first meet the coastline through her videos. They stay because the reality matches the frame, and because nothing is oversold along the way.",
+      "Her hallmark is an exacting eye for detail and nuance — in contracts, in construction, in the small things that make a house a home. Which builders finish on time, which streets flood, which towers rent well and which simply photograph well. She gives that knowledge plainly, including when the honest answer is to wait or to look somewhere else.",
     "about.story.p4":
-      "Discretion is the working method: a small number of clients, files kept private, and the unglamorous parts of a purchase handled personally — the notary, the bank trust, the utilities, the first gardener and the second set of keys.",
+      "Discretion is the working method: a small number of clients, files kept private and the unglamorous parts of a purchase handled personally — the notary, the bank trust, the utilities, the first gardener and the second set of keys.",
     "about.credentials.overline": "Credentials",
     "about.credentials.item1": "Certified & Registered Realtor, Quintana Roo",
     "about.credentials.item2": "Property Sales & Management",
@@ -33,16 +33,16 @@ export const aboutDict: Dict = {
     "about.pillar1.point2": "Playa del Carmen · Tulum · Cancún",
     "about.pillar1.point3": "LATITUD Properties",
     "about.pillar2.title": "The Property Manager",
-    "about.pillar2.lead": "End-to-end care for owners abroad.",
+    "about.pillar2.lead": "End-to-end care for owners near and far.",
     "about.pillar2.copy":
-      "Homes kept as though occupied. Maintenance calendars, rental performance, guest arrivals, staff, utilities and quarterly reporting — handled locally for owners who are thousands of kilometres away, and never asked to chase an update.",
+      "Homes kept as though occupied. Maintenance calendars, rental performance, guest arrivals, staff, utilities and quarterly reporting — handled on the ground for owners across town or across an ocean, and never asked to chase an update.",
     "about.pillar2.point1": "Maintenance & staffing",
     "about.pillar2.point2": "Rental strategy & guest care",
     "about.pillar2.point3": "Quarterly owner reporting",
     "about.pillar3.title": "The Ambassador",
     "about.pillar3.lead": "Storyteller of Riviera life.",
     "about.pillar3.copy":
-      "Videos, guides and introductions. The coast told honestly through her lens and her social presence — its schools, its builders, its beaches, its quieter streets — so that a decision made from Montréal or Paris is made with open eyes.",
+      "Videos, guides and introductions. The coast told honestly through her lens and her social presence — its schools, its builders, its beaches, its quieter streets — so that every decision is made with open eyes.",
     "about.pillar3.point1": "Property videos & reels",
     "about.pillar3.point2": "Neighbourhood guides",
     "about.pillar3.point3": "@marylene_realtor",
@@ -58,25 +58,25 @@ export const aboutDict: Dict = {
   },
   fr: {
     "about.hero.overline": "Rencontrer Marylene",
-    "about.hero.title.line1": "Un regard français sur une",
-    "about.hero.title.line2": "côte des Caraïbes.",
+    "about.hero.title.line1": "Chez elle sur la",
+    "about.hero.title.line2": "Riviera Maya.",
     "about.hero.lead":
-      "Discrétion et rigueur européennes, appliquées à l'immobilier caribéen — pour des clients venus du Canada des États-Unis ou d'Europe, chacun accompagné dans sa propre langue.",
+      "Marylene accompagne des clients partout au Mexique et dans le monde — familles et investisseurs mexicains, acheteurs du Canada des États-Unis et d'Europe — chacun dans sa propre langue. Son travail se distingue par une attention rigoureuse au détail et un profond respect pour la côte qu'elle appelle sa maison.",
     "about.portrait.caption": "Marylene Maglio · Playa del Carmen",
-    "about.story.opening": "Elle est arrivée avec une valise et un billet retour qu'elle n'a jamais utilisé.",
+    "about.story.opening": "Venue pour une saison, restée pour une vie et apprenant la côte rue par rue.",
     "about.story.p1":
-      "Marylene Maglio est née en France et a grandi dans une culture où le service se veut discret, précis et personnel. Sa vie professionnelle a été internationale bien avant d'être mexicaine — une habitude de circuler entre langues villes et codes de conduite qui s'est révélée la meilleure préparation à cette côte.",
+      "Marylene Maglio est agente immobilière et gestionnaire de biens certifiée et enregistrée, et elle a fait de la Riviera Maya sa maison. Ses journées se partagent entre Playa del Carmen, Tulum, Cancún et Puerto Aventuras — au sein de ces communautés plutôt qu'au-dessus d'elles, aux côtés des notaires, constructeurs, administrateurs et voisins qui font tenir un achat.",
     "about.story.p2":
-      "Elle est venue à la Riviera Maya pour une saison, a reconnu ce que le lieu était en train de devenir et en a fait sa maison. Une décennie a suivi, consacrée à bien le comprendre : quels constructeurs livrent à temps, quelles rues s'inondent, quelles tours se louent bien et lesquelles ne font que bien photographier. Cette connaissance constitue toute sa valeur et elle la partage sans détour — y compris lorsque la réponse honnête est d'attendre ou d'acheter ailleurs.",
+      "Les propriétaires, familles et investisseurs mexicains passent en premier dans sa pratique. Elle conseille également des acheteurs du Canada, des États-Unis et d'Europe, en espagnol en anglais ou en français selon leur préférence. Le même standard vaut pour tous : une vision claire du bien, des documents et du quartier, avant toute signature.",
     "about.story.p3":
-      "Ses clients viennent du Canada des États-Unis et d'Europe, et sont conseillés en français en anglais ou en espagnol selon leur préférence. La plupart découvrent d'abord le littoral à travers ses vidéos. Ils restent parce que la réalité correspond à l'image et que rien n'est enjolivé en chemin.",
+      "Sa marque de fabrique est une exigence du détail et de la nuance — dans les contrats, dans la construction, dans les petites choses qui font d'une maison un foyer. Quels constructeurs livrent à temps, quelles rues s'inondent, quelles tours se louent bien et lesquelles ne font que bien photographier. Elle partage ce savoir sans détour, y compris lorsque la réponse honnête est d'attendre ou de regarder ailleurs.",
     "about.story.p4":
       "La discrétion est sa méthode de travail : un nombre restreint de clients, des dossiers gardés confidentiels et les aspects les moins glamour d'un achat traités personnellement — le notaire, la fiducie bancaire, les services publics, le premier jardinier et le second trousseau de clés.",
     "about.credentials.overline": "Références",
     "about.credentials.item1": "Agente immobilière certifiée et enregistrée, Quintana Roo",
     "about.credentials.item2": "Vente et gestion immobilière",
     "about.credentials.item3": "En collaboration avec LATITUD Properties",
-    "about.credentials.item4": "Pratique trilingue — français anglais espagnol",
+    "about.credentials.item4": "Pratique trilingue — espagnol anglais français",
     "about.credentials.item5": "Basée à Playa del Carmen depuis 2016",
     "about.pillars.overline": "Trois rôles",
     "about.pillars.title": "Une seule pratique tenue à un seul standard.",
@@ -88,16 +88,16 @@ export const aboutDict: Dict = {
     "about.pillar1.point2": "Playa del Carmen · Tulum · Cancún",
     "about.pillar1.point3": "LATITUD Properties",
     "about.pillar2.title": "La gestionnaire",
-    "about.pillar2.lead": "Un suivi complet pour les propriétaires à l'étranger.",
+    "about.pillar2.lead": "Un suivi complet pour les propriétaires d'ici et d'ailleurs.",
     "about.pillar2.copy":
-      "Des maisons entretenues comme si elles étaient habitées. Calendriers d'entretien performance locative arrivées des invités personnel services publics et rapports trimestriels — gérés localement pour des propriétaires à des milliers de kilomètres qui n'ont jamais à réclamer une nouvelle.",
+      "Des maisons entretenues comme si elles étaient habitées. Calendriers d'entretien performance locative arrivées des invités personnel services publics et rapports trimestriels — gérés sur place pour des propriétaires du quartier comme de l'autre côté de l'océan, qui n'ont jamais à réclamer une nouvelle.",
     "about.pillar2.point1": "Entretien et personnel",
     "about.pillar2.point2": "Stratégie locative et accueil des invités",
     "about.pillar2.point3": "Rapports trimestriels aux propriétaires",
     "about.pillar3.title": "L'ambassadrice",
     "about.pillar3.lead": "Conteuse de la vie sur la Riviera Maya.",
     "about.pillar3.copy":
-      "Vidéos guides et présentations. La côte racontée honnêtement à travers son regard et sa présence sur les réseaux — ses écoles ses constructeurs ses plages ses rues plus tranquilles — pour qu'une décision prise depuis Montréal ou Paris se fasse les yeux grands ouverts.",
+      "Vidéos guides et présentations. La côte racontée honnêtement à travers son regard et sa présence sur les réseaux — ses écoles ses constructeurs ses plages ses rues plus tranquilles — pour que chaque décision se prenne les yeux grands ouverts.",
     "about.pillar3.point1": "Vidéos et reels immobiliers",
     "about.pillar3.point2": "Guides de quartier",
     "about.pillar3.point3": "@marylene_realtor",
@@ -113,25 +113,25 @@ export const aboutDict: Dict = {
   },
   es: {
     "about.hero.overline": "Conoce a Marylene",
-    "about.hero.title.line1": "Una mirada francesa sobre una",
-    "about.hero.title.line2": "costa caribeña.",
+    "about.hero.title.line1": "En casa en la",
+    "about.hero.title.line2": "Riviera Maya.",
     "about.hero.lead":
-      "Discreción y rigor europeos aplicados al bienes raíces caribeño — para clientes de Canadá Estados Unidos y Europa cada uno atendido en su propio idioma.",
+      "Marylene atiende a clientes en todo México y en el mundo — familias e inversionistas mexicanos, y compradores de Canadá Estados Unidos y Europa — cada uno en su propio idioma. Su trabajo se distingue por un ojo exigente para el detalle y un profundo respeto por la costa que llama hogar.",
     "about.portrait.caption": "Marylene Maglio · Playa del Carmen",
-    "about.story.opening": "Llegó con una maleta y un boleto de regreso que nunca usó.",
+    "about.story.opening": "Llegó por una temporada, se quedó para toda una vida y aprendió la costa calle por calle.",
     "about.story.p1":
-      "Marylene Maglio nació en Francia y creció en una cultura donde el servicio es discreto preciso y personal. Su vida profesional fue internacional mucho antes de ser mexicana — una costumbre de moverse entre idiomas ciudades y códigos de conducta que resultó ser la preparación exacta que esta costa exigía.",
+      "Marylene Maglio es agente inmobiliaria y administradora de propiedades certificada y registrada, y ha hecho de la Riviera Maya su hogar. Sus días transcurren entre Playa del Carmen, Tulum, Cancún y Puerto Aventuras — dentro de estas comunidades y no por encima de ellas, junto a los notarios, constructores, administradores y vecinos que hacen que una compra se sostenga.",
     "about.story.p2":
-      "Llegó a la Riviera Maya para una temporada reconoció en qué se estaba convirtiendo el lugar y lo eligió como hogar. Le siguió una década aprendiéndolo a fondo: qué constructores entregan a tiempo qué calles se inundan qué torres rentan bien y cuáles solo lucen bien en fotos. Ese conocimiento es todo su valor y lo entrega con franqueza — incluso cuando la respuesta honesta es esperar o comprar en otro lugar.",
+      "Los propietarios, las familias y los inversionistas mexicanos son lo primero en su práctica. Junto a ellos asesora a compradores de Canadá, Estados Unidos y Europa, en español inglés o francés según su preferencia. El mismo estándar aplica para todos: una imagen clara de la propiedad, los documentos y el vecindario, antes de firmar nada.",
     "about.story.p3":
-      "Sus clientes vienen de Canadá Estados Unidos y Europa y son asesorados en francés inglés o español según su preferencia. La mayoría conoce primero la costa a través de sus videos. Se quedan porque la realidad coincide con la imagen y porque nada se exagera en el camino.",
+      "Su sello es un ojo exigente para el detalle y el matiz — en los contratos, en la construcción, en las pequeñas cosas que convierten una casa en un hogar. Qué constructores entregan a tiempo, qué calles se inundan, qué torres rentan bien y cuáles solo lucen bien en fotos. Comparte ese conocimiento con franqueza, incluso cuando la respuesta honesta es esperar o buscar en otro lugar.",
     "about.story.p4":
-      "La discreción es su método de trabajo: un número reducido de clientes expedientes confidenciales y las partes menos glamorosas de una compra manejadas en persona — el notario el fideicomiso bancario los servicios el primer jardinero y el segundo juego de llaves.",
+      "La discreción es su método de trabajo: un número reducido de clientes, expedientes confidenciales y las partes menos glamorosas de una compra manejadas en persona — el notario, el fideicomiso bancario, los servicios, el primer jardinero y el segundo juego de llaves.",
     "about.credentials.overline": "Credenciales",
     "about.credentials.item1": "Agente inmobiliaria certificada y registrada, Quintana Roo",
     "about.credentials.item2": "Venta y gestión de propiedades",
     "about.credentials.item3": "En colaboración con LATITUD Properties",
-    "about.credentials.item4": "Práctica trilingüe — francés inglés español",
+    "about.credentials.item4": "Práctica trilingüe — español inglés francés",
     "about.credentials.item5": "Radicada en Playa del Carmen desde 2016",
     "about.pillars.overline": "Tres roles",
     "about.pillars.title": "Una sola práctica sostenida por un único estándar.",
@@ -143,16 +143,16 @@ export const aboutDict: Dict = {
     "about.pillar1.point2": "Playa del Carmen · Tulum · Cancún",
     "about.pillar1.point3": "LATITUD Properties",
     "about.pillar2.title": "La administradora",
-    "about.pillar2.lead": "Atención integral para propietarios en el extranjero.",
+    "about.pillar2.lead": "Atención integral para propietarios cercanos y lejanos.",
     "about.pillar2.copy":
-      "Casas cuidadas como si estuvieran habitadas. Calendarios de mantenimiento desempeño de renta llegadas de huéspedes personal servicios y reportes trimestrales — gestionados localmente para propietarios a miles de kilómetros que nunca tienen que perseguir una actualización.",
+      "Casas cuidadas como si estuvieran habitadas. Calendarios de mantenimiento desempeño de renta llegadas de huéspedes personal servicios y reportes trimestrales — gestionados en el lugar para propietarios de la misma ciudad o del otro lado del océano, que nunca tienen que perseguir una actualización.",
     "about.pillar2.point1": "Mantenimiento y personal",
     "about.pillar2.point2": "Estrategia de renta y atención a huéspedes",
     "about.pillar2.point3": "Reportes trimestrales al propietario",
     "about.pillar3.title": "La embajadora",
     "about.pillar3.lead": "Narradora de la vida en la Riviera Maya.",
     "about.pillar3.copy":
-      "Videos guías y presentaciones. La costa contada con honestidad a través de su lente y su presencia en redes — sus escuelas sus constructores sus playas sus calles más tranquilas — para que una decisión tomada desde Montreal o París se tome con los ojos bien abiertos.",
+      "Videos guías y presentaciones. La costa contada con honestidad a través de su lente y su presencia en redes — sus escuelas sus constructores sus playas sus calles más tranquilas — para que cada decisión se tome con los ojos bien abiertos.",
     "about.pillar3.point1": "Videos y reels de propiedades",
     "about.pillar3.point2": "Guías de vecindario",
     "about.pillar3.point3": "@marylene_realtor",
