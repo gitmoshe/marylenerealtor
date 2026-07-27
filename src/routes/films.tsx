@@ -92,22 +92,9 @@ function FilmsPage() {
       </Section>
 
       <Section className="border-t border-border bg-secondary/50">
-        <Container className="max-w-2xl text-center">
+        <Container>
           <Reveal>
-            <Instagram strokeWidth={0.75} className="mx-auto size-8 text-gold" />
-            <h2 className="mt-8 font-serif text-4xl sm:text-5xl">@marylene_realtor</h2>
-            <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-              New films weekly — tours, cenotes, terraces and the parts of the coast that never
-              reach a listing.
-            </p>
-            <a
-              href="https://instagram.com/marylene_realtor"
-              target="_blank"
-              rel="noreferrer"
-              className="label-caps mt-10 inline-flex items-center gap-2 bg-gold px-8 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
-            >
-              Follow on Instagram
-            </a>
+            <InstagramCard />
           </Reveal>
         </Container>
       </Section>
