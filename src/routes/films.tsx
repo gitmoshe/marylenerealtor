@@ -20,7 +20,7 @@ export const Route = createFileRoute("/films")({
       { property: "og:title", content: "Videos — Riviera Maya | Marylene Realtor" },
       {
         property: "og:description",
-        content: "Property tours, Riviera life and client stories, on video on the Mayan Riviera.",
+        content: "Property tours, Riviera life and client stories, on video on the Riviera Maya.",
       },
       { property: "og:url", content: "/films" },
     ],

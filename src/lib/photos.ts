@@ -18,7 +18,7 @@ export const photos = {
     src: terraceAsset.url,
     alt: "Marylene Maglio seated on a shaded terrace daybed with jungle behind",
   },
-  /** Homepage La Riviera teaser — tropical pool and greenery. */
+  /** Homepage Riviera Maya teaser — tropical pool and greenery. */
   riviera: {
     src: poolAsset.url,
     alt: "Marylene Maglio standing at the edge of a jungle pool in the Riviera Maya",
