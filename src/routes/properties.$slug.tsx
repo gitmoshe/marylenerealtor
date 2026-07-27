@@ -32,7 +32,7 @@ export const Route = createFileRoute("/properties/$slug")({
 });
 
 function PropertyDetail() {
-  const { property } = Route.useLoaderData();
+  const { property } = Route.useLoaderData() as { property: Property };
 
   return (
     <>
