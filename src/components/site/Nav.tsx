@@ -3,24 +3,29 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
+import { useI18n, type Lang, type TKey } from "@/lib/i18n";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/meet-marylene", label: "Meet Marylene" },
-  { to: "/properties", label: "Properties" },
-  { to: "/property-management", label: "Property Management" },
-  { to: "/films", label: "The Films" },
-  { to: "/la-riviera", label: "La Riviera" },
-  { to: "/contact", label: "Contact" },
-] as const;
+  { to: "/", key: "nav.home" },
+  { to: "/meet-marylene", key: "nav.meet" },
+  { to: "/properties", key: "nav.properties" },
+  { to: "/property-management", key: "nav.management" },
+  { to: "/films", key: "nav.films" },
+  { to: "/la-riviera", key: "nav.riviera" },
+  { to: "/contact", key: "nav.contact" },
+] as const satisfies readonly { to: string; key: TKey }[];
 
-const languages = ["FR", "EN", "ES"] as const;
+const languages: { code: Lang; label: string }[] = [
+  { code: "fr", label: "FR" },
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
+];
 
 export function Nav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<(typeof languages)[number]>("EN");
+  const { lang, setLang, t } = useI18n();
 
   const overHero = pathname === "/";
 
@@ -67,16 +72,17 @@ export function Nav() {
           >
             {languages.map((l) => (
               <button
-                key={l}
+                key={l.code}
                 type="button"
-                onClick={() => setLang(l)}
+                onClick={() => setLang(l.code)}
                 className={cn(
                   "label-caps px-1.5 text-[0.65rem] transition-colors duration-300 hover:text-gold",
-                  lang === l && "text-gold",
+                  lang === l.code && "text-gold",
                 )}
-                aria-pressed={lang === l}
+                aria-pressed={lang === l.code}
+                aria-label={`${t("nav.language")}: ${l.label}`}
               >
-                {l}
+                {l.label}
               </button>
             ))}
           </div>
@@ -85,13 +91,13 @@ export function Nav() {
             to="/contact"
             className="label-caps hidden bg-gold px-6 py-3 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink xl:inline-flex"
           >
-            Consultation
+            {t("nav.consultation")}
           </Link>
 
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={open}
             className={cn(
               "grid size-10 shrink-0 place-items-center transition-colors duration-300 lg:hidden",
@@ -119,7 +125,7 @@ export function Nav() {
             activeProps={{ className: "text-gold" }}
             activeOptions={{ exact: l.to === "/" }}
           >
-            {l.label}
+            {t(l.key)}
           </Link>
         ))}
       </nav>
@@ -140,22 +146,24 @@ export function Nav() {
               activeProps={{ className: "text-gold" }}
               activeOptions={{ exact: l.to === "/" }}
             >
-              {l.label}
+              {t(l.key)}
             </Link>
           ))}
           <div className="mt-6 flex items-center gap-4">
             <div className="flex items-center gap-1 text-ink/70">
               {languages.map((l) => (
                 <button
-                  key={l}
+                  key={l.code}
                   type="button"
-                  onClick={() => setLang(l)}
+                  onClick={() => setLang(l.code)}
                   className={cn(
                     "label-caps px-1.5 text-[0.65rem] hover:text-gold",
-                    lang === l && "text-gold",
+                    lang === l.code && "text-gold",
                   )}
+                  aria-pressed={lang === l.code}
+                  aria-label={`${t("nav.language")}: ${l.label}`}
                 >
-                  {l}
+                  {l.label}
                 </button>
               ))}
             </div>
@@ -163,7 +171,7 @@ export function Nav() {
               to="/contact"
               className="label-caps bg-gold px-6 py-3 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
             >
-              Consultation
+              {t("nav.consultation")}
             </Link>
           </div>
         </nav>
