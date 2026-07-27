@@ -84,7 +84,7 @@ export function Nav() {
                 type="button"
                 onClick={() => setLang(l.code)}
                 className={cn(
-                  "label-caps px-1.5 text-[0.65rem] transition-colors duration-300 hover:text-gold",
+                  "label-caps px-2 py-2 text-[0.65rem] transition-colors duration-300 hover:text-gold",
                   lang === l.code && "text-gold",
                 )}
                 aria-pressed={lang === l.code}
@@ -147,21 +147,21 @@ export function Nav() {
         )}
       >
         <nav
-          className="flex h-[100svh] flex-col justify-center gap-2 px-8 pt-24 pb-16 sm:px-12"
+          className="flex h-[100svh] flex-col justify-center gap-1 overflow-y-auto overscroll-contain px-8 pt-24 pb-16 sm:px-12"
           aria-label="Menu"
         >
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="border-b border-border/50 py-4 font-serif text-[1.9rem] leading-tight text-ink transition-colors duration-300 hover:text-gold sm:text-4xl"
+              className="border-b border-border/50 py-3.5 font-serif text-[1.75rem] leading-tight text-ink transition-colors duration-300 hover:text-gold sm:py-4 sm:text-4xl"
               activeProps={{ className: "text-gold" }}
               activeOptions={{ exact: l.to === "/" }}
             >
               {t(l.key)}
             </Link>
           ))}
-          <div className="mt-10 flex flex-wrap items-center gap-5">
+          <div className="mt-8 flex flex-wrap items-center gap-5">
             <div className="flex items-center gap-1 text-ink/70">
               {languages.map((l) => (
                 <button
@@ -169,7 +169,7 @@ export function Nav() {
                   type="button"
                   onClick={() => setLang(l.code)}
                   className={cn(
-                    "label-caps px-1.5 text-[0.7rem] hover:text-gold",
+                    "label-caps px-2 py-2 text-[0.7rem] hover:text-gold",
                     lang === l.code && "text-gold",
                   )}
                   aria-pressed={lang === l.code}

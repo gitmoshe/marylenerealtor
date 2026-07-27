@@ -26,7 +26,7 @@ export function Footer() {
   ] as const;
 
   return (
-    <footer className="bg-ink px-6 pt-24 pb-10 text-ivory sm:px-10">
+    <footer className="bg-ink px-6 pt-24 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-ivory sm:px-10">
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -41,7 +41,7 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={t("home.footer.igLabel")}
-                className="transition-colors duration-300 hover:text-gold"
+                className="-m-2 p-2 transition-colors duration-300 hover:text-gold"
               >
                 <Instagram strokeWidth={1} className="size-5" />
               </a>
@@ -50,14 +50,14 @@ export function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={t("home.footer.waLabel")}
-                className="transition-colors duration-300 hover:text-gold"
+                className="-m-2 p-2 transition-colors duration-300 hover:text-gold"
               >
                 <MessageCircle strokeWidth={1} className="size-5" />
               </a>
               <a
                 href="mailto:hello@marylenerealtor.com"
                 aria-label={t("home.footer.emailLabel")}
-                className="transition-colors duration-300 hover:text-gold"
+                className="-m-2 p-2 transition-colors duration-300 hover:text-gold"
               >
                 <Mail strokeWidth={1} className="size-5" />
               </a>
@@ -67,12 +67,12 @@ export function Footer() {
           {columns.map((col) => (
             <nav key={col.titleKey} aria-label={t(col.titleKey)}>
               <p className="overline text-ivory/50">{t(col.titleKey)}</p>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-4 space-y-1">
                 {col.links.map((l) => (
                   <li key={l.to}>
                     <Link
                       to={l.to}
-                      className="text-sm text-ivory/80 transition-colors duration-300 hover:text-gold"
+                      className="inline-block py-2 text-sm text-ivory/80 transition-colors duration-300 hover:text-gold"
                     >
                       {t(l.labelKey)}
                     </Link>

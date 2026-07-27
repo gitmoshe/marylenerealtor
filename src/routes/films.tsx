@@ -52,12 +52,12 @@ function FilmsPage() {
 
       <Section className="pt-16 pb-0 md:pt-20">
         <Container>
-          <Reveal className="flex flex-wrap gap-x-8 gap-y-3 border-y border-border py-6">
+          <Reveal className="flex flex-wrap gap-x-8 gap-y-1 border-y border-border py-5">
             <button
               type="button"
               onClick={() => setCategory(null)}
               className={cn(
-                "label-caps text-[0.65rem] transition-colors duration-300 hover:text-gold",
+                "label-caps -my-2 py-2 text-[0.65rem] transition-colors duration-300 hover:text-gold",
                 category === null ? "text-gold" : "text-ink/70",
               )}
             >
@@ -69,7 +69,7 @@ function FilmsPage() {
                 type="button"
                 onClick={() => setCategory(c)}
                 className={cn(
-                  "label-caps text-[0.65rem] transition-colors duration-300 hover:text-gold",
+                  "label-caps -my-2 py-2 text-[0.65rem] transition-colors duration-300 hover:text-gold",
                   category === c ? "text-gold" : "text-ink/70",
                 )}
               >

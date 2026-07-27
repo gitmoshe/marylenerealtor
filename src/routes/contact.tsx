@@ -119,7 +119,7 @@ function Contact() {
                 <legend className="label-caps text-[0.58rem] text-muted-foreground">
                   {t("contact.interestLegend")}
                 </legend>
-                <div className="mt-4 flex flex-wrap gap-x-7 gap-y-3">
+                <div className="mt-3 flex flex-wrap gap-x-7 gap-y-1">
                   {interests.map((i) => (
                     <button
                       key={i}
@@ -127,7 +127,7 @@ function Contact() {
                       onClick={() => setInterest(i)}
                       aria-pressed={interest === i}
                       className={cn(
-                        "label-caps text-[0.65rem] transition-colors duration-300 hover:text-gold",
+                        "label-caps -my-2 py-2 text-[0.65rem] transition-colors duration-300 hover:text-gold",
                         interest === i ? "text-gold" : "text-ink/70",
                       )}
                     >
@@ -141,7 +141,7 @@ function Contact() {
                 <legend className="label-caps text-[0.58rem] text-muted-foreground">
                   {t("contact.languageLegend")}
                 </legend>
-                <div className="mt-4 flex gap-7">
+                <div className="mt-3 flex gap-7">
                   {languages.map((l) => (
                     <button
                       key={l}
@@ -149,7 +149,7 @@ function Contact() {
                       onClick={() => setLanguage(l)}
                       aria-pressed={language === l}
                       className={cn(
-                        "label-caps text-[0.65rem] transition-colors duration-300 hover:text-gold",
+                        "label-caps -my-2 py-2 text-[0.65rem] transition-colors duration-300 hover:text-gold",
                         language === l ? "text-gold" : "text-ink/70",
                       )}
                     >
@@ -168,7 +168,7 @@ function Contact() {
                   name="message"
                   rows={5}
                   maxLength={1000}
-                  className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
+                  className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
                 />
                 {errors.message && <p className="mt-2 text-xs text-destructive">{errors.message}</p>}
               </div>
@@ -270,7 +270,11 @@ function Field({
         name={name}
         type={type}
         maxLength={255}
-        className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
+        autoComplete={
+          name === "name" ? "name" : name === "email" ? "email" : name === "phone" ? "tel" : "on"
+        }
+        inputMode={type === "email" ? "email" : type === "tel" ? "tel" : "text"}
+        className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
       />
       {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
     </div>

@@ -48,15 +48,17 @@ export function NewsletterBand() {
               type="email"
               name="email"
               maxLength={255}
+              autoComplete="email"
+              inputMode="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t("home.newsletter.placeholder")}
-              className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
+              className="w-full bg-transparent py-3 text-base outline-none sm:text-sm placeholder:text-muted-foreground/60"
             />
             <button
               type="submit"
               aria-label={t("home.newsletter.subscribeAria")}
-              className="grid size-10 shrink-0 place-items-center bg-gold text-ivory transition-colors duration-500 hover:bg-ink"
+              className="grid size-11 shrink-0 place-items-center bg-gold text-ivory transition-colors duration-500 hover:bg-ink"
             >
               <ArrowRight strokeWidth={1.25} className="size-4" />
             </button>

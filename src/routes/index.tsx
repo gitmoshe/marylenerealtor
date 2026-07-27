@@ -160,7 +160,7 @@ function IntroEditorial() {
           </p>
           <Link
             to="/meet-marylene"
-            className="label-caps link-underline mt-10 inline-flex items-center gap-3 text-[0.68rem] text-ink transition-colors duration-300 hover:text-gold"
+            className="label-caps link-underline mt-8 inline-flex items-center gap-3 py-2 text-[0.68rem] text-ink transition-colors duration-300 hover:text-gold"
           >
             {t("sections.meetLink")} <ArrowRight strokeWidth={1} className="size-4" />
           </Link>
@@ -188,7 +188,7 @@ function FilmsPreview() {
           </div>
           <Link
             to="/films"
-            className="label-caps link-underline text-[0.68rem] transition-colors duration-300 hover:text-gold"
+            className="label-caps link-underline py-2 text-[0.68rem] transition-colors duration-300 hover:text-gold"
           >
             {t("sections.filmsLink")}
           </Link>
@@ -219,7 +219,7 @@ function FeaturedProperties() {
           </div>
           <Link
             to="/properties"
-            className="label-caps link-underline text-[0.68rem] transition-colors duration-300 hover:text-gold"
+            className="label-caps link-underline py-2 text-[0.68rem] transition-colors duration-300 hover:text-gold"
           >
             {t("sections.selectedLink")}
           </Link>
@@ -355,10 +355,15 @@ function Testimonials() {
               type="button"
               aria-label={`${t("home.testimonials.ariaLabel")} ${i + 1}`}
               onClick={() => setIndex(i)}
-              className={`h-px w-10 transition-colors duration-500 ${
-                i === index ? "bg-gold" : "bg-border"
-              }`}
-            />
+              className="-my-3 grid h-10 w-10 place-items-center py-3"
+            >
+              <span
+                aria-hidden="true"
+                className={`h-px w-10 transition-colors duration-500 ${
+                  i === index ? "bg-gold" : "bg-border"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </Container>

@@ -142,7 +142,7 @@ function PropertyDetail() {
                     defaultValue={t("properties.enquire.messageTemplate")
                       .replace("{name}", property.name)
                       .replace("{ref}", property.specs[5]?.value ?? property.slug)}
-                    className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
+                    className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
                   />
                 </div>
               </div>
@@ -214,7 +214,11 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         name={name}
         type={type}
         maxLength={255}
-        className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm outline-none focus:border-gold"
+        autoComplete={
+          name === "name" ? "name" : name === "email" ? "email" : name === "phone" ? "tel" : "on"
+        }
+        inputMode={type === "email" ? "email" : type === "tel" ? "tel" : "text"}
+        className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
       />
     </div>
   );
