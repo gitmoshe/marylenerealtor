@@ -28,20 +28,16 @@ export const Route = createFileRoute("/la-riviera")({
 
 const reasons = [
   {
-    title: "Arrival",
-    copy: "Two international airports, direct from Paris, Montréal, New York and Madrid. A house here is a five-hour flight from most of North America and a single overnight from Europe.",
+    title: "Connectivity",
+    copy: "Cancún International receives direct flights from more than thirty cities across North America and Europe, and Tulum's Felipe Carrillo Puerto airport opened in December 2023. The Tren Maya now links the coast inland toward Mérida and the Yucatán interior.",
   },
   {
-    title: "Demand",
-    copy: "Visitor numbers to Quintana Roo have grown almost every year for two decades, interrupted only briefly. Well-placed residences rent for most of the calendar, not merely in winter.",
+    title: "Growth",
+    copy: "Quintana Roo remains Mexico's leading destination for international visitors, and occupancy on the coast holds through most of the calendar rather than a single winter season. Well-placed residences let consistently; poorly placed ones do not.",
   },
   {
-    title: "Ownership",
-    copy: "Foreign buyers hold coastal property through a bank trust — established, routine and renewable. The process is unfamiliar rather than difficult.",
-  },
-  {
-    title: "Life",
-    copy: "Reef in the morning, cenote in the afternoon, and a dinner table that would hold its own in any European capital. This is the part no spreadsheet captures.",
+    title: "Lifestyle",
+    copy: "The Caribbean sea and the second-longest barrier reef in the world sit a few minutes from most addresses, with cenotes, Mayan sites and a serious restaurant culture immediately inland. It is the part of the case that no spreadsheet records.",
   },
 ];
 
@@ -75,32 +71,41 @@ function LaRiviera() {
 
       <Section>
         <Container>
-          <div className="space-y-24">
+          <div className="space-y-28">
             {areas.map((area, i) => (
-              <Reveal
-                key={area.name}
-                className={`grid items-center gap-12 md:grid-cols-2 ${
-                  i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <div className="hover-zoom">
-                  <img
-                    src={area.image}
-                    alt={area.name}
-                    width={1280}
-                    height={960}
-                    loading="lazy"
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                </div>
-                <div>
-                  <Overline tone="lagoon">{area.label}</Overline>
-                  <h2 className="mt-5 font-serif text-4xl sm:text-5xl">{area.name}</h2>
-                  <GoldRule className="mt-7" />
-                  <p className="mt-7 max-w-md text-sm leading-relaxed text-muted-foreground">
-                    {area.copy}
-                  </p>
-                </div>
+              <Reveal key={area.name} delay={i * 60}>
+                <article>
+                  <div className="hover-zoom">
+                    <img
+                      src={area.image}
+                      alt={`${area.name}, Riviera Maya`}
+                      width={1600}
+                      height={900}
+                      loading="lazy"
+                      className="aspect-[16/9] w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-8 grid gap-8 md:grid-cols-12">
+                    <div className="md:col-span-5">
+                      <Overline tone="lagoon">{area.label}</Overline>
+                      <h2 className="mt-5 font-serif text-4xl sm:text-5xl">{area.name}</h2>
+                      <GoldRule className="mt-7" />
+                    </div>
+                    <div className="md:col-span-7">
+                      <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+                        {area.copy}
+                      </p>
+                      <Link
+                        to="/properties"
+                        search={{ location: area.name }}
+                        className="label-caps link-underline mt-8 inline-flex items-center gap-3 text-[0.65rem] text-ink transition-colors duration-300 hover:text-gold"
+                      >
+                        Properties in {area.name}
+                        <ArrowRight strokeWidth={1} className="size-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -111,17 +116,17 @@ function LaRiviera() {
         <Container>
           <Reveal className="max-w-2xl">
             <Overline>Why the Riviera Maya</Overline>
+            <GoldRule className="mt-6" />
             <h2 className="mt-6 font-serif text-4xl leading-tight sm:text-5xl">
               The case, stated plainly.
             </h2>
           </Reveal>
-          <div className="mt-16 grid gap-12 sm:grid-cols-2">
+          <div className="mt-16 grid gap-12 md:grid-cols-3">
             {reasons.map((r, i) => (
-              <Reveal key={r.title} delay={(i % 2) * 120} className="border-t border-border pt-8">
+              <Reveal key={r.title} delay={i * 120} className="border-t border-border pt-8">
                 <h3 className="font-serif text-2xl">{r.title}</h3>
-                <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                  {r.copy}
-                </p>
+                <span className="rule-gold mt-5 w-10" />
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{r.copy}</p>
               </Reveal>
             ))}
           </div>
