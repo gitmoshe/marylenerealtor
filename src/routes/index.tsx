@@ -170,19 +170,7 @@ function IntroEditorial() {
   return (
     <Section>
       <Container className="grid items-center gap-14 md:grid-cols-12">
-        <Reveal className="md:col-span-5">
-          <div className="hover-zoom relative">
-            <img
-              src={portrait}
-              alt="Marylene Maglio, realtor on the Riviera Maya"
-              width={1024}
-              height={1408}
-              loading="lazy"
-              className="aspect-[3/4] w-full object-cover"
-            />
-          </div>
-        </Reveal>
-        <Reveal delay={150} className="md:col-span-7 md:pl-6 lg:pl-16">
+        <Reveal className="md:col-span-7 md:order-1 md:pr-6 lg:pr-16">
           <Overline>{t("sections.meetOverline")}</Overline>
           <GoldRule className="mt-6" />
           <p className="mt-8 font-serif text-[1.65rem] leading-[1.35] text-ink sm:text-[2rem]">
