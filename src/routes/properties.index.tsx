@@ -5,7 +5,12 @@ import { Container, Overline, Section } from "@/components/site/ui";
 import { intents, locations, properties, propertyTypes } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
+type PropertiesSearch = { location?: string };
+
 export const Route = createFileRoute("/properties/")({
+  validateSearch: (search: Record<string, unknown>): PropertiesSearch => ({
+    location: typeof search.location === "string" ? search.location : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Properties for Sale — Playa del Carmen, Tulum & Cancún | Marylene Realtor" },
@@ -71,7 +76,12 @@ function FilterRow({
 }
 
 function PropertiesPage() {
-  const [location, setLocation] = useState<string | null>(null);
+  const search = Route.useSearch();
+  const initialLocation =
+    search.location && (locations as readonly string[]).includes(search.location)
+      ? search.location
+      : null;
+  const [location, setLocation] = useState<string | null>(initialLocation);
   const [type, setType] = useState<string | null>(null);
   const [intent, setIntent] = useState<string | null>(null);
 
