@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 import { Reveal } from "@/components/site/Reveal";
+import { ListingChips } from "@/components/site/listing-sections";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { formatPrice, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
@@ -146,7 +147,8 @@ function ChildCard({ listing }: { listing: Listing }) {
       <h3 className="mt-2 font-serif text-2xl transition-colors duration-300 group-hover:text-gold">
         {listing.name}
       </h3>
-      <p className="mt-2 font-serif text-lg">
+      <ListingChips listing={listing} className="mt-3" />
+      <p className="mt-3 font-serif text-lg">
         {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
       </p>
     </Link>
