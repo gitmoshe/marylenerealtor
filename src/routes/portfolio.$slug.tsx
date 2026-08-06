@@ -40,7 +40,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
 
 function ListingDetail() {
   const { listing } = Route.useLoaderData() as { listing: Listing };
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const reference = listing.slug.toUpperCase().replace(/-/g, " ");
+
 
   const typeLabel =
     t(`properties.type.${listing.type}`) === `properties.type.${listing.type}`
@@ -152,48 +154,76 @@ function ListingDetail() {
           </Reveal>
 
           <Reveal delay={140} className="md:col-span-5">
-            <form
-              className="border border-border bg-card p-8 md:sticky md:top-40"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <Overline>{t("properties.enquire.overline")}</Overline>
-              <p className="mt-4 font-serif text-2xl">
-                {t("properties.enquire.about").replace("{name}", listing.name)}
-              </p>
-              <div className="mt-8 space-y-5">
-                <Field label={t("properties.enquire.name")} name="name" />
-                <Field label={t("properties.enquire.email")} name="email" type="email" />
-                <Field label={t("properties.enquire.phone")} name="phone" type="tel" />
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="label-caps text-[0.58rem] text-muted-foreground"
-                  >
-                    {t("properties.enquire.message")}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    maxLength={1000}
-                    defaultValue={t("properties.enquire.messageTemplate")
-                      .replace("{name}", listing.name)
-                      .replace("{ref}", listing.slug)}
-                    className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="label-caps mt-8 w-full bg-gold py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+            <div className="md:sticky md:top-40">
+              <form
+                className="border border-border bg-card p-8"
+                onSubmit={(e) => e.preventDefault()}
               >
-                {t("properties.enquire.submit")}
-              </button>
-              <p className="mt-5 text-xs text-muted-foreground">
-                {t("properties.enquire.replies")}
-              </p>
-            </form>
+                <Overline>{t("brochure.overline")}</Overline>
+                <p className="mt-4 font-serif text-2xl">{t("brochure.title")}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {t("brochure.copy")}
+                </p>
+                <div className="mt-8 space-y-5">
+                  <Field label={t("properties.enquire.name")} name="name" />
+                  <Field label={t("properties.enquire.email")} name="email" type="email" />
+                  <Field label={t("brochure.phone")} name="phone" type="tel" />
+                  <div>
+                    <label
+                      htmlFor="preferredLanguage"
+                      className="label-caps text-[0.58rem] text-muted-foreground"
+                    >
+                      {t("brochure.language")}
+                    </label>
+                    <select
+                      id="preferredLanguage"
+                      name="preferredLanguage"
+                      defaultValue={lang}
+                      className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
+                    >
+                      <option value="es">Español</option>
+                      <option value="en">English</option>
+                      <option value="fr">Français</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="label-caps text-[0.58rem] text-muted-foreground"
+                    >
+                      {t("properties.enquire.message")}
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      maxLength={1000}
+                      defaultValue={t("brochure.messageTemplate")
+                        .replace("{name}", listing.name)
+                        .replace("{ref}", reference)}
+                      className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
+                    />
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  className="label-caps mt-8 w-full bg-gold py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+                >
+                  {t("brochure.submit")}
+                </button>
+                <p className="mt-5 text-xs text-muted-foreground">
+                  {t("properties.enquire.replies")}
+                </p>
+              </form>
+              <Link
+                to="/contact"
+                className="link-underline mt-5 inline-block text-xs leading-relaxed text-muted-foreground hover:text-gold"
+              >
+                {t("brochure.similar")}
+              </Link>
+            </div>
           </Reveal>
+
         </Container>
       </Section>
 
