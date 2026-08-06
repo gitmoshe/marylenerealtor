@@ -214,6 +214,34 @@ function ListingDetail() {
         </Container>
       </Section>
 
+      {listing.videoUrl && (
+        <Section className="pt-0">
+          <Container>
+            <Reveal>
+              <Overline>{t("portfolio.detail.film")}</Overline>
+              <GoldRule className="mt-6" />
+              <div className="mt-8 bg-ivory p-3 shadow-[0_1px_0_0_hsl(var(--border))] sm:p-6">
+                <div className="aspect-video w-full overflow-hidden bg-ink">
+                  <iframe
+                    src={listing.videoUrl}
+                    title={listing.name}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
+                </div>
+                <p className="label-caps mt-4 text-[0.58rem] text-muted-foreground">
+                  {t("portfolio.detail.filmedBy")}
+                </p>
+              </div>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+
+
       <Section className="border-t border-border bg-secondary/50">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
