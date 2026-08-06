@@ -347,7 +347,7 @@ function ListingDetail() {
                   updates={listing.progress!}
                   prefix={t("detail.progress.prefix")}
                   intro={t("detail.progress.intro")}
-                  delivery={listing.delivery}
+                  delivery={/to be confirmed/i.test(listing.delivery) ? undefined : listing.delivery}
                   deliveryLabel={t("detail.progress.delivery")}
                 />
               </DetailSection>
