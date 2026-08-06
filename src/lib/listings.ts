@@ -23,6 +23,7 @@ export const listingTypes = [
   "Condo",
   "Land",
   "Branded Residence",
+  "Resale",
 ] as const;
 
 export const listingTiers = ["master-broker", "portfolio", "sold"] as const;
@@ -91,6 +92,16 @@ export type Listing = {
   /** Slugs of listings grouped under this one (collection-type listings). */
   subListings?: string[];
 };
+
+/** Slugs that belong to a collection listing (rendered on the hub, not the grid). */
+export function childSlugsIn(items: Listing[]): Set<string> {
+  return new Set(items.flatMap((l) => l.subListings ?? []));
+}
+
+/** A listing that groups other listings under it. */
+export function isCollection(l: Listing): boolean {
+  return (l.subListings ?? []).length > 0;
+}
 
 /** Locations, types and collections actually present in a set of listings. */
 export function usedLocationsIn(items: Listing[]): string[] {
