@@ -16,76 +16,112 @@ export type Database = {
     Tables: {
       listings: {
         Row: {
+          amenities: string[]
           bedrooms: string
           collections: string[]
           created_at: string
           delivery: string
           description: string
           developer: string
+          developer_blurb: string
+          developer_logo: string
+          developer_name: string
           featured: boolean
+          ficha: Json
+          floor_plans: Json
           gallery: string[]
           hero_image: string
           highlights: string[]
           id: string
           location: string
+          masterplan_image: string
           name: string
+          payment_plan_summary: string
           price_from: number
+          price_list: Json
+          progress: Json
           size_range: string
           slug: string
           sort_order: number
           status: string
+          sub_listings: string[]
           tier: string
           type: string
           updated_at: string
           video_url: string
+          virtual_tour_url: string
         }
         Insert: {
+          amenities?: string[]
           bedrooms?: string
           collections?: string[]
           created_at?: string
           delivery?: string
           description?: string
           developer?: string
+          developer_blurb?: string
+          developer_logo?: string
+          developer_name?: string
           featured?: boolean
+          ficha?: Json
+          floor_plans?: Json
           gallery?: string[]
           hero_image?: string
           highlights?: string[]
           id?: string
           location?: string
+          masterplan_image?: string
           name: string
+          payment_plan_summary?: string
           price_from?: number
+          price_list?: Json
+          progress?: Json
           size_range?: string
           slug: string
           sort_order?: number
           status?: string
+          sub_listings?: string[]
           tier?: string
           type?: string
           updated_at?: string
           video_url?: string
+          virtual_tour_url?: string
         }
         Update: {
+          amenities?: string[]
           bedrooms?: string
           collections?: string[]
           created_at?: string
           delivery?: string
           description?: string
           developer?: string
+          developer_blurb?: string
+          developer_logo?: string
+          developer_name?: string
           featured?: boolean
+          ficha?: Json
+          floor_plans?: Json
           gallery?: string[]
           hero_image?: string
           highlights?: string[]
           id?: string
           location?: string
+          masterplan_image?: string
           name?: string
+          payment_plan_summary?: string
           price_from?: number
+          price_list?: Json
+          progress?: Json
           size_range?: string
           slug?: string
           sort_order?: number
           status?: string
+          sub_listings?: string[]
           tier?: string
           type?: string
           updated_at?: string
           video_url?: string
+          virtual_tour_url?: string
         }
         Relationships: []
       }
