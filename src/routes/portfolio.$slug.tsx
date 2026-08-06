@@ -101,7 +101,7 @@ function ListingDetail() {
     { label: t("detail.spec.parking"), value: ficha.parking },
     {
       label: t("portfolio.field.priceFrom"),
-      value: formatPrice(listing.priceFrom, t("portfolio.priceOnRequest")),
+      value: formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency),
     },
   ].filter((f) => Boolean(f.value));
 
@@ -136,7 +136,7 @@ function ListingDetail() {
                   {listing.name}
                 </h1>
                 <p className="mt-4 font-serif text-2xl text-gold">
-                  {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
+                  {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
                 </p>
               </div>
               {listing.developerLogo && (

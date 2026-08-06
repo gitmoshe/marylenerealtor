@@ -130,7 +130,7 @@ function PriceTag({ listing }: { listing: Listing }) {
   }
   return (
     <p className="shrink-0 font-serif text-lg">
-      {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
+      {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
     </p>
   );
 }

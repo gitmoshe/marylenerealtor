@@ -44,6 +44,7 @@ const emptyDraft: Draft = {
   status: "Selling now",
   delivery: "To be confirmed",
   priceFrom: 0,
+  currency: "USD" as const,
   bedrooms: "",
   sizeRange: "To be confirmed",
   highlights: [],
@@ -454,10 +455,16 @@ function ListingForm({
         <TextField label="Status" value={form.status} onChange={(v) => set("status", v)} />
         <TextField label="Delivery" value={form.delivery} onChange={(v) => set("delivery", v)} />
         <TextField
-          label="Price from (USD, 0 = on request)"
+          label="Price from (0 = on request)"
           type="number"
           value={String(form.priceFrom)}
           onChange={(v) => set("priceFrom", Number(v) || 0)}
+        />
+        <SelectField
+          label="Currency"
+          value={form.currency}
+          options={listingCurrencies}
+          onChange={(v) => set("currency", v as "USD" | "MXN")}
         />
         <TextField label="Bedrooms" value={form.bedrooms} onChange={(v) => set("bedrooms", v)} />
         <TextField label="Size range" value={form.sizeRange} onChange={(v) => set("sizeRange", v)} />

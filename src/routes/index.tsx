@@ -254,7 +254,7 @@ function FeaturedProperties() {
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.highlights.join(" · ")}</p>
                 <p className="mt-4 font-serif text-lg text-ink">
-                  {formatPrice(p.priceFrom, t("portfolio.priceOnRequest"))}
+                  {formatPrice(p.priceFrom, t("portfolio.priceOnRequest"), p.currency)}
                 </p>
               </Link>
             </Reveal>
