@@ -5,7 +5,9 @@ import { Play } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
+  childSlugsIn,
   formatPrice,
+  isCollection,
   usedLocationsIn,
   usedTypesIn,
   type Listing,
