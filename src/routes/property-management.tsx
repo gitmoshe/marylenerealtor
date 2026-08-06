@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarCheck, ClipboardList, Sparkles, LineChart, Wrench, Users } from "lucide-react";
-import property1 from "@/assets/property-1.jpg";
+import property1 from "@/assets/property-1.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { useI18n } from "@/lib/i18n";

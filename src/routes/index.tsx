@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Home, KeyRound, Compass, ArrowRight } from "lucide-react";
-import heroVilla from "@/assets/hero-villa.jpg";
+import heroVilla from "@/assets/hero-villa.jpg?w=1920&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { FilmCard } from "@/components/site/FilmCard";
 import { PhotoFrame } from "@/components/site/PhotoFrame";

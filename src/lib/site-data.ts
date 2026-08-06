@@ -1,8 +1,8 @@
-import property1 from "@/assets/property-1.jpg";
-import property2 from "@/assets/property-2.jpg";
-import property3 from "@/assets/property-3.jpg";
-import coastline from "@/assets/coastline.jpg";
-import cenote from "@/assets/cenote.jpg";
+import property1 from "@/assets/property-1.jpg?w=1600&format=webp";
+import property2 from "@/assets/property-2.jpg?w=1600&format=webp";
+import property3 from "@/assets/property-3.jpg?w=1600&format=webp";
+import coastline from "@/assets/coastline.jpg?w=1600&format=webp";
+import cenote from "@/assets/cenote.jpg?w=1600&format=webp";
 
 export type Film = {
   id: string;
