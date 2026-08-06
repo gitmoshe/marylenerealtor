@@ -12,6 +12,7 @@ import { commonDict } from "./i18n/dict.common";
 import { homeDict } from "./i18n/dict.home";
 import { aboutDict } from "./i18n/dict.about";
 import { propertiesDict } from "./i18n/dict.properties";
+import { portfolioDict } from "./i18n/dict.portfolio";
 import { managementDict } from "./i18n/dict.management";
 import { filmsDict } from "./i18n/dict.films";
 import { rivieraDict } from "./i18n/dict.riviera";
@@ -26,6 +27,7 @@ const dicts: Dict[] = [
   homeDict,
   aboutDict,
   propertiesDict,
+  portfolioDict,
   managementDict,
   filmsDict,
   rivieraDict,

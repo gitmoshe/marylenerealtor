@@ -17,7 +17,9 @@ import { Route as FilmsRouteImport } from './routes/films'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
+import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -59,9 +61,19 @@ const PropertiesIndexRoute = PropertiesIndexRouteImport.update({
   path: '/properties/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/portfolio/',
+  path: '/portfolio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
   id: '/properties/$slug',
   path: '/properties/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
+  id: '/portfolio/$slug',
+  path: '/portfolio/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -73,7 +85,9 @@ export interface FileRoutesByFullPath {
   '/meet-marylene': typeof MeetMaryleneRoute
   '/property-management': typeof PropertyManagementRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,7 +98,9 @@ export interface FileRoutesByTo {
   '/meet-marylene': typeof MeetMaryleneRoute
   '/property-management': typeof PropertyManagementRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/portfolio': typeof PortfolioIndexRoute
   '/properties': typeof PropertiesIndexRoute
 }
 export interface FileRoutesById {
@@ -96,7 +112,9 @@ export interface FileRoutesById {
   '/meet-marylene': typeof MeetMaryleneRoute
   '/property-management': typeof PropertyManagementRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/portfolio/$slug': typeof PortfolioSlugRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,7 +127,9 @@ export interface FileRouteTypes {
     | '/meet-marylene'
     | '/property-management'
     | '/sitemap.xml'
+    | '/portfolio/$slug'
     | '/properties/$slug'
+    | '/portfolio/'
     | '/properties/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -120,7 +140,9 @@ export interface FileRouteTypes {
     | '/meet-marylene'
     | '/property-management'
     | '/sitemap.xml'
+    | '/portfolio/$slug'
     | '/properties/$slug'
+    | '/portfolio'
     | '/properties'
   id:
     | '__root__'
@@ -131,7 +153,9 @@ export interface FileRouteTypes {
     | '/meet-marylene'
     | '/property-management'
     | '/sitemap.xml'
+    | '/portfolio/$slug'
     | '/properties/$slug'
+    | '/portfolio/'
     | '/properties/'
   fileRoutesById: FileRoutesById
 }
@@ -143,7 +167,9 @@ export interface RootRouteChildren {
   MeetMaryleneRoute: typeof MeetMaryleneRoute
   PropertyManagementRoute: typeof PropertyManagementRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  PortfolioSlugRoute: typeof PortfolioSlugRoute
   PropertiesSlugRoute: typeof PropertiesSlugRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
 }
 
@@ -205,11 +231,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PropertiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/portfolio'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/properties/$slug': {
       id: '/properties/$slug'
       path: '/properties/$slug'
       fullPath: '/properties/$slug'
       preLoaderRoute: typeof PropertiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio/$slug': {
+      id: '/portfolio/$slug'
+      path: '/portfolio/$slug'
+      fullPath: '/portfolio/$slug'
+      preLoaderRoute: typeof PortfolioSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -223,7 +263,9 @@ const rootRouteChildren: RootRouteChildren = {
   MeetMaryleneRoute: MeetMaryleneRoute,
   PropertyManagementRoute: PropertyManagementRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  PortfolioSlugRoute: PortfolioSlugRoute,
   PropertiesSlugRoute: PropertiesSlugRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
 }
 export const routeTree = rootRouteImport

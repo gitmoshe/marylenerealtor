@@ -102,7 +102,7 @@ function LaRiviera() {
                           {copy}
                         </p>
                         <Link
-                          to="/properties"
+                          to="/portfolio"
                           search={{ location: area.name }}
                           className="label-caps link-underline mt-8 inline-flex items-center gap-3 text-[0.65rem] text-ink transition-colors duration-300 hover:text-gold"
                         >
@@ -146,7 +146,7 @@ function LaRiviera() {
         <Container className="max-w-2xl text-center">
           <h2 className="font-serif text-4xl sm:text-5xl">{t("riviera.closing.title")}</h2>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <ButtonLink to="/properties" variant="gold">
+            <ButtonLink to="/portfolio" variant="gold">
               {t("riviera.closing.explore")}
             </ButtonLink>
             <ButtonLink to="/contact" variant="outline">

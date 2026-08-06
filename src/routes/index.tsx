@@ -7,7 +7,8 @@ import { FilmCard } from "@/components/site/FilmCard";
 import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
-import { films, properties, testimonials } from "@/lib/site-data";
+import { films, testimonials } from "@/lib/site-data";
+import { featuredListings, formatPrice } from "@/lib/listings";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -87,7 +88,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={360}>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <ButtonLink to="/properties" variant="gold">
+            <ButtonLink to="/portfolio" variant="gold">
               {t("hero.ctaPrimary")}
             </ButtonLink>
             <ButtonLink to="/films" variant="ghost">
@@ -208,7 +209,7 @@ function FilmsPreview() {
 
 function FeaturedProperties() {
   const { t } = useI18n();
-  const featured = properties.slice(0, 3);
+  const featured = featuredListings.slice(0, 3);
   return (
     <Section>
       <Container>
@@ -218,7 +219,7 @@ function FeaturedProperties() {
             <h2 className="mt-5 font-serif text-4xl sm:text-5xl">{t("sections.selectedTitle")}</h2>
           </div>
           <Link
-            to="/properties"
+            to="/portfolio"
             className="label-caps link-underline py-2 text-[0.68rem] transition-colors duration-300 hover:text-gold"
           >
             {t("sections.selectedLink")}
@@ -229,13 +230,13 @@ function FeaturedProperties() {
           {featured.map((p, i) => (
             <Reveal key={p.slug} delay={i * 120}>
               <Link
-                to="/properties/$slug"
+                to="/portfolio/$slug"
                 params={{ slug: p.slug }}
                 className="group block"
               >
                 <div className="hover-zoom">
                   <img
-                    src={p.image}
+                    src={p.heroImage}
                     alt={p.name}
                     width={1280}
                     height={960}
@@ -247,8 +248,10 @@ function FeaturedProperties() {
                 <h3 className="mt-3 font-serif text-2xl transition-colors duration-300 group-hover:text-gold">
                   {p.name}
                 </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.line}</p>
-                <p className="mt-4 font-serif text-lg text-ink">{p.price}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{p.highlights.join(" · ")}</p>
+                <p className="mt-4 font-serif text-lg text-ink">
+                  {formatPrice(p.priceFrom, t("portfolio.priceOnRequest"))}
+                </p>
               </Link>
             </Reveal>
           ))}
