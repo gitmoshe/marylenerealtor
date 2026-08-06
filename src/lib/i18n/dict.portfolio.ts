@@ -37,6 +37,7 @@ export const portfolioDict: Dict = {
     "portfolio.band.copy":
       "A selection from Marylene's portfolio — she has access to the entire Riviera Maya inventory. If it's for sale on this coast, she can sell it to you.",
     "portfolio.masterBroker.chip": "Master Broker",
+    "portfolio.partners.title": "Developments & Partners",
     "portfolio.chip.masterBroker": "Master Broker",
     "portfolio.chip.underConstruction": "Under construction \u2014 delivery {delivery}",
     "portfolio.chip.resale": "Resale",
@@ -122,6 +123,7 @@ export const portfolioDict: Dict = {
     "portfolio.band.copy":
       "Une sélection du portfolio de Marylene — elle a accès à tout l'inventaire de la Riviera Maya. Si c'est à vendre sur cette côte, elle peut vous le vendre.",
     "portfolio.masterBroker.chip": "Master Broker",
+    "portfolio.partners.title": "Projets & partenaires",
     "portfolio.chip.masterBroker": "Master Broker",
     "portfolio.chip.underConstruction": "En construction \u2014 livraison {delivery}",
     "portfolio.chip.resale": "Revente",
@@ -207,6 +209,7 @@ export const portfolioDict: Dict = {
     "portfolio.band.copy":
       "Una selección del portafolio de Marylene — tiene acceso a todo el inventario de la Riviera Maya. Si está a la venta en esta costa, ella puede vendérselo.",
     "portfolio.masterBroker.chip": "Master Broker",
+    "portfolio.partners.title": "Desarrollos y socios",
     "portfolio.chip.masterBroker": "Master Broker",
     "portfolio.chip.underConstruction": "En construcci\u00f3n \u2014 entrega {delivery}",
     "portfolio.chip.resale": "Reventa",

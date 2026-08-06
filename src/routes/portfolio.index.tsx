@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ListingChips } from "@/components/site/listing-sections";
+import { PartnerStrip } from "@/components/site/PartnerStrip";
 import { useMemo, useState } from "react";
 import { Play } from "lucide-react";
 
@@ -250,6 +251,18 @@ function PortfolioPage() {
             <p className="mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground">
               {t("portfolio.band.copy")}
             </p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* 1b — Developments & partners */}
+      <Section className="pt-16 pb-0 md:pt-20">
+        <Container>
+          <Reveal className="border-y border-border py-10">
+            <p className="label-caps text-center text-[0.55rem] text-muted-foreground">
+              {t("portfolio.partners.title")}
+            </p>
+            <PartnerStrip className="mt-8" />
           </Reveal>
         </Container>
       </Section>
