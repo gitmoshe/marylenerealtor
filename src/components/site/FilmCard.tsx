@@ -1,5 +1,6 @@
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { VideoFacade } from "@/components/site/VideoFacade";
 import type { Film } from "@/lib/site-data";
 
 export function EmbedFrame({
@@ -15,14 +16,7 @@ export function EmbedFrame({
     return (
       <div className="mx-auto w-full max-w-[21rem] bg-ivory p-3 shadow-[0_18px_50px_-30px_rgba(28,26,23,0.55)] ring-1 ring-border/70 sm:p-4">
         <div className="aspect-[9/16] w-full overflow-hidden rounded-[1.35rem] bg-ink">
-          <iframe
-            src={embed}
-            title={title}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="size-full"
-          />
+          <VideoFacade url={embed} title={title} />
         </div>
       </div>
     );
@@ -30,14 +24,7 @@ export function EmbedFrame({
 
   return (
     <div className="aspect-video w-full overflow-hidden bg-ink">
-      <iframe
-        src={embed}
-        title={title}
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className="size-full"
-      />
+      <VideoFacade url={embed} title={title} />
     </div>
   );
 }

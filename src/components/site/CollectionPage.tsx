@@ -133,7 +133,7 @@ function ChildCard({ listing }: { listing: Listing }) {
     <Link to="/portfolio/$slug" params={{ slug: listing.slug }} className="group block">
       <div className="hover-zoom">
         <img
-          src={resolveListingImage(listing.heroImage)}
+          src={resolveListingImage(listing.heroImage, "card")}
           alt={listing.name}
           width={900}
           height={675}

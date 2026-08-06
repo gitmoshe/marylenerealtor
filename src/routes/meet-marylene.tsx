@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
-import coastline from "@/assets/coastline.jpg";
+import coastline from "@/assets/coastline.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { useI18n } from "@/lib/i18n";

@@ -143,7 +143,7 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
     <Link to="/portfolio/$slug" params={{ slug: listing.slug }} className="group block">
       <div className="hover-zoom relative">
         <img
-          src={resolveListingImage(listing.heroImage)}
+          src={resolveListingImage(listing.heroImage, "card")}
           alt={listing.name}
           width={1280}
           height={960}
