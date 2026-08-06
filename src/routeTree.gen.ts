@@ -17,6 +17,7 @@ import { Route as FilmsRouteImport } from './routes/films'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
+import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -59,6 +60,11 @@ const PropertiesIndexRoute = PropertiesIndexRouteImport.update({
   path: '/properties/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
+  id: '/portfolio/',
+  path: '/portfolio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
   id: '/properties/$slug',
   path: '/properties/$slug',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/property-management': typeof PropertyManagementRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/property-management': typeof PropertyManagementRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/portfolio': typeof PortfolioIndexRoute
   '/properties': typeof PropertiesIndexRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/property-management': typeof PropertyManagementRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/properties/$slug': typeof PropertiesSlugRoute
+  '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/property-management'
     | '/sitemap.xml'
     | '/properties/$slug'
+    | '/portfolio/'
     | '/properties/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/property-management'
     | '/sitemap.xml'
     | '/properties/$slug'
+    | '/portfolio'
     | '/properties'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/property-management'
     | '/sitemap.xml'
     | '/properties/$slug'
+    | '/portfolio/'
     | '/properties/'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   PropertyManagementRoute: typeof PropertyManagementRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   PropertiesSlugRoute: typeof PropertiesSlugRoute
+  PortfolioIndexRoute: typeof PortfolioIndexRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
 }
 
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PropertiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio/': {
+      id: '/portfolio/'
+      path: '/portfolio'
+      fullPath: '/portfolio/'
+      preLoaderRoute: typeof PortfolioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/properties/$slug': {
       id: '/properties/$slug'
       path: '/properties/$slug'
@@ -224,18 +244,9 @@ const rootRouteChildren: RootRouteChildren = {
   PropertyManagementRoute: PropertyManagementRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   PropertiesSlugRoute: PropertiesSlugRoute,
+  PortfolioIndexRoute: PortfolioIndexRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
