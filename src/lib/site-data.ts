@@ -3,7 +3,6 @@ import property2 from "@/assets/property-2.jpg";
 import property3 from "@/assets/property-3.jpg";
 import coastline from "@/assets/coastline.jpg";
 import cenote from "@/assets/cenote.jpg";
-import heroVilla from "@/assets/hero-villa.jpg";
 
 export type Film = {
   id: string;
