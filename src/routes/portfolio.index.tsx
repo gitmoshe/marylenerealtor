@@ -1,19 +1,42 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
-import { Container, Overline, Section } from "@/components/site/ui";
+import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
   formatPrice,
-  listingCollections,
   listings,
   usedLocations,
-  usedTiers,
   usedTypes,
+  type Listing,
 } from "@/lib/listings";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
 
 type PortfolioSearch = { location?: string; collection?: string };
+
+const PRICE_BUCKETS = ["under-500k", "500k-1m", "1m-plus"] as const;
+const DELIVERY_BUCKETS = ["ready", "2026", "2027-plus"] as const;
+
+/** Collection rows below the grid, in editorial order. */
+const COLLECTION_ROWS = ["Playacar Collection", "Tulum Collection"] as const;
+
+function priceBucket(l: Listing): string | null {
+  if (!l.priceFrom) return null;
+  if (l.priceFrom < 500_000) return "under-500k";
+  if (l.priceFrom < 1_000_000) return "500k-1m";
+  return "1m-plus";
+}
+
+function deliveryBucket(l: Listing): string | null {
+  const d = l.delivery.toLowerCase();
+  if (d.includes("ready") || d.includes("immediate") || d.includes("delivered")) return "ready";
+  const year = d.match(/20\d{2}/);
+  if (!year) return null;
+  const y = Number(year[0]);
+  if (y <= 2025) return "ready";
+  if (y === 2026) return "2026";
+  return "2027-plus";
+}
 
 export const Route = createFileRoute("/portfolio/")({
   validateSearch: (search: Record<string, unknown>): PortfolioSearch => ({
@@ -26,13 +49,13 @@ export const Route = createFileRoute("/portfolio/")({
       {
         name: "description",
         content:
-          "Pre-construction, villas, condos and branded residences across Tulum, Playacar, Playa del Carmen and Cancún with realtor Marylene Maglio, plus property management once you own.",
+          "One broker, the whole Riviera Maya: pre-construction, villas, condos and branded residences in Tulum, Playacar, Playa del Carmen and Cancún with realtor Marylene Maglio.",
       },
       { property: "og:title", content: "Portfolio — Riviera Maya | Marylene Realtor" },
       {
         property: "og:description",
         content:
-          "A curated portfolio of Riviera Maya developments and residences, with property management for owners.",
+          "A selection from Marylene's portfolio, with access to the entire Riviera Maya inventory.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/portfolio" },
@@ -88,6 +111,61 @@ function FilterRow({
   );
 }
 
+function PriceTag({ listing }: { listing: Listing }) {
+  const { t } = useI18n();
+  if (listing.tier === "sold") {
+    return (
+      <span className="label-caps inline-block shrink-0 border border-gold/60 px-3 py-1.5 text-[0.55rem] text-gold">
+        {t("portfolio.soldOut")}
+      </span>
+    );
+  }
+  return (
+    <p className="shrink-0 font-serif text-lg">
+      {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
+    </p>
+  );
+}
+
+function ListingCard({ listing, compact = false }: { listing: Listing; compact?: boolean }) {
+  const { t } = useI18n();
+  const typeKey = `properties.type.${listing.type}`;
+  const typeLabel = t(typeKey) === typeKey ? listing.type : t(typeKey);
+  return (
+    <Link to="/portfolio/$slug" params={{ slug: listing.slug }} className="group block">
+      <div className="hover-zoom">
+        <img
+          src={listing.heroImage}
+          alt={listing.name}
+          width={1280}
+          height={960}
+          loading="lazy"
+          className="aspect-[4/3] w-full object-cover"
+        />
+      </div>
+      <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+        <div className="min-w-0">
+          <p className="label-caps text-[0.62rem] text-lagoon">
+            {listing.location} · {typeLabel}
+          </p>
+          <h3
+            className={cn(
+              "mt-3 font-serif transition-colors duration-300 group-hover:text-gold",
+              compact ? "text-xl" : "text-2xl",
+            )}
+          >
+            {listing.name}
+          </h3>
+          {!compact && (
+            <p className="mt-2 text-sm text-muted-foreground">{listing.highlights.join(" · ")}</p>
+          )}
+        </div>
+        <PriceTag listing={listing} />
+      </div>
+    </Link>
+  );
+}
+
 function PortfolioPage() {
   const { t } = useI18n();
   const search = Route.useSearch();
@@ -96,15 +174,13 @@ function PortfolioPage() {
     search.location && (usedLocations as readonly string[]).includes(search.location)
       ? search.location
       : null;
-  const initialCollection =
-    search.collection && listingCollections.includes(search.collection)
-      ? search.collection
-      : null;
 
   const [location, setLocation] = useState<string | null>(initialLocation);
   const [type, setType] = useState<string | null>(null);
-  const [tier, setTier] = useState<string | null>(null);
-  const [collection, setCollection] = useState<string | null>(initialCollection);
+  const [price, setPrice] = useState<string | null>(null);
+  const [delivery, setDelivery] = useState<string | null>(null);
+
+  const masterBroker = useMemo(() => listings.filter((l) => l.tier === "master-broker"), []);
 
   const results = useMemo(
     () =>
@@ -112,29 +188,60 @@ function PortfolioPage() {
         (l) =>
           (!location || l.location === location) &&
           (!type || l.type === type) &&
-          (!tier || l.tier === tier) &&
-          (!collection || l.collections.includes(collection)),
+          (!price || priceBucket(l) === price) &&
+          (!delivery || deliveryBucket(l) === delivery),
       ),
-    [location, type, tier, collection],
+    [location, type, price, delivery],
   );
+
+  const collectionRows = COLLECTION_ROWS.map((c) => ({
+    tag: c,
+    items: listings.filter((l) => l.collections.includes(c)),
+  })).filter((row) => row.items.length > 0);
 
   return (
     <>
+      {/* 1 — Header band */}
       <Section className="pt-44 pb-0 md:pt-52">
         <Container>
           <Reveal className="max-w-3xl">
             <Overline>{t("portfolio.hero.overline")}</Overline>
+            <GoldRule className="mt-6" />
             <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              {t("portfolio.hero.titleLine1")}
-              <span className="block italic">{t("portfolio.hero.titleLine2")}</span>
+              {t("portfolio.band.title")}
             </h1>
-            <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
-              {t("portfolio.hero.subtitle")}
+            <p className="mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              {t("portfolio.band.copy")}
             </p>
           </Reveal>
         </Container>
       </Section>
 
+      {/* 2 — Master broker */}
+      {masterBroker.length > 0 && (
+        <Section className="pt-20 pb-0 md:pt-24">
+          <Container>
+            <Reveal className="border border-gold/40 p-8 sm:p-12">
+              <span className="label-caps inline-block border border-gold px-3 py-1.5 text-[0.55rem] text-gold">
+                {t("portfolio.masterBroker.chip")}
+              </span>
+              <h2 className="mt-6 font-serif text-3xl sm:text-4xl">
+                {t("portfolio.masterBroker.title")}
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                {t("portfolio.masterBroker.copy")}
+              </p>
+              <div className="mt-10 grid gap-12 sm:grid-cols-2">
+                {masterBroker.map((l) => (
+                  <ListingCard key={l.slug} listing={l} />
+                ))}
+              </div>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* 3 — Filters */}
       <Section className="pt-16 pb-0 md:pt-20">
         <Container>
           <Reveal className="space-y-5 border-y border-border py-8">
@@ -156,20 +263,19 @@ function PortfolioPage() {
               }}
             />
             <FilterRow
-              label={t("portfolio.filter.tier")}
-              options={usedTiers}
-              value={tier}
-              onChange={setTier}
-              optionLabel={(o) => t(`portfolio.tier.${o}`)}
+              label={t("portfolio.filter.price")}
+              options={PRICE_BUCKETS}
+              value={price}
+              onChange={setPrice}
+              optionLabel={(o) => t(`portfolio.price.${o}`)}
             />
-            {listingCollections.length > 0 && (
-              <FilterRow
-                label={t("portfolio.filter.collection")}
-                options={listingCollections}
-                value={collection}
-                onChange={setCollection}
-              />
-            )}
+            <FilterRow
+              label={t("portfolio.filter.delivery")}
+              options={DELIVERY_BUCKETS}
+              value={delivery}
+              onChange={setDelivery}
+              optionLabel={(o) => t(`portfolio.delivery.${o}`)}
+            />
           </Reveal>
           <p className="label-caps mt-6 text-[0.6rem] text-muted-foreground">
             {results.length}{" "}
@@ -178,37 +284,13 @@ function PortfolioPage() {
         </Container>
       </Section>
 
-      <Section className="pt-14">
+      {/* 4 — Full grid */}
+      <Section className="pt-14 pb-0">
         <Container>
           <div className="grid gap-12 sm:grid-cols-2">
             {results.map((l, i) => (
               <Reveal key={l.slug} delay={(i % 2) * 120}>
-                <Link to="/portfolio/$slug" params={{ slug: l.slug }} className="group block">
-                  <div className="hover-zoom">
-                    <img
-                      src={l.heroImage}
-                      alt={l.name}
-                      width={1280}
-                      height={960}
-                      loading="lazy"
-                      className="aspect-[4/3] w-full object-cover"
-                    />
-                  </div>
-                  <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
-                    <div className="min-w-0">
-                      <p className="label-caps text-[0.62rem] text-lagoon">
-                        {l.location} · {t(`properties.type.${l.type}`) === `properties.type.${l.type}` ? l.type : t(`properties.type.${l.type}`)}
-                      </p>
-                      <h2 className="mt-3 font-serif text-2xl transition-colors duration-300 group-hover:text-gold">
-                        {l.name}
-                      </h2>
-                      <p className="mt-2 text-sm text-muted-foreground">{l.highlights.join(" · ")}</p>
-                    </div>
-                    <p className="shrink-0 font-serif text-lg">
-                      {formatPrice(l.priceFrom, t("portfolio.priceOnRequest"))}
-                    </p>
-                  </div>
-                </Link>
+                <ListingCard listing={l} />
               </Reveal>
             ))}
           </div>
@@ -218,6 +300,46 @@ function PortfolioPage() {
               {t("portfolio.empty")}
             </p>
           )}
+        </Container>
+      </Section>
+
+      {/* 5 — Collection rows */}
+      {collectionRows.map((row) => (
+        <Section key={row.tag} className="pt-24 pb-0 md:pt-28">
+          <Container>
+            <Reveal>
+              <Overline>{t("portfolio.collections.overline")}</Overline>
+              <h2 className="mt-5 font-serif text-3xl sm:text-4xl">
+                {t(`portfolio.collection.${row.tag}`) === `portfolio.collection.${row.tag}`
+                  ? row.tag
+                  : t(`portfolio.collection.${row.tag}`)}
+              </h2>
+            </Reveal>
+            <div className="-mx-6 mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-4 sm:mx-0 sm:px-0">
+              {row.items.map((l) => (
+                <div key={l.slug} className="w-[78vw] shrink-0 snap-start sm:w-[320px]">
+                  <ListingCard listing={l} compact />
+                </div>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ))}
+
+      {/* 6 — Closing CTA */}
+      <Section className="mt-24 bg-ink text-ivory md:mt-32">
+        <Container className="text-center">
+          <Reveal>
+            <h2 className="font-serif text-4xl leading-tight sm:text-5xl">
+              {t("portfolio.cta.title")}
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-ivory/70">
+              {t("portfolio.cta.copy")}
+            </p>
+            <ButtonLink to="/contact" className="mt-10">
+              {t("portfolio.cta.button")}
+            </ButtonLink>
+          </Reveal>
         </Container>
       </Section>
     </>
