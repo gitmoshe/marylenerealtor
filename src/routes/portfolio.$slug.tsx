@@ -40,7 +40,9 @@ export const Route = createFileRoute("/portfolio/$slug")({
 
 function ListingDetail() {
   const { listing } = Route.useLoaderData() as { listing: Listing };
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const reference = listing.slug.toUpperCase().replace(/-/g, " ");
+
 
   const typeLabel =
     t(`properties.type.${listing.type}`) === `properties.type.${listing.type}`
