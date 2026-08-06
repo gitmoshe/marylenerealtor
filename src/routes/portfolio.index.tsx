@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ListingChips } from "@/components/site/listing-sections";
 import { useMemo, useState } from "react";
 import { Play } from "lucide-react";
 
@@ -158,7 +159,9 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
         )}
       </div>
 
-      <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+      <ListingChips listing={listing} className="mt-4" />
+
+      <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
         <div className="min-w-0">
           <p className="label-caps text-[0.62rem] text-lagoon">
             {listing.location} · {typeLabel}

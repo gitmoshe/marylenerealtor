@@ -346,6 +346,9 @@ function ListingDetail() {
                 <ProgressTimeline
                   updates={listing.progress!}
                   prefix={t("detail.progress.prefix")}
+                  intro={t("detail.progress.intro")}
+                  delivery={listing.delivery}
+                  deliveryLabel={t("detail.progress.delivery")}
                 />
               </DetailSection>
             </Reveal>
