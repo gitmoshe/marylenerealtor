@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { Play } from "lucide-react";
+
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
@@ -133,7 +135,7 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
   const typeLabel = t(typeKey) === typeKey ? listing.type : t(typeKey);
   return (
     <Link to="/portfolio/$slug" params={{ slug: listing.slug }} className="group block">
-      <div className="hover-zoom">
+      <div className="hover-zoom relative">
         <img
           src={listing.heroImage}
           alt={listing.name}
@@ -142,7 +144,16 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
           loading="lazy"
           className="aspect-[4/3] w-full object-cover"
         />
+        {listing.videoUrl && (
+          <span
+            className="absolute bottom-4 right-4 inline-flex h-9 w-9 items-center justify-center border border-ivory/70 bg-ink/40 text-ivory backdrop-blur-sm"
+            aria-hidden="true"
+          >
+            <Play size={14} strokeWidth={1.25} className="ml-0.5" />
+          </span>
+        )}
       </div>
+
       <div className="mt-5 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
         <div className="min-w-0">
           <p className="label-caps text-[0.62rem] text-lagoon">
