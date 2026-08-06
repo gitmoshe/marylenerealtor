@@ -149,7 +149,7 @@ function ChildCard({ listing }: { listing: Listing }) {
       </h3>
       <ListingChips listing={listing} className="mt-3" />
       <p className="mt-3 font-serif text-lg">
-        {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
+        {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
       </p>
     </Link>
   );

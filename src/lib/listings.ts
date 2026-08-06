@@ -28,9 +28,12 @@ export const listingTypes = [
 
 export const listingTiers = ["master-broker", "portfolio", "sold"] as const;
 
+export const listingCurrencies = ["USD", "MXN"] as const;
+
 export type ListingLocation = (typeof listingLocations)[number];
 export type ListingType = (typeof listingTypes)[number];
 export type ListingTier = (typeof listingTiers)[number];
+export type ListingCurrency = (typeof listingCurrencies)[number];
 
 export type PriceListRow = {
   unit: string;
@@ -62,8 +65,10 @@ export type Listing = {
   tier: string;
   status: string;
   delivery: string;
-  /** USD, number — formatted for display by formatPrice(). */
+  /** Number in `currency` — formatted for display by formatPrice(). */
   priceFrom: number;
+  /** "USD" or "MXN". Defaults to USD. */
+  currency?: ListingCurrency;
   bedrooms: string;
   sizeRange: string;
   /** Maximum three. */
@@ -116,9 +121,20 @@ export function collectionsIn(items: Listing[]): string[] {
   return Array.from(new Set(items.flatMap((l) => l.collections)));
 }
 
-/** "From $595,000 USD", or "Price on request" when priceFrom is 0. */
-export function formatPrice(priceFrom: number, onRequest = "Price on request"): string {
+/**
+ * "From $595,000 USD" / "From MX$4.25M", or "Price on request" when priceFrom is 0.
+ */
+export function formatPrice(
+  priceFrom: number,
+  onRequest = "Price on request",
+  currency: ListingCurrency = "USD",
+): string {
   if (!priceFrom) return onRequest;
+  if (currency === "MXN") {
+    const millions = priceFrom / 1_000_000;
+    const value = millions >= 1 ? `${Number(millions.toFixed(2))}M` : priceFrom.toLocaleString("en-US");
+    return `From MX$${value}`;
+  }
   return `From $${priceFrom.toLocaleString("en-US")} USD`;
 }
 

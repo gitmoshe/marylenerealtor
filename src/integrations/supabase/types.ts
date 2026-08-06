@@ -20,6 +20,7 @@ export type Database = {
           bedrooms: string
           collections: string[]
           created_at: string
+          currency: string
           delivery: string
           description: string
           developer: string
@@ -56,6 +57,7 @@ export type Database = {
           bedrooms?: string
           collections?: string[]
           created_at?: string
+          currency?: string
           delivery?: string
           description?: string
           developer?: string
@@ -92,6 +94,7 @@ export type Database = {
           bedrooms?: string
           collections?: string[]
           created_at?: string
+          currency?: string
           delivery?: string
           description?: string
           developer?: string
