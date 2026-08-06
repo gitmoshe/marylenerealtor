@@ -14,6 +14,15 @@ export const portfolioDict: Dict = {
     "portfolio.filter.tier": "Tier",
     "portfolio.filter.collection": "Collection",
     "portfolio.filter.all": "All",
+    "brochure.overline": "Brochure",
+    "brochure.title": "The full brochure",
+    "brochure.copy":
+      "Floor plans, price list, finishes and payment schedules \u2014 request the complete file and Marylene will send it personally, in your language.",
+    "brochure.phone": "Phone / WhatsApp",
+    "brochure.language": "Preferred language",
+    "brochure.messageTemplate": "I\u2019d like the full brochure for {name} ({ref}).",
+    "brochure.submit": "Request the brochure",
+    "brochure.similar": "Or ask about similar properties \u2014 Marylene sells the entire Riviera.",
     "portfolio.band.title": "One broker. The whole Riviera.",
     "portfolio.band.copy":
       "A selection from Marylene's portfolio — she has access to the entire Riviera Maya inventory. If it's for sale on this coast, she can sell it to you.",
@@ -76,6 +85,15 @@ export const portfolioDict: Dict = {
     "portfolio.filter.tier": "Catégorie",
     "portfolio.filter.collection": "Collection",
     "portfolio.filter.all": "Tous",
+    "brochure.overline": "Brochure",
+    "brochure.title": "La brochure complète",
+    "brochure.copy":
+      "Plans, liste de prix, finitions et échéanciers de paiement \u2014 demandez le dossier complet et Marylene vous l\u2019enverra personnellement, dans votre langue.",
+    "brochure.phone": "Téléphone / WhatsApp",
+    "brochure.language": "Langue préférée",
+    "brochure.messageTemplate": "Je souhaite recevoir la brochure complète de {name} ({ref}).",
+    "brochure.submit": "Demander la brochure",
+    "brochure.similar": "Ou demandez des biens similaires \u2014 Marylene vend toute la Riviera.",
     "portfolio.band.title": "Une seule courtière. Toute la Riviera.",
     "portfolio.band.copy":
       "Une sélection du portfolio de Marylene — elle a accès à tout l'inventaire de la Riviera Maya. Si c'est à vendre sur cette côte, elle peut vous le vendre.",
@@ -138,6 +156,15 @@ export const portfolioDict: Dict = {
     "portfolio.filter.tier": "Categoría",
     "portfolio.filter.collection": "Colección",
     "portfolio.filter.all": "Todos",
+    "brochure.overline": "Brochure",
+    "brochure.title": "El brochure completo",
+    "brochure.copy":
+      "Planos, lista de precios, acabados y planes de pago \u2014 solicite el expediente completo y Marylene se lo enviará personalmente, en su idioma.",
+    "brochure.phone": "Teléfono / WhatsApp",
+    "brochure.language": "Idioma preferido",
+    "brochure.messageTemplate": "Quisiera el brochure completo de {name} ({ref}).",
+    "brochure.submit": "Solicitar el brochure",
+    "brochure.similar": "O pregunte por propiedades similares \u2014 Marylene vende toda la Riviera.",
     "portfolio.band.title": "Una sola asesora. Toda la Riviera.",
     "portfolio.band.copy":
       "Una selección del portafolio de Marylene — tiene acceso a todo el inventario de la Riviera Maya. Si está a la venta en esta costa, ella puede vendérselo.",
