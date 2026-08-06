@@ -3,6 +3,15 @@ import type { Dict } from "../i18n-types";
 /** Portfolio grid, filters and detail-page copy. */
 export const portfolioDict: Dict = {
   en: {
+    "collection.overline": "The Collection",
+    "collection.subtitle": "The Master Broker Collection",
+    "collection.intro":
+      "Marylene represents LATITUD 365 as master broker \u2014 direct allocation, developer-direct pricing and first access to new phases.",
+    "collection.developments": "The developments",
+    "collection.resales.overline": "Resales",
+    "collection.resales.title": "Resales \u2014 Playacar & Playa del Carmen",
+    "collection.resales.copy":
+      "A short list of resale residences held within the collection, available now.",
     "portfolio.hero.overline": "The Portfolio",
     "portfolio.hero.titleLine1": "A curated portfolio",
     "portfolio.hero.titleLine2": "of the Riviera Maya.",
@@ -75,6 +84,15 @@ export const portfolioDict: Dict = {
     "portfolio.field.priceFrom": "Price from",
   },
   fr: {
+    "collection.overline": "La Collection",
+    "collection.subtitle": "La Collection Master Broker",
+    "collection.intro":
+      "Marylene repr\u00e9sente LATITUD 365 en tant que master broker \u2014 allocation directe, prix promoteur et acc\u00e8s prioritaire aux nouvelles phases.",
+    "collection.developments": "Les d\u00e9veloppements",
+    "collection.resales.overline": "Reventes",
+    "collection.resales.title": "Reventes \u2014 Playacar et Playa del Carmen",
+    "collection.resales.copy":
+      "Une courte s\u00e9lection de r\u00e9sidences de revente au sein de la collection, disponibles maintenant.",
     "portfolio.hero.overline": "Le Portfolio",
     "portfolio.hero.titleLine1": "Un portfolio choisi",
     "portfolio.hero.titleLine2": "de la Riviera Maya.",
@@ -147,6 +165,15 @@ export const portfolioDict: Dict = {
     "portfolio.field.priceFrom": "Prix à partir de",
   },
   es: {
+    "collection.overline": "La Colecci\u00f3n",
+    "collection.subtitle": "La Colecci\u00f3n Master Broker",
+    "collection.intro":
+      "Marylene representa a LATITUD 365 como master broker \u2014 asignaci\u00f3n directa, precios de desarrollador y acceso prioritario a nuevas fases.",
+    "collection.developments": "Los desarrollos",
+    "collection.resales.overline": "Reventas",
+    "collection.resales.title": "Reventas \u2014 Playacar y Playa del Carmen",
+    "collection.resales.copy":
+      "Una breve selecci\u00f3n de residencias de reventa dentro de la colecci\u00f3n, disponibles ahora.",
     "portfolio.hero.overline": "El Portafolio",
     "portfolio.hero.titleLine1": "Un portafolio curado",
     "portfolio.hero.titleLine2": "de la Riviera Maya.",

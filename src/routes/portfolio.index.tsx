@@ -5,7 +5,9 @@ import { Play } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
+  childSlugsIn,
   formatPrice,
+  isCollection,
   usedLocationsIn,
   usedTypesIn,
   type Listing,
@@ -173,8 +175,15 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
             <p className="mt-2 text-sm text-muted-foreground">{listing.highlights.join(" · ")}</p>
           )}
         </div>
-        <PriceTag listing={listing} />
+        {isCollection(listing) ? (
+          <span className="label-caps shrink-0 border border-gold/60 px-3 py-1.5 text-[0.55rem] text-gold">
+            {(listing.subListings ?? []).length}+ {t("portfolio.count.plural")}
+          </span>
+        ) : (
+          <PriceTag listing={listing} />
+        )}
       </div>
+
     </Link>
   );
 }
@@ -185,6 +194,12 @@ function PortfolioPage() {
   const listings = Route.useLoaderData() as Listing[];
   const usedLocations = useMemo(() => usedLocationsIn(listings), [listings]);
   const usedTypes = useMemo(() => usedTypesIn(listings), [listings]);
+
+  /** Listings grouped under a collection hub stay off the main grid unless featured. */
+  const visible = useMemo(() => {
+    const children = childSlugsIn(listings);
+    return listings.filter((l) => !children.has(l.slug) || l.featured);
+  }, [listings]);
 
   const initialLocation =
     search.location && usedLocations.includes(search.location)
@@ -197,20 +212,20 @@ function PortfolioPage() {
   const [delivery, setDelivery] = useState<string | null>(null);
 
   const masterBroker = useMemo(
-    () => listings.filter((l) => l.tier === "master-broker"),
-    [listings],
+    () => visible.filter((l) => l.tier === "master-broker"),
+    [visible],
   );
 
   const results = useMemo(
     () =>
-      listings.filter(
+      visible.filter(
         (l: Listing) =>
           (!location || l.location === location) &&
           (!type || l.type === type) &&
           (!price || priceBucket(l) === price) &&
           (!delivery || deliveryBucket(l) === delivery),
       ),
-    [listings, location, type, price, delivery],
+    [visible, location, type, price, delivery],
   );
 
   const collectionRows = COLLECTION_ROWS.map((c) => ({

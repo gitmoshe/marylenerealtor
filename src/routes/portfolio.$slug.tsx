@@ -8,7 +8,8 @@ import {
   PriceTable,
   ProgressTimeline,
 } from "@/components/site/listing-sections";
-import { formatPrice, type Listing } from "@/lib/listings";
+import { CollectionPage } from "@/components/site/CollectionPage";
+import { formatPrice, isCollection, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
@@ -76,6 +77,11 @@ function ListingDetail() {
   };
   const { t, lang } = useI18n();
   const reference = listing.slug.toUpperCase().replace(/-/g, " ");
+
+  if (isCollection(listing)) {
+    return <CollectionPage listing={listing} subs={subs} />;
+  }
+
 
   const typeLabel =
     t(`properties.type.${listing.type}`) === `properties.type.${listing.type}`
