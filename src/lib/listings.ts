@@ -65,8 +65,10 @@ export type Listing = {
   tier: string;
   status: string;
   delivery: string;
-  /** USD, number — formatted for display by formatPrice(). */
+  /** Number in `currency` — formatted for display by formatPrice(). */
   priceFrom: number;
+  /** "USD" or "MXN". Defaults to USD. */
+  currency?: ListingCurrency;
   bedrooms: string;
   sizeRange: string;
   /** Maximum three. */
