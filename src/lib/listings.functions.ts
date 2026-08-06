@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import type { Listing } from "@/lib/listings";
+import type { Ficha, FloorPlan, Listing, PriceListRow, ProgressUpdate } from "@/lib/listings";
 
 type Row = {
   id: string;
@@ -23,6 +23,18 @@ type Row = {
   featured: boolean;
   collections: string[];
   sort_order: number;
+  price_list: PriceListRow[] | null;
+  floor_plans: FloorPlan[] | null;
+  masterplan_image: string | null;
+  progress: ProgressUpdate[] | null;
+  virtual_tour_url: string | null;
+  developer_name: string | null;
+  developer_logo: string | null;
+  developer_blurb: string | null;
+  amenities: string[] | null;
+  payment_plan_summary: string | null;
+  ficha: Ficha | null;
+  sub_listings: string[] | null;
 };
 
 function toListing(r: Row): Listing {
@@ -47,6 +59,18 @@ function toListing(r: Row): Listing {
     featured: r.featured,
     collections: r.collections ?? [],
     sortOrder: r.sort_order,
+    priceList: Array.isArray(r.price_list) ? r.price_list : [],
+    floorPlans: Array.isArray(r.floor_plans) ? r.floor_plans : [],
+    masterplanImage: r.masterplan_image || "",
+    progress: Array.isArray(r.progress) ? r.progress : [],
+    virtualTourUrl: r.virtual_tour_url || "",
+    developerName: r.developer_name || "",
+    developerLogo: r.developer_logo || "",
+    developerBlurb: r.developer_blurb || "",
+    amenities: r.amenities ?? [],
+    paymentPlanSummary: r.payment_plan_summary || "",
+    ficha: (r.ficha ?? {}) as Ficha,
+    subListings: r.sub_listings ?? [],
   };
 }
 
@@ -76,6 +100,55 @@ const listingInput = z.object({
   featured: z.boolean(),
   collections: z.array(z.string().trim().max(60)).max(6),
   sortOrder: z.number().int().min(0).max(100000),
+  priceList: z
+    .array(
+      z.object({
+        unit: z.string().trim().max(80).default(""),
+        type: z.string().trim().max(80).default(""),
+        size: z.string().trim().max(80).default(""),
+        price: z.string().trim().max(80).default(""),
+        status: z.string().trim().max(60).default(""),
+      }),
+    )
+    .max(60)
+    .default([]),
+  floorPlans: z
+    .array(
+      z.object({
+        name: z.string().trim().max(80).default(""),
+        image: z.string().trim().max(500).default(""),
+        size: z.string().trim().max(80).optional(),
+      }),
+    )
+    .max(20)
+    .default([]),
+  masterplanImage: z.string().trim().max(500).default(""),
+  progress: z
+    .array(
+      z.object({
+        date: z.string().trim().max(60).default(""),
+        images: z.array(z.string().trim().max(500)).max(12).default([]),
+        note: z.string().trim().max(400).optional(),
+      }),
+    )
+    .max(24)
+    .default([]),
+  virtualTourUrl: z.string().trim().max(500).default(""),
+  developerName: z.string().trim().max(120).default(""),
+  developerLogo: z.string().trim().max(500).default(""),
+  developerBlurb: z.string().trim().max(600).default(""),
+  amenities: z.array(z.string().trim().max(120)).max(40).default([]),
+  paymentPlanSummary: z.string().trim().max(1200).default(""),
+  ficha: z
+    .object({
+      delivery: z.string().trim().max(80).optional(),
+      units: z.string().trim().max(80).optional(),
+      levels: z.string().trim().max(80).optional(),
+      unitTypes: z.string().trim().max(160).optional(),
+      parking: z.string().trim().max(80).optional(),
+    })
+    .default({}),
+  subListings: z.array(z.string().trim().max(80)).max(24).default([]),
 });
 
 export type ListingInput = z.infer<typeof listingInput>;
@@ -188,6 +261,18 @@ export const saveListing = createServerFn({ method: "POST" })
       featured: data.featured,
       collections: data.collections.filter(Boolean),
       sort_order: data.sortOrder,
+      price_list: data.priceList,
+      floor_plans: data.floorPlans,
+      masterplan_image: data.masterplanImage,
+      progress: data.progress,
+      virtual_tour_url: data.virtualTourUrl,
+      developer_name: data.developerName,
+      developer_logo: data.developerLogo,
+      developer_blurb: data.developerBlurb,
+      amenities: data.amenities.filter(Boolean),
+      payment_plan_summary: data.paymentPlanSummary,
+      ficha: data.ficha,
+      sub_listings: data.subListings.filter(Boolean),
     };
 
     const query = data.id
