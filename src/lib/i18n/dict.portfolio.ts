@@ -6,7 +6,7 @@ export const portfolioDict: Dict = {
     "collection.overline": "The Collection",
     "collection.subtitle": "The Master Broker Collection",
     "collection.intro":
-      "Marylene represents LATITUD 365 as master broker \u2014 direct allocation, developer-direct pricing, and first access to new phases.",
+      "Marylene represents LATITUD 365 as master broker \u2014 direct allocation, developer-direct pricing and first access to new phases.",
     "collection.developments": "The developments",
     "collection.resales.overline": "Resales",
     "collection.resales.title": "Resales \u2014 Playacar & Playa del Carmen",
