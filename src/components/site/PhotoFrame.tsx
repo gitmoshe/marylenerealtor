@@ -9,6 +9,10 @@ type PhotoFrameProps = {
   /** Focus the crop — useful for compact head-and-shoulders versions. */
   position?: "center" | "top";
   priority?: boolean;
+  /** Responsive `sizes` hint so phones download the 800px variant. */
+  sizes?: string;
+  /** Compact slots (thumbnails) never need the full-resolution file. */
+  compact?: boolean;
 };
 
 /**
@@ -21,13 +25,21 @@ export function PhotoFrame({
   imgClassName,
   position = "center",
   priority = false,
+  sizes = "(max-width: 768px) 100vw, 50vw",
+  compact = false,
 }: PhotoFrameProps) {
+  const small = photo.srcSmall;
+  const src = compact && small ? small : photo.src;
   return (
     <div className={cn("overflow-hidden", className)}>
       <img
-        src={photo.src}
+        src={src}
+        {...(small && !compact
+          ? { srcSet: `${small} 800w, ${photo.src} 1600w`, sizes }
+          : {})}
         alt={photo.alt}
         loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
         decoding="async"
         className={cn(
           "h-full w-full object-cover",
