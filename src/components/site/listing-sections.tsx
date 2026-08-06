@@ -262,7 +262,7 @@ export function ProgressTimeline({
                   {images.map((src, j) => (
                     <img
                       key={`${src}-${j}`}
-                      src={resolveListingImage(src)}
+                      src={resolveListingImage(src, "card")}
                       alt={`${prefix} ${u.date}`}
                       width={800}
                       height={600}
