@@ -13,6 +13,7 @@ type Row = {
   status: string;
   delivery: string;
   price_from: number;
+  currency: string | null;
   bedrooms: string;
   size_range: string;
   highlights: string[];
@@ -49,6 +50,7 @@ function toListing(r: Row): Listing {
     status: r.status,
     delivery: r.delivery,
     priceFrom: Number(r.price_from) || 0,
+    currency: r.currency === "MXN" ? "MXN" : "USD",
     bedrooms: r.bedrooms,
     sizeRange: r.size_range,
     highlights: r.highlights ?? [],
@@ -90,6 +92,7 @@ const listingInput = z.object({
   status: z.string().trim().max(80),
   delivery: z.string().trim().max(80),
   priceFrom: z.number().int().min(0).max(1_000_000_000),
+  currency: z.enum(["USD", "MXN"]).default("USD"),
   bedrooms: z.string().trim().max(40),
   sizeRange: z.string().trim().max(80),
   highlights: z.array(z.string().trim().max(120)).max(3),
@@ -251,6 +254,7 @@ export const saveListing = createServerFn({ method: "POST" })
       status: data.status,
       delivery: data.delivery,
       price_from: data.priceFrom,
+      currency: data.currency,
       bedrooms: data.bedrooms,
       size_range: data.sizeRange,
       highlights: data.highlights.filter(Boolean),
