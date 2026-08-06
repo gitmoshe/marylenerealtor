@@ -195,6 +195,12 @@ function PortfolioPage() {
   const usedLocations = useMemo(() => usedLocationsIn(listings), [listings]);
   const usedTypes = useMemo(() => usedTypesIn(listings), [listings]);
 
+  /** Listings grouped under a collection hub stay off the main grid unless featured. */
+  const visible = useMemo(() => {
+    const children = childSlugsIn(listings);
+    return listings.filter((l) => !children.has(l.slug) || l.featured);
+  }, [listings]);
+
   const initialLocation =
     search.location && usedLocations.includes(search.location)
       ? search.location
@@ -206,21 +212,27 @@ function PortfolioPage() {
   const [delivery, setDelivery] = useState<string | null>(null);
 
   const masterBroker = useMemo(
-    () => listings.filter((l) => l.tier === "master-broker"),
-    [listings],
+    () => visible.filter((l) => l.tier === "master-broker"),
+    [visible],
   );
 
   const results = useMemo(
     () =>
-      listings.filter(
+      visible.filter(
         (l: Listing) =>
           (!location || l.location === location) &&
           (!type || l.type === type) &&
           (!price || priceBucket(l) === price) &&
           (!delivery || deliveryBucket(l) === delivery),
       ),
-    [listings, location, type, price, delivery],
+    [visible, location, type, price, delivery],
   );
+
+  const collectionRows = COLLECTION_ROWS.map((c) => ({
+    tag: c,
+    items: listings.filter((l: Listing) => l.collections.includes(c)),
+  })).filter((row) => row.items.length > 0);
+
 
   const collectionRows = COLLECTION_ROWS.map((c) => ({
     tag: c,
