@@ -14,8 +14,13 @@ import type {
 
 /* -------------------------------- gallery -------------------------------- */
 
+const GALLERY_PREVIEW = 8;
+
 export function MasonryGallery({ images, alt }: { images: string[]; alt: string }) {
   const [open, setOpen] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? images : images.slice(0, GALLERY_PREVIEW);
+  const hidden = images.length - visible.length;
 
   useEffect(() => {
     if (open === null) return;
@@ -32,7 +37,7 @@ export function MasonryGallery({ images, alt }: { images: string[]; alt: string 
   return (
     <>
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
-        {images.map((src, i) => (
+        {visible.map((src, i) => (
           <button
             key={`${src}-${i}`}
             type="button"
@@ -41,16 +46,27 @@ export function MasonryGallery({ images, alt }: { images: string[]; alt: string 
             aria-label={`${alt} — ${i + 1}`}
           >
             <img
-              src={resolveListingImage(src)}
+              src={resolveListingImage(src, "card")}
               alt={`${alt} — ${i + 1}`}
-              width={1280}
-              height={960}
+              width={900}
+              height={675}
               loading="lazy"
+              decoding="async"
               className="w-full object-cover"
             />
           </button>
         ))}
       </div>
+
+      {hidden > 0 && (
+        <button
+          type="button"
+          onClick={() => setShowAll(true)}
+          className="link-underline mt-8 inline-block text-sm text-gold"
+        >
+          View full gallery ({images.length})
+        </button>
+      )}
 
       {open !== null && (
         <div
