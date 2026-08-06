@@ -28,9 +28,12 @@ export const listingTypes = [
 
 export const listingTiers = ["master-broker", "portfolio", "sold"] as const;
 
+export const listingCurrencies = ["USD", "MXN"] as const;
+
 export type ListingLocation = (typeof listingLocations)[number];
 export type ListingType = (typeof listingTypes)[number];
 export type ListingTier = (typeof listingTiers)[number];
+export type ListingCurrency = (typeof listingCurrencies)[number];
 
 export type PriceListRow = {
   unit: string;
