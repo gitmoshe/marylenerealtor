@@ -233,12 +233,6 @@ function PortfolioPage() {
     items: listings.filter((l: Listing) => l.collections.includes(c)),
   })).filter((row) => row.items.length > 0);
 
-
-  const collectionRows = COLLECTION_ROWS.map((c) => ({
-    tag: c,
-    items: listings.filter((l: Listing) => l.collections.includes(c)),
-  })).filter((row) => row.items.length > 0);
-
   return (
     <>
       {/* 1 — Header band */}
