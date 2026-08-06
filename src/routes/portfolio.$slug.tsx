@@ -99,6 +99,8 @@ function ListingDetail() {
     { label: t("detail.spec.levels"), value: ficha.levels },
     { label: t("detail.spec.unitTypes"), value: ficha.unitTypes },
     { label: t("detail.spec.parking"), value: ficha.parking },
+    { label: t("detail.spec.phases"), value: ficha.phases },
+    { label: t("detail.spec.hoa"), value: ficha.hoa },
     {
       label: t("portfolio.field.priceFrom"),
       value: formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency),

@@ -53,6 +53,8 @@ export type Ficha = {
   levels?: string;
   unitTypes?: string;
   parking?: string;
+  phases?: string;
+  hoa?: string;
 };
 
 export type Listing = {
