@@ -14,6 +14,7 @@ export const portfolioDict: Dict = {
     "portfolio.filter.tier": "Tier",
     "portfolio.filter.collection": "Collection",
     "portfolio.filter.all": "All",
+    "portfolio.detail.filmedBy": "Filmed by Marylene",
     "brochure.overline": "Brochure",
     "brochure.title": "The full brochure",
     "brochure.copy":
@@ -85,6 +86,7 @@ export const portfolioDict: Dict = {
     "portfolio.filter.tier": "Catégorie",
     "portfolio.filter.collection": "Collection",
     "portfolio.filter.all": "Tous",
+    "portfolio.detail.filmedBy": "Filmé par Marylene",
     "brochure.overline": "Brochure",
     "brochure.title": "La brochure complète",
     "brochure.copy":
@@ -156,6 +158,7 @@ export const portfolioDict: Dict = {
     "portfolio.filter.tier": "Categoría",
     "portfolio.filter.collection": "Colección",
     "portfolio.filter.all": "Todos",
+    "portfolio.detail.filmedBy": "Filmado por Marylene",
     "brochure.overline": "Brochure",
     "brochure.title": "El brochure completo",
     "brochure.copy":
