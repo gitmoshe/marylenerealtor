@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Container, Section } from "@/components/site/ui";
 import { resolveListingImage } from "@/lib/listing-assets";
 import {
+  listingCurrencies,
   listingLocations,
   listingTiers,
   listingTypes,
