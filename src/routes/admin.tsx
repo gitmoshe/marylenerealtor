@@ -397,6 +397,7 @@ function ListingForm({
             status: form.status,
             delivery: form.delivery,
             priceFrom: Number(form.priceFrom) || 0,
+            currency: form.currency ?? "USD",
             bedrooms: form.bedrooms,
             sizeRange: form.sizeRange,
             highlights: form.highlights.slice(0, 3),
