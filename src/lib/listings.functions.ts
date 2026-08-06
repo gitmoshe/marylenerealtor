@@ -149,6 +149,8 @@ const listingInput = z.object({
       levels: z.string().trim().max(80).optional(),
       unitTypes: z.string().trim().max(160).optional(),
       parking: z.string().trim().max(80).optional(),
+      phases: z.string().trim().max(160).optional(),
+      hoa: z.string().trim().max(80).optional(),
     })
     .default({}),
   subListings: z.array(z.string().trim().max(80)).max(24).default([]),
