@@ -15,11 +15,13 @@ import { Route as MeetMaryleneRouteImport } from './routes/meet-marylene'
 import { Route as LaRivieraRouteImport } from './routes/la-riviera'
 import { Route as FilmsRouteImport } from './routes/films'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as ApiPublicListingImageSplatRouteImport } from './routes/api/public/listing-image.$'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -51,6 +53,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -76,9 +83,16 @@ const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   path: '/portfolio/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicListingImageSplatRoute =
+  ApiPublicListingImageSplatRouteImport.update({
+    id: '/api/public/listing-image/$',
+    path: '/api/public/listing-image/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/films': typeof FilmsRoute
   '/la-riviera': typeof LaRivieraRoute
@@ -89,9 +103,11 @@ export interface FileRoutesByFullPath {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
+  '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/films': typeof FilmsRoute
   '/la-riviera': typeof LaRivieraRoute
@@ -102,10 +118,12 @@ export interface FileRoutesByTo {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/properties': typeof PropertiesIndexRoute
+  '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/films': typeof FilmsRoute
   '/la-riviera': typeof LaRivieraRoute
@@ -116,11 +134,13 @@ export interface FileRoutesById {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
+  '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/contact'
     | '/films'
     | '/la-riviera'
@@ -131,9 +151,11 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio/'
     | '/properties/'
+    | '/api/public/listing-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
     | '/contact'
     | '/films'
     | '/la-riviera'
@@ -144,9 +166,11 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio'
     | '/properties'
+    | '/api/public/listing-image/$'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/contact'
     | '/films'
     | '/la-riviera'
@@ -157,10 +181,12 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio/'
     | '/properties/'
+    | '/api/public/listing-image/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   ContactRoute: typeof ContactRoute
   FilmsRoute: typeof FilmsRoute
   LaRivieraRoute: typeof LaRivieraRoute
@@ -171,6 +197,7 @@ export interface RootRouteChildren {
   PropertiesSlugRoute: typeof PropertiesSlugRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
+  ApiPublicListingImageSplatRoute: typeof ApiPublicListingImageSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -217,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -252,11 +286,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/listing-image/$': {
+      id: '/api/public/listing-image/$'
+      path: '/api/public/listing-image/$'
+      fullPath: '/api/public/listing-image/$'
+      preLoaderRoute: typeof ApiPublicListingImageSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   ContactRoute: ContactRoute,
   FilmsRoute: FilmsRoute,
   LaRivieraRoute: LaRivieraRoute,
@@ -267,6 +309,7 @@ const rootRouteChildren: RootRouteChildren = {
   PropertiesSlugRoute: PropertiesSlugRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
+  ApiPublicListingImageSplatRoute: ApiPublicListingImageSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

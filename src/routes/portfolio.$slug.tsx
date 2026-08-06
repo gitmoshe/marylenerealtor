@@ -1,14 +1,17 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
-import { formatPrice, getListing, listings, type Listing } from "@/lib/listings";
+import { formatPrice, type Listing } from "@/lib/listings";
+import { resolveListingImage } from "@/lib/listing-assets";
+import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: ({ params }): { listing: Listing } => {
-    const listing = getListing(params.slug);
+  loader: async ({ params }): Promise<{ listing: Listing; others: Listing[] }> => {
+    const all = await fetchListings();
+    const listing = all.find((l) => l.slug === params.slug);
     if (!listing) throw notFound();
-    return { listing };
+    return { listing, others: all.filter((l) => l.slug !== params.slug) };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
@@ -39,7 +42,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function ListingDetail() {
-  const { listing } = Route.useLoaderData() as { listing: Listing };
+  const { listing, others } = Route.useLoaderData() as { listing: Listing; others: Listing[] };
   const { t, lang } = useI18n();
   const reference = listing.slug.toUpperCase().replace(/-/g, " ");
 
@@ -61,13 +64,11 @@ function ListingDetail() {
     },
   ];
 
-  const others = listings.filter((l) => l.slug !== listing.slug);
-
   return (
     <>
       <section className="relative">
         <img
-          src={listing.heroImage}
+          src={resolveListingImage(listing.heroImage)}
           alt={listing.name}
           width={1280}
           height={960}
@@ -126,7 +127,7 @@ function ListingDetail() {
                   {listing.gallery.map((src, i) => (
                     <div key={`${listing.slug}-g${i}`} className="hover-zoom">
                       <img
-                        src={src}
+                        src={resolveListingImage(src)}
                         alt={`${listing.name} — ${t("portfolio.detail.galleryAlt")}`}
                         width={1280}
                         height={960}
@@ -254,11 +255,11 @@ function ListingDetail() {
             </Link>
           </div>
           <div className="mt-12 grid gap-10 sm:grid-cols-3">
-            {others.slice(0, 3).map((l) => (
+            {others.slice(0, 3).map((l: Listing) => (
               <Link key={l.slug} to="/portfolio/$slug" params={{ slug: l.slug }} className="group">
                 <div className="hover-zoom">
                   <img
-                    src={l.heroImage}
+                    src={resolveListingImage(l.heroImage)}
                     alt={l.name}
                     width={1280}
                     height={960}
