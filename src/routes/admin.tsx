@@ -463,7 +463,7 @@ function ListingForm({
         />
         <SelectField
           label="Currency"
-          value={form.currency}
+          value={form.currency ?? "USD"}
           options={listingCurrencies}
           onChange={(v) => set("currency", v as "USD" | "MXN")}
         />
