@@ -8,7 +8,9 @@ import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { films, testimonials } from "@/lib/site-data";
-import { featuredListings, formatPrice } from "@/lib/listings";
+import { formatPrice, type Listing } from "@/lib/listings";
+import { resolveListingImage } from "@/lib/listing-assets";
+import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -36,6 +38,7 @@ export const Route = createFileRoute("/")({
       { rel: "preload", as: "image", href: heroVilla, fetchPriority: "high" },
     ],
   }),
+  loader: () => fetchListings(),
   component: Index,
 });
 
@@ -209,7 +212,8 @@ function FilmsPreview() {
 
 function FeaturedProperties() {
   const { t } = useI18n();
-  const featured = featuredListings.slice(0, 3);
+  const all = Route.useLoaderData() as Listing[];
+  const featured = all.filter((l) => l.featured).slice(0, 3);
   return (
     <Section>
       <Container>
@@ -227,7 +231,7 @@ function FeaturedProperties() {
         </Reveal>
 
         <div className="mt-14 grid gap-10 md:grid-cols-3">
-          {featured.map((p, i) => (
+          {featured.map((p: Listing, i: number) => (
             <Reveal key={p.slug} delay={i * 120}>
               <Link
                 to="/portfolio/$slug"
@@ -236,7 +240,7 @@ function FeaturedProperties() {
               >
                 <div className="hover-zoom">
                   <img
-                    src={p.heroImage}
+                    src={resolveListingImage(p.heroImage)}
                     alt={p.name}
                     width={1280}
                     height={960}

@@ -6,11 +6,12 @@ import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
   formatPrice,
-  listings,
-  usedLocations,
-  usedTypes,
+  usedLocationsIn,
+  usedTypesIn,
   type Listing,
 } from "@/lib/listings";
+import { resolveListingImage } from "@/lib/listing-assets";
+import { fetchListings } from "@/lib/listings.functions";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
 
@@ -64,6 +65,7 @@ export const Route = createFileRoute("/portfolio/")({
     ],
     links: [{ rel: "canonical", href: "/portfolio" }],
   }),
+  loader: () => fetchListings(),
   component: PortfolioPage,
 });
 
@@ -137,7 +139,7 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
     <Link to="/portfolio/$slug" params={{ slug: listing.slug }} className="group block">
       <div className="hover-zoom relative">
         <img
-          src={listing.heroImage}
+          src={resolveListingImage(listing.heroImage)}
           alt={listing.name}
           width={1280}
           height={960}
@@ -180,9 +182,12 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
 function PortfolioPage() {
   const { t } = useI18n();
   const search = Route.useSearch();
+  const listings = Route.useLoaderData() as Listing[];
+  const usedLocations = useMemo(() => usedLocationsIn(listings), [listings]);
+  const usedTypes = useMemo(() => usedTypesIn(listings), [listings]);
 
   const initialLocation =
-    search.location && (usedLocations as readonly string[]).includes(search.location)
+    search.location && usedLocations.includes(search.location)
       ? search.location
       : null;
 
@@ -191,23 +196,26 @@ function PortfolioPage() {
   const [price, setPrice] = useState<string | null>(null);
   const [delivery, setDelivery] = useState<string | null>(null);
 
-  const masterBroker = useMemo(() => listings.filter((l) => l.tier === "master-broker"), []);
+  const masterBroker = useMemo(
+    () => listings.filter((l) => l.tier === "master-broker"),
+    [listings],
+  );
 
   const results = useMemo(
     () =>
       listings.filter(
-        (l) =>
+        (l: Listing) =>
           (!location || l.location === location) &&
           (!type || l.type === type) &&
           (!price || priceBucket(l) === price) &&
           (!delivery || deliveryBucket(l) === delivery),
       ),
-    [location, type, price, delivery],
+    [listings, location, type, price, delivery],
   );
 
   const collectionRows = COLLECTION_ROWS.map((c) => ({
     tag: c,
-    items: listings.filter((l) => l.collections.includes(c)),
+    items: listings.filter((l: Listing) => l.collections.includes(c)),
   })).filter((row) => row.items.length > 0);
 
   return (
@@ -243,7 +251,7 @@ function PortfolioPage() {
                 {t("portfolio.masterBroker.copy")}
               </p>
               <div className="mt-10 grid gap-12 sm:grid-cols-2">
-                {masterBroker.map((l) => (
+                {masterBroker.map((l: Listing) => (
                   <ListingCard key={l.slug} listing={l} />
                 ))}
               </div>
@@ -299,7 +307,7 @@ function PortfolioPage() {
       <Section className="pt-14 pb-0">
         <Container>
           <div className="grid gap-12 sm:grid-cols-2">
-            {results.map((l, i) => (
+            {results.map((l: Listing, i: number) => (
               <Reveal key={l.slug} delay={(i % 2) * 120}>
                 <ListingCard listing={l} />
               </Reveal>
@@ -327,7 +335,7 @@ function PortfolioPage() {
               </h2>
             </Reveal>
             <div className="-mx-6 mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-4 sm:mx-0 sm:px-0">
-              {row.items.map((l) => (
+              {row.items.map((l: Listing) => (
                 <div key={l.slug} className="w-[78vw] shrink-0 snap-start sm:w-[320px]">
                   <ListingCard listing={l} compact />
                 </div>
