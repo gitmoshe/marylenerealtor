@@ -1,0 +1,242 @@
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
+import type { Listing } from "@/lib/listings";
+
+type Row = {
+  id: string;
+  slug: string;
+  name: string;
+  developer: string;
+  location: string;
+  type: string;
+  tier: string;
+  status: string;
+  delivery: string;
+  price_from: number;
+  bedrooms: string;
+  size_range: string;
+  highlights: string[];
+  description: string;
+  hero_image: string;
+  gallery: string[];
+  video_url: string;
+  featured: boolean;
+  collections: string[];
+  sort_order: number;
+};
+
+function toListing(r: Row): Listing {
+  return {
+    id: r.id,
+    slug: r.slug,
+    name: r.name,
+    developer: r.developer,
+    location: r.location,
+    type: r.type,
+    tier: r.tier,
+    status: r.status,
+    delivery: r.delivery,
+    priceFrom: Number(r.price_from) || 0,
+    bedrooms: r.bedrooms,
+    sizeRange: r.size_range,
+    highlights: r.highlights ?? [],
+    description: r.description,
+    heroImage: r.hero_image,
+    gallery: r.gallery ?? [],
+    videoUrl: r.video_url || undefined,
+    featured: r.featured,
+    collections: r.collections ?? [],
+    sortOrder: r.sort_order,
+  };
+}
+
+const listingInput = z.object({
+  id: z.string().uuid().optional(),
+  slug: z
+    .string()
+    .trim()
+    .min(1)
+    .max(80)
+    .regex(/^[a-z0-9-]+$/, "Use lowercase letters, numbers and hyphens"),
+  name: z.string().trim().min(1).max(120),
+  developer: z.string().trim().max(120).default("To be confirmed"),
+  location: z.string().trim().max(60),
+  type: z.string().trim().max(60),
+  tier: z.string().trim().max(30),
+  status: z.string().trim().max(80),
+  delivery: z.string().trim().max(80),
+  priceFrom: z.number().int().min(0).max(1_000_000_000),
+  bedrooms: z.string().trim().max(40),
+  sizeRange: z.string().trim().max(80),
+  highlights: z.array(z.string().trim().max(120)).max(3),
+  description: z.string().trim().max(4000),
+  heroImage: z.string().trim().max(500),
+  gallery: z.array(z.string().trim().max(500)).max(12),
+  videoUrl: z.string().trim().max(500),
+  featured: z.boolean(),
+  collections: z.array(z.string().trim().max(60)).max(6),
+  sortOrder: z.number().int().min(0).max(100000),
+});
+
+export type ListingInput = z.infer<typeof listingInput>;
+
+/** Public read — used by every page on the site. */
+export const fetchListings = createServerFn({ method: "GET" }).handler(async (): Promise<Listing[]> => {
+  const key = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
+  const { createClient } = await import("@supabase/supabase-js");
+  const supabase = createClient(process.env["SUPABASE_URL"]!, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+    global: {
+      fetch: (input: RequestInfo | URL, init?: RequestInit) => {
+        const h = new Headers(init?.headers);
+        if (key.startsWith("sb_") && h.get("Authorization") === `Bearer ${key}`) {
+          h.delete("Authorization");
+        }
+        h.set("apikey", key);
+        return fetch(input, { ...init, headers: h });
+      },
+    },
+  });
+
+  const { data, error } = await supabase
+    .from("listings")
+    .select("*")
+    .order("sort_order", { ascending: true })
+    .order("name", { ascending: true });
+
+  if (error) return [];
+  return ((data ?? []) as Row[]).map(toListing);
+});
+
+/* ------------------------------ admin access ----------------------------- */
+
+export const adminStatus = createServerFn({ method: "GET" }).handler(async () => {
+  const { isUnlocked } = await import("@/lib/admin-session.server");
+  return { unlocked: await isUnlocked() };
+});
+
+export const adminLogin = createServerFn({ method: "POST" })
+  .inputValidator((data: { password: string }) =>
+    z.object({ password: z.string().min(1).max(200) }).parse(data),
+  )
+  .handler(async ({ data }) => {
+    const expected = process.env["ADMIN_PASSWORD"];
+    if (!expected) return { ok: false as const };
+
+    const { passwordMatches, adminSessionConfig } = await import("@/lib/admin-session.server");
+    if (!passwordMatches(data.password, expected)) return { ok: false as const };
+
+    const { useSession } = await import("@tanstack/react-start/server");
+    const session = await useSession<{ unlocked?: boolean }>({
+      ...adminSessionConfig,
+      password: process.env["SESSION_SECRET"] ?? "",
+    });
+    await session.update({ unlocked: true });
+    return { ok: true as const };
+  });
+
+export const adminLogout = createServerFn({ method: "POST" }).handler(async () => {
+  const { adminSessionConfig } = await import("@/lib/admin-session.server");
+  const { useSession } = await import("@tanstack/react-start/server");
+  const session = await useSession<{ unlocked?: boolean }>({
+    ...adminSessionConfig,
+    password: process.env["SESSION_SECRET"] ?? "",
+  });
+  await session.clear();
+  return { ok: true as const };
+});
+
+/** Admin read — same data, but only served to an unlocked session. */
+export const adminListListings = createServerFn({ method: "GET" }).handler(
+  async (): Promise<Listing[]> => {
+    const { requireAdmin } = await import("@/lib/admin-session.server");
+    await requireAdmin();
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
+      .from("listings")
+      .select("*")
+      .order("sort_order", { ascending: true });
+    if (error) throw new Error(error.message);
+    return ((data ?? []) as unknown as Row[]).map(toListing);
+  },
+);
+
+export const saveListing = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => listingInput.parse(data))
+  .handler(async ({ data }) => {
+    const { requireAdmin } = await import("@/lib/admin-session.server");
+    await requireAdmin();
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    const row = {
+      slug: data.slug,
+      name: data.name,
+      developer: data.developer || "To be confirmed",
+      location: data.location,
+      type: data.type,
+      tier: data.tier,
+      status: data.status,
+      delivery: data.delivery,
+      price_from: data.priceFrom,
+      bedrooms: data.bedrooms,
+      size_range: data.sizeRange,
+      highlights: data.highlights.filter(Boolean),
+      description: data.description,
+      hero_image: data.heroImage,
+      gallery: data.gallery.filter(Boolean),
+      video_url: data.videoUrl,
+      featured: data.featured,
+      collections: data.collections.filter(Boolean),
+      sort_order: data.sortOrder,
+    };
+
+    const query = data.id
+      ? supabaseAdmin.from("listings").update(row).eq("id", data.id)
+      : supabaseAdmin.from("listings").insert(row);
+
+    const { error } = await query;
+    if (error) return { ok: false as const, error: error.message };
+    return { ok: true as const };
+  });
+
+export const deleteListing = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => z.object({ id: z.string().uuid() }).parse(data))
+  .handler(async ({ data }) => {
+    const { requireAdmin } = await import("@/lib/admin-session.server");
+    await requireAdmin();
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("listings").delete().eq("id", data.id);
+    if (error) return { ok: false as const, error: error.message };
+    return { ok: true as const };
+  });
+
+export const uploadListingImage = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) =>
+    z
+      .object({
+        fileName: z.string().min(1).max(200),
+        contentType: z.string().min(1).max(100),
+        /** base64, no data-url prefix. */
+        base64: z.string().min(1).max(14_000_000),
+      })
+      .parse(data),
+  )
+  .handler(async ({ data }) => {
+    const { requireAdmin } = await import("@/lib/admin-session.server");
+    await requireAdmin();
+    if (!data.contentType.startsWith("image/")) {
+      return { ok: false as const, error: "Only image files are allowed." };
+    }
+
+    const safe = data.fileName.toLowerCase().replace(/[^a-z0-9.-]+/g, "-");
+    const path = `${Date.now()}-${safe}`;
+    const bytes = Buffer.from(data.base64, "base64");
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.storage
+      .from("listing-images")
+      .upload(path, bytes, { contentType: data.contentType, upsert: false });
+    if (error) return { ok: false as const, error: error.message };
+
+    return { ok: true as const, url: `/api/public/listing-image/${path}` };
+  });
