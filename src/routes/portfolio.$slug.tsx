@@ -116,21 +116,8 @@ function ListingDetail() {
               </dl>
             </div>
 
-            {listing.videoUrl && (
-              <div className="mt-14">
-                <Overline>{t("portfolio.detail.film")}</Overline>
-                <div className="mt-6 aspect-video w-full overflow-hidden bg-ink">
-                  <iframe
-                    src={listing.videoUrl}
-                    title={listing.name}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="h-full w-full"
-                  />
-                </div>
-              </div>
-            )}
+
+
 
             {listing.gallery.length > 0 && (
               <div className="mt-14">
