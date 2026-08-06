@@ -167,40 +167,112 @@ export function PriceTable({
   );
 }
 
+/* --------------------------------- chips --------------------------------- */
+
+const chipTone: Record<ListingChipTone, string> = {
+  gold: "border-gold/60 text-gold",
+  ink: "border-ink/30 text-ink",
+  lagoon: "border-lagoon/60 text-lagoon",
+  muted: "border-border text-muted-foreground",
+};
+
+/** Small tracked-caps status chips, driven by the listing record. */
+export function ListingChips({ listing, className }: { listing: Listing; className?: string }) {
+  const { t } = useI18n();
+  const chips = listingChips(listing);
+  if (chips.length === 0) return null;
+  return (
+    <div className={cn("flex flex-wrap gap-2", className)}>
+      {chips.map((c) => (
+        <span
+          key={c.key}
+          className={cn(
+            "label-caps inline-block border px-2.5 py-1 text-[0.5rem]",
+            chipTone[c.tone],
+          )}
+        >
+          {c.delivery ? t(c.key).replace("{delivery}", c.delivery) : t(c.key)}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 /* ------------------------------- progress -------------------------------- */
 
-export function ProgressTimeline({ updates, prefix }: { updates: ProgressUpdate[]; prefix: string }) {
+export function ProgressTimeline({
+  updates,
+  prefix,
+  intro,
+  delivery,
+  deliveryLabel,
+}: {
+  updates: ProgressUpdate[];
+  prefix: string;
+  /** Editorial line above the timeline. */
+  intro?: string;
+  /** Final, text-only milestone date. */
+  delivery?: string;
+  deliveryLabel?: string;
+}) {
   return (
-    <div className="-mx-6 overflow-x-auto px-6 pb-4 sm:mx-0 sm:px-0">
-      <div className="flex min-w-max gap-8">
-        {updates.map((u, i) => (
-          <figure key={`${u.date}-${i}`} className="w-[17rem] shrink-0 sm:w-[21rem]">
-            <div className="flex gap-3">
-              {(u.images ?? []).slice(0, 2).map((src, j) => (
-                <img
-                  key={`${src}-${j}`}
-                  src={resolveListingImage(src)}
-                  alt={`${prefix} ${u.date}`}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-              ))}
-            </div>
-            <span className="mt-5 block h-px w-full bg-border" aria-hidden="true" />
-            <figcaption className="mt-4">
-              <p className="label-caps text-[0.55rem] text-gold">
-                {prefix} {u.date}
-              </p>
-              {u.note && <p className="mt-2 text-sm text-muted-foreground">{u.note}</p>}
-            </figcaption>
-          </figure>
-        ))}
+    <div>
+      {intro && (
+        <p className="mb-10 max-w-2xl font-serif text-xl leading-relaxed text-ink/80 sm:text-2xl">
+          {intro}
+        </p>
+      )}
+      <div className="-mx-6 overflow-x-auto px-6 pb-4 sm:mx-0 sm:px-0">
+        <div className="flex min-w-max items-stretch gap-8">
+          {updates.map((u, i) => {
+            const images = (u.images ?? []).slice(0, 4);
+            return (
+              <figure key={`${u.date}-${i}`} className="w-[17rem] shrink-0 sm:w-[21rem]">
+                <div
+                  className={cn(
+                    "grid gap-3",
+                    images.length === 1 ? "grid-cols-1" : "grid-cols-2",
+                  )}
+                >
+                  {images.map((src, j) => (
+                    <img
+                      key={`${src}-${j}`}
+                      src={resolveListingImage(src)}
+                      alt={`${prefix} ${u.date}`}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                  ))}
+                </div>
+                <span className="mt-5 block h-px w-full bg-border" aria-hidden="true" />
+                <figcaption className="mt-4">
+                  <p className="font-serif text-xl">{u.date}</p>
+                  <p className="label-caps mt-1 text-[0.5rem] text-gold">{prefix}</p>
+                  {u.note && <p className="mt-2 text-sm text-muted-foreground">{u.note}</p>}
+                </figcaption>
+              </figure>
+            );
+          })}
+
+          {delivery && (
+            <figure className="flex w-[15rem] shrink-0 flex-col justify-end sm:w-[17rem]">
+              <span className="block h-px w-full bg-gold/50" aria-hidden="true" />
+              <figcaption className="mt-4">
+                <p className="font-serif text-xl text-gold">{delivery}</p>
+                <p className="label-caps mt-1 text-[0.5rem] text-gold">
+                  {deliveryLabel ?? "Delivery"}
+                </p>
+              </figcaption>
+            </figure>
+          )}
+        </div>
       </div>
     </div>
   );
 }
+
 
 /* ------------------------------ section shell ----------------------------- */
 
