@@ -430,7 +430,7 @@ function ListingDetail() {
                     <Link key={s.slug} to="/portfolio/$slug" params={{ slug: s.slug }} className="group">
                       <div className="hover-zoom">
                         <img
-                          src={resolveListingImage(s.heroImage)}
+                          src={resolveListingImage(s.heroImage, "card")}
                           alt={s.name}
                           width={800}
                           height={600}
@@ -533,7 +533,7 @@ function ListingDetail() {
               <Link key={l.slug} to="/portfolio/$slug" params={{ slug: l.slug }} className="group">
                 <div className="hover-zoom">
                   <img
-                    src={resolveListingImage(l.heroImage)}
+                    src={resolveListingImage(l.heroImage, "card")}
                     alt={l.name}
                     width={800}
                     height={600}

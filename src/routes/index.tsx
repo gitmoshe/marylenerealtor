@@ -240,7 +240,7 @@ function FeaturedProperties() {
               >
                 <div className="hover-zoom">
                   <img
-                    src={resolveListingImage(p.heroImage)}
+                    src={resolveListingImage(p.heroImage, "card")}
                     alt={p.name}
                     width={1280}
                     height={960}
