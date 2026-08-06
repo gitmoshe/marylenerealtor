@@ -121,3 +121,28 @@ export function formatPrice(priceFrom: number, onRequest = "Price on request"): 
   if (!priceFrom) return onRequest;
   return `From $${priceFrom.toLocaleString("en-US")} USD`;
 }
+
+/* --------------------------------- chips --------------------------------- */
+
+export type ListingChipTone = "gold" | "ink" | "lagoon" | "muted";
+
+export type ListingChip = {
+  /** i18n key for the chip label. */
+  key: string;
+  tone: ListingChipTone;
+  /** Interpolated into the label where the key supports {delivery}. */
+  delivery?: string;
+};
+
+const tbc = (v: string) => !v || /to be confirmed|a confirmar|à confirmer/i.test(v);
+
+/** Small status chips shown on listing cards, derived from the listing record. */
+export function listingChips(l: Listing): ListingChip[] {
+  const chips: ListingChip[] = [];
+  if (l.tier === "master-broker") chips.push({ key: "portfolio.chip.masterBroker", tone: "gold" });
+  if (l.type === "Resale") chips.push({ key: "portfolio.chip.resale", tone: "lagoon" });
+  if (l.tier === "sold") chips.push({ key: "portfolio.chip.soldOut", tone: "muted" });
+  else if (l.type === "Pre-construction" && !tbc(l.delivery))
+    chips.push({ key: "portfolio.chip.underConstruction", tone: "ink", delivery: l.delivery });
+  return chips;
+}
