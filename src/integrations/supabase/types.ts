@@ -14,7 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      listings: {
+        Row: {
+          bedrooms: string
+          collections: string[]
+          created_at: string
+          delivery: string
+          description: string
+          developer: string
+          featured: boolean
+          gallery: string[]
+          hero_image: string
+          highlights: string[]
+          id: string
+          location: string
+          name: string
+          price_from: number
+          size_range: string
+          slug: string
+          sort_order: number
+          status: string
+          tier: string
+          type: string
+          updated_at: string
+          video_url: string
+        }
+        Insert: {
+          bedrooms?: string
+          collections?: string[]
+          created_at?: string
+          delivery?: string
+          description?: string
+          developer?: string
+          featured?: boolean
+          gallery?: string[]
+          hero_image?: string
+          highlights?: string[]
+          id?: string
+          location?: string
+          name: string
+          price_from?: number
+          size_range?: string
+          slug: string
+          sort_order?: number
+          status?: string
+          tier?: string
+          type?: string
+          updated_at?: string
+          video_url?: string
+        }
+        Update: {
+          bedrooms?: string
+          collections?: string[]
+          created_at?: string
+          delivery?: string
+          description?: string
+          developer?: string
+          featured?: boolean
+          gallery?: string[]
+          hero_image?: string
+          highlights?: string[]
+          id?: string
+          location?: string
+          name?: string
+          price_from?: number
+          size_range?: string
+          slug?: string
+          sort_order?: number
+          status?: string
+          tier?: string
+          type?: string
+          updated_at?: string
+          video_url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
