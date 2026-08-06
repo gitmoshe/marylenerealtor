@@ -1,17 +1,29 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
-import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import {
+  DetailSection,
+  FloorPlanTabs,
+  MasonryGallery,
+  PriceTable,
+  ProgressTimeline,
+} from "@/components/site/listing-sections";
 import { formatPrice, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/portfolio/$slug")({
-  loader: async ({ params }): Promise<{ listing: Listing; others: Listing[] }> => {
+  loader: async ({ params }): Promise<{ listing: Listing; others: Listing[]; subs: Listing[] }> => {
     const all = await fetchListings();
     const listing = all.find((l) => l.slug === params.slug);
     if (!listing) throw notFound();
-    return { listing, others: all.filter((l) => l.slug !== params.slug) };
+    const subSlugs = listing.subListings ?? [];
+    return {
+      listing,
+      others: all.filter((l) => l.slug !== params.slug && !subSlugs.includes(l.slug)),
+      subs: all.filter((l) => subSlugs.includes(l.slug)),
+    };
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
@@ -41,228 +53,479 @@ export const Route = createFileRoute("/portfolio/$slug")({
   component: ListingDetail,
 });
 
+/** Three distance chips per area — editorial, factual, never hype. */
+const distancesByLocation: Record<string, string[]> = {
+  Tulum: ["Tulum airport — 25 min", "Beach — 10 min", "Cenotes — 15 min"],
+  Playacar: ["Cancún airport — 50 min", "Beach — 5 min", "Fifth Avenue — 10 min"],
+  "Playa del Carmen": ["Cancún airport — 45 min", "Beach — 8 min", "Fifth Avenue — 5 min"],
+  Cancún: ["Cancún airport — 20 min", "Beach — 5 min", "Downtown — 15 min"],
+  "Puerto Aventuras": ["Cancún airport — 60 min", "Marina — 5 min", "Playa del Carmen — 20 min"],
+  Akumal: ["Cancún airport — 75 min", "Beach — 5 min", "Tulum — 20 min"],
+  "Riviera Maya": ["Cancún airport — 45 min", "Caribbean sea — 10 min", "Playa del Carmen — 20 min"],
+};
+
+function scrollToFile() {
+  document.getElementById("full-file")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function ListingDetail() {
-  const { listing, others } = Route.useLoaderData() as { listing: Listing; others: Listing[] };
+  const { listing, others, subs } = Route.useLoaderData() as {
+    listing: Listing;
+    others: Listing[];
+    subs: Listing[];
+  };
   const { t, lang } = useI18n();
   const reference = listing.slug.toUpperCase().replace(/-/g, " ");
-
 
   const typeLabel =
     t(`properties.type.${listing.type}`) === `properties.type.${listing.type}`
       ? listing.type
       : t(`properties.type.${listing.type}`);
 
-  const fields = [
-    { label: t("portfolio.field.developer"), value: listing.developer },
+  const ficha = listing.ficha ?? {};
+  const specs = [
+    { label: t("portfolio.field.developer"), value: listing.developerName || listing.developer },
     { label: t("portfolio.field.status"), value: listing.status },
-    { label: t("portfolio.field.delivery"), value: listing.delivery },
+    { label: t("detail.spec.delivery"), value: ficha.delivery || listing.delivery },
     { label: t("portfolio.field.bedrooms"), value: listing.bedrooms },
     { label: t("portfolio.field.size"), value: listing.sizeRange },
+    { label: t("detail.spec.units"), value: ficha.units },
+    { label: t("detail.spec.levels"), value: ficha.levels },
+    { label: t("detail.spec.unitTypes"), value: ficha.unitTypes },
+    { label: t("detail.spec.parking"), value: ficha.parking },
     {
       label: t("portfolio.field.priceFrom"),
       value: formatPrice(listing.priceFrom, t("portfolio.priceOnRequest")),
     },
-  ];
+  ].filter((f) => Boolean(f.value));
+
+  const priceRows = (listing.priceList ?? []).slice(0, 6);
+  const distances = distancesByLocation[listing.location] ?? distancesByLocation["Riviera Maya"]!;
+  const mapQuery = encodeURIComponent(`${listing.name}, ${listing.location}, Quintana Roo, Mexico`);
 
   return (
     <>
+      {/* ------------------------------ cinematic hero ----------------------------- */}
       <section className="relative">
         <img
           src={resolveListingImage(listing.heroImage)}
           alt={listing.name}
-          width={1280}
-          height={960}
-          className="h-[70vh] w-full object-cover"
+          width={1600}
+          height={1000}
+          className="ken-burns h-[78vh] w-full object-cover"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/20 to-ink/70"
+          className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/20 to-ink/80"
           aria-hidden="true"
         />
         <div className="absolute inset-x-0 bottom-0 px-6 pb-14 sm:px-10">
           <Container>
-            <Overline tone="ivory" className="text-ivory/80">
-              {listing.location} · {typeLabel}
-            </Overline>
-            <h1 className="mt-5 font-serif text-5xl text-ivory sm:text-6xl">{listing.name}</h1>
-            <p className="mt-4 font-serif text-2xl text-gold">
-              {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
-            </p>
+            <div className="flex flex-wrap items-end justify-between gap-8">
+              <div>
+                <Overline tone="ivory" className="text-ivory/80">
+                  {listing.location} · {typeLabel}
+                </Overline>
+                <GoldRule className="mt-4" />
+                <h1 className="mt-5 font-serif text-5xl text-ivory sm:text-6xl md:text-7xl">
+                  {listing.name}
+                </h1>
+                <p className="mt-4 font-serif text-2xl text-gold">
+                  {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"))}
+                </p>
+              </div>
+              {listing.developerLogo && (
+                <img
+                  src={resolveListingImage(listing.developerLogo)}
+                  alt={listing.developerName || listing.developer}
+                  loading="lazy"
+                  className="h-10 w-auto opacity-70 brightness-0 invert grayscale sm:h-12"
+                />
+              )}
+            </div>
           </Container>
         </div>
       </section>
 
+      {/* ------------------------- the residence + specs -------------------------- */}
       <Section>
-        <Container className="grid gap-14 md:grid-cols-12">
-          <Reveal className="md:col-span-7">
-            <Overline>{t("portfolio.detail.overview")}</Overline>
+        <Container>
+          <Reveal className="max-w-3xl">
+            <Overline>{t("detail.residence.overline")}</Overline>
             <GoldRule className="mt-6" />
             {listing.highlights.length > 0 && (
-              <p className="mt-8 font-serif text-2xl leading-[1.4]">
-                {listing.highlights.join(" · ")}
+              <p className="mt-8 font-serif text-2xl leading-[1.4] sm:text-3xl">
+                {listing.highlights.slice(0, 3).join(" · ")}
               </p>
             )}
-            <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-              {listing.description}
-            </p>
+            {listing.description && (
+              <p className="mt-7 text-sm leading-relaxed text-muted-foreground">
+                {listing.description}
+              </p>
+            )}
+          </Reveal>
 
-            <div className="mt-14">
-              <Overline>{t("portfolio.detail.details")}</Overline>
-              <dl className="mt-6 grid grid-cols-2 gap-x-10 sm:grid-cols-3">
-                {fields.map((f) => (
+          {specs.length > 0 && (
+            <Reveal delay={120} className="mt-16">
+              <Overline>{t("detail.specs.overline")}</Overline>
+              <dl className="mt-8 grid grid-cols-2 gap-x-10 sm:grid-cols-3 lg:grid-cols-5">
+                {specs.map((f) => (
                   <div key={f.label} className="border-b border-border py-4">
-                    <dt className="label-caps text-[0.58rem] text-muted-foreground">{f.label}</dt>
-                    <dd className="mt-2 font-serif text-xl">{f.value}</dd>
+                    <dt className="label-caps text-[0.55rem] text-muted-foreground">{f.label}</dt>
+                    <dd className="mt-2 font-serif text-lg">{f.value}</dd>
                   </div>
                 ))}
               </dl>
-            </div>
-
-
-
-
-            {listing.gallery.length > 0 && (
-              <div className="mt-14">
-                <Overline>{t("portfolio.detail.gallery")}</Overline>
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  {listing.gallery.map((src, i) => (
-                    <div key={`${listing.slug}-g${i}`} className="hover-zoom">
-                      <img
-                        src={resolveListingImage(src)}
-                        alt={`${listing.name} — ${t("portfolio.detail.galleryAlt")}`}
-                        width={1280}
-                        height={960}
-                        loading="lazy"
-                        className="aspect-[4/3] w-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </Reveal>
-
-          <Reveal delay={140} className="md:col-span-5">
-            <div className="md:sticky md:top-40">
-              <form
-                className="border border-border bg-card p-8"
-                onSubmit={(e) => e.preventDefault()}
-              >
-                <Overline>{t("brochure.overline")}</Overline>
-                <p className="mt-4 font-serif text-2xl">{t("brochure.title")}</p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {t("brochure.copy")}
-                </p>
-                <div className="mt-8 space-y-5">
-                  <Field label={t("properties.enquire.name")} name="name" />
-                  <Field label={t("properties.enquire.email")} name="email" type="email" />
-                  <Field label={t("brochure.phone")} name="phone" type="tel" />
-                  <div>
-                    <label
-                      htmlFor="preferredLanguage"
-                      className="label-caps text-[0.58rem] text-muted-foreground"
-                    >
-                      {t("brochure.language")}
-                    </label>
-                    <select
-                      id="preferredLanguage"
-                      name="preferredLanguage"
-                      defaultValue={lang}
-                      className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
-                    >
-                      <option value="es">Español</option>
-                      <option value="en">English</option>
-                      <option value="fr">Français</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="label-caps text-[0.58rem] text-muted-foreground"
-                    >
-                      {t("properties.enquire.message")}
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      maxLength={1000}
-                      defaultValue={t("brochure.messageTemplate")
-                        .replace("{name}", listing.name)
-                        .replace("{ref}", reference)}
-                      className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
-                    />
-                  </div>
-                </div>
-                <button
-                  type="submit"
-                  className="label-caps mt-8 w-full bg-gold py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
-                >
-                  {t("brochure.submit")}
-                </button>
-                <p className="mt-5 text-xs text-muted-foreground">
-                  {t("properties.enquire.replies")}
-                </p>
-              </form>
-              <Link
-                to="/contact"
-                className="link-underline mt-5 inline-block text-xs leading-relaxed text-muted-foreground hover:text-gold"
-              >
-                {t("brochure.similar")}
-              </Link>
-            </div>
-          </Reveal>
-
+            </Reveal>
+          )}
         </Container>
       </Section>
 
+      {/* --------------------------------- video --------------------------------- */}
       {listing.videoUrl && (
         <Section className="pt-0">
           <Container>
             <Reveal>
-              <Overline>{t("portfolio.detail.film")}</Overline>
-              <GoldRule className="mt-6" />
-              <div className="mt-8 bg-ivory p-3 shadow-[0_1px_0_0_hsl(var(--border))] sm:p-6">
-                <div className="aspect-video w-full overflow-hidden bg-ink">
-                  <iframe
-                    src={listing.videoUrl}
-                    title={listing.name}
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="h-full w-full"
-                  />
+              <DetailSection overline={t("portfolio.detail.film")}>
+                <div className="bg-ivory p-3 sm:p-6">
+                  <div className="aspect-video w-full overflow-hidden bg-ink">
+                    <iframe
+                      src={listing.videoUrl}
+                      title={listing.name}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="h-full w-full"
+                    />
+                  </div>
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+                    <p className="label-caps text-[0.58rem] text-muted-foreground">
+                      {t("portfolio.detail.filmedBy")}
+                    </p>
+                    {listing.virtualTourUrl && (
+                      <ButtonAnchor
+                        href={listing.virtualTourUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="outline"
+                        className="px-6 py-3 text-[0.58rem]"
+                      >
+                        {t("detail.virtualTour")}
+                      </ButtonAnchor>
+                    )}
+                  </div>
                 </div>
-                <p className="label-caps mt-4 text-[0.58rem] text-muted-foreground">
-                  {t("portfolio.detail.filmedBy")}
-                </p>
-              </div>
+              </DetailSection>
             </Reveal>
           </Container>
         </Section>
       )}
 
+      {/* -------------------------------- gallery -------------------------------- */}
+      {listing.gallery.length > 0 && (
+        <Section className="pt-0">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.gallery.overline")}>
+                <MasonryGallery images={listing.gallery} alt={listing.name} />
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
 
+      {/* ------------------------------ floor plans ------------------------------ */}
+      {(listing.floorPlans ?? []).length > 0 && (
+        <Section className="border-t border-border bg-secondary/40 pt-24">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.plans.overline")}>
+                <FloorPlanTabs
+                  plans={listing.floorPlans!}
+                  requestLabel={t("detail.plans.request")}
+                  onRequest={scrollToFile}
+                />
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
 
+      {/* ------------------------------- masterplan ------------------------------- */}
+      {listing.masterplanImage && (
+        <Section className="pt-24">
+          <Container className="max-w-none">
+            <Reveal>
+              <Overline className="px-2">{t("detail.masterplan.overline")}</Overline>
+              <img
+                src={resolveListingImage(listing.masterplanImage)}
+                alt={`${listing.name} — ${t("detail.masterplan.overline")}`}
+                width={1920}
+                height={1080}
+                loading="lazy"
+                className="mt-8 w-full object-cover"
+              />
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* ---------------------------- residences & pricing ------------------------ */}
+      {priceRows.length > 0 && (
+        <Section className="pt-24">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.pricing.overline")}>
+                <PriceTable
+                  rows={priceRows}
+                  headings={{
+                    type: t("detail.pricing.type"),
+                    size: t("detail.pricing.size"),
+                    from: t("detail.pricing.from"),
+                    availability: t("detail.pricing.availability"),
+                  }}
+                />
+                <div className="mt-10 border border-border bg-card p-8 text-center">
+                  <p className="text-sm text-muted-foreground">{t("detail.pricing.ctaNote")}</p>
+                  <button
+                    type="button"
+                    onClick={scrollToFile}
+                    className="label-caps mt-6 bg-gold px-8 py-4 text-[0.62rem] text-ivory transition-colors duration-500 hover:bg-ink"
+                  >
+                    {t("detail.pricing.cta")}
+                  </button>
+                </div>
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* --------------------------- finishes & amenities ------------------------- */}
+      {((listing.amenities ?? []).length > 0 || listing.paymentPlanSummary) && (
+        <Section className="pt-24">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.amenities.overline")}>
+                <div className="grid gap-14 md:grid-cols-2">
+                  {(listing.amenities ?? []).length > 0 && (
+                    <ul className="space-y-4">
+                      {listing.amenities!.map((a) => (
+                        <li key={a} className="border-b border-border pb-4 text-sm">
+                          {a}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {listing.paymentPlanSummary && (
+                    <div>
+                      <p className="font-serif text-2xl">{t("detail.payment.title")}</p>
+                      <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                        {listing.paymentPlanSummary}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* ---------------------------- construction progress ----------------------- */}
+      {(listing.progress ?? []).length > 0 && (
+        <Section className="border-t border-border bg-secondary/40 pt-24">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.progress.overline")}>
+                <ProgressTimeline
+                  updates={listing.progress!}
+                  prefix={t("detail.progress.prefix")}
+                />
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* ------------------------------ the developer ----------------------------- */}
+      {(listing.developerName || listing.developerBlurb || listing.developerLogo) && (
+        <Section className="pt-24">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.developer.overline")}>
+                <div className="flex flex-wrap items-center gap-10">
+                  {listing.developerLogo && (
+                    <img
+                      src={resolveListingImage(listing.developerLogo)}
+                      alt={listing.developerName || listing.developer}
+                      loading="lazy"
+                      className="h-12 w-auto grayscale"
+                    />
+                  )}
+                  <div className="max-w-xl">
+                    <p className="font-serif text-3xl">
+                      {listing.developerName || listing.developer}
+                    </p>
+                    {listing.developerBlurb && (
+                      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                        {listing.developerBlurb}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* -------------------------------- location -------------------------------- */}
+      <Section className="pt-24">
+        <Container>
+          <Reveal>
+            <DetailSection overline={t("detail.location.overline")}>
+              <div className="border border-border">
+                <iframe
+                  title={`${listing.name} — ${t("detail.map.title")}`}
+                  src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-[22rem] w-full grayscale sm:h-[28rem]"
+                />
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {distances.map((d) => (
+                  <span
+                    key={d}
+                    className="label-caps border border-border px-4 py-2 text-[0.55rem] text-muted-foreground"
+                  >
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </DetailSection>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* ---------------------------- sub-listings -------------------------------- */}
+      {subs.length > 0 && (
+        <Section className="pt-0">
+          <Container>
+            <Reveal>
+              <DetailSection overline={t("detail.collection.overline")}>
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                  {subs.map((s) => (
+                    <Link key={s.slug} to="/portfolio/$slug" params={{ slug: s.slug }} className="group">
+                      <div className="hover-zoom">
+                        <img
+                          src={resolveListingImage(s.heroImage)}
+                          alt={s.name}
+                          width={800}
+                          height={600}
+                          loading="lazy"
+                          className="aspect-[4/3] w-full object-cover"
+                        />
+                      </div>
+                      <p className="label-caps mt-4 text-[0.55rem] text-lagoon">{s.location}</p>
+                      <h3 className="mt-2 font-serif text-xl group-hover:text-gold">{s.name}</h3>
+                    </Link>
+                  ))}
+                </div>
+              </DetailSection>
+            </Reveal>
+          </Container>
+        </Section>
+      )}
+
+      {/* ------------------------------- the full file ---------------------------- */}
+      <Section id="full-file" className="border-t border-border pt-24">
+        <Container className="grid gap-14 md:grid-cols-12">
+          <Reveal className="md:col-span-5">
+            <Overline>{t("detail.file.overline")}</Overline>
+            <GoldRule className="mt-6" />
+            <p className="mt-8 font-serif text-3xl">{t("detail.file.title")}</p>
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
+              {t("brochure.copy")}
+            </p>
+            <Link
+              to="/contact"
+              className="link-underline mt-8 inline-block text-xs leading-relaxed text-muted-foreground hover:text-gold"
+            >
+              {t("brochure.similar")}
+            </Link>
+          </Reveal>
+
+          <Reveal delay={140} className="md:col-span-7">
+            <form className="border border-border bg-card p-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label={t("properties.enquire.name")} name="name" />
+                <Field label={t("properties.enquire.email")} name="email" type="email" />
+                <Field label={t("brochure.phone")} name="phone" type="tel" />
+                <div>
+                  <label
+                    htmlFor="preferredLanguage"
+                    className="label-caps text-[0.58rem] text-muted-foreground"
+                  >
+                    {t("brochure.language")}
+                  </label>
+                  <select
+                    id="preferredLanguage"
+                    name="preferredLanguage"
+                    defaultValue={lang}
+                    className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
+                  >
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                  </select>
+                </div>
+              </div>
+              <div className="mt-5">
+                <label
+                  htmlFor="message"
+                  className="label-caps text-[0.58rem] text-muted-foreground"
+                >
+                  {t("properties.enquire.message")}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  maxLength={1000}
+                  defaultValue={t("brochure.messageTemplate")
+                    .replace("{name}", listing.name)
+                    .replace("{ref}", reference)}
+                  className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
+                />
+              </div>
+              <button
+                type="submit"
+                className="label-caps mt-8 w-full bg-gold py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+              >
+                {t("brochure.submit")}
+              </button>
+              <p className="mt-5 text-xs text-muted-foreground">
+                {t("properties.enquire.replies")}
+              </p>
+            </form>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* ------------------------------ continue looking -------------------------- */}
       <Section className="border-t border-border bg-secondary/50">
         <Container>
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <h2 className="font-serif text-4xl">{t("portfolio.detail.continue")}</h2>
-            <Link
-              to="/portfolio"
-              className="label-caps link-underline py-2 text-[0.68rem] hover:text-gold"
-            >
-              {t("portfolio.detail.all")}
-            </Link>
-          </div>
-          <div className="mt-12 grid gap-10 sm:grid-cols-3">
-            {others.slice(0, 3).map((l: Listing) => (
+          <Overline>{t("portfolio.detail.continue")}</Overline>
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {others.slice(0, 3).map((l) => (
               <Link key={l.slug} to="/portfolio/$slug" params={{ slug: l.slug }} className="group">
                 <div className="hover-zoom">
                   <img
                     src={resolveListingImage(l.heroImage)}
                     alt={l.name}
-                    width={1280}
-                    height={960}
+                    width={800}
+                    height={600}
                     loading="lazy"
                     className="aspect-[4/3] w-full object-cover"
                   />
@@ -273,9 +536,12 @@ function ListingDetail() {
             ))}
           </div>
           <div className="mt-16 text-center">
-            <ButtonLink to="/contact" variant="outline">
-              {t("properties.enquire.book")}
-            </ButtonLink>
+            <Link
+              to="/portfolio"
+              className="label-caps inline-flex items-center border border-ink/25 px-8 py-4 text-[0.62rem] transition-colors duration-500 hover:border-gold hover:text-gold"
+            >
+              {t("portfolio.detail.all")}
+            </Link>
           </div>
         </Container>
       </Section>
