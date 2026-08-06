@@ -116,9 +116,20 @@ export function collectionsIn(items: Listing[]): string[] {
   return Array.from(new Set(items.flatMap((l) => l.collections)));
 }
 
-/** "From $595,000 USD", or "Price on request" when priceFrom is 0. */
-export function formatPrice(priceFrom: number, onRequest = "Price on request"): string {
+/**
+ * "From $595,000 USD" / "From MX$4.25M", or "Price on request" when priceFrom is 0.
+ */
+export function formatPrice(
+  priceFrom: number,
+  onRequest = "Price on request",
+  currency: ListingCurrency = "USD",
+): string {
   if (!priceFrom) return onRequest;
+  if (currency === "MXN") {
+    const millions = priceFrom / 1_000_000;
+    const value = millions >= 1 ? `${Number(millions.toFixed(2))}M` : priceFrom.toLocaleString("en-US");
+    return `From MX$${value}`;
+  }
   return `From $${priceFrom.toLocaleString("en-US")} USD`;
 }
 
