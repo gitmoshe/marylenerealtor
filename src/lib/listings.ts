@@ -31,6 +31,26 @@ export type ListingLocation = (typeof listingLocations)[number];
 export type ListingType = (typeof listingTypes)[number];
 export type ListingTier = (typeof listingTiers)[number];
 
+export type PriceListRow = {
+  unit: string;
+  type: string;
+  size: string;
+  price: string;
+  status: string;
+};
+
+export type FloorPlan = { name: string; image: string; size?: string };
+
+export type ProgressUpdate = { date: string; images: string[]; note?: string };
+
+export type Ficha = {
+  delivery?: string;
+  units?: string;
+  levels?: string;
+  unitTypes?: string;
+  parking?: string;
+};
+
 export type Listing = {
   id?: string;
   slug: string;
@@ -55,6 +75,21 @@ export type Listing = {
   featured: boolean;
   collections: string[];
   sortOrder?: number;
+
+  /* ------------------------- extended detail fields ------------------------ */
+  priceList?: PriceListRow[];
+  floorPlans?: FloorPlan[];
+  masterplanImage?: string;
+  progress?: ProgressUpdate[];
+  virtualTourUrl?: string;
+  developerName?: string;
+  developerLogo?: string;
+  developerBlurb?: string;
+  amenities?: string[];
+  paymentPlanSummary?: string;
+  ficha?: Ficha;
+  /** Slugs of listings grouped under this one (collection-type listings). */
+  subListings?: string[];
 };
 
 /** Locations, types and collections actually present in a set of listings. */

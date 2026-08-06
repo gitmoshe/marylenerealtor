@@ -16,6 +16,7 @@ import { portfolioDict } from "./i18n/dict.portfolio";
 import { managementDict } from "./i18n/dict.management";
 import { filmsDict } from "./i18n/dict.films";
 import { rivieraDict } from "./i18n/dict.riviera";
+import { detailDict } from "./i18n/dict.detail";
 
 export { LANGS };
 export type { Lang };
@@ -31,6 +32,7 @@ const dicts: Dict[] = [
   managementDict,
   filmsDict,
   rivieraDict,
+  detailDict,
 ];
 
 function merge(lang: Lang): Record<string, string> {

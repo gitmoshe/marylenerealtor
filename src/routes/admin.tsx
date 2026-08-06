@@ -54,7 +54,58 @@ const emptyDraft: Draft = {
   featured: false,
   collections: [],
   sortOrder: 500,
+  priceList: [],
+  floorPlans: [],
+  masterplanImage: "",
+  progress: [],
+  virtualTourUrl: "",
+  developerName: "",
+  developerLogo: "",
+  developerBlurb: "",
+  amenities: [],
+  paymentPlanSummary: "",
+  ficha: {},
+  subListings: [],
 };
+
+/** Structured fields are edited as JSON so any shape can be entered. */
+function JsonField<T>({
+  label,
+  hint,
+  value,
+  onChange,
+}: {
+  label: string;
+  hint: string;
+  value: T;
+  onChange: (v: T) => void;
+}) {
+  const [text, setText] = useState(() => JSON.stringify(value ?? [], null, 2));
+  const [bad, setBad] = useState(false);
+  return (
+    <div>
+      <label className={labelClass}>{label}</label>
+      <textarea
+        value={text}
+        rows={6}
+        spellCheck={false}
+        onChange={(e) => {
+          setText(e.target.value);
+          try {
+            onChange(JSON.parse(e.target.value || "null") as T);
+            setBad(false);
+          } catch {
+            setBad(true);
+          }
+        }}
+        className={`${inputClass} font-mono text-xs`}
+      />
+      <p className={`mt-2 text-xs ${bad ? "text-destructive" : "text-muted-foreground"}`}>
+        {bad ? "Invalid JSON — not saved until fixed." : hint}
+      </p>
+    </div>
+  );
+}
 
 function slugify(v: string) {
   return v
@@ -538,6 +589,126 @@ function ListingForm({
         />
       </div>
 
+      {/* -------------------------- extended detail fields -------------------------- */}
+      <div className="mt-14 border-t border-border pt-10">
+        <p className="label-caps text-[0.6rem] text-gold">Detail page sections</p>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Every section below only appears on the property page when it has content.
+        </p>
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <TextField
+            label="Virtual tour URL"
+            value={form.virtualTourUrl ?? ""}
+            onChange={(v) => set("virtualTourUrl", v)}
+          />
+          <TextField
+            label="Developer name"
+            value={form.developerName ?? ""}
+            onChange={(v) => set("developerName", v)}
+          />
+          <TextField
+            label="Sub-listings (comma separated slugs)"
+            value={(form.subListings ?? []).join(", ")}
+            onChange={(v) =>
+              set(
+                "subListings",
+                v
+                  .split(",")
+                  .map((x) => x.trim())
+                  .filter(Boolean),
+              )
+            }
+          />
+          <TextField
+            label="Amenities (comma separated)"
+            value={(form.amenities ?? []).join(", ")}
+            onChange={(v) =>
+              set(
+                "amenities",
+                v
+                  .split(",")
+                  .map((x) => x.trim())
+                  .filter(Boolean),
+              )
+            }
+          />
+        </div>
+
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          <div>
+            <label className={labelClass}>Developer blurb (two lines)</label>
+            <textarea
+              value={form.developerBlurb ?? ""}
+              rows={3}
+              onChange={(e) => set("developerBlurb", e.target.value)}
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label className={labelClass}>Payment plan summary</label>
+            <textarea
+              value={form.paymentPlanSummary ?? ""}
+              rows={3}
+              onChange={(e) => set("paymentPlanSummary", e.target.value)}
+              className={inputClass}
+            />
+          </div>
+        </div>
+
+        <div className="mt-8 grid gap-8 sm:grid-cols-2">
+          <ImageField
+            label="Developer logo"
+            value={form.developerLogo ?? ""}
+            busy={busy}
+            onPick={async (file) => {
+              setBusy(true);
+              const url = await uploadFile(file);
+              setBusy(false);
+              if (url) set("developerLogo", url);
+            }}
+          />
+          <ImageField
+            label="Masterplan image"
+            value={form.masterplanImage ?? ""}
+            busy={busy}
+            onPick={async (file) => {
+              setBusy(true);
+              const url = await uploadFile(file);
+              setBusy(false);
+              if (url) set("masterplanImage", url);
+            }}
+          />
+        </div>
+
+        <div className="mt-8 grid gap-6">
+          <JsonField
+            label="Ficha técnica"
+            hint='{"delivery":"Dec 2027","units":"48","levels":"4","unitTypes":"1–3 bedrooms","parking":"1 space"}'
+            value={form.ficha ?? {}}
+            onChange={(v) => set("ficha", v)}
+          />
+          <JsonField
+            label="Price list"
+            hint='[{"unit":"A-201","type":"2 bedroom","size":"120 m²","price":"$595,000","status":"Available"}]'
+            value={form.priceList ?? []}
+            onChange={(v) => set("priceList", v)}
+          />
+          <JsonField
+            label="Floor plans"
+            hint='[{"name":"Type A","size":"120 m²","image":"/api/public/listing-image/…"}] — upload plan images in the gallery, then copy the URL here'
+            value={form.floorPlans ?? []}
+            onChange={(v) => set("floorPlans", v)}
+          />
+          <JsonField
+            label="Construction progress"
+            hint='[{"date":"July 2026","note":"Structure complete","images":["/api/public/listing-image/…"]}]'
+            value={form.progress ?? []}
+            onChange={(v) => set("progress", v)}
+          />
+        </div>
+      </div>
+
       {error && <p className="mt-6 text-sm text-destructive">{error}</p>}
 
       <div className="mt-10 flex gap-4">
@@ -557,5 +728,36 @@ function ListingForm({
         </button>
       </div>
     </form>
+  );
+}
+
+function ImageField({
+  label,
+  value,
+  busy,
+  onPick,
+}: {
+  label: string;
+  value: string;
+  busy: boolean;
+  onPick: (file: File) => void | Promise<void>;
+}) {
+  return (
+    <div>
+      <label className={labelClass}>{label}</label>
+      <div className="mt-3 flex items-center gap-5">
+        {value && <img src={resolveListingImage(value)} alt="" className="h-16 w-24 object-contain" />}
+        <input
+          type="file"
+          accept="image/*"
+          disabled={busy}
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) void onPick(file);
+          }}
+          className="text-sm"
+        />
+      </div>
+    </div>
   );
 }
