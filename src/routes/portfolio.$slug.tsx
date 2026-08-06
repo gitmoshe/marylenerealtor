@@ -9,6 +9,8 @@ import {
   ProgressTimeline,
 } from "@/components/site/listing-sections";
 import { CollectionPage } from "@/components/site/CollectionPage";
+import { VideoFacade } from "@/components/site/VideoFacade";
+import { LazyMap } from "@/components/site/LazyMap";
 import { formatPrice, isCollection, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
@@ -196,14 +198,7 @@ function ListingDetail() {
               <DetailSection overline={t("portfolio.detail.film")}>
                 <div className="bg-ivory p-3 sm:p-6">
                   <div className="aspect-video w-full overflow-hidden bg-ink">
-                    <iframe
-                      src={listing.videoUrl}
-                      title={listing.name}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="h-full w-full"
-                    />
+                    <VideoFacade url={listing.videoUrl} title={listing.name} />
                   </div>
                   <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
                     <p className="label-caps text-[0.58rem] text-muted-foreground">
@@ -395,15 +390,10 @@ function ListingDetail() {
         <Container>
           <Reveal>
             <DetailSection overline={t("detail.location.overline")}>
-              <div className="border border-border">
-                <iframe
-                  title={`${listing.name} — ${t("detail.map.title")}`}
-                  src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-[22rem] w-full grayscale sm:h-[28rem]"
-                />
-              </div>
+              <LazyMap
+                title={`${listing.name} — ${t("detail.map.title")}`}
+                src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+              />
               <div className="mt-6 flex flex-wrap gap-3">
                 {distances.map((d) => (
                   <span
