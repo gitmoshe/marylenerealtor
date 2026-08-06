@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { GoldRule, Overline } from "@/components/site/ui";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import { resolveListingImage } from "@/lib/listing-assets";
-import type { FloorPlan, PriceListRow, ProgressUpdate } from "@/lib/listings";
+import { listingChips } from "@/lib/listings";
+import type {
+  FloorPlan,
+  Listing,
+  ListingChipTone,
+  PriceListRow,
+  ProgressUpdate,
+} from "@/lib/listings";
 
 /* -------------------------------- gallery -------------------------------- */
 
