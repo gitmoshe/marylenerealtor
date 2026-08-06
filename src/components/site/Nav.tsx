@@ -8,7 +8,7 @@ import { useI18n, type Lang, type TKey } from "@/lib/i18n";
 const links = [
   { to: "/", key: "nav.home" },
   { to: "/meet-marylene", key: "nav.meet" },
-  { to: "/properties", key: "nav.properties" },
+  { to: "/portfolio", key: "nav.properties" },
   { to: "/property-management", key: "nav.management" },
   { to: "/films", key: "nav.films" },
   { to: "/la-riviera", key: "nav.riviera" },

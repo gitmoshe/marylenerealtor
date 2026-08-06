@@ -87,7 +87,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={360}>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <ButtonLink to="/properties" variant="gold">
+            <ButtonLink to="/portfolio" variant="gold">
               {t("hero.ctaPrimary")}
             </ButtonLink>
             <ButtonLink to="/films" variant="ghost">
@@ -218,7 +218,7 @@ function FeaturedProperties() {
             <h2 className="mt-5 font-serif text-4xl sm:text-5xl">{t("sections.selectedTitle")}</h2>
           </div>
           <Link
-            to="/properties"
+            to="/portfolio"
             className="label-caps link-underline py-2 text-[0.68rem] transition-colors duration-300 hover:text-gold"
           >
             {t("sections.selectedLink")}
@@ -229,7 +229,7 @@ function FeaturedProperties() {
           {featured.map((p, i) => (
             <Reveal key={p.slug} delay={i * 120}>
               <Link
-                to="/properties/$slug"
+                to="/portfolio/$slug"
                 params={{ slug: p.slug }}
                 className="group block"
               >

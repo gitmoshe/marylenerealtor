@@ -10,7 +10,7 @@ export function Footer() {
     {
       titleKey: "home.footer.explore",
       links: [
-        { to: "/properties", labelKey: "nav.properties" },
+        { to: "/portfolio", labelKey: "nav.properties" },
         { to: "/property-management", labelKey: "nav.management" },
         { to: "/films", labelKey: "nav.films" },
       ],
