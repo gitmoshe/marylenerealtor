@@ -237,6 +237,21 @@ function PortfolioPage() {
     items: listings.filter((l: Listing) => l.collections.includes(c)),
   })).filter((row) => row.items.length > 0);
 
+  /** Live portfolio counts shown in the header band's right column. */
+  const tf = (key: string, fallback: string) => (t(key) === key ? fallback : t(key));
+  const counts: { value: number; label: string }[] = useMemo(() => {
+    const children = childSlugsIn(listings);
+    const developments = listings.filter((l) => !isCollection(l) && !children.has(l.slug)).length;
+    const destinations = new Set(listings.map((l) => l.location).filter(Boolean)).size;
+    const currencies = new Set(listings.map((l) => l.currency).filter(Boolean)).size;
+    return [
+      { value: developments, label: tf("portfolio.counts.developments", "Developments") },
+      { value: destinations, label: tf("portfolio.counts.destinations", "Destinations") },
+      { value: currencies, label: tf("portfolio.counts.currencies", "Currencies") },
+    ];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listings, t]);
+
   return (
     <>
       {/* 1 — Header band */}
