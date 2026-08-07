@@ -85,7 +85,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={240}>
           <span className="rule-gold mx-auto mt-10 w-20" />
-          <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed font-light text-ivory/85">
+          <p className="mx-auto mt-8 max-w-xl text-[0.95rem] leading-relaxed text-ivory/90">
             {t("hero.subtitle")}
           </p>
         </Reveal>

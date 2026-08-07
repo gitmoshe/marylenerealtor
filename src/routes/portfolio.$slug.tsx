@@ -175,13 +175,13 @@ function ListingDetail() {
           </Reveal>
 
           {specs.length > 0 && (
-            <Reveal delay={120} className="mt-16">
+            <Reveal delay={120} className="mt-10">
               <Overline>{t("detail.specs.overline")}</Overline>
-              <dl className="mt-8 grid grid-cols-2 gap-x-10 sm:grid-cols-3 lg:grid-cols-5">
+              <dl className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
                 {specs.map((f) => (
-                  <div key={f.label} className="border-b border-border py-4">
+                  <div key={f.label} className="border border-border bg-card px-4 py-3">
                     <dt className="label-caps text-[0.55rem] text-muted-foreground">{f.label}</dt>
-                    <dd className="mt-2 font-serif text-lg">{f.value}</dd>
+                    <dd className="mt-1.5 font-serif text-lg leading-snug">{f.value}</dd>
                   </div>
                 ))}
               </dl>

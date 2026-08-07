@@ -308,7 +308,7 @@ function PortfolioPage() {
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
                 {t("portfolio.masterBroker.copy")}
               </p>
-              <div className="mt-10 grid gap-12 sm:grid-cols-2">
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
                 {masterBroker.map((l: Listing) => (
                   <ListingCard key={l.slug} listing={l} />
                 ))}
@@ -364,7 +364,7 @@ function PortfolioPage() {
       {/* 4 — Full grid */}
       <Section className="pt-10 pb-0">
         <Container>
-          <div className="grid gap-12 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((l: Listing, i: number) => (
               <Reveal key={l.slug} delay={(i % 2) * 120}>
                 <ListingCard listing={l} />
@@ -392,9 +392,9 @@ function PortfolioPage() {
                   : t(`portfolio.collection.${row.tag}`)}
               </h2>
             </Reveal>
-            <div className="-mx-6 mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-4 sm:mx-0 sm:px-0">
+            <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
               {row.items.map((l: Listing) => (
-                <div key={l.slug} className="w-[78vw] shrink-0 snap-start sm:w-[320px]">
+                <div key={l.slug} className="w-[78vw] shrink-0 snap-start sm:w-auto">
                   <ListingCard listing={l} compact />
                 </div>
               ))}
