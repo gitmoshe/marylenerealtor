@@ -240,7 +240,7 @@ function PortfolioPage() {
   return (
     <>
       {/* 1 — Header band */}
-      <Section className="pt-44 pb-0 md:pt-52">
+      <Section className="pt-28 pb-0 md:pt-32">
         <Container>
           <Reveal className="max-w-3xl">
             <Overline>{t("portfolio.hero.overline")}</Overline>
@@ -256,7 +256,7 @@ function PortfolioPage() {
       </Section>
 
       {/* 1b — Developments & partners */}
-      <Section className="pt-16 pb-0 md:pt-20">
+      <Section className="pt-10 pb-0 md:pt-12">
         <Container>
           <Reveal className="border-y border-border py-10">
             <p className="label-caps text-center text-[0.55rem] text-muted-foreground">
@@ -269,7 +269,7 @@ function PortfolioPage() {
 
       {/* 2 — Master broker */}
       {masterBroker.length > 0 && (
-        <Section className="pt-20 pb-0 md:pt-24">
+        <Section className="pt-12 pb-0 md:pt-14">
           <Container>
             <Reveal className="border border-gold/40 p-8 sm:p-12">
               <span className="label-caps inline-block border border-gold px-3 py-1.5 text-[0.55rem] text-gold">
@@ -292,7 +292,7 @@ function PortfolioPage() {
       )}
 
       {/* 3 — Filters */}
-      <Section className="pt-16 pb-0 md:pt-20">
+      <Section className="pt-10 pb-0 md:pt-12">
         <Container>
           <Reveal className="space-y-5 border-y border-border py-8">
             <FilterRow
@@ -335,7 +335,7 @@ function PortfolioPage() {
       </Section>
 
       {/* 4 — Full grid */}
-      <Section className="pt-14 pb-0">
+      <Section className="pt-10 pb-0">
         <Container>
           <div className="grid gap-12 sm:grid-cols-2">
             {results.map((l: Listing, i: number) => (
@@ -355,7 +355,7 @@ function PortfolioPage() {
 
       {/* 5 — Collection rows */}
       {collectionRows.map((row) => (
-        <Section key={row.tag} className="pt-24 pb-0 md:pt-28">
+        <Section key={row.tag} className="pt-10 pb-0 md:pt-[72px]">
           <Container>
             <Reveal>
               <Overline>{t("portfolio.collections.overline")}</Overline>
@@ -377,7 +377,7 @@ function PortfolioPage() {
       ))}
 
       {/* 6 — Closing CTA */}
-      <Section className="mt-24 bg-ink text-ivory md:mt-32">
+      <Section className="mt-14 bg-ink text-ivory md:mt-20">
         <Container className="text-center">
           <Reveal>
             <h2 className="font-serif text-4xl leading-tight sm:text-5xl">

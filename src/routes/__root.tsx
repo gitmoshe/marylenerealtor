@@ -21,7 +21,7 @@ import { ButtonLink } from "@/components/site/ui";
 function NotFoundComponent() {
   const { t } = useI18n();
   return (
-    <section className="flex min-h-[100svh] flex-col items-center justify-center bg-background px-6 py-32 text-center sm:px-10">
+    <section className="flex min-h-[100svh] flex-col items-center justify-center bg-background px-6 py-[72px] text-center sm:px-10">
       <span className="overline block text-gold">{t("home.notFound.overline")}</span>
       <span className="rule-gold mx-auto mt-5 w-12" aria-hidden="true" />
       <h1 className="mt-8 max-w-3xl font-serif text-4xl leading-[1.1] text-ink sm:text-6xl">

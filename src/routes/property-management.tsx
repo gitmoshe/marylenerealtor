@@ -45,7 +45,7 @@ function PropertyManagement() {
 
   return (
     <>
-      <Section className="pt-44 pb-0 md:pt-52">
+      <Section className="pt-28 pb-0 md:pt-32">
         <Container>
           <Reveal className="max-w-3xl">
             <Overline>{t("management.hero.overline")}</Overline>

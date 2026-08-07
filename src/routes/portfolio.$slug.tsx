@@ -238,7 +238,7 @@ function ListingDetail() {
 
       {/* ------------------------------ floor plans ------------------------------ */}
       {(listing.floorPlans ?? []).length > 0 && (
-        <Section className="border-t border-border bg-secondary/40 pt-24">
+        <Section className="border-t border-border bg-secondary/40 pt-14">
           <Container>
             <Reveal>
               <DetailSection overline={t("detail.plans.overline")}>
@@ -255,7 +255,7 @@ function ListingDetail() {
 
       {/* ------------------------------- masterplan ------------------------------- */}
       {listing.masterplanImage && (
-        <Section className="pt-24">
+        <Section className="pt-14">
           <Container className="max-w-none">
             <Reveal>
               <Overline className="px-2">{t("detail.masterplan.overline")}</Overline>
@@ -274,7 +274,7 @@ function ListingDetail() {
 
       {/* ---------------------------- residences & pricing ------------------------ */}
       {priceRows.length > 0 && (
-        <Section className="pt-24">
+        <Section className="pt-14">
           <Container>
             <Reveal>
               <DetailSection overline={t("detail.pricing.overline")}>
@@ -305,7 +305,7 @@ function ListingDetail() {
 
       {/* --------------------------- finishes & amenities ------------------------- */}
       {((listing.amenities ?? []).length > 0 || listing.paymentPlanSummary) && (
-        <Section className="pt-24">
+        <Section className="pt-14">
           <Container>
             <Reveal>
               <DetailSection overline={t("detail.amenities.overline")}>
@@ -336,7 +336,7 @@ function ListingDetail() {
 
       {/* ---------------------------- construction progress ----------------------- */}
       {(listing.progress ?? []).length > 0 && (
-        <Section className="border-t border-border bg-secondary/40 pt-24">
+        <Section className="border-t border-border bg-secondary/40 pt-14">
           <Container>
             <Reveal>
               <DetailSection overline={t("detail.progress.overline")}>
@@ -355,7 +355,7 @@ function ListingDetail() {
 
       {/* ------------------------------ the developer ----------------------------- */}
       {(listing.developerName || listing.developerBlurb || listing.developerLogo) && (
-        <Section className="pt-24">
+        <Section className="pt-14">
           <Container>
             <Reveal>
               <DetailSection overline={t("detail.developer.overline")}>
@@ -386,7 +386,7 @@ function ListingDetail() {
       )}
 
       {/* -------------------------------- location -------------------------------- */}
-      <Section className="pt-24">
+      <Section className="pt-14">
         <Container>
           <Reveal>
             <DetailSection overline={t("detail.location.overline")}>
@@ -440,7 +440,7 @@ function ListingDetail() {
       )}
 
       {/* ------------------------------- the full file ---------------------------- */}
-      <Section id="full-file" className="border-t border-border pt-24">
+      <Section id="full-file" className="border-t border-border pt-14">
         <Container className="grid gap-14 md:grid-cols-12">
           <Reveal className="md:col-span-5">
             <Overline>{t("detail.file.overline")}</Overline>

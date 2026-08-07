@@ -26,7 +26,7 @@ export function Footer() {
   ] as const;
 
   return (
-    <footer className="bg-ink px-6 pt-24 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-ivory sm:px-10">
+    <footer className="bg-ink px-6 pt-14 pb-[max(2.5rem,env(safe-area-inset-bottom))] text-ivory sm:px-10">
       <div className="mx-auto w-full max-w-6xl">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>

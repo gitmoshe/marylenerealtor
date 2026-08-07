@@ -36,7 +36,7 @@ function FilmsPage() {
 
   return (
     <>
-      <Section className="pt-44 pb-0 md:pt-52">
+      <Section className="pt-28 pb-0 md:pt-32">
         <Container>
           <Reveal className="max-w-3xl">
             <Overline>{t("films.overline")}</Overline>
@@ -50,7 +50,7 @@ function FilmsPage() {
         </Container>
       </Section>
 
-      <Section className="pt-16 pb-0 md:pt-20">
+      <Section className="pt-10 pb-0 md:pt-12">
         <Container>
           <Reveal className="flex flex-wrap gap-x-8 gap-y-1 border-y border-border py-5">
             <button

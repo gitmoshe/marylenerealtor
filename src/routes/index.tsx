@@ -76,7 +76,7 @@ function Hero() {
         className="veil-fade absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/70 to-ink/90 md:from-ink/80 md:via-ink/55 md:to-ink/85"
         aria-hidden="true"
       />
-      <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-24 text-center sm:px-10">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-14 text-center sm:px-10">
         <Reveal delay={120}>
           <h1 className="mt-8 font-serif text-[2.9rem] leading-[1.03] text-ivory sm:text-7xl md:text-8xl lg:text-[6.5rem]">
             {t("hero.titleLine1")}

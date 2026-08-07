@@ -57,7 +57,7 @@ function LaRiviera() {
         />
         <div className="absolute inset-0 bg-ink/45" aria-hidden="true" />
         <div className="absolute inset-0 grid place-items-center px-6 text-center">
-          <div className="max-w-2xl pt-20">
+          <div className="max-w-2xl pt-12">
             <Overline tone="ivory" className="text-ivory/85">
               {t("riviera.hero.overline")}
             </Overline>

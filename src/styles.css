@@ -70,7 +70,7 @@
   --sand: oklch(0.945 0.012 84);
 
   --background: var(--ivory);
-  --foreground: var(--ink);
+  --foreground: #232019;
   --card: oklch(1 0 0);
   --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
@@ -80,7 +80,7 @@
   --secondary: var(--sand);
   --secondary-foreground: var(--ink);
   --muted: var(--sand);
-  --muted-foreground: oklch(0.52 0.012 70);
+  --muted-foreground: #4a443b;
   --accent: var(--sand);
   --accent-foreground: var(--ink);
   --destructive: oklch(0.55 0.19 27);
@@ -129,7 +129,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
@@ -164,7 +164,7 @@
   h3,
   h4 {
     font-family: var(--font-serif);
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
 
@@ -181,7 +181,7 @@
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.6875rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 @utility label-caps {
@@ -189,7 +189,7 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: 0.75rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 @utility script-sign {
