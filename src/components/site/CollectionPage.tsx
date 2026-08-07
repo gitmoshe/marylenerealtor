@@ -72,7 +72,7 @@ export function CollectionPage({ listing, subs }: { listing: Listing; subs: List
               <Overline>{t("collection.developments")}</Overline>
               <GoldRule className="mt-6" />
             </Reveal>
-            <div className="mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {developments.map((s, i) => (
                 <Reveal key={s.slug} delay={(i % 3) * 100}>
                   <ChildCard listing={s} />
@@ -94,7 +94,7 @@ export function CollectionPage({ listing, subs }: { listing: Listing; subs: List
                 {t("collection.resales.copy")}
               </p>
             </Reveal>
-            <div className="mt-12 grid gap-12 sm:grid-cols-2">
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {resales.map((s, i) => (
                 <Reveal key={s.slug} delay={(i % 2) * 120}>
                   <ChildCard listing={s} />

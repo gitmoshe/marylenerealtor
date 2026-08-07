@@ -80,7 +80,7 @@ export function Section({
   ...props
 }: ComponentProps<"section"> & { children: ReactNode }) {
   return (
-    <section className={cn("px-6 py-24 sm:px-10 md:py-32", className)} {...props}>
+    <section className={cn("px-6 py-14 sm:px-10 md:py-[72px]", className)} {...props}>
       {children}
     </section>
   );

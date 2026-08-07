@@ -147,7 +147,7 @@ export function Nav() {
         )}
       >
         <nav
-          className="flex h-[100svh] flex-col justify-center gap-1 overflow-y-auto overscroll-contain px-8 pt-24 pb-16 sm:px-12"
+          className="flex h-[100svh] flex-col justify-center gap-1 overflow-y-auto overscroll-contain px-8 pt-14 pb-16 sm:px-12"
           aria-label="Menu"
         >
           {links.map((l) => (

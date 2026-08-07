@@ -237,26 +237,53 @@ function PortfolioPage() {
     items: listings.filter((l: Listing) => l.collections.includes(c)),
   })).filter((row) => row.items.length > 0);
 
+  /** Live portfolio counts shown in the header band's right column. */
+  const tf = (key: string, fallback: string) => (t(key) === key ? fallback : t(key));
+  const counts: { value: number; label: string }[] = useMemo(() => {
+    const children = childSlugsIn(listings);
+    const developments = listings.filter((l) => !isCollection(l) && !children.has(l.slug)).length;
+    const destinations = new Set(listings.map((l) => l.location).filter(Boolean)).size;
+    const currencies = new Set(listings.map((l) => l.currency).filter(Boolean)).size;
+    return [
+      { value: developments, label: tf("portfolio.counts.developments", "Developments") },
+      { value: destinations, label: tf("portfolio.counts.destinations", "Destinations") },
+      { value: currencies, label: tf("portfolio.counts.currencies", "Currencies") },
+    ];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listings, t]);
+
   return (
     <>
       {/* 1 — Header band */}
-      <Section className="pt-44 pb-0 md:pt-52">
+      <Section className="pt-28 pb-0 md:pt-32">
         <Container>
-          <Reveal className="max-w-3xl">
-            <Overline>{t("portfolio.hero.overline")}</Overline>
-            <GoldRule className="mt-6" />
-            <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              {t("portfolio.band.title")}
-            </h1>
-            <p className="mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {t("portfolio.band.copy")}
-            </p>
+          <Reveal className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
+            <div className="min-w-0">
+              <Overline>{t("portfolio.hero.overline")}</Overline>
+              <GoldRule className="mt-5" />
+              <h1 className="mt-6 font-serif text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
+                {t("portfolio.band.title")}
+              </h1>
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                {t("portfolio.band.copy")}
+              </p>
+            </div>
+            <dl className="grid grid-cols-3 gap-x-6 border-t border-gold/40 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+              {counts.map((c) => (
+                <div key={c.label}>
+                  <dt className="font-serif text-4xl leading-none sm:text-5xl">{c.value}</dt>
+                  <dd className="label-caps mt-3 text-[0.55rem] text-muted-foreground">
+                    {c.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </Container>
       </Section>
 
       {/* 1b — Developments & partners */}
-      <Section className="pt-16 pb-0 md:pt-20">
+      <Section className="pt-10 pb-0 md:pt-12">
         <Container>
           <Reveal className="border-y border-border py-10">
             <p className="label-caps text-center text-[0.55rem] text-muted-foreground">
@@ -269,19 +296,26 @@ function PortfolioPage() {
 
       {/* 2 — Master broker */}
       {masterBroker.length > 0 && (
-        <Section className="pt-20 pb-0 md:pt-24">
+        <Section className="pt-10 pb-0 md:pt-12">
           <Container>
-            <Reveal className="border border-gold/40 p-8 sm:p-12">
-              <span className="label-caps inline-block border border-gold px-3 py-1.5 text-[0.55rem] text-gold">
-                {t("portfolio.masterBroker.chip")}
-              </span>
-              <h2 className="mt-6 font-serif text-3xl sm:text-4xl">
-                {t("portfolio.masterBroker.title")}
-              </h2>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                {t("portfolio.masterBroker.copy")}
-              </p>
-              <div className="mt-10 grid gap-12 sm:grid-cols-2">
+            <Reveal className="grid gap-8 border border-gold/40 p-6 sm:p-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start lg:gap-12">
+              <div className="min-w-0">
+                <span className="label-caps inline-block border border-gold px-3 py-1.5 text-[0.55rem] text-gold">
+                  {t("portfolio.masterBroker.chip")}
+                </span>
+                <h2 className="mt-5 font-serif text-3xl sm:text-4xl">
+                  {t("portfolio.masterBroker.title")}
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {t("portfolio.masterBroker.copy")}
+                </p>
+              </div>
+              <div
+                className={cn(
+                  "grid gap-6",
+                  masterBroker.length > 1 ? "sm:grid-cols-2" : "grid-cols-1",
+                )}
+              >
                 {masterBroker.map((l: Listing) => (
                   <ListingCard key={l.slug} listing={l} />
                 ))}
@@ -292,7 +326,7 @@ function PortfolioPage() {
       )}
 
       {/* 3 — Filters */}
-      <Section className="pt-16 pb-0 md:pt-20">
+      <Section className="pt-10 pb-0 md:pt-12">
         <Container>
           <Reveal className="space-y-5 border-y border-border py-8">
             <FilterRow
@@ -335,9 +369,9 @@ function PortfolioPage() {
       </Section>
 
       {/* 4 — Full grid */}
-      <Section className="pt-14 pb-0">
+      <Section className="pt-10 pb-0">
         <Container>
-          <div className="grid gap-12 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((l: Listing, i: number) => (
               <Reveal key={l.slug} delay={(i % 2) * 120}>
                 <ListingCard listing={l} />
@@ -355,7 +389,7 @@ function PortfolioPage() {
 
       {/* 5 — Collection rows */}
       {collectionRows.map((row) => (
-        <Section key={row.tag} className="pt-24 pb-0 md:pt-28">
+        <Section key={row.tag} className="pt-10 pb-0 md:pt-[72px]">
           <Container>
             <Reveal>
               <Overline>{t("portfolio.collections.overline")}</Overline>
@@ -365,9 +399,9 @@ function PortfolioPage() {
                   : t(`portfolio.collection.${row.tag}`)}
               </h2>
             </Reveal>
-            <div className="-mx-6 mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto px-6 pb-4 sm:mx-0 sm:px-0">
+            <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
               {row.items.map((l: Listing) => (
-                <div key={l.slug} className="w-[78vw] shrink-0 snap-start sm:w-[320px]">
+                <div key={l.slug} className="w-[78vw] shrink-0 snap-start sm:w-auto">
                   <ListingCard listing={l} compact />
                 </div>
               ))}
@@ -377,7 +411,7 @@ function PortfolioPage() {
       ))}
 
       {/* 6 — Closing CTA */}
-      <Section className="mt-24 bg-ink text-ivory md:mt-32">
+      <Section className="mt-14 bg-ink text-ivory md:mt-20">
         <Container className="text-center">
           <Reveal>
             <h2 className="font-serif text-4xl leading-tight sm:text-5xl">

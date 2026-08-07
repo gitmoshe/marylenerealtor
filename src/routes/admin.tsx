@@ -218,7 +218,7 @@ function AdminPage() {
 
   if (unlocked === null) {
     return (
-      <Section className="pt-44">
+      <Section className="pt-28">
         <Container>
           <p className="label-caps text-[0.6rem] text-muted-foreground">Loading…</p>
         </Container>
@@ -228,7 +228,7 @@ function AdminPage() {
 
   if (!unlocked) {
     return (
-      <Section className="pt-44">
+      <Section className="pt-28">
         <Container className="max-w-md">
           <h1 className="font-serif text-4xl">Portfolio admin</h1>
           <p className="mt-4 text-sm text-muted-foreground">
@@ -263,7 +263,7 @@ function AdminPage() {
   }
 
   return (
-    <Section className="pt-44">
+    <Section className="pt-28">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
