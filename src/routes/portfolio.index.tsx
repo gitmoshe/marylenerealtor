@@ -242,15 +242,27 @@ function PortfolioPage() {
       {/* 1 — Header band */}
       <Section className="pt-28 pb-0 md:pt-32">
         <Container>
-          <Reveal className="max-w-3xl">
-            <Overline>{t("portfolio.hero.overline")}</Overline>
-            <GoldRule className="mt-6" />
-            <h1 className="mt-8 font-serif text-5xl leading-[1.05] sm:text-7xl">
-              {t("portfolio.band.title")}
-            </h1>
-            <p className="mt-8 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              {t("portfolio.band.copy")}
-            </p>
+          <Reveal className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
+            <div className="min-w-0">
+              <Overline>{t("portfolio.hero.overline")}</Overline>
+              <GoldRule className="mt-5" />
+              <h1 className="mt-6 font-serif text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
+                {t("portfolio.band.title")}
+              </h1>
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                {t("portfolio.band.copy")}
+              </p>
+            </div>
+            <dl className="grid grid-cols-3 gap-x-6 border-t border-gold/40 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+              {counts.map((c) => (
+                <div key={c.label}>
+                  <dt className="font-serif text-4xl leading-none sm:text-5xl">{c.value}</dt>
+                  <dd className="label-caps mt-3 text-[0.55rem] text-muted-foreground">
+                    {c.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </Reveal>
         </Container>
       </Section>
