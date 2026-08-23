@@ -21,6 +21,7 @@ import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as ApiPublicEnvcheckRouteImport } from './routes/api/public/envcheck'
 import { Route as ApiPublicListingImageSplatRouteImport } from './routes/api/public/listing-image.$'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -83,6 +84,11 @@ const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   path: '/portfolio/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicEnvcheckRoute = ApiPublicEnvcheckRouteImport.update({
+  id: '/api/public/envcheck',
+  path: '/api/public/envcheck',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicListingImageSplatRoute =
   ApiPublicListingImageSplatRouteImport.update({
     id: '/api/public/listing-image/$',
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
+  '/api/public/envcheck': typeof ApiPublicEnvcheckRoute
   '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRoutesByTo {
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/properties': typeof PropertiesIndexRoute
+  '/api/public/envcheck': typeof ApiPublicEnvcheckRoute
   '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRoutesById {
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
+  '/api/public/envcheck': typeof ApiPublicEnvcheckRoute
   '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRouteTypes {
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio/'
     | '/properties/'
+    | '/api/public/envcheck'
     | '/api/public/listing-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio'
     | '/properties'
+    | '/api/public/envcheck'
     | '/api/public/listing-image/$'
   id:
     | '__root__'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio/'
     | '/properties/'
+    | '/api/public/envcheck'
     | '/api/public/listing-image/$'
   fileRoutesById: FileRoutesById
 }
@@ -197,6 +209,7 @@ export interface RootRouteChildren {
   PropertiesSlugRoute: typeof PropertiesSlugRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
+  ApiPublicEnvcheckRoute: typeof ApiPublicEnvcheckRoute
   ApiPublicListingImageSplatRoute: typeof ApiPublicListingImageSplatRoute
 }
 
@@ -286,6 +299,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/envcheck': {
+      id: '/api/public/envcheck'
+      path: '/api/public/envcheck'
+      fullPath: '/api/public/envcheck'
+      preLoaderRoute: typeof ApiPublicEnvcheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/listing-image/$': {
       id: '/api/public/listing-image/$'
       path: '/api/public/listing-image/$'
@@ -309,6 +329,7 @@ const rootRouteChildren: RootRouteChildren = {
   PropertiesSlugRoute: PropertiesSlugRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
+  ApiPublicEnvcheckRoute: ApiPublicEnvcheckRoute,
   ApiPublicListingImageSplatRoute: ApiPublicListingImageSplatRoute,
 }
 export const routeTree = rootRouteImport
