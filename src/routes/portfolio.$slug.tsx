@@ -103,6 +103,7 @@ function ListingDetail() {
     { label: t("detail.spec.parking"), value: ficha.parking },
     { label: t("detail.spec.phases"), value: ficha.phases },
     { label: t("detail.spec.hoa"), value: ficha.hoa },
+    { label: t("detail.spec.priceRange"), value: ficha.priceRange },
     {
       label: t("portfolio.field.priceFrom"),
       value: formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency),

@@ -55,6 +55,8 @@ export type Ficha = {
   parking?: string;
   phases?: string;
   hoa?: string;
+  /** Pre-formatted price range, e.g. "MX$1.46M – MX$4.68M". */
+  priceRange?: string;
 };
 
 export type Listing = {
