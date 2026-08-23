@@ -128,7 +128,7 @@ export function collectionsIn(items: Listing[]): string[] {
  */
 export function formatPrice(
   priceFrom: number,
-  onRequest = "Price on request",
+  onRequest = "Pricing on request",
   currency: ListingCurrency = "USD",
 ): string {
   if (!priceFrom) return onRequest;
