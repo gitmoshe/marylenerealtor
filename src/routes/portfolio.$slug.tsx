@@ -182,6 +182,8 @@ function ListingDetail() {
         </div>
       </section>
 
+      <EnquireStickyBar listing={listing} />
+
       {/* ------------------------- the residence + specs -------------------------- */}
       <Section>
         <Container>
