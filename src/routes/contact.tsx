@@ -8,6 +8,7 @@ import { photos } from "@/lib/photos";
 import { ButtonAction, ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { cn } from "@/lib/utils";
 import { useI18n, type TKey } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -23,9 +24,9 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Book a private consultation in Spanish, English or French.",
       },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: `${SITE_URL}/contact` },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: Contact,
 });

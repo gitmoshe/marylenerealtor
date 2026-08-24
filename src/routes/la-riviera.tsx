@@ -5,6 +5,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { useI18n } from "@/lib/i18n";
 import { areas } from "@/lib/site-data";
+import { SITE_URL } from "@/lib/site-url";
 
 function slugify(name: string) {
   return name
@@ -30,9 +31,9 @@ export const Route = createFileRoute("/la-riviera")({
         content:
           "Editorial area guides and an honest look at investing on Mexico's Caribbean coast.",
       },
-      { property: "og:url", content: "/la-riviera" },
+      { property: "og:url", content: `${SITE_URL}/la-riviera` },
     ],
-    links: [{ rel: "canonical", href: "/la-riviera" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/la-riviera` }],
   }),
   component: LaRiviera,
 });
