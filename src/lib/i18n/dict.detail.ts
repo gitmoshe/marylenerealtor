@@ -120,5 +120,9 @@ export const detailDict: Dict = {
     "detail.file.overline": "El expediente completo",
     "detail.file.title": "El expediente completo",
     "detail.map.title": "Mapa",
+
+    "detail.sticky.enquire": "Consultar sobre esta propiedad",
+    "detail.sticky.contact": "Contacto",
+    "detail.sticky.prefill": "Hola Marylene, estoy interesado en {name}.",
   },
 };
