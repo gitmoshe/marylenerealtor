@@ -129,7 +129,7 @@ const stats = [
 function StatsRow() {
   const { t } = useI18n();
   return (
-    <Section className="py-20 md:py-24">
+    <Section className="py-20 md:py-24 lg:py-20 xl:py-[4.5rem]">
       <Container>
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-4">
           {stats.map((s, i) => (
