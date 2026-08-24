@@ -4,6 +4,7 @@ import property1 from "@/assets/property-1.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { useI18n } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/property-management")({
   head: () => ({
@@ -20,9 +21,9 @@ export const Route = createFileRoute("/property-management")({
           content:
             "Full-service management for investors: rentals, maintenance, guest experience and transparent reporting.",
         },
-      { property: "og:url", content: "/property-management" },
+      { property: "og:url", content: `${SITE_URL}/property-management` },
     ],
-    links: [{ rel: "canonical", href: "/property-management" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/property-management` }],
   }),
   component: PropertyManagement,
 });

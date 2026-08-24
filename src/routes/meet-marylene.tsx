@@ -5,6 +5,7 @@ import coastline from "@/assets/coastline.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { useI18n } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/meet-marylene")({
   head: () => ({
@@ -22,9 +23,9 @@ export const Route = createFileRoute("/meet-marylene")({
           "Certified realtor, property manager and Riviera Maya storyteller, at home on the coast and working in Spanish, English and French.",
       },
       { property: "og:type", content: "profile" },
-      { property: "og:url", content: "/meet-marylene" },
+      { property: "og:url", content: `${SITE_URL}/meet-marylene` },
     ],
-    links: [{ rel: "canonical", href: "/meet-marylene" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/meet-marylene` }],
   }),
 
   component: MeetMarylene,

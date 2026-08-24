@@ -18,6 +18,7 @@ import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site-url";
 
 type PortfolioSearch = { location?: string; collection?: string };
 
@@ -65,9 +66,9 @@ export const Route = createFileRoute("/portfolio/")({
           "A selection from Marylene's portfolio, with access to the entire Riviera Maya inventory.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/portfolio" },
+      { property: "og:url", content: `${SITE_URL}/portfolio` },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/portfolio` }],
   }),
   loader: () => fetchListings(),
   component: PortfolioPage,

@@ -7,6 +7,7 @@ import { InstagramCard } from "@/components/site/InstagramCard";
 import { Container, Overline, Section } from "@/components/site/ui";
 import { filmCategories, films } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
+import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/films")({
   head: () => ({
@@ -22,9 +23,9 @@ export const Route = createFileRoute("/films")({
         property: "og:description",
         content: "Property tours, Riviera life and client stories, on video on the Riviera Maya.",
       },
-      { property: "og:url", content: "/films" },
+      { property: "og:url", content: `${SITE_URL}/films` },
     ],
-    links: [{ rel: "canonical", href: "/films" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/films` }],
   }),
   component: FilmsPage,
 });

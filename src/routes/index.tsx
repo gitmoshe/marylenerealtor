@@ -12,6 +12,7 @@ import { formatPrice, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,10 +32,10 @@ export const Route = createFileRoute("/")({
         content:
           "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: `${SITE_URL}/` },
       { rel: "preload", as: "image", href: heroVilla, fetchPriority: "high" },
     ],
   }),
