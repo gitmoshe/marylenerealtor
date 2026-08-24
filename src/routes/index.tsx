@@ -282,7 +282,7 @@ function Services() {
     },
   ];
   return (
-    <Section className="border-y border-border bg-secondary/50">
+    <Section className="border-y border-border bg-secondary/50 lg:py-14 xl:py-12">
       <Container>
         <div className="grid gap-14 md:grid-cols-3">
           {services.map((s, i) => (
