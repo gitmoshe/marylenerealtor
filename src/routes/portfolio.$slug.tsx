@@ -13,6 +13,7 @@ import { VideoFacade } from "@/components/site/VideoFacade";
 import { LazyMap } from "@/components/site/LazyMap";
 import { formatPrice, isCollection, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
+import { SITE_URL, absoluteUrl } from "@/lib/site-url";
 import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
 
