@@ -367,9 +367,14 @@ function ListingForm({
     setForm((f) => ({ ...f, [key]: value }));
 
   const uploadFile = async (file: File): Promise<string | null> => {
-    const base64 = await fileToBase64(file);
+    let payload: { base64: string; cardBase64?: string };
+    try {
+      payload = await compressImage(file);
+    } catch {
+      payload = { base64: await fileToBase64(file) };
+    }
     const res = await upload({
-      data: { fileName: file.name, contentType: file.type, base64 },
+      data: { fileName: file.name, contentType: file.type, ...payload },
     });
     if (!res.ok) {
       setError(res.error);
