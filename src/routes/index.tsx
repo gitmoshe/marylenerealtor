@@ -307,7 +307,7 @@ function RivieraTeaser() {
     <section className="grid items-stretch md:grid-cols-2">
       <PhotoFrame photo={photos.riviera} className="hover-zoom min-h-[340px] md:h-full" />
 
-      <Reveal className="flex items-center px-6 py-20 sm:px-14 md:py-28">
+      <Reveal className="flex items-center px-6 py-20 sm:px-14 md:py-28 lg:py-[5.5rem] xl:py-20">
         <div className="max-w-md">
           <Overline tone="lagoon">{t("sections.rivieraOverline")}</Overline>
           <h2 className="mt-6 font-serif text-4xl leading-tight sm:text-5xl">
