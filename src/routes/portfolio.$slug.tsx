@@ -1,4 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
