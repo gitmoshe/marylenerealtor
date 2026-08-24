@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { Container, Section } from "@/components/site/ui";
 import { resolveListingImage } from "@/lib/listing-assets";
+import { compressImage } from "@/lib/image-resize";
 import {
   listingCurrencies,
   listingLocations,
