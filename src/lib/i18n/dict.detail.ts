@@ -38,6 +38,10 @@ export const detailDict: Dict = {
     "detail.file.overline": "The full file",
     "detail.file.title": "The full file",
     "detail.map.title": "Map",
+
+    "detail.sticky.enquire": "Enquire about this property",
+    "detail.sticky.contact": "Contact",
+    "detail.sticky.prefill": "Hi Marylene, I'm interested in {name}.",
   },
   fr: {
     "detail.residence.overline": "La Résidence",
@@ -75,6 +79,10 @@ export const detailDict: Dict = {
     "detail.file.overline": "Le dossier complet",
     "detail.file.title": "Le dossier complet",
     "detail.map.title": "Carte",
+
+    "detail.sticky.enquire": "Renseigner sur cette propriété",
+    "detail.sticky.contact": "Contact",
+    "detail.sticky.prefill": "Bonjour Marylene, je suis intéressé par {name}.",
   },
   es: {
     "detail.residence.overline": "La Residencia",
@@ -112,5 +120,9 @@ export const detailDict: Dict = {
     "detail.file.overline": "El expediente completo",
     "detail.file.title": "El expediente completo",
     "detail.map.title": "Mapa",
+
+    "detail.sticky.enquire": "Consultar sobre esta propiedad",
+    "detail.sticky.contact": "Contacto",
+    "detail.sticky.prefill": "Hola Marylene, estoy interesado en {name}.",
   },
 };

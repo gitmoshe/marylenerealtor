@@ -1,4 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
+import { MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
@@ -94,6 +96,65 @@ function scrollToFile() {
   document.getElementById("full-file")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function EnquireStickyBar({ listing }: { listing: Listing }) {
+  const { t } = useI18n();
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setShow(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const prefill = encodeURIComponent(
+    t("detail.sticky.prefill").replace("{name}", listing.name),
+  );
+  const whatsappHref = `https://wa.me/529840000000?text=${prefill}`;
+
+  return (
+    <>
+      <div ref={sentinelRef} className="h-px" aria-hidden="true" />
+      {show && (
+        <div className="fixed inset-x-0 top-[4.5rem] z-40 border-b border-gold/20 bg-ivory/95 px-6 py-3 shadow-sm backdrop-blur sm:px-10 lg:top-[7rem]">
+          <Container className="flex items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="truncate font-serif text-lg text-ink">{listing.name}</p>
+              <p className="label-caps mt-0.5 text-[0.55rem] text-muted-foreground">
+                {listing.location} ·{" "}
+                {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
+              </p>
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
+              <Link
+                to="/contact"
+                className="label-caps hidden text-[0.58rem] text-ink/70 transition-colors duration-300 hover:text-gold sm:inline"
+              >
+                {t("detail.sticky.contact")}
+              </Link>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={t("detail.sticky.enquire")}
+                className="label-caps inline-flex items-center gap-2 bg-gold px-5 py-3 text-[0.58rem] text-ivory transition-colors duration-500 hover:bg-ink"
+              >
+                <MessageCircle strokeWidth={1.5} className="size-4" />
+                {t("contact.whatsapp")}
+              </a>
+            </div>
+          </Container>
+        </div>
+      )}
+    </>
+  );
+}
+
 function ListingDetail() {
   const { listing, others, subs } = Route.useLoaderData() as {
     listing: Listing;
@@ -179,6 +240,8 @@ function ListingDetail() {
           </Container>
         </div>
       </section>
+
+      <EnquireStickyBar listing={listing} />
 
       {/* ------------------------- the residence + specs -------------------------- */}
       <Section>
