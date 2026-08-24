@@ -60,5 +60,9 @@ export function resolveListingImage(ref: string, size: "full" | "card" = "full")
   if (ref.startsWith("asset:")) {
     return table[ref.slice(6)] ?? table["listing-a"] ?? "";
   }
+  // Admin uploads are stored as "<name>.webp" plus a "<name>-card.webp" variant.
+  if (size === "card" && ref.startsWith("/api/public/listing-image/") && ref.endsWith(".webp")) {
+    return ref.replace(/\.webp$/, "-card.webp");
+  }
   return ref;
 }
