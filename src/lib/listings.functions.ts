@@ -307,8 +307,10 @@ export const uploadListingImage = createServerFn({ method: "POST" })
       .object({
         fileName: z.string().min(1).max(200),
         contentType: z.string().min(1).max(100),
-        /** base64, no data-url prefix. */
+        /** 1920px WebP, base64, no data-url prefix. */
         base64: z.string().min(1).max(14_000_000),
+        /** Optional 700px WebP card variant. */
+        cardBase64: z.string().min(1).max(14_000_000).optional(),
       })
       .parse(data),
   )
@@ -319,15 +321,28 @@ export const uploadListingImage = createServerFn({ method: "POST" })
       return { ok: false as const, error: "Only image files are allowed." };
     }
 
-    const safe = data.fileName.toLowerCase().replace(/[^a-z0-9.-]+/g, "-");
-    const path = `${Date.now()}-${safe}`;
-    const bytes = Buffer.from(data.base64, "base64");
+    const safe = data.fileName
+      .toLowerCase()
+      .replace(/\.[a-z0-9]+$/, "")
+      .replace(/[^a-z0-9-]+/g, "-");
+    const base = `${Date.now()}-${safe}`;
+    const path = `${base}.webp`;
 
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { error } = await supabaseAdmin.storage
-      .from("listing-images")
-      .upload(path, bytes, { contentType: data.contentType, upsert: false });
+    const bucket = supabaseAdmin.storage.from("listing-images");
+
+    const { error } = await bucket.upload(path, Buffer.from(data.base64, "base64"), {
+      contentType: "image/webp",
+      upsert: false,
+    });
     if (error) return { ok: false as const, error: error.message };
+
+    if (data.cardBase64) {
+      await bucket.upload(`${base}-card.webp`, Buffer.from(data.cardBase64, "base64"), {
+        contentType: "image/webp",
+        upsert: false,
+      });
+    }
 
     return { ok: true as const, url: `/api/public/listing-image/${path}` };
   });
