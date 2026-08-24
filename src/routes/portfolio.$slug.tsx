@@ -48,9 +48,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:title", content: `${l.name}, ${l.location}` },
         { property: "og:description", content: l.highlights.join(" · ") },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/portfolio/${params.slug}` },
+        { property: "og:url", content: `${SITE_URL}/portfolio/${params.slug}` },
+        { property: "og:image", content: absoluteUrl(resolveListingImage(l.heroImage)) },
+        { name: "twitter:image", content: absoluteUrl(resolveListingImage(l.heroImage)) },
       ],
-      links: [{ rel: "canonical", href: `/portfolio/${params.slug}` }],
+      links: [{ rel: "canonical", href: `${SITE_URL}/portfolio/${params.slug}` }],
     };
   },
   component: ListingDetail,
