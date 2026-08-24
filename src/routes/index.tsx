@@ -32,10 +32,10 @@ export const Route = createFileRoute("/")({
         content:
           "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún",
       },
-      { property: "og:url", content: `${SITE_URL}` },
+      { property: "og:url", content: `${SITE_URL}/` },
     ],
     links: [
-      { rel: "canonical", href: `${SITE_URL}` },
+      { rel: "canonical", href: `${SITE_URL}/` },
       { rel: "preload", as: "image", href: heroVilla, fetchPriority: "high" },
     ],
   }),
