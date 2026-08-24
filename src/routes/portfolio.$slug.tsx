@@ -39,6 +39,8 @@ export const Route = createFileRoute("/portfolio/$slug")({
       };
     }
     const l = loaderData.listing;
+    const heroImageUrl = absoluteUrl(resolveListingImage(l.heroImage));
+    const hasPrice = typeof l.priceFrom === "number" && l.priceFrom > 0;
     return {
       meta: [
         { title: `${l.name}, ${l.location} — Riviera Maya | Marylene Realtor` },
@@ -50,10 +52,28 @@ export const Route = createFileRoute("/portfolio/$slug")({
         { property: "og:description", content: l.highlights.join(" · ") },
         { property: "og:type", content: "article" },
         { property: "og:url", content: `${SITE_URL}/portfolio/${params.slug}` },
-        { property: "og:image", content: absoluteUrl(resolveListingImage(l.heroImage)) },
-        { name: "twitter:image", content: absoluteUrl(resolveListingImage(l.heroImage)) },
+        { property: "og:image", content: heroImageUrl },
+        { name: "twitter:image", content: heroImageUrl },
       ],
       links: [{ rel: "canonical", href: `${SITE_URL}/portfolio/${params.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: l.name,
+            description: l.description,
+            image: heroImageUrl,
+            offers: {
+              "@type": "Offer",
+              price: hasPrice ? l.priceFrom.toString() : "Pricing on request",
+              priceCurrency: l.currency || "USD",
+              availability: "https://schema.org/InStock",
+            },
+          }),
+        },
+      ],
     };
   },
   component: ListingDetail,

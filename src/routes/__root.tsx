@@ -17,6 +17,7 @@ import { NewsletterBand } from "@/components/site/NewsletterBand";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { LanguageProvider, useI18n } from "@/lib/i18n";
 import { ButtonLink } from "@/components/site/ui";
+import { SITE_URL } from "@/lib/site-url";
 
 function NotFoundComponent() {
   const { t } = useI18n();
@@ -120,11 +121,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          name: "Marylene Realtor — Marylene Maglio",
-          areaServed: "Riviera Maya, Quintana Roo, Mexico",
-          knowsLanguage: ["fr", "en", "es"],
-          sameAs: ["https://instagram.com/marylene_realtor"],
+          "@type": "Organization",
+          name: "Marylene Maglio, Realtor",
+          url: SITE_URL,
+          sameAs: ["https://www.instagram.com/marylene_realtor/"],
         }),
       },
     ],
