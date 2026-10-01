@@ -14,8 +14,8 @@ export const rivieraDict: Dict = {
     "riviera.area.tulum.label": "The Design Capital",
     "riviera.area.tulum.copy":
       "Architecture in conversation with the jungle. Slower, more deliberate, and now served by its own international airport — which has changed what a Tulum address means.",
-    "riviera.area.puerto-aventuras.label": "The Marina",
-    "riviera.area.puerto-aventuras.copy":
+    "riviera.area.puerto-morelos.label": "The Marina",
+    "riviera.area.puerto-morelos.copy":
       "A gated marina community with dolphins in the lagoon and a golf course inside the gate. Families settle here and rarely leave.",
     "riviera.area.akumal.label": "The Reef",
     "riviera.area.akumal.copy":
@@ -57,8 +57,8 @@ export const rivieraDict: Dict = {
     "riviera.area.tulum.label": "La Capitale du design",
     "riviera.area.tulum.copy":
       "Une architecture en dialogue avec la jungle. Plus lente, plus réfléchie, et désormais desservie par son propre aéroport international — ce qui a changé la valeur d'une adresse à Tulum.",
-    "riviera.area.puerto-aventuras.label": "La Marina",
-    "riviera.area.puerto-aventuras.copy":
+    "riviera.area.puerto-morelos.label": "La Marina",
+    "riviera.area.puerto-morelos.copy":
       "Une communauté fermée autour d'une marina, avec des dauphins dans la lagune et un golf à l'intérieur des grilles. Les familles s'y installent et n'en repartent guère.",
     "riviera.area.akumal.label": "Le Récif",
     "riviera.area.akumal.copy":
@@ -100,8 +100,8 @@ export const rivieraDict: Dict = {
     "riviera.area.tulum.label": "La Capital del diseño",
     "riviera.area.tulum.copy":
       "Una arquitectura en diálogo con la selva. Más pausada, más deliberada y ahora con aeropuerto internacional propio, lo que ha cambiado el valor de una dirección en Tulum.",
-    "riviera.area.puerto-aventuras.label": "La Marina",
-    "riviera.area.puerto-aventuras.copy":
+    "riviera.area.puerto-morelos.label": "La Marina",
+    "riviera.area.puerto-morelos.copy":
       "Una comunidad cerrada alrededor de una marina, con delfines en la laguna y un campo de golf dentro del acceso. Las familias se instalan aquí y rara vez se van.",
     "riviera.area.akumal.label": "El Arrecife",
     "riviera.area.akumal.copy":
