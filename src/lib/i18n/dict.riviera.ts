@@ -14,9 +14,9 @@ export const rivieraDict: Dict = {
     "riviera.area.tulum.label": "The Design Capital",
     "riviera.area.tulum.copy":
       "Architecture in conversation with the jungle. Slower, more deliberate, and now served by its own international airport — which has changed what a Tulum address means.",
-    "riviera.area.puerto-morelos.label": "The Marina",
+    "riviera.area.puerto-morelos.label": "The Port",
     "riviera.area.puerto-morelos.copy":
-      "A gated marina community with dolphins in the lagoon and a golf course inside the gate. Families settle here and rarely leave.",
+      "A former fishing village with the national reef park at its shore. Low-rise, unhurried and the closest town on the coast to the airport.",
     "riviera.area.akumal.label": "The Reef",
     "riviera.area.akumal.copy":
       "Turtles in the bay, a protected reef offshore and a village that has resisted scale. Small, green and increasingly difficult to buy into.",
@@ -57,9 +57,9 @@ export const rivieraDict: Dict = {
     "riviera.area.tulum.label": "La Capitale du design",
     "riviera.area.tulum.copy":
       "Une architecture en dialogue avec la jungle. Plus lente, plus réfléchie, et désormais desservie par son propre aéroport international — ce qui a changé la valeur d'une adresse à Tulum.",
-    "riviera.area.puerto-morelos.label": "La Marina",
+    "riviera.area.puerto-morelos.label": "Le Port",
     "riviera.area.puerto-morelos.copy":
-      "Une communauté fermée autour d'une marina, avec des dauphins dans la lagune et un golf à l'intérieur des grilles. Les familles s'y installent et n'en repartent guère.",
+      "Un ancien village de pêcheurs avec le parc national du récif à sa porte. À taille humaine, sans hâte, et la ville de la côte la plus proche de l'aéroport.",
     "riviera.area.akumal.label": "Le Récif",
     "riviera.area.akumal.copy":
       "Des tortues dans la baie, un récif protégé au large et un village qui a résisté à l'échelle. Petit, verdoyant et de plus en plus difficile d'accès.",
