@@ -100,9 +100,9 @@ export const rivieraDict: Dict = {
     "riviera.area.tulum.label": "La Capital del diseño",
     "riviera.area.tulum.copy":
       "Una arquitectura en diálogo con la selva. Más pausada, más deliberada y ahora con aeropuerto internacional propio, lo que ha cambiado el valor de una dirección en Tulum.",
-    "riviera.area.puerto-morelos.label": "La Marina",
+    "riviera.area.puerto-morelos.label": "El Puerto",
     "riviera.area.puerto-morelos.copy":
-      "Una comunidad cerrada alrededor de una marina, con delfines en la laguna y un campo de golf dentro del acceso. Las familias se instalan aquí y rara vez se van.",
+      "Un antiguo pueblo pesquero con el parque nacional del arrecife a su orilla. A escala humana, sin prisas y el pueblo de la costa más cercano al aeropuerto.",
     "riviera.area.akumal.label": "El Arrecife",
     "riviera.area.akumal.copy":
       "Tortugas en la bahía, un arrecife protegido mar adentro y un pueblo que se ha resistido a crecer. Pequeño, verde y cada vez más difícil de conseguir.",
