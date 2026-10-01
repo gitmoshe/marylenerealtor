@@ -12,7 +12,7 @@ export const listingLocations = [
   "Playacar",
   "Playa del Carmen",
   "Cancún",
-  "Puerto Aventuras",
+  "Puerto Morelos",
   "Akumal",
   "Riviera Maya",
 ] as const;

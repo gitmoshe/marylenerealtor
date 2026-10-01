@@ -19,7 +19,7 @@ export const homeDict: Dict = {
     "home.intro.quote":
       "I came from France for a season and stayed for a life. What I offer my clients is the same thing I once needed — someone who knows the coast intimately and who tells the truth about it.",
     "home.intro.body":
-      "Marylene Maglio is a certified and registered realtor and property manager based in the Riviera Maya. She represents buyers, sellers and investors across Playa del Carmen, Tulum, Puerto Aventuras and Cancún, working in Spanish, English and French.",
+      "Marylene Maglio is a certified and registered realtor and property manager based in the Riviera Maya. She represents buyers, sellers and investors across Playa del Carmen, Tulum, Puerto Morelos and Cancún, working in Spanish, English and French.",
 
     "home.services.buy.title": "Buy & Sell",
     "home.services.buy.copy":
@@ -104,7 +104,7 @@ export const homeDict: Dict = {
     "home.intro.quote":
       "Je suis venue de France pour une saison et j'y suis restée pour une vie. Ce que j'offre à mes clients est ce dont j'avais moi-même eu besoin — quelqu'un qui connaît la côte intimement et qui en dit la vérité.",
     "home.intro.body":
-      "Marylene Maglio est agent immobilier et gestionnaire de biens certifiée et agréée, installée sur la Riviera Maya. Elle représente acheteurs, vendeurs et investisseurs à Playa del Carmen, Tulum, Puerto Aventuras et Cancún, en espagnol, en anglais et en français.",
+      "Marylene Maglio est agent immobilier et gestionnaire de biens certifiée et agréée, installée sur la Riviera Maya. Elle représente acheteurs, vendeurs et investisseurs à Playa del Carmen, Tulum, Puerto Morelos et Cancún, en espagnol, en anglais et en français.",
 
     "home.services.buy.title": "Achat & vente",
     "home.services.buy.copy":
@@ -189,7 +189,7 @@ export const homeDict: Dict = {
     "home.intro.quote":
       "Vine de Francia por una temporada y me quedé para toda una vida. Lo que ofrezco a mis clientes es justo lo que yo misma necesité — alguien que conoce la costa a fondo y que dice la verdad sobre ella.",
     "home.intro.body":
-      "Marylene Maglio es agente inmobiliaria y administradora de propiedades certificada y registrada, radicada en la Riviera Maya. Representa a compradores, vendedores e inversionistas en Playa del Carmen, Tulum, Puerto Aventuras y Cancún, y trabaja en español, inglés y francés.",
+      "Marylene Maglio es agente inmobiliaria y administradora de propiedades certificada y registrada, radicada en la Riviera Maya. Representa a compradores, vendedores e inversionistas en Playa del Carmen, Tulum, Puerto Morelos y Cancún, y trabaja en español, inglés y francés.",
 
     "home.services.buy.title": "Compra & venta",
     "home.services.buy.copy":

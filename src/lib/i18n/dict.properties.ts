@@ -94,7 +94,7 @@ export const propertiesDict: Dict = {
       "A limited collection three streets from the sea, with a rooftop pool, a residents' lounge and interest-free construction payments. Early-phase pricing while it lasts.",
 
     "properties.contact.addressLine": "Riviera Maya, Quintana Roo, Mexico",
-    "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Aventuras · Cancún",
+    "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Morelos · Cancún",
     "properties.contact.consultationsNote":
       "Consultations are held in Spanish, English or French, by video or in person on the coast.",
   },
@@ -190,7 +190,7 @@ export const propertiesDict: Dict = {
       "Une collection limitée à trois rues de la mer, avec piscine sur le toit, salon des résidents et paiements de construction sans intérêt. Tarifs de lancement, dans la limite des disponibilités.",
 
     "properties.contact.addressLine": "Riviera Maya, Quintana Roo, Mexique",
-    "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Aventuras · Cancún",
+    "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Morelos · Cancún",
     "properties.contact.consultationsNote":
       "Les consultations se font en espagnol, anglais ou français, par vidéo ou en personne sur la côte.",
   },
@@ -286,7 +286,7 @@ export const propertiesDict: Dict = {
       "Una colección limitada a tres calles del mar, con alberca en la azotea, salón de residentes y pagos de construcción sin intereses. Precios de preventa mientras duren.",
 
     "properties.contact.addressLine": "Riviera Maya, Quintana Roo, México",
-    "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Aventuras · Cancún",
+    "properties.contact.addressAreas": "Playa del Carmen · Tulum · Puerto Morelos · Cancún",
     "properties.contact.consultationsNote":
       "Las consultas se realizan en español, inglés o francés, por videollamada o en persona en la costa.",
   },
