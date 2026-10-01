@@ -66,7 +66,7 @@ export const films: Film[] = [
     id: "f6",
     title: "Résidence Turquoise — Lagoon Views",
     caption: "Condo Tour — Puerto Morelos",
-    description: "A marina-side residence with dolphins below the terrace.",
+    description: "A quiet residence above the fishing port, with the reef offshore.",
     category: "Property Tours",
     format: "9:16",
     embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
