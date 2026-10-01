@@ -34,7 +34,7 @@ export const filmsDict: Dict = {
     "films.item.f5.description": "The freshwater world beneath the limestone, half an hour inland.",
 
     "films.item.f6.title": "Résidence Turquoise — Lagoon Views",
-    "films.item.f6.caption": "Condo Tour — Puerto Aventuras",
+    "films.item.f6.caption": "Condo Tour — Puerto Morelos",
     "films.item.f6.description": "A marina-side residence with dolphins below the terrace.",
 
     "films.item.f7.title": "Buying from Montréal",
@@ -81,7 +81,7 @@ export const filmsDict: Dict = {
     "films.item.f5.description": "Le monde d'eau douce sous le calcaire, à une demi-heure des terres.",
 
     "films.item.f6.title": "Résidence Turquoise — Vue sur la lagune",
-    "films.item.f6.caption": "Visite de condo — Puerto Aventuras",
+    "films.item.f6.caption": "Visite de condo — Puerto Morelos",
     "films.item.f6.description": "Une résidence en bord de marina avec des dauphins sous la terrasse.",
 
     "films.item.f7.title": "Acheter depuis Montréal",
@@ -128,7 +128,7 @@ export const filmsDict: Dict = {
     "films.item.f5.description": "El mundo de agua dulce bajo la piedra caliza, a media hora tierra adentro.",
 
     "films.item.f6.title": "Residencia Turquesa — Vistas a la laguna",
-    "films.item.f6.caption": "Recorrido de condominio — Puerto Aventuras",
+    "films.item.f6.caption": "Recorrido de condominio — Puerto Morelos",
     "films.item.f6.description": "Una residencia junto a la marina con delfines bajo la terraza.",
 
     "films.item.f7.title": "Comprar desde Montreal",

@@ -87,7 +87,7 @@ const distancesByLocation: Record<string, string[]> = {
   Playacar: ["Cancún airport — 50 min", "Beach — 5 min", "Fifth Avenue — 10 min"],
   "Playa del Carmen": ["Cancún airport — 45 min", "Beach — 8 min", "Fifth Avenue — 5 min"],
   Cancún: ["Cancún airport — 20 min", "Beach — 5 min", "Downtown — 15 min"],
-  "Puerto Aventuras": ["Cancún airport — 60 min", "Marina — 5 min", "Playa del Carmen — 20 min"],
+  "Puerto Morelos": ["Cancún airport — 25 min", "Beach — 5 min", "Playa del Carmen — 30 min"],
   Akumal: ["Cancún airport — 75 min", "Beach — 5 min", "Tulum — 20 min"],
   "Riviera Maya": ["Cancún airport — 45 min", "Caribbean sea — 10 min", "Playa del Carmen — 20 min"],
 };
