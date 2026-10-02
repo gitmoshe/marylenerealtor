@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarCheck, ClipboardList, Sparkles, LineChart, Wrench, Users } from "lucide-react";
 import property1 from "@/assets/property-1.jpg?w=1600&format=webp";
+import { ExternalLink } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { ButtonAnchor, ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { useI18n } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -57,6 +58,15 @@ function PropertyManagement() {
             <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
               {t("management.hero.lead")}
             </p>
+            <ButtonAnchor
+              href="https://www.airbnb.com/users/show/79123227"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outline"
+              className="mt-8"
+            >
+              <ExternalLink strokeWidth={1} className="size-4" /> {t("management.hero.airbnb")}
+            </ButtonAnchor>
           </Reveal>
         </Container>
       </Section>
