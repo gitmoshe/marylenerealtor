@@ -213,10 +213,10 @@ function Contact() {
                 <li className="flex items-start gap-4">
                   <Mail strokeWidth={1} className="mt-0.5 size-5 shrink-0 text-gold" />
                   <a
-                    href="mailto:hello@marylenerealtor.com"
+                    href="mailto:info@marylenerealtor.com"
                     className="link-underline text-ink transition-colors duration-300 hover:text-gold"
                   >
-                    hello@marylenerealtor.com
+                    info@marylenerealtor.com
                   </a>
                 </li>
                 <li className="flex items-start gap-4">
