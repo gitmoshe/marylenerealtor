@@ -233,7 +233,7 @@ function Contact() {
               </ul>
 
               <ButtonAnchor
-                href="https://wa.me/529840000000"
+                href="https://wa.me/529984002988"
                 target="_blank"
                 rel="noreferrer"
                 variant="outline"
