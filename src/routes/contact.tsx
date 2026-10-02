@@ -194,7 +194,7 @@ function Contact() {
           <Reveal delay={140} className="md:col-span-5 md:pl-6">
             <PhotoFrame
               photo={photos.contact}
-              className="mb-8 aspect-[4/3] w-full"
+              className="mb-8 mt-10 aspect-[9/16] w-full md:mt-16"
               position="top"
             />
             <div className="border border-border bg-card p-8">
