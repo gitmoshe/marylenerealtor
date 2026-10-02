@@ -36,12 +36,17 @@ export function VideoFacade({
   const [playing, setPlaying] = useState(false);
   const yt = youTubeId(url);
   const vm = vimeoId(url);
-  const thumb = poster ?? (yt ? `https://i.ytimg.com/vi/${yt}/hqdefault.jpg` : undefined);
+  const isShorts = /youtube\.com\/shorts\//.test(url);
+  // Shorts store a true 9:16 thumbnail (oar2.jpg); regular videos use 4:3 hqdefault.
+  const thumb =
+    poster ??
+    (yt ? `https://i.ytimg.com/vi/${yt}/${isShorts ? "oar2" : "hqdefault"}.jpg` : undefined);
+  const embedSrc = yt ? `https://www.youtube.com/embed/${yt}` : url;
 
   if (playing) {
     return (
       <iframe
-        src={withAutoplay(url)}
+        src={withAutoplay(embedSrc)}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

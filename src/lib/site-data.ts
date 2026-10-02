@@ -19,12 +19,12 @@ export type Film = {
 export const films: Film[] = [
   {
     id: "f1",
-    title: "Casa Lumière — Beachfront Penthouse",
-    caption: "Villa Tour — Playa del Carmen",
-    description: "Three terraces, one uninterrupted sightline to the water.",
+    title: "Pelegrina Condominiums",
+    caption: "Condo Tour — Tulum",
+    description: "A vertical walk through Pelegrina, one of Tulum's newest condominium addresses.",
     category: "Property Tours",
-    format: "16:9",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    format: "9:16",
+    embed: "https://youtube.com/shorts/Qum3Z75CjB4",
   },
   {
     id: "f2",
