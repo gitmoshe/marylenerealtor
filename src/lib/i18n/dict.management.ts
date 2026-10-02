@@ -7,7 +7,7 @@ export const managementDict: Dict = {
     "management.hero.title.line2": "though you were here.",
     "management.hero.lead":
       "Most owners on this coast live somewhere else. Management exists so that distance never shows — in the condition of the property, in its income, or in what a guest finds on arrival.",
-    "management.hero.airbnb": "View Marylene's Airbnb profile",
+    "management.hero.airbnb": "Connect with Marylene on Airbnb",
     "management.hero.imageAlt": "Managed beachfront terrace in Playa del Carmen",
     "management.pillar1.title": "Rental Management",
     "management.pillar1.copy":
@@ -51,7 +51,7 @@ export const managementDict: Dict = {
     "management.hero.title.line2": "si vous étiez présent.",
     "management.hero.lead":
       "La plupart des propriétaires de cette côte vivent ailleurs. La gestion existe pour que la distance ne se remarque jamais — ni dans l'état de la propriété ni dans ses revenus ni dans ce qu'un invité trouve à son arrivée.",
-    "management.hero.airbnb": "Voir le profil Airbnb de Marylene",
+    "management.hero.airbnb": "Se connecter avec Marylene sur Airbnb",
     "management.hero.imageAlt": "Terrasse en bord de mer gérée à Playa del Carmen",
     "management.pillar1.title": "Gestion locative",
     "management.pillar1.copy":
@@ -95,7 +95,7 @@ export const managementDict: Dict = {
     "management.hero.title.line2": "si usted estuviera presente.",
     "management.hero.lead":
       "La mayoría de los propietarios en esta costa viven en otro lugar. La administración existe para que la distancia nunca se note — ni en el estado de la propiedad ni en sus ingresos ni en lo que un huésped encuentra a su llegada.",
-    "management.hero.airbnb": "Ver el perfil de Airbnb de Marylene",
+    "management.hero.airbnb": "Conecta con Marylene en Airbnb",
     "management.hero.imageAlt": "Terraza frente al mar administrada en Playa del Carmen",
     "management.pillar1.title": "Gestión de rentas",
     "management.pillar1.copy":
