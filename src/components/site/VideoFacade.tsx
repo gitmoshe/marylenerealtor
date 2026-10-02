@@ -68,6 +68,9 @@ export function VideoFacade({
           alt={title}
           loading="lazy"
           decoding="async"
+          onError={(e) => {
+            if (isShorts) e.currentTarget.src = `https://i.ytimg.com/vi/${yt}/hqdefault.jpg`;
+          }}
           className="size-full object-cover opacity-90 transition-all duration-700 group-hover:scale-[1.03] group-hover:opacity-100"
         />
       ) : (
