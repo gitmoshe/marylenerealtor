@@ -39,4 +39,10 @@ export const photos = {
     srcSmall: portraitSmall.url,
     alt: "Portrait of Marylene Maglio, Riviera Maya realtor",
   },
+  /** Contact page portrait — candid street-style photo. */
+  contact: {
+    src: contactAsset.url,
+    srcSmall: contactSmall.url,
+    alt: "Marylene Maglio in a camel safari dress and sunglasses on a Riviera Maya terrace",
+  },
 } satisfies Record<string, Photo>;
