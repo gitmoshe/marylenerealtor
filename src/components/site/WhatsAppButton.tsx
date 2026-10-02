@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
-const WHATSAPP_URL = "https://wa.me/529840000000";
+const WHATSAPP_URL = "https://wa.me/529984002988";
 
 export function WhatsAppButton() {
   const { t } = useI18n();

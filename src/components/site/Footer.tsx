@@ -46,7 +46,7 @@ export function Footer() {
                 <Instagram strokeWidth={1} className="size-5" />
               </a>
               <a
-                href="https://wa.me/529840000000"
+                href="https://wa.me/529984002988"
                 target="_blank"
                 rel="noreferrer"
                 aria-label={t("home.footer.waLabel")}

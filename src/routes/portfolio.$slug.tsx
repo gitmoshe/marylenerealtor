@@ -115,7 +115,7 @@ function EnquireStickyBar({ listing }: { listing: Listing }) {
   const prefill = encodeURIComponent(
     t("detail.sticky.prefill").replace("{name}", listing.name),
   );
-  const whatsappHref = `https://wa.me/529840000000?text=${prefill}`;
+  const whatsappHref = `https://wa.me/529984002988?text=${prefill}`;
 
   return (
     <>
