@@ -242,7 +242,7 @@ function PortfolioPage() {
   const tf = (key: string, fallback: string) => (t(key) === key ? fallback : t(key));
   const counts: { value: string; label: string }[] = useMemo(
     () => [
-      { value: "1,700+", label: tf("portfolio.counts.properties", "Properties") },
+      { value: "1700+", label: tf("portfolio.counts.properties", "Properties") },
       { value: "13", label: tf("portfolio.counts.developments", "Developments") },
       { value: "11", label: tf("portfolio.counts.destinations", "Destinations") },
     ],
