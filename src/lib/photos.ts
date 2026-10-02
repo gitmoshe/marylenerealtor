@@ -4,6 +4,8 @@ import poolAsset from "@/assets/marylene-pool.webp.asset.json";
 import poolSmall from "@/assets/marylene-pool-sm.webp.asset.json";
 import portraitAsset from "@/assets/marylene-portrait.webp.asset.json";
 import portraitSmall from "@/assets/marylene-portrait-sm.webp.asset.json";
+import contactAsset from "@/assets/marylene-contact.webp.asset.json";
+import contactSmall from "@/assets/marylene-contact-sm.webp.asset.json";
 
 export type Photo = {
   /** Full-resolution source (~1600px wide, WebP). */
