@@ -4,6 +4,8 @@ import poolAsset from "@/assets/marylene-pool.webp.asset.json";
 import poolSmall from "@/assets/marylene-pool-sm.webp.asset.json";
 import portraitAsset from "@/assets/marylene-portrait.webp.asset.json";
 import portraitSmall from "@/assets/marylene-portrait-sm.webp.asset.json";
+import contactAsset from "@/assets/marylene-contact.webp.asset.json";
+import contactSmall from "@/assets/marylene-contact-sm.webp.asset.json";
 
 export type Photo = {
   /** Full-resolution source (~1600px wide, WebP). */
@@ -36,5 +38,11 @@ export const photos = {
     src: portraitAsset.url,
     srcSmall: portraitSmall.url,
     alt: "Portrait of Marylene Maglio, Riviera Maya realtor",
+  },
+  /** Contact page portrait — candid street-style photo. */
+  contact: {
+    src: contactAsset.url,
+    srcSmall: contactSmall.url,
+    alt: "Marylene Maglio in a camel safari dress and sunglasses on a Riviera Maya terrace",
   },
 } satisfies Record<string, Photo>;

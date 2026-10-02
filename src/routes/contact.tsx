@@ -43,7 +43,11 @@ const languages = ["FR", "EN", "ES"] as const;
 const schema = z.object({
   name: z.string().trim().min(1, "Please enter your name").max(100, "Name is too long"),
   email: z.string().trim().email("Please enter a valid email").max(255),
-  phone: z.string().trim().max(40, "Phone number is too long").optional().or(z.literal("")),
+  phone: z
+    .string()
+    .trim()
+    .min(1, "Please enter your phone number")
+    .max(40, "Phone number is too long"),
   interest: z.enum(interests),
   language: z.enum(languages),
   message: z
@@ -76,6 +80,7 @@ function Contact() {
       const localised: Record<string, TKey> = {
         name: "contact.errName",
         email: "contact.errEmail",
+        phone: "contact.errPhone",
         message: "contact.errMessage",
       };
       parsed.error.issues.forEach((i) => {
@@ -188,7 +193,7 @@ function Contact() {
 
           <Reveal delay={140} className="md:col-span-5 md:pl-6">
             <PhotoFrame
-              photo={photos.portrait}
+              photo={photos.contact}
               className="mb-8 aspect-[4/3] w-full"
               position="top"
             />
