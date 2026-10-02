@@ -56,7 +56,9 @@ type Ctx = {
   pick: <T>(byLang: Partial<Record<Lang, T>>) => T | undefined;
 };
 
-const LanguageContext = createContext<Ctx | null>(null);
+// Keep one context instance across hot reloads so Provider and consumers always match.
+const g = globalThis as unknown as { __marylene_lang_ctx?: React.Context<Ctx | null> };
+const LanguageContext = (g.__marylene_lang_ctx ??= createContext<Ctx | null>(null));
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
