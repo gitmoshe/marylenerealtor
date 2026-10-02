@@ -55,7 +55,7 @@ export function Footer() {
                 <MessageCircle strokeWidth={1} className="size-5" />
               </a>
               <a
-                href="mailto:hello@marylenerealtor.com"
+                href="mailto:info@marylenerealtor.com"
                 aria-label={t("home.footer.emailLabel")}
                 className="-m-2 p-2 transition-colors duration-300 hover:text-gold"
               >
