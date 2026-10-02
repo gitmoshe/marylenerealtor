@@ -13,9 +13,9 @@ export const filmsDict: Dict = {
     "films.category.Riviera Life": "Riviera Life",
     "films.category.Client Stories": "Client Stories",
 
-    "films.item.f1.title": "Casa Lumière — Beachfront Penthouse",
-    "films.item.f1.caption": "Villa Tour — Playa del Carmen",
-    "films.item.f1.description": "Three terraces, one uninterrupted sightline to the water.",
+    "films.item.f1.title": "Pelegrina Condominiums",
+    "films.item.f1.caption": "Condo Tour — Tulum",
+    "films.item.f1.description": "A vertical walk through Pelegrina, one of Tulum's newest condominium addresses.",
 
     "films.item.f2.title": "Morning in Tulum",
     "films.item.f2.caption": "Riviera Life — Tulum",
@@ -60,9 +60,9 @@ export const filmsDict: Dict = {
     "films.category.Riviera Life": "Vie sur la Riviera Maya",
     "films.category.Client Stories": "Témoignages clients",
 
-    "films.item.f1.title": "Casa Lumière — Penthouse en bord de mer",
-    "films.item.f1.caption": "Visite de villa — Playa del Carmen",
-    "films.item.f1.description": "Trois terrasses, une seule perspective ininterrompue sur l'eau.",
+    "films.item.f1.title": "Condominiums Pelegrina",
+    "films.item.f1.caption": "Visite de condos — Tulum",
+    "films.item.f1.description": "Une visite verticale de Pelegrina, l'une des plus récentes adresses de condominiums à Tulum.",
 
     "films.item.f2.title": "Matin à Tulum",
     "films.item.f2.caption": "Vie sur la Riviera Maya — Tulum",
@@ -107,9 +107,9 @@ export const filmsDict: Dict = {
     "films.category.Riviera Life": "Vida en la Riviera Maya",
     "films.category.Client Stories": "Historias de clientes",
 
-    "films.item.f1.title": "Casa Lumière — Penthouse frente al mar",
-    "films.item.f1.caption": "Recorrido de villa — Playa del Carmen",
-    "films.item.f1.description": "Tres terrazas, una sola vista ininterrumpida hacia el agua.",
+    "films.item.f1.title": "Condominios Pelegrina",
+    "films.item.f1.caption": "Recorrido de condominios — Tulum",
+    "films.item.f1.description": "Un recorrido vertical por Pelegrina, una de las direcciones de condominios más recientes de Tulum.",
 
     "films.item.f2.title": "Una mañana en Tulum",
     "films.item.f2.caption": "Vida en la Riviera Maya — Tulum",
