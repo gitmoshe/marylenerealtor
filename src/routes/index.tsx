@@ -120,7 +120,7 @@ function CredibilityBar() {
 }
 
 const stats = [
-  { value: "10", key: "home.stats.0.label" },
+  { value: "6", key: "home.stats.0.label" },
   { value: "180+", key: "home.stats.1.label" },
   { value: "14", key: "home.stats.2.label" },
   { value: "3", key: "home.stats.3.label" },
