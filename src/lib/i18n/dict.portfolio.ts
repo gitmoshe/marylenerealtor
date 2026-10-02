@@ -36,6 +36,9 @@ export const portfolioDict: Dict = {
     "portfolio.band.title": "One broker. The whole Riviera.",
     "portfolio.band.copy":
       "A selection from Marylene's portfolio — she has access to the entire Riviera Maya inventory. If it's for sale on this coast, she can sell it to you.",
+    "portfolio.counts.properties": "Properties",
+    "portfolio.counts.developments": "Developments",
+    "portfolio.counts.destinations": "Destinations",
     "portfolio.masterBroker.chip": "Master Broker",
     "portfolio.partners.title": "Developments & Partners",
     "portfolio.chip.masterBroker": "Master Broker",
@@ -122,6 +125,9 @@ export const portfolioDict: Dict = {
     "portfolio.band.title": "Une seule courtière. Toute la Riviera.",
     "portfolio.band.copy":
       "Une sélection du portfolio de Marylene — elle a accès à tout l'inventaire de la Riviera Maya. Si c'est à vendre sur cette côte, elle peut vous le vendre.",
+    "portfolio.counts.properties": "Biens",
+    "portfolio.counts.developments": "Projets",
+    "portfolio.counts.destinations": "Destinations",
     "portfolio.masterBroker.chip": "Master Broker",
     "portfolio.partners.title": "Projets & partenaires",
     "portfolio.chip.masterBroker": "Master Broker",
@@ -208,6 +214,9 @@ export const portfolioDict: Dict = {
     "portfolio.band.title": "Una sola asesora. Toda la Riviera.",
     "portfolio.band.copy":
       "Una selección del portafolio de Marylene — tiene acceso a todo el inventario de la Riviera Maya. Si está a la venta en esta costa, ella puede vendérselo.",
+    "portfolio.counts.properties": "Propiedades",
+    "portfolio.counts.developments": "Desarrollos",
+    "portfolio.counts.destinations": "Destinos",
     "portfolio.masterBroker.chip": "Master Broker",
     "portfolio.partners.title": "Desarrollos y socios",
     "portfolio.chip.masterBroker": "Master Broker",
