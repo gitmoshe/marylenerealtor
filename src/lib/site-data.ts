@@ -55,12 +55,12 @@ export const films: Film[] = [
   },
   {
     id: "f5",
-    title: "Cenotes of the Yucatán",
-    caption: "Riviera Life — Yucatán",
-    description: "The freshwater world beneath the limestone, half an hour inland.",
-    category: "Riviera Life",
-    format: "16:9",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    title: "Palmara",
+    caption: "Development Tour — Playa del Carmen",
+    description: "A residential development in Playa del Carmen, close to schools and the coast's main tourism hubs.",
+    category: "Property Tours",
+    format: "9:16",
+    embed: "https://youtube.com/shorts/5Rl_5E_XJJ4",
   },
   {
     id: "f6",
