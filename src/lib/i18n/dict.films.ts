@@ -17,9 +17,9 @@ export const filmsDict: Dict = {
     "films.item.f1.caption": "Condo Tour — Tulum",
     "films.item.f1.description": "A vertical walk through Pelegrina, one of Tulum's newest condominium addresses.",
 
-    "films.item.f2.title": "Morning in Tulum",
-    "films.item.f2.caption": "Riviera Life — Tulum",
-    "films.item.f2.description": "First light on the beach road, before the town wakes.",
+    "films.item.f2.title": "Junglar",
+    "films.item.f2.caption": "Villa Tour — Tulum",
+    "films.item.f2.description": "Eight villas inside Kaybé, Tulum's most complete gated community.",
 
     "films.item.f3.title": "Villa Selva — Full Tour",
     "films.item.f3.caption": "Villa Tour — Tulum",
@@ -64,9 +64,9 @@ export const filmsDict: Dict = {
     "films.item.f1.caption": "Visite de condos — Tulum",
     "films.item.f1.description": "Une visite verticale de Pelegrina, l'une des plus récentes adresses de condominiums à Tulum.",
 
-    "films.item.f2.title": "Matin à Tulum",
-    "films.item.f2.caption": "Vie sur la Riviera Maya — Tulum",
-    "films.item.f2.description": "La première lumière sur la route de la plage, avant que la ville ne s'éveille.",
+    "films.item.f2.title": "Junglar",
+    "films.item.f2.caption": "Visite de villa — Tulum",
+    "films.item.f2.description": "Huit villas au sein de Kaybé, le complexe résidentiel le plus complet de Tulum.",
 
     "films.item.f3.title": "Villa Selva — Visite complète",
     "films.item.f3.caption": "Visite de villa — Tulum",
@@ -111,9 +111,9 @@ export const filmsDict: Dict = {
     "films.item.f1.caption": "Recorrido de condominios — Tulum",
     "films.item.f1.description": "Un recorrido vertical por Pelegrina, una de las direcciones de condominios más recientes de Tulum.",
 
-    "films.item.f2.title": "Una mañana en Tulum",
-    "films.item.f2.caption": "Vida en la Riviera Maya — Tulum",
-    "films.item.f2.description": "La primera luz en el camino de la playa, antes de que el pueblo despierte.",
+    "films.item.f2.title": "Junglar",
+    "films.item.f2.caption": "Recorrido de villa — Tulum",
+    "films.item.f2.description": "Ocho villas dentro de Kaybé, la comunidad cerrada más completa de Tulum.",
 
     "films.item.f3.title": "Villa Selva — Recorrido completo",
     "films.item.f3.caption": "Recorrido de villa — Tulum",
