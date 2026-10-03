@@ -25,9 +25,9 @@ export const filmsDict: Dict = {
     "films.item.f3.caption": "Community Tour — Tulum",
     "films.item.f3.description": "The gated masterplan behind Junglar, where Mayan-inspired architecture is set into the jungle.",
 
-    "films.item.f4.title": "The Dubois Family Finds Home",
-    "films.item.f4.caption": "Client Story — Lyon to Playa",
-    "films.item.f4.description": "Six months of searching, told in ninety seconds.",
+    "films.item.f4.title": "Paravian",
+    "films.item.f4.caption": "Development Tour — Playa del Carmen",
+    "films.item.f4.description": "A residential development on the central downtown corridor of Playa del Carmen.",
 
     "films.item.f5.title": "Cenotes of the Yucatán",
     "films.item.f5.caption": "Riviera Life — Yucatán",
@@ -72,9 +72,9 @@ export const filmsDict: Dict = {
     "films.item.f3.caption": "Visite de communauté — Tulum",
     "films.item.f3.description": "Le masterplan fermé qui abrite Junglar, où l'architecture d'inspiration maya s'insère dans la jungle.",
 
-    "films.item.f4.title": "La famille Dubois trouve son foyer",
-    "films.item.f4.caption": "Témoignage client — Lyon à Playa",
-    "films.item.f4.description": "Six mois de recherche, racontés en quatre-vingt-dix secondes.",
+    "films.item.f4.title": "Paravian",
+    "films.item.f4.caption": "Visite de projet — Playa del Carmen",
+    "films.item.f4.description": "Un programme résidentiel sur l'axe central du centre-ville de Playa del Carmen.",
 
     "films.item.f5.title": "Les cénotes du Yucatán",
     "films.item.f5.caption": "Vie sur la Riviera Maya — Yucatán",
@@ -119,9 +119,9 @@ export const filmsDict: Dict = {
     "films.item.f3.caption": "Recorrido de comunidad — Tulum",
     "films.item.f3.description": "El masterplan cerrado donde está Junglar, con arquitectura de inspiración maya integrada en la selva.",
 
-    "films.item.f4.title": "La familia Dubois encuentra su hogar",
-    "films.item.f4.caption": "Historia de cliente — De Lyon a Playa",
-    "films.item.f4.description": "Seis meses de búsqueda, contados en noventa segundos.",
+    "films.item.f4.title": "Paravian",
+    "films.item.f4.caption": "Recorrido de proyecto — Playa del Carmen",
+    "films.item.f4.description": "Un desarrollo residencial sobre el eje central del centro de Playa del Carmen.",
 
     "films.item.f5.title": "Cenotes de Yucatán",
     "films.item.f5.caption": "Vida en la Riviera Maya — Yucatán",
