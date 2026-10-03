@@ -64,12 +64,12 @@ export const films: Film[] = [
   },
   {
     id: "f6",
-    title: "Résidence Turquoise — Lagoon Views",
-    caption: "Condo Tour — Puerto Morelos",
-    description: "A quiet residence above the fishing port, with the reef offshore.",
+    title: "Valenia",
+    caption: "Community Tour — Playa del Carmen",
+    description: "A gated residential community of twelve private sections, with a clubhouse and pool, ten minutes from the beach.",
     category: "Property Tours",
     format: "9:16",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embed: "https://youtube.com/shorts/j_z_Z8VFMJI",
   },
   {
     id: "f7",
