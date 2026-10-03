@@ -37,9 +37,9 @@ export const filmsDict: Dict = {
     "films.item.f6.caption": "Community Tour — Playa del Carmen",
     "films.item.f6.description": "A gated residential community of twelve private sections, with a clubhouse and pool, ten minutes from the beach.",
 
-    "films.item.f7.title": "Buying from Montréal",
-    "films.item.f7.caption": "Client Story — Montréal",
-    "films.item.f7.description": "How a purchase was completed entirely by film and video call.",
+    "films.item.f7.title": "Villas Kaybé",
+    "films.item.f7.caption": "Villa Tour — Tulum",
+    "films.item.f7.description": "A furnished villa inside Kaybé, filmed room by room with the jungle at the windows.",
 
     "films.item.f8.title": "A Table in Playa",
     "films.item.f8.caption": "Riviera Life — Playa del Carmen",
@@ -84,9 +84,9 @@ export const filmsDict: Dict = {
     "films.item.f6.caption": "Visite de communauté — Playa del Carmen",
     "films.item.f6.description": "Une communauté résidentielle fermée de douze sections privées, avec club-house et piscine, à dix minutes de la plage.",
 
-    "films.item.f7.title": "Acheter depuis Montréal",
-    "films.item.f7.caption": "Témoignage client — Montréal",
-    "films.item.f7.description": "Comment un achat a été conclu entièrement par vidéos et appels.",
+    "films.item.f7.title": "Villas Kaybé",
+    "films.item.f7.caption": "Visite de villa — Tulum",
+    "films.item.f7.description": "Une villa meublée au sein de Kaybé, filmée pièce par pièce avec la jungle aux fenêtres.",
 
     "films.item.f8.title": "Une table à Playa",
     "films.item.f8.caption": "Vie sur la Riviera Maya — Playa del Carmen",
@@ -131,9 +131,9 @@ export const filmsDict: Dict = {
     "films.item.f6.caption": "Recorrido de comunidad — Playa del Carmen",
     "films.item.f6.description": "Una comunidad residencial cerrada de doce secciones privadas, con club house y alberca, a diez minutos de la playa.",
 
-    "films.item.f7.title": "Comprar desde Montreal",
-    "films.item.f7.caption": "Historia de cliente — Montreal",
-    "films.item.f7.description": "Cómo se completó una compra enteramente por video y videollamada.",
+    "films.item.f7.title": "Villas Kaybé",
+    "films.item.f7.caption": "Recorrido de villa — Tulum",
+    "films.item.f7.description": "Una villa amueblada dentro de Kaybé, filmada habitación por habitación con la selva en las ventanas.",
 
     "films.item.f8.title": "Una mesa en Playa",
     "films.item.f8.caption": "Vida en la Riviera Maya — Playa del Carmen",

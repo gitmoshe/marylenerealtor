@@ -73,12 +73,12 @@ export const films: Film[] = [
   },
   {
     id: "f7",
-    title: "Buying from Montréal",
-    caption: "Client Story — Montréal",
-    description: "How a purchase was completed entirely by film and video call.",
-    category: "Client Stories",
-    format: "16:9",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    title: "Villas Kaybé",
+    caption: "Villa Tour — Tulum",
+    description: "A furnished villa inside Kaybé, filmed room by room with the jungle at the windows.",
+    category: "Property Tours",
+    format: "9:16",
+    embed: "https://youtube.com/shorts/zXKnetyIL-w",
   },
   {
     id: "f8",
