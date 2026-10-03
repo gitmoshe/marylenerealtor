@@ -46,12 +46,12 @@ export const films: Film[] = [
   },
   {
     id: "f4",
-    title: "The Dubois Family Finds Home",
-    caption: "Client Story — Lyon to Playa",
-    description: "Six months of searching, told in ninety seconds.",
-    category: "Client Stories",
+    title: "Paravian",
+    caption: "Development Tour — Playa del Carmen",
+    description: "A residential development on the central downtown corridor of Playa del Carmen.",
+    category: "Property Tours",
     format: "9:16",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embed: "https://youtube.com/shorts/eA3Meeu9C00",
   },
   {
     id: "f5",
