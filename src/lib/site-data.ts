@@ -82,12 +82,12 @@ export const films: Film[] = [
   },
   {
     id: "f8",
-    title: "A Table in Playa",
-    caption: "Riviera Life — Playa del Carmen",
-    description: "Where I take clients when the paperwork is finally signed.",
-    category: "Riviera Life",
+    title: "Tierra Madre",
+    caption: "Development Tour — Playa del Carmen",
+    description: "A 403-lot jungle masterplan on Av. Universidades, with a linear park and clubhouse at its centre.",
+    category: "Property Tours",
     format: "9:16",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embed: "https://youtube.com/shorts/wGNU5VoSy2s",
   },
   {
     id: "f9",
