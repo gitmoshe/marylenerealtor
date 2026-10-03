@@ -28,12 +28,12 @@ export const films: Film[] = [
   },
   {
     id: "f2",
-    title: "Morning in Tulum",
-    caption: "Riviera Life — Tulum",
-    description: "First light on the beach road, before the town wakes.",
-    category: "Riviera Life",
+    title: "Junglar",
+    caption: "Villa Tour — Tulum",
+    description: "Eight villas inside Kaybé, Tulum's most complete gated community.",
+    category: "Property Tours",
     format: "9:16",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embed: "https://youtube.com/shorts/XJg1SC4GbKU",
   },
   {
     id: "f3",
