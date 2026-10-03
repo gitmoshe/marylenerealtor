@@ -64,7 +64,7 @@ function FilmsPage() {
             >
               {t("films.category.all")}
             </button>
-            {filmCategories.map((c) => (
+            {filmCategories.filter((c) => films.some((f) => f.category === c)).map((c) => (
               <button
                 key={c}
                 type="button"
