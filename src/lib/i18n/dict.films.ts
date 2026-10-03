@@ -29,9 +29,9 @@ export const filmsDict: Dict = {
     "films.item.f4.caption": "Development Tour — Playa del Carmen",
     "films.item.f4.description": "A residential development on the central downtown corridor of Playa del Carmen.",
 
-    "films.item.f5.title": "Cenotes of the Yucatán",
-    "films.item.f5.caption": "Riviera Life — Yucatán",
-    "films.item.f5.description": "The freshwater world beneath the limestone, half an hour inland.",
+    "films.item.f5.title": "Palmara",
+    "films.item.f5.caption": "Development Tour — Playa del Carmen",
+    "films.item.f5.description": "A residential development in Playa del Carmen, close to schools and the coast's main tourism hubs.",
 
     "films.item.f6.title": "Résidence Turquoise — Lagoon Views",
     "films.item.f6.caption": "Condo Tour — Puerto Morelos",
@@ -76,9 +76,9 @@ export const filmsDict: Dict = {
     "films.item.f4.caption": "Visite de projet — Playa del Carmen",
     "films.item.f4.description": "Un programme résidentiel sur l'axe central du centre-ville de Playa del Carmen.",
 
-    "films.item.f5.title": "Les cénotes du Yucatán",
-    "films.item.f5.caption": "Vie sur la Riviera Maya — Yucatán",
-    "films.item.f5.description": "Le monde d'eau douce sous le calcaire, à une demi-heure des terres.",
+    "films.item.f5.title": "Palmara",
+    "films.item.f5.caption": "Visite de projet — Playa del Carmen",
+    "films.item.f5.description": "Un programme résidentiel à Playa del Carmen, proche des écoles et des grands pôles touristiques de la côte.",
 
     "films.item.f6.title": "Résidence Turquoise — Vue sur la lagune",
     "films.item.f6.caption": "Visite de condo — Puerto Morelos",
@@ -123,9 +123,9 @@ export const filmsDict: Dict = {
     "films.item.f4.caption": "Recorrido de proyecto — Playa del Carmen",
     "films.item.f4.description": "Un desarrollo residencial sobre el eje central del centro de Playa del Carmen.",
 
-    "films.item.f5.title": "Cenotes de Yucatán",
-    "films.item.f5.caption": "Vida en la Riviera Maya — Yucatán",
-    "films.item.f5.description": "El mundo de agua dulce bajo la piedra caliza, a media hora tierra adentro.",
+    "films.item.f5.title": "Palmara",
+    "films.item.f5.caption": "Recorrido de proyecto — Playa del Carmen",
+    "films.item.f5.description": "Un desarrollo residencial en Playa del Carmen, cerca de escuelas y de los principales polos turísticos de la costa.",
 
     "films.item.f6.title": "Residencia Turquesa — Vistas a la laguna",
     "films.item.f6.caption": "Recorrido de condominio — Puerto Morelos",
