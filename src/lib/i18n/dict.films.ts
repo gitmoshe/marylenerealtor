@@ -21,9 +21,9 @@ export const filmsDict: Dict = {
     "films.item.f2.caption": "Villa Tour — Tulum",
     "films.item.f2.description": "Eight villas inside Kaybé, Tulum's most complete gated community.",
 
-    "films.item.f3.title": "Villa Selva — Full Tour",
-    "films.item.f3.caption": "Villa Tour — Tulum",
-    "films.item.f3.description": "A jungle house built around a courtyard and a single old tree.",
+    "films.item.f3.title": "Kaybé",
+    "films.item.f3.caption": "Community Tour — Tulum",
+    "films.item.f3.description": "The gated masterplan behind Junglar, where Mayan-inspired architecture is set into the jungle.",
 
     "films.item.f4.title": "The Dubois Family Finds Home",
     "films.item.f4.caption": "Client Story — Lyon to Playa",
@@ -68,9 +68,9 @@ export const filmsDict: Dict = {
     "films.item.f2.caption": "Visite de villa — Tulum",
     "films.item.f2.description": "Huit villas au sein de Kaybé, le complexe résidentiel le plus complet de Tulum.",
 
-    "films.item.f3.title": "Villa Selva — Visite complète",
-    "films.item.f3.caption": "Visite de villa — Tulum",
-    "films.item.f3.description": "Une maison dans la jungle bâtie autour d'une cour et d'un arbre ancien.",
+    "films.item.f3.title": "Kaybé",
+    "films.item.f3.caption": "Visite de communauté — Tulum",
+    "films.item.f3.description": "Le masterplan fermé qui abrite Junglar, où l'architecture d'inspiration maya s'insère dans la jungle.",
 
     "films.item.f4.title": "La famille Dubois trouve son foyer",
     "films.item.f4.caption": "Témoignage client — Lyon à Playa",
@@ -115,9 +115,9 @@ export const filmsDict: Dict = {
     "films.item.f2.caption": "Recorrido de villa — Tulum",
     "films.item.f2.description": "Ocho villas dentro de Kaybé, la comunidad cerrada más completa de Tulum.",
 
-    "films.item.f3.title": "Villa Selva — Recorrido completo",
-    "films.item.f3.caption": "Recorrido de villa — Tulum",
-    "films.item.f3.description": "Una casa en la selva construida alrededor de un patio y un árbol centenario.",
+    "films.item.f3.title": "Kaybé",
+    "films.item.f3.caption": "Recorrido de comunidad — Tulum",
+    "films.item.f3.description": "El masterplan cerrado donde está Junglar, con arquitectura de inspiración maya integrada en la selva.",
 
     "films.item.f4.title": "La familia Dubois encuentra su hogar",
     "films.item.f4.caption": "Historia de cliente — De Lyon a Playa",
