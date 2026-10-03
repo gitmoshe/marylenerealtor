@@ -41,9 +41,9 @@ export const filmsDict: Dict = {
     "films.item.f7.caption": "Villa Tour — Tulum",
     "films.item.f7.description": "A furnished villa inside Kaybé, filmed room by room with the jungle at the windows.",
 
-    "films.item.f8.title": "A Table in Playa",
-    "films.item.f8.caption": "Riviera Life — Playa del Carmen",
-    "films.item.f8.description": "Where I take clients when the paperwork is finally signed.",
+    "films.item.f8.title": "Tierra Madre",
+    "films.item.f8.caption": "Development Tour — Playa del Carmen",
+    "films.item.f8.description": "A 403-lot jungle masterplan on Av. Universidades, with a linear park and clubhouse at its centre.",
 
     "films.item.f9.title": "Maison Riviera — Pre-construction",
     "films.item.f9.caption": "Development Tour — Playa del Carmen",
@@ -88,9 +88,9 @@ export const filmsDict: Dict = {
     "films.item.f7.caption": "Visite de villa — Tulum",
     "films.item.f7.description": "Une villa meublée au sein de Kaybé, filmée pièce par pièce avec la jungle aux fenêtres.",
 
-    "films.item.f8.title": "Une table à Playa",
-    "films.item.f8.caption": "Vie sur la Riviera Maya — Playa del Carmen",
-    "films.item.f8.description": "Là où j'emmène mes clients une fois les papiers enfin signés.",
+    "films.item.f8.title": "Tierra Madre",
+    "films.item.f8.caption": "Visite de projet — Playa del Carmen",
+    "films.item.f8.description": "Un plan d'aménagement de 403 lots dans la jungle, sur l'avenue Universidades, avec parc linéaire et maison club en son centre.",
 
     "films.item.f9.title": "Maison Riviera — Pré-construction",
     "films.item.f9.caption": "Visite de projet — Playa del Carmen",
@@ -135,9 +135,9 @@ export const filmsDict: Dict = {
     "films.item.f7.caption": "Recorrido de villa — Tulum",
     "films.item.f7.description": "Una villa amueblada dentro de Kaybé, filmada habitación por habitación con la selva en las ventanas.",
 
-    "films.item.f8.title": "Una mesa en Playa",
-    "films.item.f8.caption": "Vida en la Riviera Maya — Playa del Carmen",
-    "films.item.f8.description": "A donde llevo a mis clientes cuando por fin se firman los papeles.",
+    "films.item.f8.title": "Tierra Madre",
+    "films.item.f8.caption": "Recorrido de proyecto — Playa del Carmen",
+    "films.item.f8.description": "Un masterplan de 403 lotes en la selva sobre la Av. Universidades, con parque lineal y casa club en el centro.",
 
     "films.item.f9.title": "Maison Riviera — Preconstrucción",
     "films.item.f9.caption": "Recorrido de proyecto — Playa del Carmen",
