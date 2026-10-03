@@ -33,9 +33,9 @@ export const filmsDict: Dict = {
     "films.item.f5.caption": "Development Tour — Playa del Carmen",
     "films.item.f5.description": "A residential development in Playa del Carmen, close to schools and the coast's main tourism hubs.",
 
-    "films.item.f6.title": "Résidence Turquoise — Lagoon Views",
-    "films.item.f6.caption": "Condo Tour — Puerto Morelos",
-    "films.item.f6.description": "A marina-side residence with dolphins below the terrace.",
+    "films.item.f6.title": "Valenia",
+    "films.item.f6.caption": "Community Tour — Playa del Carmen",
+    "films.item.f6.description": "A gated residential community of twelve private sections, with a clubhouse and pool, ten minutes from the beach.",
 
     "films.item.f7.title": "Buying from Montréal",
     "films.item.f7.caption": "Client Story — Montréal",
@@ -80,9 +80,9 @@ export const filmsDict: Dict = {
     "films.item.f5.caption": "Visite de projet — Playa del Carmen",
     "films.item.f5.description": "Un programme résidentiel à Playa del Carmen, proche des écoles et des grands pôles touristiques de la côte.",
 
-    "films.item.f6.title": "Résidence Turquoise — Vue sur la lagune",
-    "films.item.f6.caption": "Visite de condo — Puerto Morelos",
-    "films.item.f6.description": "Une résidence en bord de marina avec des dauphins sous la terrasse.",
+    "films.item.f6.title": "Valenia",
+    "films.item.f6.caption": "Visite de communauté — Playa del Carmen",
+    "films.item.f6.description": "Une communauté résidentielle fermée de douze sections privées, avec club-house et piscine, à dix minutes de la plage.",
 
     "films.item.f7.title": "Acheter depuis Montréal",
     "films.item.f7.caption": "Témoignage client — Montréal",
@@ -127,9 +127,9 @@ export const filmsDict: Dict = {
     "films.item.f5.caption": "Recorrido de proyecto — Playa del Carmen",
     "films.item.f5.description": "Un desarrollo residencial en Playa del Carmen, cerca de escuelas y de los principales polos turísticos de la costa.",
 
-    "films.item.f6.title": "Residencia Turquesa — Vistas a la laguna",
-    "films.item.f6.caption": "Recorrido de condominio — Puerto Morelos",
-    "films.item.f6.description": "Una residencia junto a la marina con delfines bajo la terraza.",
+    "films.item.f6.title": "Valenia",
+    "films.item.f6.caption": "Recorrido de comunidad — Playa del Carmen",
+    "films.item.f6.description": "Una comunidad residencial cerrada de doce secciones privadas, con club house y alberca, a diez minutos de la playa.",
 
     "films.item.f7.title": "Comprar desde Montreal",
     "films.item.f7.caption": "Historia de cliente — Montreal",
