@@ -37,12 +37,12 @@ export const films: Film[] = [
   },
   {
     id: "f3",
-    title: "Villa Selva — Full Tour",
-    caption: "Villa Tour — Tulum",
-    description: "A jungle house built around a courtyard and a single old tree.",
+    title: "Kaybé",
+    caption: "Community Tour — Tulum",
+    description: "The gated masterplan behind Junglar, where Mayan-inspired architecture is set into the jungle.",
     category: "Property Tours",
-    format: "16:9",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    format: "9:16",
+    embed: "https://youtube.com/shorts/_XtDFY95p_k",
   },
   {
     id: "f4",
