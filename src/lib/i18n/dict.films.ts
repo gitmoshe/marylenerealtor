@@ -45,9 +45,6 @@ export const filmsDict: Dict = {
     "films.item.f8.caption": "Development Tour — Playa del Carmen",
     "films.item.f8.description": "A 403-lot jungle masterplan on Av. Universidades, with a linear park and clubhouse at its centre.",
 
-    "films.item.f9.title": "Maison Riviera — Pre-construction",
-    "films.item.f9.caption": "Development Tour — Playa del Carmen",
-    "films.item.f9.description": "Walking the plans, the plot and the rooftop line before it exists.",
   },
   fr: {
     "films.overline": "Médias",
@@ -92,9 +89,6 @@ export const filmsDict: Dict = {
     "films.item.f8.caption": "Visite de projet — Playa del Carmen",
     "films.item.f8.description": "Un plan d'aménagement de 403 lots dans la jungle, sur l'avenue Universidades, avec parc linéaire et maison club en son centre.",
 
-    "films.item.f9.title": "Maison Riviera — Pré-construction",
-    "films.item.f9.caption": "Visite de projet — Playa del Carmen",
-    "films.item.f9.description": "Parcourir les plans, le terrain et la ligne de toit avant qu'ils n'existent.",
   },
   es: {
     "films.overline": "Medios",
@@ -139,8 +133,5 @@ export const filmsDict: Dict = {
     "films.item.f8.caption": "Recorrido de proyecto — Playa del Carmen",
     "films.item.f8.description": "Un masterplan de 403 lotes en la selva sobre la Av. Universidades, con parque lineal y casa club en el centro.",
 
-    "films.item.f9.title": "Maison Riviera — Preconstrucción",
-    "films.item.f9.caption": "Recorrido de proyecto — Playa del Carmen",
-    "films.item.f9.description": "Recorriendo los planos, el terreno y la línea del techo antes de que existan.",
   },
 };

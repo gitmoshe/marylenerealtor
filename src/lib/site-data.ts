@@ -89,15 +89,6 @@ export const films: Film[] = [
     format: "9:16",
     embed: "https://youtube.com/shorts/wGNU5VoSy2s",
   },
-  {
-    id: "f9",
-    title: "Maison Riviera — Pre-construction",
-    caption: "Development Tour — Playa del Carmen",
-    description: "Walking the plans, the plot and the rooftop line before it exists.",
-    category: "Property Tours",
-    format: "16:9",
-    embed: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
 ];
 
 export const filmCategories = ["Property Tours", "Riviera Life", "Client Stories"] as const;
