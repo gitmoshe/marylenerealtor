@@ -2,8 +2,8 @@ import terraceAsset from "@/assets/marylene-terrace.webp.asset.json";
 import terraceSmall from "@/assets/marylene-terrace-sm.webp.asset.json";
 import poolAsset from "@/assets/marylene-pool.webp.asset.json";
 import poolSmall from "@/assets/marylene-pool-sm.webp.asset.json";
-import portraitAsset from "@/assets/marylene-portrait.webp.asset.json";
-import portraitSmall from "@/assets/marylene-portrait-sm.webp.asset.json";
+import portraitAsset from "@/assets/marylene-portrait-pool.webp.asset.json";
+import portraitSmall from "@/assets/marylene-portrait-pool-sm.webp.asset.json";
 import contactAsset from "@/assets/marylene-contact.webp.asset.json";
 import contactSmall from "@/assets/marylene-contact-sm.webp.asset.json";
 
@@ -37,7 +37,7 @@ export const photos = {
   portrait: {
     src: portraitAsset.url,
     srcSmall: portraitSmall.url,
-    alt: "Portrait of Marylene Maglio, Riviera Maya realtor",
+    alt: "Marylene Maglio in an infinity pool overlooking the Caribbean sea in the Riviera Maya",
   },
   /** Contact page portrait — candid street-style photo. */
   contact: {
