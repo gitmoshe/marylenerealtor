@@ -37,7 +37,7 @@ export const photos = {
   portrait: {
     src: portraitAsset.url,
     srcSmall: portraitSmall.url,
-    alt: "Portrait of Marylene Maglio, Riviera Maya realtor",
+    alt: "Marylene Maglio in an infinity pool overlooking the Caribbean sea in the Riviera Maya",
   },
   /** Contact page portrait — candid street-style photo. */
   contact: {
