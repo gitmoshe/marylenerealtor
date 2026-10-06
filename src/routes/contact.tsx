@@ -94,6 +94,18 @@ function Contact() {
     }
     setErrors({});
     setSent(true);
+    const subject = "Consultation request — Marylene Realtor";
+    const body = [
+      `Name: ${parsed.data.name}`,
+      `Email: ${parsed.data.email}`,
+      `Phone: ${parsed.data.phone}`,
+      `Interest: ${interest}`,
+      `Language: ${language}`,
+      "",
+      parsed.data.message,
+    ].join("\n");
+    const mailto = `mailto:info@marylenerealtor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
     e.currentTarget.reset();
   };
 
@@ -241,7 +253,11 @@ function Contact() {
               >
                 <MessageCircle strokeWidth={1} className="size-4" /> {t("contact.whatsapp")}
               </ButtonAnchor>
-              <ButtonAnchor href="#" variant="gold" className="mt-3 flex w-full">
+              <ButtonAnchor
+                href="mailto:info@marylenerealtor.com?subject=Consultation%20request%20%E2%80%94%20Marylene%20Realtor"
+                variant="gold"
+                className="mt-3 flex w-full"
+              >
                 <CalendarCheck strokeWidth={1} className="size-4" /> {t("contact.book")}
               </ButtonAnchor>
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
