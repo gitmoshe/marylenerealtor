@@ -105,7 +105,7 @@ export const portfolioDict: Dict = {
     "portfolio.hero.titleLine1": "Un portfolio choisi",
     "portfolio.hero.titleLine2": "de la Riviera Maya.",
     "portfolio.hero.subtitle":
-      "Des développements et des résidences à Tulum, Playacar, Playa del Carmen et sur toute la Riviera Maya. Prix en USD.",
+      "Des développements et des résidences à Tulum, Playacar, Playa del Carmen et sur toute la Riviera Maya. Prix en MXN.",
 
     "portfolio.filter.location": "Emplacement",
     "portfolio.filter.type": "Type",
@@ -194,7 +194,7 @@ export const portfolioDict: Dict = {
     "portfolio.hero.titleLine1": "Un portafolio curado",
     "portfolio.hero.titleLine2": "de la Riviera Maya.",
     "portfolio.hero.subtitle":
-      "Desarrollos y residencias en Tulum, Playacar, Playa del Carmen y toda la Riviera Maya. Precios en USD.",
+      "Desarrollos y residencias en Tulum, Playacar, Playa del Carmen y toda la Riviera Maya. Precios en MXN.",
 
     "portfolio.filter.location": "Ubicación",
     "portfolio.filter.type": "Tipo",

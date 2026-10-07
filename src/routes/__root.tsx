@@ -18,6 +18,7 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { LanguageProvider, useI18n } from "@/lib/i18n";
 import { ButtonLink } from "@/components/site/ui";
 import { SITE_URL } from "@/lib/site-url";
+import { exchangeRateOptions } from "@/lib/exchange-rate.functions";
 
 function NotFoundComponent() {
   const { t } = useI18n();
@@ -79,6 +80,7 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: ({ context }) => context.queryClient.ensureQueryData(exchangeRateOptions),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -97,8 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico" },
       { property: "og:description", content: "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún" },
       { name: "twitter:description", content: "Marylene Maglio is a luxury realtor and property manager operating across Mexico's historic Riviera Maya — invest in Playa del Carmen, Tulum, Bacalar and Cancún" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/002c1192-ecb3-4df0-a77f-b45226d49817/id-preview-1ae0fdef--bd749793-014a-4dbd-a53f-84cc609b798c.lovable.app-1785123525985.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/002c1192-ecb3-4df0-a77f-b45226d49817/id-preview-1ae0fdef--bd749793-014a-4dbd-a53f-84cc609b798c.lovable.app-1785123525985.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

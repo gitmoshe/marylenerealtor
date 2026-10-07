@@ -27,6 +27,10 @@ export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
       { title: "Portfolio admin — Marylene Realtor" },
+      { property: "og:title", content: "Portfolio admin — Marylene Realtor" },
+      { property: "og:description", content: "Private portfolio administration for Marylene Realtor." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex, nofollow" },
       { name: "description", content: "Private portfolio administration for Marylene Realtor." },
     ],

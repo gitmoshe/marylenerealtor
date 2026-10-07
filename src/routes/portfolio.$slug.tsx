@@ -13,11 +13,12 @@ import {
 import { CollectionPage } from "@/components/site/CollectionPage";
 import { VideoFacade } from "@/components/site/VideoFacade";
 import { LazyMap } from "@/components/site/LazyMap";
-import { formatPrice, isCollection, type Listing } from "@/lib/listings";
+import { isCollection, type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { SITE_URL, absoluteUrl } from "@/lib/site-url";
 import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
+import { usePricing } from "@/lib/use-pricing";
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }): Promise<{ listing: Listing; others: Listing[]; subs: Listing[] }> => {
@@ -45,6 +46,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const hasPrice = typeof l.priceFrom === "number" && l.priceFrom > 0;
     return {
       meta: [
+        { name: "twitter:card", content: "summary_large_image" },
         { title: `${l.name}, ${l.location} — Riviera Maya | Marylene Realtor` },
         {
           name: "description",
@@ -98,6 +100,7 @@ function scrollToFile() {
 
 function EnquireStickyBar({ listing }: { listing: Listing }) {
   const { t } = useI18n();
+  const { price } = usePricing();
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
 
@@ -125,9 +128,9 @@ function EnquireStickyBar({ listing }: { listing: Listing }) {
           <Container className="flex items-center justify-between gap-4">
             <div className="min-w-0">
               <p className="truncate font-serif text-lg text-ink">{listing.name}</p>
-              <p className="label-caps mt-0.5 text-[0.55rem] text-muted-foreground">
+              <p className="label-caps mt-0.5 text-[0.55rem] text-muted-foreground break-words">
                 {listing.location} ·{" "}
-                {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
+                {price(listing.priceFrom, listing.currency)}
               </p>
             </div>
             <div className="flex shrink-0 items-center gap-3">
@@ -162,6 +165,7 @@ function ListingDetail() {
     subs: Listing[];
   };
   const { t, lang } = useI18n();
+  const { price, moneyText } = usePricing();
   const reference = listing.slug.toUpperCase().replace(/-/g, " ");
 
   if (isCollection(listing)) {
@@ -186,15 +190,15 @@ function ListingDetail() {
     { label: t("detail.spec.unitTypes"), value: ficha.unitTypes },
     { label: t("detail.spec.parking"), value: ficha.parking },
     { label: t("detail.spec.phases"), value: ficha.phases },
-    { label: t("detail.spec.hoa"), value: ficha.hoa },
-    { label: t("detail.spec.priceRange"), value: ficha.priceRange },
+    { label: t("detail.spec.hoa"), value: ficha.hoa ? moneyText(ficha.hoa, listing.currency) : undefined },
+    { label: t("detail.spec.priceRange"), value: ficha.priceRange ? moneyText(ficha.priceRange, listing.currency) : undefined },
     {
       label: t("portfolio.field.priceFrom"),
-      value: formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency),
+      value: price(listing.priceFrom, listing.currency),
     },
   ].filter((f) => Boolean(f.value));
 
-  const priceRows = (listing.priceList ?? []).slice(0, 6);
+  const priceRows = (listing.priceList ?? []).slice(0, 6).map((row) => ({ ...row, price: moneyText(row.price, listing.currency) }));
   const distances = distancesByLocation[listing.location] ?? distancesByLocation["Riviera Maya"]!;
   const mapQuery = encodeURIComponent(`${listing.name}, ${listing.location}, Quintana Roo, Mexico`);
 
@@ -225,7 +229,7 @@ function ListingDetail() {
                   {listing.name}
                 </h1>
                 <p className="mt-4 font-serif text-2xl text-gold">
-                  {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
+                  {price(listing.priceFrom, listing.currency)}
                 </p>
               </div>
               {listing.developerLogo && (
@@ -251,12 +255,12 @@ function ListingDetail() {
             <GoldRule className="mt-6" />
             {listing.highlights.length > 0 && (
               <p className="mt-8 font-serif text-2xl leading-[1.4] sm:text-3xl">
-                {listing.highlights.slice(0, 3).join(" · ")}
+                {moneyText(listing.highlights.slice(0, 3).join(" · "), listing.currency)}
               </p>
             )}
             {listing.description && (
               <p className="mt-7 text-sm leading-relaxed text-muted-foreground">
-                {listing.description}
+                {moneyText(listing.description, listing.currency)}
               </p>
             )}
           </Reveal>
@@ -410,7 +414,7 @@ function ListingDetail() {
                     <div>
                       <p className="font-serif text-2xl">{t("detail.payment.title")}</p>
                       <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                        {listing.paymentPlanSummary}
+                        {moneyText(listing.paymentPlanSummary, listing.currency)}
                       </p>
                     </div>
                   )}
@@ -461,7 +465,7 @@ function ListingDetail() {
                     </p>
                     {listing.developerBlurb && (
                       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                        {listing.developerBlurb}
+                        {moneyText(listing.developerBlurb, listing.currency)}
                       </p>
                     )}
                   </div>

@@ -62,7 +62,7 @@ export const detailDict: Dict = {
     "detail.pricing.overline": "Résidences et tarifs",
     "detail.pricing.type": "Type",
     "detail.pricing.size": "Surface",
-    "detail.pricing.from": "À partir de (USD)",
+    "detail.pricing.from": "À partir de (MXN)",
     "detail.pricing.availability": "Disponibilité",
     "detail.pricing.cta": "Demander la liste de prix et l’inventaire complets",
     "detail.pricing.ctaNote":
@@ -103,7 +103,7 @@ export const detailDict: Dict = {
     "detail.pricing.overline": "Residencias y precios",
     "detail.pricing.type": "Tipo",
     "detail.pricing.size": "Superficie",
-    "detail.pricing.from": "Desde USD",
+    "detail.pricing.from": "Desde MXN",
     "detail.pricing.availability": "Disponibilidad",
     "detail.pricing.cta": "Solicitar la lista de precios e inventario completos",
     "detail.pricing.ctaNote":

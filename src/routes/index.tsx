@@ -8,15 +8,19 @@ import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { films, testimonials } from "@/lib/site-data";
-import { formatPrice, type Listing } from "@/lib/listings";
+import { type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
 import { useI18n } from "@/lib/i18n";
+import { usePricing } from "@/lib/use-pricing";
 import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
+
       { title: "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico" },
       {
         name: "description",
@@ -213,6 +217,7 @@ function FilmsPreview() {
 
 function FeaturedProperties() {
   const { t } = useI18n();
+  const { price, moneyText } = usePricing();
   const all = Route.useLoaderData() as Listing[];
   const featured = all.filter((l) => l.featured).slice(0, 3);
   return (
@@ -253,9 +258,9 @@ function FeaturedProperties() {
                 <h3 className="mt-3 font-serif text-2xl transition-colors duration-300 group-hover:text-gold">
                   {p.name}
                 </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{p.highlights.join(" · ")}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{moneyText(p.highlights.join(" · "), p.currency)}</p>
                 <p className="mt-4 font-serif text-lg text-ink">
-                  {formatPrice(p.priceFrom, t("portfolio.priceOnRequest"), p.currency)}
+                  {price(p.priceFrom, p.currency)}
                 </p>
               </Link>
             </Reveal>

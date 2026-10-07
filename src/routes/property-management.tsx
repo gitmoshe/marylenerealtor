@@ -10,6 +10,9 @@ import { SITE_URL } from "@/lib/site-url";
 export const Route = createFileRoute("/property-management")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
+
       { title: "Riviera Maya Property Management | Marylene Maglio, Realtor" },
       {
         name: "description",

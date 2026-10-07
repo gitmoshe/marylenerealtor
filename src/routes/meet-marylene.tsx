@@ -10,6 +10,8 @@ import { SITE_URL } from "@/lib/site-url";
 export const Route = createFileRoute("/meet-marylene")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+
       { title: "Meet Marylene Maglio — Riviera Maya Realtor & Property Manager" },
       {
         name: "description",
