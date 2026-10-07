@@ -103,7 +103,7 @@ export const propertiesDict: Dict = {
     "properties.hero.titleLine1": "Des propriétés sur la",
     "properties.hero.titleLine2": "Riviera Maya.",
     "properties.hero.subtitle":
-      "Une liste courte, volontairement. Chaque résidence a été visitée, filmée et vérifiée. Prix en USD.",
+      "Une liste courte, volontairement. Chaque résidence a été visitée, filmée et vérifiée. Prix en MXN.",
 
     "properties.filter.location": "Emplacement",
     "properties.filter.type": "Type",
@@ -199,7 +199,7 @@ export const propertiesDict: Dict = {
     "properties.hero.titleLine1": "Propiedades en la",
     "properties.hero.titleLine2": "Riviera Maya.",
     "properties.hero.subtitle":
-      "Una lista breve, deliberadamente. Cada residencia ha sido visitada, filmada y verificada. Precios en USD.",
+      "Una lista breve, deliberadamente. Cada residencia ha sido visitada, filmada y verificada. Precios en MXN.",
 
     "properties.filter.location": "Ubicación",
     "properties.filter.type": "Tipo",
