@@ -18,6 +18,9 @@ import { SITE_URL } from "@/lib/site-url";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
+
       { title: "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico" },
       {
         name: "description",

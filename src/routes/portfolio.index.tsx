@@ -53,6 +53,8 @@ export const Route = createFileRoute("/portfolio/")({
   }),
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+
       { title: "Portfolio — Riviera Maya Property | Marylene Maglio, Realtor" },
       {
         name: "description",

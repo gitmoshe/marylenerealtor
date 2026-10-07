@@ -46,6 +46,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
     const hasPrice = typeof l.priceFrom === "number" && l.priceFrom > 0;
     return {
       meta: [
+        { name: "twitter:card", content: "summary_large_image" },
         { title: `${l.name}, ${l.location} — Riviera Maya | Marylene Realtor` },
         {
           name: "description",

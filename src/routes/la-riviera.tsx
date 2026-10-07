@@ -19,6 +19,9 @@ function slugify(name: string) {
 export const Route = createFileRoute("/la-riviera")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
+
       { title: "Riviera Maya — An Area Guide | Marylene Realtor" },
       {
         name: "description",

@@ -12,6 +12,9 @@ import { SITE_URL } from "@/lib/site-url";
 export const Route = createFileRoute("/films")({
   head: () => ({
     meta: [
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
+
       { title: "Videos — Riviera Maya Property Tours & Life | Marylene Realtor" },
       {
         name: "description",
