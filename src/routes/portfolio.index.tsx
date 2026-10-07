@@ -8,7 +8,6 @@ import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
   childSlugsIn,
-  formatPrice,
   isCollection,
   usedLocationsIn,
   usedTypesIn,
@@ -18,6 +17,7 @@ import { resolveListingImage } from "@/lib/listing-assets";
 import { fetchListings } from "@/lib/listings.functions";
 import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
+import { usePricing } from "@/lib/use-pricing";
 import { SITE_URL } from "@/lib/site-url";
 
 type PortfolioSearch = { location?: string; collection?: string };
@@ -28,10 +28,10 @@ const DELIVERY_BUCKETS = ["ready", "2026", "2027-plus"] as const;
 /** Collection rows below the grid, in editorial order. */
 const COLLECTION_ROWS = ["Playacar Collection", "Tulum Collection"] as const;
 
-function priceBucket(l: Listing): string | null {
-  if (!l.priceFrom) return null;
-  if (l.priceFrom < 500_000) return "under-500k";
-  if (l.priceFrom < 1_000_000) return "500k-1m";
+function priceBucket(amount: number | null): string | null {
+  if (!amount) return null;
+  if (amount < 500_000) return "under-500k";
+  if (amount < 1_000_000) return "500k-1m";
   return "1m-plus";
 }
 
@@ -122,6 +122,7 @@ function FilterRow({
 
 function PriceTag({ listing }: { listing: Listing }) {
   const { t } = useI18n();
+  const { price } = usePricing();
   if (listing.tier === "sold") {
     return (
       <span className="label-caps inline-block shrink-0 border border-gold/60 px-3 py-1.5 text-[0.55rem] text-gold">
@@ -131,13 +132,14 @@ function PriceTag({ listing }: { listing: Listing }) {
   }
   return (
     <p className="shrink-0 font-serif text-lg">
-      {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
+      {price(listing.priceFrom, listing.currency)}
     </p>
   );
 }
 
 function ListingCard({ listing, compact = false }: { listing: Listing; compact?: boolean }) {
   const { t } = useI18n();
+  const { moneyText } = usePricing();
   const typeKey = `properties.type.${listing.type}`;
   const typeLabel = t(typeKey) === typeKey ? listing.type : t(typeKey);
   return (
@@ -163,7 +165,7 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
 
       <ListingChips listing={listing} className="mt-4" />
 
-      <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+      <div className="mt-4 grid grid-cols-1 items-start gap-4">
         <div className="min-w-0">
           <p className="label-caps text-[0.62rem] text-lagoon">
             {listing.location} · {typeLabel}
@@ -177,7 +179,7 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
             {listing.name}
           </h3>
           {!compact && (
-            <p className="mt-2 text-sm text-muted-foreground">{listing.highlights.join(" · ")}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{moneyText(listing.highlights.join(" · "), listing.currency)}</p>
           )}
         </div>
         {isCollection(listing) ? (
@@ -195,6 +197,7 @@ function ListingCard({ listing, compact = false }: { listing: Listing; compact?:
 
 function PortfolioPage() {
   const { t } = useI18n();
+  const { usdValue, bucketLabel } = usePricing();
   const search = Route.useSearch();
   const listings = Route.useLoaderData() as Listing[];
   const usedLocations = useMemo(() => usedLocationsIn(listings), [listings]);
@@ -227,10 +230,10 @@ function PortfolioPage() {
         (l: Listing) =>
           (!location || l.location === location) &&
           (!type || l.type === type) &&
-          (!price || priceBucket(l) === price) &&
+          (!price || priceBucket(usdValue(l.priceFrom, l.currency)) === price) &&
           (!delivery || deliveryBucket(l) === delivery),
       ),
-    [visible, location, type, price, delivery],
+    [visible, location, type, price, delivery, usdValue],
   );
 
   const collectionRows = COLLECTION_ROWS.map((c) => ({
@@ -349,7 +352,7 @@ function PortfolioPage() {
               options={PRICE_BUCKETS}
               value={price}
               onChange={setPrice}
-              optionLabel={(o) => t(`portfolio.price.${o}`)}
+              optionLabel={bucketLabel}
             />
             <FilterRow
               label={t("portfolio.filter.delivery")}

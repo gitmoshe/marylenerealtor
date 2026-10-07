@@ -3,9 +3,10 @@ import { Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ListingChips } from "@/components/site/listing-sections";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
-import { formatPrice, type Listing } from "@/lib/listings";
+import { type Listing } from "@/lib/listings";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { useI18n } from "@/lib/i18n";
+import { usePricing } from "@/lib/use-pricing";
 
 /**
  * Collection page type — used for any listing that groups other listings
@@ -127,6 +128,7 @@ export function CollectionPage({ listing, subs }: { listing: Listing; subs: List
 
 function ChildCard({ listing }: { listing: Listing }) {
   const { t } = useI18n();
+  const { price } = usePricing();
   const typeKey = `properties.type.${listing.type}`;
   const typeLabel = t(typeKey) === typeKey ? listing.type : t(typeKey);
   return (
@@ -149,7 +151,7 @@ function ChildCard({ listing }: { listing: Listing }) {
       </h3>
       <ListingChips listing={listing} className="mt-3" />
       <p className="mt-3 font-serif text-lg">
-        {formatPrice(listing.priceFrom, t("portfolio.priceOnRequest"), listing.currency)}
+        {price(listing.priceFrom, listing.currency)}
       </p>
     </Link>
   );
