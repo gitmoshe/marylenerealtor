@@ -28,7 +28,7 @@ export function displayPrice(amount: number, source: ListingCurrency, lang: Lang
 
 const numberPattern = String.raw`\d+(?:[,.]\d+)*(?:\s?[Mm])?`;
 const prefixPattern = String.raw`(?:MX\$|US\$|\$|MXN\s*|USD\s*)`;
-const moneyPattern = new RegExp(String.raw`(${prefixPattern})\s*(${numberPattern})(?:\s*[–—-]\s*(${prefixPattern})?\s*(${numberPattern}))?\s*(USD|MXN)?|(${numberPattern})\s*(USD|MXN)`, "gi");
+const moneyPattern = new RegExp(String.raw`(${prefixPattern})\s*(${numberPattern})(?:\s*[–—-]\s*(${prefixPattern})?\s*(${numberPattern}))?(?:\s*(USD|MXN))?|(${numberPattern})\s*(USD|MXN)`, "gi");
 
 function parseAmount(text: string): number {
   const millions = /m/i.test(text);
