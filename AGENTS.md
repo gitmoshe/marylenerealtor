@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep developer prices in their original currency; public displays use shared pricing helpers and a cached public exchange-rate server function to avoid inconsistent conversion or invented rates.
