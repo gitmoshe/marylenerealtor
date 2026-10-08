@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
+import { BookingButton } from "./BookingButton";
 import { useI18n, type Lang, type TKey } from "@/lib/i18n";
 
 const links = [
@@ -95,12 +96,11 @@ export function Nav() {
             ))}
           </div>
 
-          <Link
-            to="/contact"
-            className="label-caps hidden bg-gold px-6 py-3 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink xl:inline-flex"
+          <BookingButton
+            className="hidden px-5 py-3 text-[0.65rem] xl:inline-flex"
           >
             {t("nav.consultation")}
-          </Link>
+          </BookingButton>
 
           <button
             type="button"
@@ -179,12 +179,12 @@ export function Nav() {
                 </button>
               ))}
             </div>
-            <Link
-              to="/contact"
-              className="label-caps bg-gold px-7 py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+            <BookingButton
+              onClick={() => setOpen(false)}
+              className="px-7 py-4 text-[0.65rem]"
             >
               {t("nav.consultation")}
-            </Link>
+            </BookingButton>
           </div>
         </nav>
       </div>

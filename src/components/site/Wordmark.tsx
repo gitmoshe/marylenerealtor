@@ -14,15 +14,15 @@ export function Wordmark({
     <span
       className={cn(
         "inline-flex flex-col items-center leading-none",
-        tone === "ivory" ? "text-ivory" : "text-ink",
+        tone === "ivory" ? "brand-contrast text-ivory" : "text-ink",
         className,
       )}
     >
       <span
         className={cn(
-          "font-serif uppercase",
+          "font-serif font-semibold uppercase",
           compact
-            ? "text-[1.05rem] tracking-[0.2em] sm:text-[1.15rem]"
+            ? "text-[1.45rem] tracking-[0.16em] sm:text-[1.8rem]"
             : "text-[2.1rem] tracking-[0.22em] sm:text-[3rem]",
         )}
       >
@@ -39,7 +39,7 @@ export function Wordmark({
           className={cn(
             "overline whitespace-nowrap",
             compact
-              ? "text-[0.4rem] tracking-[0.3em] sm:text-[0.42rem]"
+              ? "text-[0.58rem] tracking-[0.3em] sm:text-[0.65rem]"
               : "text-[0.63rem] tracking-[0.42em] sm:text-[0.9rem]",
           )}
         >
