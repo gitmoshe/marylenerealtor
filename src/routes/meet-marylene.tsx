@@ -71,8 +71,6 @@ function MeetMarylene() {
 
   const affiliations = [
     { name: t("about.affiliation1.name"), note: t("about.affiliation1.note") },
-    { name: null, note: t("about.affiliation2.note") },
-    { name: null, note: t("about.affiliation3.note") },
   ];
 
   return (
@@ -172,7 +170,7 @@ function MeetMarylene() {
           <Reveal className="text-center">
             <Overline>{t("about.affiliations.overline")}</Overline>
           </Reveal>
-          <Reveal delay={120} className="mt-10 grid gap-6 sm:grid-cols-3">
+          <Reveal delay={120} className="mx-auto mt-10 max-w-sm">
             {affiliations.map((a, i) => (
               <div
                 key={i}
