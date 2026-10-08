@@ -59,7 +59,7 @@ export const homeDict: Dict = {
     "home.footer.igLabel": "Instagram",
     "home.footer.waLabel": "WhatsApp",
     "home.footer.emailLabel": "Email",
-    "home.footer.collab": "In collaboration with LATITUD Properties.",
+    "home.footer.collab": "In collaboration with LATITUD 365 Properties.",
     "home.footer.copyright":
       "Marylene Maglio. Riviera Maya, Quintana Roo, Mexico. All rights reserved.",
 
@@ -144,7 +144,7 @@ export const homeDict: Dict = {
     "home.footer.igLabel": "Instagram",
     "home.footer.waLabel": "WhatsApp",
     "home.footer.emailLabel": "Courriel",
-    "home.footer.collab": "En collaboration avec LATITUD Properties.",
+    "home.footer.collab": "En collaboration avec LATITUD 365 Properties.",
     "home.footer.copyright":
       "Marylene Maglio. Riviera Maya, Quintana Roo, Mexique. Tous droits réservés.",
 
@@ -229,7 +229,7 @@ export const homeDict: Dict = {
     "home.footer.igLabel": "Instagram",
     "home.footer.waLabel": "WhatsApp",
     "home.footer.emailLabel": "Correo electrónico",
-    "home.footer.collab": "En colaboración con LATITUD Properties.",
+    "home.footer.collab": "En colaboración con LATITUD 365 Properties.",
     "home.footer.copyright":
       "Marylene Maglio. Riviera Maya, Quintana Roo, México. Todos los derechos reservados.",
 
