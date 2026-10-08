@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Instagram, MessageCircle, Mail, MapPin, CalendarCheck } from "lucide-react";
 import { z } from "zod";
 import { Reveal } from "@/components/site/Reveal";
+import { BookingButton } from "@/components/site/BookingButton";
 import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
 import { ButtonAction, ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
@@ -256,13 +257,12 @@ function Contact() {
               >
                 <MessageCircle strokeWidth={1} className="size-4" /> {t("contact.whatsapp")}
               </ButtonAnchor>
-              <ButtonAnchor
-                href="mailto:info@marylenerealtor.com?subject=Consultation%20request%20%E2%80%94%20Marylene%20Realtor"
+              <BookingButton
                 variant="gold"
-                className="mt-3 flex w-full"
+                className="mt-3 flex w-full whitespace-normal px-4"
               >
                 <CalendarCheck strokeWidth={1} className="size-4" /> {t("contact.book")}
-              </ButtonAnchor>
+              </BookingButton>
               <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
                 {t("properties.contact.consultationsNote")}
               </p>

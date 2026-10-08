@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Home, KeyRound, Compass, ArrowRight } from "lucide-react";
 import heroVilla from "@/assets/hero-villa.jpg?w=1920&format=webp";
 import { Reveal } from "@/components/site/Reveal";
+import { BookingButton } from "@/components/site/BookingButton";
 import { FilmCard } from "@/components/site/FilmCard";
 import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
@@ -78,12 +79,12 @@ function Hero() {
         className="ken-burns absolute inset-0 size-full object-cover"
       />
       <div
-        className="veil-fade absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/70 to-ink/90 md:from-ink/80 md:via-ink/55 md:to-ink/85"
+        className="veil-fade absolute inset-0 bg-gradient-to-b from-ink/42.5 via-ink/35 to-ink/45 md:from-ink/40 md:via-ink/27.5 md:to-ink/42.5"
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-14 text-center sm:px-10">
         <Reveal delay={120}>
-          <h1 className="mt-8 font-serif text-[2.9rem] leading-[1.03] text-ivory sm:text-7xl md:text-8xl lg:text-[6.5rem]">
+          <h1 className="brand-contrast mt-8 font-serif text-[2.5rem] leading-[1.08] text-ivory sm:text-6xl md:text-7xl lg:text-[5.5rem]">
             {t("hero.titleLine1")}
             <span className="block italic">{t("hero.titleLine2")}</span>
           </h1>
@@ -399,9 +400,9 @@ function FinalCta() {
           <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-ivory/65">
             {t("home.cta.body")}
           </p>
-          <ButtonLink to="/contact" variant="gold" className="mt-12">
+          <BookingButton variant="gold" className="mt-12 whitespace-normal">
             {t("sections.ctaButton")}
-          </ButtonLink>
+          </BookingButton>
         </Reveal>
       </Container>
     </Section>

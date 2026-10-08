@@ -3,7 +3,8 @@ import { PhotoFrame } from "@/components/site/PhotoFrame";
 import { photos } from "@/lib/photos";
 import coastline from "@/assets/coastline.jpg?w=1600&format=webp";
 import { Reveal } from "@/components/site/Reveal";
-import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { BookingButton } from "@/components/site/BookingButton";
 import { useI18n } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -203,9 +204,9 @@ function MeetMarylene() {
             <h2 className="font-serif text-4xl text-ivory sm:text-5xl">
               {t("about.cta.title")}
             </h2>
-            <ButtonLink to="/contact" variant="gold" className="mt-10">
+            <BookingButton variant="gold" className="mt-10 whitespace-normal">
               {t("about.cta.button")}
-            </ButtonLink>
+            </BookingButton>
           </div>
         </div>
       </section>
