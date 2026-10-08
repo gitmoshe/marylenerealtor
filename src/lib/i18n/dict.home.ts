@@ -1,6 +1,6 @@
 import type { Dict } from "../i18n-types";
 
-/** Homepage-specific copy: credibility bar, stats, services, testimonials, footer, newsletter, Instagram, WhatsApp, 404. */
+/** Homepage-specific copy: credibility bar, stats, services, testimonials, footer, Instagram, WhatsApp, 404. */
 export const homeDict: Dict = {
   en: {
     "home.hero.imgAlt":
@@ -63,13 +63,6 @@ export const homeDict: Dict = {
     "home.footer.copyright":
       "Marylene Maglio. Riviera Maya, Quintana Roo, Mexico. All rights reserved.",
 
-    "home.newsletter.title": "La Lettre",
-    "home.newsletter.subtitle": "Occasional notes on Riviera Maya property & life.",
-    "home.newsletter.emailLabel": "Email",
-    "home.newsletter.placeholder": "you@example.com",
-    "home.newsletter.subscribeAria": "Subscribe to La Lettre",
-    "home.newsletter.errInvalid": "Please enter a valid email address",
-    "home.newsletter.success": "Thank you — you are on the list.",
 
     "home.instagram.titleLead": "Follow the journey —",
     "home.instagram.handle": "@marylene_realtor",
@@ -148,13 +141,6 @@ export const homeDict: Dict = {
     "home.footer.copyright":
       "Marylene Maglio. Riviera Maya, Quintana Roo, Mexique. Tous droits réservés.",
 
-    "home.newsletter.title": "La Lettre",
-    "home.newsletter.subtitle": "Quelques nouvelles, de temps à autre, sur la Riviera Maya et l'art d'y vivre.",
-    "home.newsletter.emailLabel": "Courriel",
-    "home.newsletter.placeholder": "vous@exemple.com",
-    "home.newsletter.subscribeAria": "S'abonner à La Lettre",
-    "home.newsletter.errInvalid": "Veuillez indiquer une adresse courriel valide",
-    "home.newsletter.success": "Merci — vous êtes inscrit.",
 
     "home.instagram.titleLead": "Suivez le parcours —",
     "home.instagram.handle": "@marylene_realtor",
@@ -233,13 +219,6 @@ export const homeDict: Dict = {
     "home.footer.copyright":
       "Marylene Maglio. Riviera Maya, Quintana Roo, México. Todos los derechos reservados.",
 
-    "home.newsletter.title": "La Lettre",
-    "home.newsletter.subtitle": "Notas ocasionales sobre propiedades y vida en la Riviera Maya.",
-    "home.newsletter.emailLabel": "Correo electrónico",
-    "home.newsletter.placeholder": "usted@ejemplo.com",
-    "home.newsletter.subscribeAria": "Suscribirse a La Lettre",
-    "home.newsletter.errInvalid": "Por favor indique un correo electrónico válido",
-    "home.newsletter.success": "Gracias — ya forma parte de la lista.",
 
     "home.instagram.titleLead": "Siga el recorrido —",
     "home.instagram.handle": "@marylene_realtor",
