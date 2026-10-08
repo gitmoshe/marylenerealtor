@@ -27,7 +27,7 @@ Services strip: three columns — Buy & Sell, Property Management, Relocation & 
 Testimonial carousel: single large serif quote at a time, client name and origin (e.g., "— C. Dubois, Montréal").
 Final CTA: full-width ink-dark section, serif headline "Begin Your Riviera Story.", gold button "Book a Private Consultation".
 About — "Meet Marylene"
-Editorial magazine layout: large portrait, story of a French professional who made the Mayan Riviera home; her philosophy of refined, personal, trilingual service; credentials list (Certified & Registered Realtor, Property Sales & Management, collaboration with LATITUD properties). Elegant timeline or three-pillar layout: The Realtor · The Property Manager · The Ambassador.
+Editorial magazine layout: large portrait, story of a French professional who made the Mayan Riviera home; her philosophy of refined, personal, trilingual service; credentials list (Certified & Registered Realtor, Property Sales & Management, collaboration with LATITUD 365 Properties). Elegant timeline or three-pillar layout: The Realtor · The Property Manager · The Ambassador.
 Properties
 Filterable minimal grid (location: Playa del Carmen, Tulum, Cancún, Puerto Aventuras; type: villa, condo, land, pre-construction; buy/invest). Large imagery, hover zoom, clean detail pages with gallery, specs, and "Enquire" form. Include 6 elegant placeholder listings with realistic Riviera Maya pricing in USD.
 Property Management
@@ -42,7 +42,7 @@ Split layout: form (name, email, phone, I'm interested in [buying / selling / pr
 GLOBAL ELEMENTS:
 
 Sticky transparent nav over hero, turning ivory on scroll. Nav: Home, Meet Marylene, Properties, Property Management, The Films, La Riviera, Contact. Right side: small FR | EN | ES language switcher (visual for now) and a gold "Consultation" button.
-Footer: ink-dark, MM monogram, tagline "Luxury Real Estate · Mayan Riviera", nav links, Instagram/WhatsApp/email icons, note "In collaboration with LATITUD Properties", legal line.
+Footer: ink-dark, MM monogram, tagline "Luxury Real Estate · Mayan Riviera", nav links, Instagram/WhatsApp/email icons, note "In collaboration with LATITUD 365 Properties", legal line.
 Fully responsive, mobile-first polish; 9:16 videos must look intentional on mobile.
 SEO-ready: semantic headings, meta title "Marylene Maglio | Luxury Realtor & Property Management — Riviera Maya, Mexico".
 
