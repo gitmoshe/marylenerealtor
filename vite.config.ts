@@ -14,6 +14,10 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    // Prebundle booking and React together to avoid mixed React instances on first-use reloads.
+    optimizeDeps: {
+      include: ["react", "react-dom/client", "react/jsx-runtime", "@radix-ui/react-dialog"],
+    },
     // Build-time responsive/WebP variants for bundled imagery (see src/lib/listing-assets.ts).
     plugins: [imagetools()],
   },
