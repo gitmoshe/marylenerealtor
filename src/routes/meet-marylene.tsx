@@ -169,16 +169,12 @@ function MeetMarylene() {
             <Overline>{t("about.affiliations.overline")}</Overline>
           </Reveal>
           <Reveal delay={120} className="mx-auto mt-10 max-w-sm">
-            {affiliations.map((a, i) => (
+            {affiliations.map((name) => (
               <div
-                key={i}
+                key={name}
                 className="flex h-28 items-center justify-center border border-border px-6 text-center"
               >
-                {a.name ? (
-                  <span className="label-caps text-[0.7rem] text-ink">{a.name}</span>
-                ) : (
-                  <span className="label-caps text-[0.6rem] text-muted-foreground/60">{a.note}</span>
-                )}
+                <span className="label-caps text-[0.7rem] text-ink">{name}</span>
               </div>
             ))}
           </Reveal>
