@@ -7,4 +7,4 @@
 - [x] Halve homepage photo shading and enlarge the wordmark
 - [x] Refresh sitewide typography with modern, inviting fonts
 - [x] Open consultation CTAs in an animated on-site Calendly window
-- [ ] Verify visuals and booking window behavior
+- [x] Verify visuals and booking window behavior
