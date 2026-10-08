@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, MessageCircle, Mail } from "lucide-react";
 import { Monogram } from "./Wordmark";
 import { useI18n } from "@/lib/i18n";
+import { BROKERAGE_URL } from "@/lib/site-url";
 
 export function Footer() {
   const { t } = useI18n();
@@ -86,7 +87,14 @@ export function Footer() {
         <div className="mt-16 h-px w-full bg-ivory/10" />
 
         <div className="mt-8 flex flex-col gap-3 text-xs text-ivory/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>{t("home.footer.collab")}</p>
+          <a
+            href={BROKERAGE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors duration-300 hover:text-gold"
+          >
+            {t("home.footer.collab")}
+          </a>
           <p>
             © {new Date().getFullYear()} {t("home.footer.copyright")}
           </p>
