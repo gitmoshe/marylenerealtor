@@ -69,9 +69,7 @@ function MeetMarylene() {
     t("about.credentials.item5"),
   ];
 
-  const affiliations = [
-    { name: t("about.affiliation1.name"), note: t("about.affiliation1.note") },
-  ];
+  const affiliations = [t("about.affiliation1.name")];
 
   return (
     <>
