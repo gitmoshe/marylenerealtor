@@ -549,7 +549,24 @@ function ListingDetail() {
           </Reveal>
 
           <Reveal delay={140} className="md:col-span-7">
-            <form className="border border-border bg-card p-8" onSubmit={(e) => e.preventDefault()}>
+            <form
+              className="border border-border bg-card p-8"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const get = (k: string) => String(fd.get(k) ?? "").trim();
+                const subject = `Brochure request: ${listing.name} (${reference})`;
+                const body = [
+                  `Name: ${get("name")}`,
+                  `Email: ${get("email")}`,
+                  `Phone / WhatsApp: ${get("phone")}`,
+                  `Preferred language: ${get("preferredLanguage")}`,
+                  "",
+                  get("message"),
+                ].join("\n");
+                window.location.href = `mailto:info@marylenerealtor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}
+            >
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label={t("properties.enquire.name")} name="name" />
                 <Field label={t("properties.enquire.email")} name="email" type="email" />
