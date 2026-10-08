@@ -6,7 +6,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { BookingButton } from "@/components/site/BookingButton";
 import { useI18n } from "@/lib/i18n";
-import { SITE_URL } from "@/lib/site-url";
+import { BROKERAGE_URL, SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/meet-marylene")({
   head: () => ({
@@ -170,12 +170,17 @@ function MeetMarylene() {
           </Reveal>
           <Reveal delay={120} className="mx-auto mt-10 max-w-sm">
             {affiliations.map((name) => (
-              <div
+              <a
                 key={name}
-                className="flex h-28 items-center justify-center border border-border px-6 text-center"
+                href={BROKERAGE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex h-28 items-center justify-center border border-border px-6 text-center transition-colors duration-300 hover:border-gold"
               >
-                <span className="label-caps text-[0.7rem] text-ink">{name}</span>
-              </div>
+                <span className="label-caps text-[0.7rem] text-ink transition-colors duration-300 group-hover:text-gold">
+                  {name}
+                </span>
+              </a>
             ))}
           </Reveal>
         </Container>
