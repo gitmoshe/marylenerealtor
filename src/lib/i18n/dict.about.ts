@@ -6,11 +6,11 @@ export const aboutDict: Dict = {
     "about.hero.title.line1": "At home on the",
     "about.hero.title.line2": "Riviera Maya.",
     "about.hero.lead":
-      "Marylene serves clients across Mexico and around the world — Mexican families and investors, and buyers from Canada, the United States and Europe — each in their own language. What unites her work is an exacting eye for detail and a deep respect for the coast she calls home.",
+      "Marylene Maglio is a realtor based in Mexico's Riviera Maya. Marylene showcases properties, projects and investments across Cancún, Playa del Carmen, Puerto Morelos, Bacalar and Tulum. What unites her work is an exacting eye for detail and a deep respect for the coast she calls home.",
     "about.portrait.caption": "Marylene Maglio · Playa del Carmen",
     "about.story.opening": "She came for a season, stayed for a life and learned the coast street by street.",
     "about.story.p1":
-      "Marylene Maglio is a certified and registered realtor and property manager who has made the Mayan Riviera her home. Her days are spent between Playa del Carmen, Tulum, Cancún and Puerto Morelos — inside these communities rather than above them, working with the notaries, builders, administrators and neighbours who make a purchase hold together.",
+      "Certified and registered as a realtor and property manager in Quintana Roo, Marylene has made the Riviera Maya her home. Her days are spent between Playa del Carmen, Tulum, Cancún and Puerto Morelos — inside these communities rather than above them, working with the notaries, builders, administrators and neighbours who make a purchase hold together.",
     "about.story.p2":
       "Mexican homeowners, families and investors come first in her practice. Alongside them she advises buyers from Canada, the United States and Europe, speaking with each in Spanish, English or French as they prefer. The same standard applies to everyone: a clear picture of the property, the paperwork and the neighbourhood, before anything is signed.",
     "about.story.p3":
@@ -59,11 +59,11 @@ export const aboutDict: Dict = {
     "about.hero.title.line1": "Chez elle sur la",
     "about.hero.title.line2": "Riviera Maya.",
     "about.hero.lead":
-      "Marylene accompagne des clients partout au Mexique et dans le monde — familles et investisseurs mexicains, acheteurs du Canada des États-Unis et d'Europe — chacun dans sa propre langue. Son travail se distingue par une attention rigoureuse au détail et un profond respect pour la côte qu'elle appelle sa maison.",
+      "Marylene Maglio est agente immobilière basée sur la Riviera Maya au Mexique. Marylene présente des propriétés, des projets et des investissements à Cancún, Playa del Carmen, Puerto Morelos, Bacalar et Tulum. Son travail se distingue par une attention rigoureuse au détail et un profond respect pour la côte qu'elle appelle sa maison.",
     "about.portrait.caption": "Marylene Maglio · Playa del Carmen",
     "about.story.opening": "Venue pour une saison, restée pour une vie et apprenant la côte rue par rue.",
     "about.story.p1":
-      "Marylene Maglio est agente immobilière et gestionnaire de biens certifiée et enregistrée, et elle a fait de la Riviera Maya sa maison. Ses journées se partagent entre Playa del Carmen, Tulum, Cancún et Puerto Morelos — au sein de ces communautés plutôt qu'au-dessus d'elles, aux côtés des notaires, constructeurs, administrateurs et voisins qui font tenir un achat.",
+      "Certifiée et enregistrée comme agente immobilière et gestionnaire de biens dans le Quintana Roo, Marylene a fait de la Riviera Maya sa maison. Ses journées se partagent entre Playa del Carmen, Tulum, Cancún et Puerto Morelos — au sein de ces communautés plutôt qu'au-dessus d'elles, aux côtés des notaires, constructeurs, administrateurs et voisins qui font tenir un achat.",
     "about.story.p2":
       "Les propriétaires, familles et investisseurs mexicains passent en premier dans sa pratique. Elle conseille également des acheteurs du Canada, des États-Unis et d'Europe, en espagnol en anglais ou en français selon leur préférence. Le même standard vaut pour tous : une vision claire du bien, des documents et du quartier, avant toute signature.",
     "about.story.p3":
@@ -112,11 +112,11 @@ export const aboutDict: Dict = {
     "about.hero.title.line1": "En casa en la",
     "about.hero.title.line2": "Riviera Maya.",
     "about.hero.lead":
-      "Marylene atiende a clientes en todo México y en el mundo — familias e inversionistas mexicanos, y compradores de Canadá Estados Unidos y Europa — cada uno en su propio idioma. Su trabajo se distingue por un ojo exigente para el detalle y un profundo respeto por la costa que llama hogar.",
+      "Marylene Maglio es agente inmobiliaria con base en la Riviera Maya de México. Marylene muestra propiedades, proyectos e inversiones en Cancún, Playa del Carmen, Puerto Morelos, Bacalar y Tulum. Su trabajo se distingue por un ojo exigente para el detalle y un profundo respeto por la costa que llama hogar.",
     "about.portrait.caption": "Marylene Maglio · Playa del Carmen",
     "about.story.opening": "Llegó por una temporada, se quedó para toda una vida y aprendió la costa calle por calle.",
     "about.story.p1":
-      "Marylene Maglio es agente inmobiliaria y administradora de propiedades certificada y registrada, y ha hecho de la Riviera Maya su hogar. Sus días transcurren entre Playa del Carmen, Tulum, Cancún y Puerto Morelos — dentro de estas comunidades y no por encima de ellas, junto a los notarios, constructores, administradores y vecinos que hacen que una compra se sostenga.",
+      "Certificada y registrada como agente inmobiliaria y administradora de propiedades en Quintana Roo, Marylene ha hecho de la Riviera Maya su hogar. Sus días transcurren entre Playa del Carmen, Tulum, Cancún y Puerto Morelos — dentro de estas comunidades y no por encima de ellas, junto a los notarios, constructores, administradores y vecinos que hacen que una compra se sostenga.",
     "about.story.p2":
       "Los propietarios, las familias y los inversionistas mexicanos son lo primero en su práctica. Junto a ellos asesora a compradores de Canadá, Estados Unidos y Europa, en español inglés o francés según su preferencia. El mismo estándar aplica para todos: una imagen clara de la propiedad, los documentos y el vecindario, antes de firmar nada.",
     "about.story.p3":
