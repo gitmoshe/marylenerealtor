@@ -9,6 +9,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { ButtonLink, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
   childSlugsIn,
+  COLLECTIONS,
   isCollection,
   usedLocationsIn,
   usedTypesIn,
@@ -27,7 +28,7 @@ const PRICE_BUCKETS = ["100k", "250k", "500k", "1m-plus"] as const;
 const DELIVERY_BUCKETS = ["presale", "ready-now"] as const;
 
 /** Collection rows below the grid, in editorial order. */
-const COLLECTION_ROWS = ["Playacar Collection", "Tulum Collection"] as const;
+const COLLECTION_ROWS = COLLECTIONS.map((c) => c.tag);
 
 function priceBucket(amount: number | null): string | null {
   if (!amount) return null;

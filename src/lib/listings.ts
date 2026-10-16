@@ -17,6 +17,17 @@ export const listingLocations = [
   "Akumal",
 ] as const;
 
+/** The seven geographic Collections: tag stored on listings, location it maps to, short label. */
+export const COLLECTIONS = [
+  { tag: "Playacar Collection", location: "Playacar", short: "Playacar" },
+  { tag: "Tulum Collection", location: "Tulum", short: "Tulum" },
+  { tag: "Puerto Morelos Collection", location: "Puerto Morelos", short: "Puerto Morelos" },
+  { tag: "Cancún Collection", location: "Cancún", short: "Cancún" },
+  { tag: "PDC Collection", location: "Playa del Carmen", short: "PDC" },
+  { tag: "Cozumel Collection", location: "Cozumel", short: "Cozumel" },
+  { tag: "Akumal Collection", location: "Akumal", short: "Akumal" },
+] as const;
+
 export const listingTypes = [
   "Pre-construction",
   "Villa",
