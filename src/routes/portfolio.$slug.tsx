@@ -1,3 +1,4 @@
+import { withRetry } from "@/lib/retry";
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle } from "lucide-react";
@@ -22,7 +23,7 @@ import { usePricing } from "@/lib/use-pricing";
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: async ({ params }): Promise<{ listing: Listing; others: Listing[]; subs: Listing[] }> => {
-    const all = await fetchListings();
+    const all = await withRetry(() => fetchListings());
     const listing = all.find((l) => l.slug === params.slug);
     if (!listing) throw notFound();
     const subSlugs = listing.subListings ?? [];

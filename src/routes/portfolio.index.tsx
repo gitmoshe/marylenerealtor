@@ -1,3 +1,4 @@
+import { withRetry } from "@/lib/retry";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ListingChips } from "@/components/site/listing-sections";
 import { PartnerStrip } from "@/components/site/PartnerStrip";
@@ -65,7 +66,7 @@ export const Route = createFileRoute("/portfolio/")({
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/portfolio` }],
   }),
-  loader: () => fetchListings(),
+  loader: () => withRetry(() => fetchListings()),
   component: PortfolioPage,
 });
 

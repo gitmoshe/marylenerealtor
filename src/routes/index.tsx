@@ -1,3 +1,4 @@
+import { withRetry } from "@/lib/retry";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Home, KeyRound, Compass, ArrowRight } from "lucide-react";
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/")({
       { rel: "preload", as: "image", href: heroVilla, fetchPriority: "high" },
     ],
   }),
-  loader: () => fetchListings(),
+  loader: () => withRetry(() => fetchListings()),
   component: Index,
 });
 
