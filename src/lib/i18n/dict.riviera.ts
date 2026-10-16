@@ -20,12 +20,9 @@ export const rivieraDict: Dict = {
     "riviera.area.akumal.label": "The Reef",
     "riviera.area.akumal.copy":
       "Turtles in the bay, a protected reef offshore and a village that has resisted scale. Small, green and increasingly difficult to buy into.",
-"riviera.area.cancun.label": "The Gateway",
-    "riviera.area.cancun.copy":
-      "Direct flights from thirty cities, established towers with real rental histories, and the infrastructure the rest of the coast depends upon.",
-    "riviera.area.cozumel.label": "The Island",
-    "riviera.area.cozumel.copy":
-      "An island apart, reached by ferry from Playa del Carmen. World-class diving on the Mesoamerican reef, quiet residential lanes and a slower rhythm that keeps buyers coming back.",
+"riviera.area.isla-mujeres-cozumel.label": "The Islands",
+    "riviera.area.isla-mujeres-cozumel.copy":
+      "Two islands, two tempos. Isla Mujeres for its quiet beaches and slow mornings, Cozumel for world-class diving on the Mesoamerican reef — each reached by ferry and each keeping its own rhythm.",
 
     "riviera.propertiesIn": "Properties in {area}",
 
