@@ -1,7 +1,6 @@
 /** Canonical production origin, used for sitemap, canonical links and Open Graph URLs. */
 export const SITE_URL = "https://marylenerealtor.lovable.app";
 
-/** The brokerage Marylene works with, and its public site. */
 
 /** Turn a site-relative path or bundled asset path into an absolute URL. */
 export function absoluteUrl(path: string): string {

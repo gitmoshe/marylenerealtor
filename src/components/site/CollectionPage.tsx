@@ -10,7 +10,7 @@ import { usePricing } from "@/lib/use-pricing";
 
 /**
  * Collection page type — used for any listing that groups other listings
- * through subListings (e.g. LATITUD 365, the master-broker collection).
+ * through subListings.
  */
 export function CollectionPage({ listing, subs }: { listing: Listing; subs: Listing[] }) {
   const { t } = useI18n();
