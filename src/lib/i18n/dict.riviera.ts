@@ -5,8 +5,8 @@ export const rivieraDict: Dict = {
   en: {
     "riviera.hero.overline": "The Ambassador's Guide",
     "riviera.hero.title": "Riviera Maya.",
-    "riviera.hero.subtitle":
-      "One hundred and thirty kilometres of coast, and five places that could not be less alike.",
+"riviera.hero.subtitle":
+      "One hundred and thirty kilometres of coast, and six places that could not be less alike.",
 
     "riviera.area.playa-del-carmen.label": "The Heart",
     "riviera.area.playa-del-carmen.copy":
@@ -20,9 +20,12 @@ export const rivieraDict: Dict = {
     "riviera.area.akumal.label": "The Reef",
     "riviera.area.akumal.copy":
       "Turtles in the bay, a protected reef offshore and a village that has resisted scale. Small, green and increasingly difficult to buy into.",
-    "riviera.area.cancun.label": "The Gateway",
+"riviera.area.cancun.label": "The Gateway",
     "riviera.area.cancun.copy":
       "Direct flights from thirty cities, established towers with real rental histories, and the infrastructure the rest of the coast depends upon.",
+    "riviera.area.cozumel.label": "The Island",
+    "riviera.area.cozumel.copy":
+      "An island apart, reached by ferry from Playa del Carmen. World-class diving on the Mesoamerican reef, quiet residential lanes and a slower rhythm that keeps buyers coming back.",
 
     "riviera.propertiesIn": "Properties in {area}",
 
@@ -48,8 +51,8 @@ export const rivieraDict: Dict = {
   fr: {
     "riviera.hero.overline": "Le guide de l'ambassadrice",
     "riviera.hero.title": "Riviera Maya.",
-    "riviera.hero.subtitle":
-      "Cent trente kilomètres de côte, et cinq lieux qui ne se ressemblent en rien.",
+"riviera.hero.subtitle":
+      "Cent trente kilomètres de côte, et six lieux qui ne se ressemblent en rien.",
 
     "riviera.area.playa-del-carmen.label": "Le Cœur",
     "riviera.area.playa-del-carmen.copy":
@@ -63,9 +66,12 @@ export const rivieraDict: Dict = {
     "riviera.area.akumal.label": "Le Récif",
     "riviera.area.akumal.copy":
       "Des tortues dans la baie, un récif protégé au large et un village qui a résisté à l'échelle. Petit, verdoyant et de plus en plus difficile d'accès.",
-    "riviera.area.cancun.label": "La Porte d'entrée",
+"riviera.area.cancun.label": "La Porte d'entrée",
     "riviera.area.cancun.copy":
       "Des vols directs depuis trente villes, des tours établies avec un véritable historique locatif et l'infrastructure dont dépend le reste de la côte.",
+    "riviera.area.cozumel.label": "L'Île",
+    "riviera.area.cozumel.copy":
+      "Une île à part, accessible en ferry depuis Playa del Carmen. Plongée de classe mondiale sur le récif mésoaméricain, rues résidentielles paisibles et un rythme plus lent qui fidélise les acheteurs.",
 
     "riviera.propertiesIn": "Propriétés à {area}",
 
@@ -91,8 +97,8 @@ export const rivieraDict: Dict = {
   es: {
     "riviera.hero.overline": "La guía de la embajadora",
     "riviera.hero.title": "Riviera Maya.",
-    "riviera.hero.subtitle":
-      "Ciento treinta kilómetros de costa, y cinco lugares que no podrían ser más distintos.",
+"riviera.hero.subtitle":
+      "Ciento treinta kilómetros de costa, y seis lugares que no podrían ser más distintos.",
 
     "riviera.area.playa-del-carmen.label": "El Corazón",
     "riviera.area.playa-del-carmen.copy":
@@ -106,9 +112,12 @@ export const rivieraDict: Dict = {
     "riviera.area.akumal.label": "El Arrecife",
     "riviera.area.akumal.copy":
       "Tortugas en la bahía, un arrecife protegido mar adentro y un pueblo que se ha resistido a crecer. Pequeño, verde y cada vez más difícil de conseguir.",
-    "riviera.area.cancun.label": "La Puerta de entrada",
+"riviera.area.cancun.label": "La Puerta de entrada",
     "riviera.area.cancun.copy":
       "Vuelos directos desde treinta ciudades, torres consolidadas con historial real de renta y la infraestructura de la que depende el resto de la costa.",
+    "riviera.area.cozumel.label": "La Isla",
+    "riviera.area.cozumel.copy":
+      "Una isla aparte, a la que se llega en ferry desde Playa del Carmen. Buceo de clase mundial en el arrecife mesoamericano, calles residenciales tranquilas y un ritmo más pausado que fideliza a los compradores.",
 
     "riviera.propertiesIn": "Propiedades en {area}",
 
