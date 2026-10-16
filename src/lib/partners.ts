@@ -14,15 +14,12 @@ export type Partner = {
 };
 
 export const partners: Partner[] = [
-  { name: "LATITUD 365", slug: "latitud-365" },
-  { name: "Viceroy", slug: "viceroy-playa-del-carmen-residences" },
+  { name: "LATITUD 365" },
+  { name: "Viceroy", slug: "viceroy-playa-del-carmen" },
   { name: "La Reserva", slug: "la-reserva" },
   { name: "Bakaba", slug: "bakaba" },
-  { name: "Macondo", slug: "macondo" },
-  { name: "Casa de Piedra", slug: "casa-de-piedra" },
+  { name: "Macondo", slug: "macondo-playacar" },
   { name: "Sonni", slug: "sonni" },
-  { name: "Soleii", slug: "soleii-fase-i" },
-  { name: "Nautila", slug: "nautila-beachfront" },
   { name: "Amanai", slug: "amanai-villas-golf" },
   { name: "Junglar Kaybe", slug: "junglar-kaybe" },
 ];
