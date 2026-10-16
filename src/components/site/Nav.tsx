@@ -10,6 +10,7 @@ const links = [
   { to: "/", key: "nav.home" },
   { to: "/meet-marylene", key: "nav.meet" },
   { to: "/portfolio", key: "nav.properties" },
+  { to: "/collections", key: "nav.collections" },
   { to: "/property-management", key: "nav.management" },
   { to: "/films", key: "nav.films" },
   { to: "/la-riviera", key: "nav.riviera" },

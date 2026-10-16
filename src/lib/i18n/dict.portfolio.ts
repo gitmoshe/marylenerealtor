@@ -52,7 +52,13 @@ export const portfolioDict: Dict = {
     "portfolio.delivery.ready-now": "Ready Now",
     "portfolio.collections.overline": "Collection",
     "portfolio.collection.Playacar Collection": "The Playacar Collection",
-    "portfolio.collection.Tulum Collection": "Tulum",
+    "portfolio.collection.Tulum Collection": "The Tulum Collection",
+    "portfolio.collection.Puerto Morelos Collection": "The Puerto Morelos Collection",
+    "portfolio.collection.Cancún Collection": "The Cancún Collection",
+    "portfolio.collection.PDC Collection": "The PDC Collection",
+    "portfolio.collection.Cozumel Collection": "The Cozumel Collection",
+    "portfolio.collection.Akumal Collection": "The Akumal Collection",
+
     "portfolio.soldOut": "Sold out — ask about resales",
     "portfolio.cta.title": "Looking for something you don\u2019t see?",
     "portfolio.cta.copy":
@@ -133,7 +139,13 @@ export const portfolioDict: Dict = {
     "portfolio.delivery.ready-now": "Disponible",
     "portfolio.collections.overline": "Collection",
     "portfolio.collection.Playacar Collection": "La Collection Playacar",
-    "portfolio.collection.Tulum Collection": "Tulum",
+    "portfolio.collection.Tulum Collection": "La Collection Tulum",
+    "portfolio.collection.Puerto Morelos Collection": "La Collection Puerto Morelos",
+    "portfolio.collection.Cancún Collection": "La Collection Cancún",
+    "portfolio.collection.PDC Collection": "La Collection PDC",
+    "portfolio.collection.Cozumel Collection": "La Collection Cozumel",
+    "portfolio.collection.Akumal Collection": "La Collection Akumal",
+
     "portfolio.soldOut": "Complet — renseignez-vous sur les reventes",
     "portfolio.cta.title": "Vous cherchez autre chose ?",
     "portfolio.cta.copy":
@@ -214,7 +226,13 @@ export const portfolioDict: Dict = {
     "portfolio.delivery.ready-now": "Disponible ahora",
     "portfolio.collections.overline": "Colección",
     "portfolio.collection.Playacar Collection": "La Colección Playacar",
-    "portfolio.collection.Tulum Collection": "Tulum",
+    "portfolio.collection.Tulum Collection": "La Colección Tulum",
+    "portfolio.collection.Puerto Morelos Collection": "La Colección Puerto Morelos",
+    "portfolio.collection.Cancún Collection": "La Colección Cancún",
+    "portfolio.collection.PDC Collection": "La Colección PDC",
+    "portfolio.collection.Cozumel Collection": "La Colección Cozumel",
+    "portfolio.collection.Akumal Collection": "La Colección Akumal",
+
     "portfolio.soldOut": "Agotado — consulte reventas",
     "portfolio.cta.title": "¿Busca algo que no ve aquí?",
     "portfolio.cta.copy":
