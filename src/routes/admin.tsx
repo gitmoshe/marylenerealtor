@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Container, Section } from "@/components/site/ui";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { compressImage } from "@/lib/image-resize";
+import { Eye, EyeOff } from "lucide-react";
 import {
   listingCurrencies,
   listingLocations,
@@ -155,16 +156,30 @@ function TextField({
   placeholder?: string;
   type?: string;
 }) {
+  const [show, setShow] = useState(false);
+  const isPassword = type === "password";
   return (
     <div>
       <label className={labelClass}>{label}</label>
-      <input
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value)}
-        className={inputClass}
-      />
+      <div className="relative">
+        <input
+          type={isPassword && show ? "text" : type}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e.target.value)}
+          className={`${inputClass}${isPassword ? " pr-11" : ""}`}
+        />
+        {isPassword && (
+          <button
+            type="button"
+            onClick={() => setShow((s) => !s)}
+            aria-label={show ? "Hide password" : "Show password"}
+            className="absolute inset-y-0 right-0 flex w-11 items-center justify-center text-muted-foreground transition-colors hover:text-gold"
+          >
+            {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
