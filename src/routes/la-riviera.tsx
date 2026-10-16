@@ -26,7 +26,7 @@ export const Route = createFileRoute("/la-riviera")({
       {
         name: "description",
         content:
-          "A Riviera Maya guide by realtor Marylene Maglio — Playa del Carmen, Tulum, Puerto Morelos, Akumal, Cancún and Cozumel, with property management insight.",
+          "A Riviera Maya guide by realtor Marylene Maglio — Playa del Carmen, Tulum, Puerto Morelos, Akumal, Cancún, Isla Mujeres and Cozumel, with property management insight.",
       },
       { property: "og:title", content: "Riviera Maya — An Area Guide" },
       {
@@ -107,7 +107,7 @@ function LaRiviera() {
                         </p>
                         <Link
                           to="/portfolio"
-                          search={{ location: area.name }}
+                          search={{ location: area.location }}
                           className="label-caps link-underline mt-8 inline-flex items-center gap-3 text-[0.65rem] text-ink transition-colors duration-300 hover:text-gold"
                         >
                           {t("riviera.propertiesIn").replace("{area}", area.name)}

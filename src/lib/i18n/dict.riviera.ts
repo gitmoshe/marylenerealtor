@@ -23,9 +23,9 @@ export const rivieraDict: Dict = {
 "riviera.area.cancun.label": "The Gateway",
     "riviera.area.cancun.copy":
       "Direct flights from thirty cities, established towers with real rental histories, and the infrastructure the rest of the coast depends upon.",
-    "riviera.area.cozumel.label": "The Island",
-    "riviera.area.cozumel.copy":
-      "An island apart, reached by ferry from Playa del Carmen. World-class diving on the Mesoamerican reef, quiet residential lanes and a slower rhythm that keeps buyers coming back.",
+    "riviera.area.isla-mujeres-cozumel.label": "The Islands",
+    "riviera.area.isla-mujeres-cozumel.copy":
+      "Two islands, two tempos. Isla Mujeres for its quiet beaches and slow mornings, Cozumel for world-class diving on the Mesoamerican reef — each reached by ferry and each keeping its own rhythm.",
 
     "riviera.propertiesIn": "Properties in {area}",
 
@@ -69,9 +69,9 @@ export const rivieraDict: Dict = {
 "riviera.area.cancun.label": "La Porte d'entrée",
     "riviera.area.cancun.copy":
       "Des vols directs depuis trente villes, des tours établies avec un véritable historique locatif et l'infrastructure dont dépend le reste de la côte.",
-    "riviera.area.cozumel.label": "L'Île",
-    "riviera.area.cozumel.copy":
-      "Une île à part, accessible en ferry depuis Playa del Carmen. Plongée de classe mondiale sur le récif mésoaméricain, rues résidentielles paisibles et un rythme plus lent qui fidélise les acheteurs.",
+"riviera.area.isla-mujeres-cozumel.label": "Les Îles",
+    "riviera.area.isla-mujeres-cozumel.copy":
+      "Deux îles, deux rythmes. Isla Mujeres pour ses plages paisibles et ses matins lents, Cozumel pour la plongée de classe mondiale sur le récif mésoaméricain — chacune accessible en ferry et chacune fidèle à son rythme.",
 
     "riviera.propertiesIn": "Propriétés à {area}",
 
@@ -115,9 +115,9 @@ export const rivieraDict: Dict = {
 "riviera.area.cancun.label": "La Puerta de entrada",
     "riviera.area.cancun.copy":
       "Vuelos directos desde treinta ciudades, torres consolidadas con historial real de renta y la infraestructura de la que depende el resto de la costa.",
-    "riviera.area.cozumel.label": "La Isla",
-    "riviera.area.cozumel.copy":
-      "Una isla aparte, a la que se llega en ferry desde Playa del Carmen. Buceo de clase mundial en el arrecife mesoamericano, calles residenciales tranquilas y un ritmo más pausado que fideliza a los compradores.",
+"riviera.area.isla-mujeres-cozumel.label": "Las Islas",
+    "riviera.area.isla-mujeres-cozumel.copy":
+      "Dos islas, dos ritmos. Isla Mujeres para sus playas tranquilas y sus mañanas lentas, Cozumel para el buceo de clase mundial en el arrecife mesoamericano — se llega a ambas en ferry y cada una conserva su propio ritmo.",
 
     "riviera.propertiesIn": "Propiedades en {area}",
 
