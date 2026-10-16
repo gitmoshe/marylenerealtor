@@ -22,11 +22,9 @@ export const listingTypes = [
   "Villa",
   "Condo",
   "Land",
-  "Branded Residence",
-  "Resale",
 ] as const;
 
-export const listingTiers = ["master-broker", "portfolio", "sold"] as const;
+export const listingTiers = ["portfolio", "sold"] as const;
 
 export const listingCurrencies = ["USD", "MXN"] as const;
 
@@ -162,8 +160,6 @@ const tbc = (v: string) => !v || /to be confirmed|a confirmar|à confirmer/i.tes
 /** Small status chips shown on listing cards, derived from the listing record. */
 export function listingChips(l: Listing): ListingChip[] {
   const chips: ListingChip[] = [];
-  if (l.tier === "master-broker") chips.push({ key: "portfolio.chip.masterBroker", tone: "gold" });
-  if (l.type === "Resale") chips.push({ key: "portfolio.chip.resale", tone: "lagoon" });
   if (l.tier === "sold") chips.push({ key: "portfolio.chip.soldOut", tone: "muted" });
   else if (l.type === "Pre-construction" && l.ficha?.delivery && !tbc(l.ficha.delivery))
     chips.push({ key: "portfolio.chip.underConstruction", tone: "ink", delivery: l.ficha.delivery });

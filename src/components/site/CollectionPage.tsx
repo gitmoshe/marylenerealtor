@@ -35,7 +35,7 @@ export function CollectionPage({ listing, subs }: { listing: Listing; subs: List
         <div className="absolute inset-x-0 bottom-0 px-6 pb-14 sm:px-10">
           <Container>
             <span className="label-caps inline-block border border-gold px-3 py-1.5 text-[0.55rem] text-gold">
-              {t("portfolio.masterBroker.chip")}
+              {t("collection.overline")}
             </span>
             <GoldRule className="mt-6" />
             <h1 className="mt-5 font-serif text-5xl text-ivory sm:text-6xl md:text-7xl">
