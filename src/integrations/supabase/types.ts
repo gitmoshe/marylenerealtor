@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           amenities: string[]
           bedrooms: string
+          brochure_url: string
           collections: string[]
           created_at: string
           currency: string
@@ -55,6 +56,7 @@ export type Database = {
         Insert: {
           amenities?: string[]
           bedrooms?: string
+          brochure_url?: string
           collections?: string[]
           created_at?: string
           currency?: string
@@ -92,6 +94,7 @@ export type Database = {
         Update: {
           amenities?: string[]
           bedrooms?: string
+          brochure_url?: string
           collections?: string[]
           created_at?: string
           currency?: string
