@@ -48,7 +48,7 @@ const emptyDraft: Draft = {
   type: "Pre-construction",
   tier: "portfolio",
   status: "Selling now",
-  delivery: "To be confirmed",
+  delivery: "Presale",
   priceFrom: 0,
   currency: "USD" as const,
   bedrooms: "",
@@ -465,7 +465,12 @@ function ListingForm({
           onChange={(v) => set("tier", v)}
         />
         <TextField label="Status" value={form.status} onChange={(v) => set("status", v)} />
-        <TextField label="Delivery" value={form.delivery} onChange={(v) => set("delivery", v)} />
+        <SelectField
+          label="Delivery"
+          value={form.delivery}
+          options={listingDeliveries}
+          onChange={(v) => set("delivery", v)}
+        />
         <TextField
           label="Price from (0 = on request)"
           type="number"
