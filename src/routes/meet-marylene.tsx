@@ -6,7 +6,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import { BookingButton } from "@/components/site/BookingButton";
 import { useI18n } from "@/lib/i18n";
-import { BROKERAGE_URL, SITE_URL } from "@/lib/site-url";
+import { SITE_URL } from "@/lib/site-url";
 
 export const Route = createFileRoute("/meet-marylene")({
   head: () => ({
@@ -43,7 +43,7 @@ function MeetMarylene() {
       title: t("about.pillar1.title"),
       lead: t("about.pillar1.lead"),
       copy: t("about.pillar1.copy"),
-      points: [t("about.pillar1.point1"), t("about.pillar1.point2"), t("about.pillar1.point3")],
+      points: [t("about.pillar1.point1"), t("about.pillar1.point2")],
     },
     {
       index: "02",
@@ -64,12 +64,10 @@ function MeetMarylene() {
   const credentials = [
     t("about.credentials.item1"),
     t("about.credentials.item2"),
-    t("about.credentials.item3"),
     t("about.credentials.item4"),
     t("about.credentials.item5"),
   ];
 
-  const affiliations = [t("about.affiliation1.name")];
 
   return (
     <>
@@ -159,29 +157,6 @@ function MeetMarylene() {
 
           <Reveal delay={200} className="mt-20 text-center">
             <p className="script-sign text-5xl text-gold sm:text-6xl">{t("about.signoff")}</p>
-          </Reveal>
-        </Container>
-      </Section>
-
-      <Section className="py-20 md:py-24">
-        <Container>
-          <Reveal className="text-center">
-            <Overline>{t("about.affiliations.overline")}</Overline>
-          </Reveal>
-          <Reveal delay={120} className="mx-auto mt-10 max-w-sm">
-            {affiliations.map((name) => (
-              <a
-                key={name}
-                href={BROKERAGE_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex h-28 items-center justify-center border border-border px-6 text-center transition-colors duration-300 hover:border-gold"
-              >
-                <span className="label-caps text-[0.7rem] text-ink transition-colors duration-300 group-hover:text-gold">
-                  {name}
-                </span>
-              </a>
-            ))}
           </Reveal>
         </Container>
       </Section>

@@ -6,7 +6,7 @@ export const portfolioDict: Dict = {
     "collection.overline": "The Collection",
     "collection.subtitle": "The Master Broker Collection",
     "collection.intro":
-      "Marylene represents LATITUD 365 as master broker \u2014 direct allocation, developer-direct pricing and first access to new phases.",
+      "",
     "collection.developments": "The developments",
     "collection.resales.overline": "Resales",
     "collection.resales.title": "Resales \u2014 Playacar & Playa del Carmen",
@@ -39,15 +39,9 @@ export const portfolioDict: Dict = {
     "portfolio.counts.properties": "Properties",
     "portfolio.counts.developments": "Developments",
     "portfolio.counts.destinations": "Destinations",
-    "portfolio.masterBroker.chip": "Master Broker",
     "portfolio.partners.title": "Developments & Partners",
-    "portfolio.chip.masterBroker": "Master Broker",
     "portfolio.chip.underConstruction": "Under construction \u2014 delivery {delivery}",
-    "portfolio.chip.resale": "Resale",
     "portfolio.chip.soldOut": "Sold out",
-    "portfolio.masterBroker.title": "LATITUD 365 · Master Broker",
-    "portfolio.masterBroker.copy":
-      "Marylene represents this development directly as master broker — first access to inventory, pricing and payment plans.",
     "portfolio.filter.price": "Price",
     "portfolio.filter.delivery": "Delivery",
     "portfolio.price.100k": "$100K–$250K",
@@ -64,8 +58,6 @@ export const portfolioDict: Dict = {
     "portfolio.cta.copy":
       "Tell Marylene what you\u2019re imagining — she can source and show any property on the Riviera, in French, English or Spanish.",
     "portfolio.cta.button": "Start the search",
-
-    "portfolio.tier.master-broker": "Master broker",
     "portfolio.tier.portfolio": "Portfolio",
     "portfolio.tier.sold": "Sold",
 
@@ -95,7 +87,7 @@ export const portfolioDict: Dict = {
     "collection.overline": "La Collection",
     "collection.subtitle": "La Collection Master Broker",
     "collection.intro":
-      "Marylene repr\u00e9sente LATITUD 365 en tant que master broker \u2014 allocation directe, prix promoteur et acc\u00e8s prioritaire aux nouvelles phases.",
+      "",
     "collection.developments": "Les d\u00e9veloppements",
     "collection.resales.overline": "Reventes",
     "collection.resales.title": "Reventes \u2014 Playacar et Playa del Carmen",
@@ -128,15 +120,9 @@ export const portfolioDict: Dict = {
     "portfolio.counts.properties": "Biens",
     "portfolio.counts.developments": "Projets",
     "portfolio.counts.destinations": "Destinations",
-    "portfolio.masterBroker.chip": "Master Broker",
     "portfolio.partners.title": "Projets & partenaires",
-    "portfolio.chip.masterBroker": "Master Broker",
     "portfolio.chip.underConstruction": "En construction \u2014 livraison {delivery}",
-    "portfolio.chip.resale": "Revente",
     "portfolio.chip.soldOut": "Complet",
-    "portfolio.masterBroker.title": "LATITUD 365 · Master Broker",
-    "portfolio.masterBroker.copy":
-      "Marylene représente ce développement directement en tant que master broker — accès prioritaire à l'inventaire, aux prix et aux plans de paiement.",
     "portfolio.filter.price": "Prix",
     "portfolio.filter.delivery": "Livraison",
     "portfolio.price.100k": "100 000 $ – 250 000 $",
@@ -153,8 +139,6 @@ export const portfolioDict: Dict = {
     "portfolio.cta.copy":
       "Dites à Marylene ce que vous imaginez — elle peut trouver et vous faire visiter n'importe quel bien sur la Riviera, en français, en anglais ou en espagnol.",
     "portfolio.cta.button": "Commencer la recherche",
-
-    "portfolio.tier.master-broker": "Master broker",
     "portfolio.tier.portfolio": "Portfolio",
     "portfolio.tier.sold": "Vendu",
 
@@ -184,7 +168,7 @@ export const portfolioDict: Dict = {
     "collection.overline": "La Colecci\u00f3n",
     "collection.subtitle": "La Colecci\u00f3n Master Broker",
     "collection.intro":
-      "Marylene representa a LATITUD 365 como master broker \u2014 asignaci\u00f3n directa, precios de desarrollador y acceso prioritario a nuevas fases.",
+      "",
     "collection.developments": "Los desarrollos",
     "collection.resales.overline": "Reventas",
     "collection.resales.title": "Reventas \u2014 Playacar y Playa del Carmen",
@@ -217,15 +201,9 @@ export const portfolioDict: Dict = {
     "portfolio.counts.properties": "Propiedades",
     "portfolio.counts.developments": "Desarrollos",
     "portfolio.counts.destinations": "Destinos",
-    "portfolio.masterBroker.chip": "Master Broker",
     "portfolio.partners.title": "Desarrollos y socios",
-    "portfolio.chip.masterBroker": "Master Broker",
     "portfolio.chip.underConstruction": "En construcci\u00f3n \u2014 entrega {delivery}",
-    "portfolio.chip.resale": "Reventa",
     "portfolio.chip.soldOut": "Agotado",
-    "portfolio.masterBroker.title": "LATITUD 365 · Master Broker",
-    "portfolio.masterBroker.copy":
-      "Marylene representa este desarrollo directamente como master broker — acceso prioritario al inventario, precios y planes de pago.",
     "portfolio.filter.price": "Precio",
     "portfolio.filter.delivery": "Entrega",
     "portfolio.price.100k": "$100K–$250K",
@@ -242,8 +220,6 @@ export const portfolioDict: Dict = {
     "portfolio.cta.copy":
       "Dígale a Marylene lo que imagina — puede localizar y mostrarle cualquier propiedad de la Riviera, en francés, inglés o español.",
     "portfolio.cta.button": "Comenzar la búsqueda",
-
-    "portfolio.tier.master-broker": "Master broker",
     "portfolio.tier.portfolio": "Portafolio",
     "portfolio.tier.sold": "Vendido",
 

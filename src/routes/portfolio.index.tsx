@@ -52,7 +52,7 @@ export const Route = createFileRoute("/portfolio/")({
       {
         name: "description",
         content:
-          "One broker, the whole Riviera Maya: pre-construction, villas, condos and branded residences in Tulum, Playacar, Playa del Carmen and Cancún with realtor Marylene Maglio.",
+          "One broker, the whole Riviera Maya: pre-construction, villas and condos in Tulum, Playacar, Playa del Carmen and Cancún with realtor Marylene Maglio.",
       },
       { property: "og:title", content: "Portfolio — Riviera Maya | Marylene Realtor" },
       {
@@ -214,11 +214,6 @@ function PortfolioPage() {
   const [price, setPrice] = useState<string | null>(null);
   const [delivery, setDelivery] = useState<string | null>(null);
 
-  const masterBroker = useMemo(
-    () => visible.filter((l) => l.tier === "master-broker"),
-    [visible],
-  );
-
   const results = useMemo(
     () =>
       visible.filter(
@@ -289,37 +284,6 @@ function PortfolioPage() {
           </Reveal>
         </Container>
       </Section>
-
-      {/* 2 — Master broker */}
-      {masterBroker.length > 0 && (
-        <Section className="pt-10 pb-0 md:pt-12">
-          <Container>
-            <Reveal className="grid gap-8 border border-gold/40 p-6 sm:p-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start lg:gap-12">
-              <div className="min-w-0">
-                <span className="label-caps inline-block border border-gold px-3 py-1.5 text-[0.55rem] text-gold">
-                  {t("portfolio.masterBroker.chip")}
-                </span>
-                <h2 className="mt-5 font-serif text-3xl sm:text-4xl">
-                  {t("portfolio.masterBroker.title")}
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {t("portfolio.masterBroker.copy")}
-                </p>
-              </div>
-              <div
-                className={cn(
-                  "grid gap-6",
-                  masterBroker.length > 1 ? "sm:grid-cols-2" : "grid-cols-1",
-                )}
-              >
-                {masterBroker.map((l: Listing) => (
-                  <ListingCard key={l.slug} listing={l} />
-                ))}
-              </div>
-            </Reveal>
-          </Container>
-        </Section>
-      )}
 
       {/* 3 — Filters */}
       <Section className="pt-10 pb-0 md:pt-12">

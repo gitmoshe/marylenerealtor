@@ -14,7 +14,6 @@ export type Partner = {
 };
 
 export const partners: Partner[] = [
-  { name: "LATITUD 365" },
   { name: "Viceroy", slug: "viceroy-playa-del-carmen" },
   { name: "La Reserva", slug: "la-reserva" },
   { name: "Bakaba", slug: "bakaba" },
