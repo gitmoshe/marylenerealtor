@@ -30,6 +30,9 @@ export const listingTiers = ["master-broker", "portfolio", "sold"] as const;
 
 export const listingCurrencies = ["USD", "MXN"] as const;
 
+/** The only two values allowed in a listing's delivery field (drives the filter). */
+export const listingDeliveries = ["Presale", "Ready Now"] as const;
+
 export type ListingLocation = (typeof listingLocations)[number];
 export type ListingType = (typeof listingTypes)[number];
 export type ListingTier = (typeof listingTiers)[number];
@@ -162,7 +165,7 @@ export function listingChips(l: Listing): ListingChip[] {
   if (l.tier === "master-broker") chips.push({ key: "portfolio.chip.masterBroker", tone: "gold" });
   if (l.type === "Resale") chips.push({ key: "portfolio.chip.resale", tone: "lagoon" });
   if (l.tier === "sold") chips.push({ key: "portfolio.chip.soldOut", tone: "muted" });
-  else if (l.type === "Pre-construction" && !tbc(l.delivery))
-    chips.push({ key: "portfolio.chip.underConstruction", tone: "ink", delivery: l.delivery });
+  else if (l.type === "Pre-construction" && l.ficha?.delivery && !tbc(l.ficha.delivery))
+    chips.push({ key: "portfolio.chip.underConstruction", tone: "ink", delivery: l.ficha.delivery });
   return chips;
 }

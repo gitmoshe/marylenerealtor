@@ -23,7 +23,7 @@ import { SITE_URL } from "@/lib/site-url";
 type PortfolioSearch = { location?: string; collection?: string };
 
 const PRICE_BUCKETS = ["under-500k", "500k-1m", "1m-plus"] as const;
-const DELIVERY_BUCKETS = ["ready", "2026", "2027-plus"] as const;
+const DELIVERY_BUCKETS = ["presale", "ready-now"] as const;
 
 /** Collection rows below the grid, in editorial order. */
 const COLLECTION_ROWS = ["Playacar Collection", "Tulum Collection"] as const;
@@ -35,15 +35,8 @@ function priceBucket(amount: number | null): string | null {
   return "1m-plus";
 }
 
-function deliveryBucket(l: Listing): string | null {
-  const d = l.delivery.toLowerCase();
-  if (d.includes("ready") || d.includes("immediate") || d.includes("delivered")) return "ready";
-  const year = d.match(/20\d{2}/);
-  if (!year) return null;
-  const y = Number(year[0]);
-  if (y <= 2025) return "ready";
-  if (y === 2026) return "2026";
-  return "2027-plus";
+function deliveryBucket(l: Listing): string {
+  return l.delivery === "Ready Now" ? "ready-now" : "presale";
 }
 
 export const Route = createFileRoute("/portfolio/")({
