@@ -22,7 +22,7 @@ import { SITE_URL } from "@/lib/site-url";
 
 type PortfolioSearch = { location?: string; collection?: string };
 
-const PRICE_BUCKETS = ["under-500k", "500k-1m", "1m-plus"] as const;
+const PRICE_BUCKETS = ["100k", "250k", "500k", "1m-plus"] as const;
 const DELIVERY_BUCKETS = ["presale", "ready-now"] as const;
 
 /** Collection rows below the grid, in editorial order. */
