@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
+import { brochurePath, isPdf } from "@/lib/brochures";
 import type { Ficha, FloorPlan, Listing, PriceListRow, ProgressUpdate } from "@/lib/listings";
 
 type Row = {
@@ -21,6 +22,7 @@ type Row = {
   hero_image: string;
   gallery: string[];
   video_url: string;
+  brochure_url: string;
   featured: boolean;
   collections: string[];
   sort_order: number;
@@ -58,6 +60,7 @@ function toListing(r: Row): Listing {
     heroImage: r.hero_image,
     gallery: r.gallery ?? [],
     videoUrl: r.video_url || undefined,
+    brochureUrl: r.brochure_url || "",
     featured: r.featured,
     collections: r.collections ?? [],
     sortOrder: r.sort_order,
@@ -100,6 +103,7 @@ const listingInput = z.object({
   heroImage: z.string().trim().max(500),
   gallery: z.array(z.string().trim().max(500)).max(12),
   videoUrl: z.string().trim().max(500),
+  brochureUrl: z.string().trim().max(500).regex(/^$|^\/api\/public\/listing-brochure\/[a-z0-9-]+\.pdf$/, "Upload a brochure PDF first").default(""),
   featured: z.boolean(),
   collections: z.array(z.string().trim().max(60)).max(6),
   sortOrder: z.number().int().min(0).max(100000),
@@ -151,6 +155,7 @@ const listingInput = z.object({
       parking: z.string().trim().max(80).optional(),
       phases: z.string().trim().max(160).optional(),
       hoa: z.string().trim().max(80).optional(),
+      priceRange: z.string().trim().max(160).optional(),
     })
     .default({}),
   subListings: z.array(z.string().trim().max(80)).max(24).default([]),
@@ -264,6 +269,7 @@ export const saveListing = createServerFn({ method: "POST" })
       hero_image: data.heroImage,
       gallery: data.gallery.filter(Boolean),
       video_url: data.videoUrl,
+      brochure_url: data.brochureUrl,
       featured: data.featured,
       collections: data.collections.filter(Boolean),
       sort_order: data.sortOrder,
@@ -345,4 +351,26 @@ export const uploadListingImage = createServerFn({ method: "POST" })
     }
 
     return { ok: true as const, url: `/api/public/listing-image/${path}` };
+  });
+
+export const uploadListingBrochure = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => z.object({
+    fileName: z.string().min(1).max(200),
+    contentType: z.string().min(1).max(100),
+    base64: z.string().min(1).max(14_000_000),
+  }).parse(data))
+  .handler(async ({ data }) => {
+    const { requireAdmin } = await import("@/lib/admin-session.server");
+    await requireAdmin();
+    const bytes = Buffer.from(data.base64, "base64");
+    if (!isPdf(data.contentType, bytes)) {
+      return { ok: false as const, error: "Only PDF files are allowed." };
+    }
+    const path = brochurePath(data.fileName, crypto.randomUUID());
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.storage.from("listing-brochures").upload(path, bytes, {
+      contentType: "application/pdf", upsert: false,
+    });
+    if (error) return { ok: false as const, error: "Could not upload the brochure. Please try again." };
+    return { ok: true as const, url: `/api/public/listing-brochure/${path}` };
   });

@@ -12,3 +12,5 @@
 - Keep developer prices in their original currency; public displays use shared pricing helpers and a cached public exchange-rate server function to avoid inconsistent conversion or invented rates.
 - Use the shared BookingButton for consultation CTAs so on-site Calendly booking is consistent while email message forms remain separate.
 - Prebundle React and the booking dialog together in Vite to prevent first-use optimization from mixing React module instances in the preview.
+- Brochure uploads require the existing admin session; public PDF reads use storage RLS scoped to attached listing URLs so unassigned files stay private.
+- Admin saves preserve the complete listing draft so attaching media cannot reset optional property details.

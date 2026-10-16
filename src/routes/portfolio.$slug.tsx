@@ -1,9 +1,9 @@
 import { withRetry } from "@/lib/retry";
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { Download, Instagram, Mail, MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import { ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
+import { ButtonAction, ButtonAnchor, Container, GoldRule, Overline, Section } from "@/components/site/ui";
 import {
   DetailSection,
   FloorPlanTabs,
@@ -541,6 +541,9 @@ function ListingDetail() {
             <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
               {t("brochure.copy")}
             </p>
+            {listing.brochureUrl && <ButtonAnchor href={listing.brochureUrl} download target="_blank" rel="noreferrer" className="mt-8 max-w-full whitespace-normal text-center text-[0.62rem]">
+              <Download className="size-4 shrink-0" />{t("brochure.download")}
+            </ButtonAnchor>}
             <Link
               to="/contact"
               className="link-underline mt-8 inline-block text-xs leading-relaxed text-muted-foreground hover:text-gold"
@@ -550,13 +553,22 @@ function ListingDetail() {
           </Reveal>
 
           <Reveal delay={140} className="md:col-span-7">
+            <h2 className="mb-6 font-serif text-2xl">{t("brochure.questions")}</h2>
+            <div className="mb-8 flex flex-wrap gap-3">
+              <ButtonAnchor variant="outline" href={`https://wa.me/529984002988?text=${encodeURIComponent(t("detail.sticky.prefill").replace("{name}", listing.name))}`} target="_blank" rel="noreferrer" className="px-5 text-[0.6rem]">
+                <MessageCircle className="size-4" />{t("brochure.whatsapp")}
+              </ButtonAnchor>
+              <ButtonAnchor variant="outline" href="https://www.instagram.com/marylene_realtor/" target="_blank" rel="noreferrer" className="px-5 text-[0.6rem]">
+                <Instagram className="size-4" />{t("brochure.instagram")}
+              </ButtonAnchor>
+            </div>
             <form
-              className="border border-border bg-card p-8"
+              className="border-t border-border pt-8"
               onSubmit={(e) => {
                 e.preventDefault();
                 const fd = new FormData(e.currentTarget);
                 const get = (k: string) => String(fd.get(k) ?? "").trim();
-                const subject = `Brochure request: ${listing.name} (${reference})`;
+                const subject = `${listing.name} (${reference})`;
                 const body = [
                   `Name: ${get("name")}`,
                   `Email: ${get("email")}`,
@@ -609,12 +621,13 @@ function ListingDetail() {
                   className="mt-2 w-full border-b border-border bg-transparent py-3 text-base outline-none sm:text-sm focus:border-gold"
                 />
               </div>
-              <button
+              <ButtonAction
                 type="submit"
-                className="label-caps mt-8 w-full bg-gold py-4 text-[0.65rem] text-ivory transition-colors duration-500 hover:bg-ink"
+                className="mt-8 w-full whitespace-normal text-[0.65rem]"
               >
+                <Mail className="size-4 shrink-0" />
                 {t("brochure.submit")}
-              </button>
+              </ButtonAction>
               <p className="mt-5 text-xs text-muted-foreground">
                 {t("properties.enquire.replies")}
               </p>
