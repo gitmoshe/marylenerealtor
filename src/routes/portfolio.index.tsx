@@ -32,8 +32,9 @@ const COLLECTION_ROWS = COLLECTIONS.map((c) => c.tag);
 
 function priceBucket(amount: number | null): string | null {
   if (!amount) return null;
-  if (amount < 500_000) return "under-500k";
-  if (amount < 1_000_000) return "500k-1m";
+  if (amount < 250_000) return "100k";
+  if (amount < 500_000) return "250k";
+  if (amount < 1_000_000) return "500k";
   return "1m-plus";
 }
 
