@@ -94,6 +94,7 @@ export type Listing = {
   heroImage: string;
   gallery: string[];
   videoUrl?: string;
+  brochureUrl?: string;
   featured: boolean;
   collections: string[];
   sortOrder?: number;

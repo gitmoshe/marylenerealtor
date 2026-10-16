@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 
-import { Container, Section } from "@/components/site/ui";
+import { ButtonAction, ButtonAnchor, Container, Section } from "@/components/site/ui";
 import { resolveListingImage } from "@/lib/listing-assets";
 import { compressImage } from "@/lib/image-resize";
 import { Eye, EyeOff } from "lucide-react";
@@ -22,6 +22,7 @@ import {
   deleteListing,
   saveListing,
   uploadListingImage,
+  uploadListingBrochure,
 } from "@/lib/listings.functions";
 
 export const Route = createFileRoute("/admin")({
@@ -60,6 +61,7 @@ const emptyDraft: Draft = {
   heroImage: "",
   gallery: [],
   videoUrl: "",
+  brochureUrl: "",
   featured: false,
   collections: [],
   sortOrder: 500,
@@ -380,6 +382,7 @@ function ListingForm({
 }) {
   const save = useServerFn(saveListing);
   const upload = useServerFn(uploadListingImage);
+  const uploadBrochure = useServerFn(uploadListingBrochure);
   const [form, setForm] = useState<Draft>(draft);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -413,6 +416,7 @@ function ListingForm({
         setError(null);
         const res = await save({
           data: {
+            ...form,
             ...(form.id ? { id: form.id } : {}),
             slug: form.slug || slugify(form.name),
             name: form.name,
@@ -431,6 +435,7 @@ function ListingForm({
             heroImage: form.heroImage,
             gallery: form.gallery,
             videoUrl: form.videoUrl ?? "",
+            brochureUrl: form.brochureUrl ?? "",
             featured: form.featured,
             collections: form.collections,
             sortOrder: Number(form.sortOrder) || 500,
@@ -588,6 +593,41 @@ function ListingForm({
       </div>
 
       {/* gallery */}
+      <div className="mt-8">
+        <label htmlFor="brochure-pdf" className={labelClass}>Brochure PDF</label>
+        <input
+          id="brochure-pdf"
+          type="file"
+          accept="application/pdf,.pdf"
+          disabled={busy}
+          className="mt-3 block max-w-full text-sm"
+          onChange={async (e) => {
+            const file = e.target.files?.[0];
+            if (!file) return;
+            setError(null);
+            setBusy(true);
+            try {
+              const res = await uploadBrochure({ data: {
+                fileName: file.name,
+                contentType: file.type || (file.name.toLowerCase().endsWith(".pdf") ? "application/pdf" : ""),
+                base64: await fileToBase64(file),
+              } });
+              if (res.ok) set("brochureUrl", res.url);
+              else setError(res.error);
+            } catch {
+              setError("Could not upload the brochure. Please try again.");
+            } finally {
+              setBusy(false);
+            }
+          }}
+        />
+        {form.brochureUrl && <div className="mt-4 flex flex-wrap items-center gap-4">
+          <span className="text-sm text-muted-foreground">PDF attached</span>
+          {form.brochureUrl === draft.brochureUrl && <ButtonAnchor href={form.brochureUrl} download target="_blank" rel="noreferrer" variant="outline" className="px-4 py-2 text-xs">Download PDF</ButtonAnchor>}
+          <ButtonAction type="button" variant="outline" disabled={busy} onClick={() => set("brochureUrl", "")} className="px-4 py-2 text-xs">Remove PDF</ButtonAction>
+        </div>}
+      </div>
+
       <div className="mt-8">
         <label className={labelClass}>Gallery</label>
         <div className="mt-3 flex flex-wrap gap-4">

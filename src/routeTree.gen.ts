@@ -22,6 +22,7 @@ import { Route as PortfolioIndexRouteImport } from './routes/portfolio.index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as PropertiesIndexRouteImport } from './routes/properties.index'
 import { Route as PropertiesSlugRouteImport } from './routes/properties.$slug'
+import { Route as ApiPublicListingBrochureSplatRouteImport } from './routes/api/public/listing-brochure.$'
 import { Route as ApiPublicListingImageSplatRouteImport } from './routes/api/public/listing-image.$'
 
 const IndexRoute = IndexRouteImport.update({
@@ -89,6 +90,12 @@ const PropertiesSlugRoute = PropertiesSlugRouteImport.update({
   path: '/properties/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicListingBrochureSplatRoute =
+  ApiPublicListingBrochureSplatRouteImport.update({
+    id: '/api/public/listing-brochure/$',
+    path: '/api/public/listing-brochure/$',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiPublicListingImageSplatRoute =
   ApiPublicListingImageSplatRouteImport.update({
     id: '/api/public/listing-image/$',
@@ -110,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
+  '/api/public/listing-brochure/$': typeof ApiPublicListingBrochureSplatRoute
   '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRoutesByTo {
@@ -126,6 +134,7 @@ export interface FileRoutesByTo {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/properties': typeof PropertiesIndexRoute
+  '/api/public/listing-brochure/$': typeof ApiPublicListingBrochureSplatRoute
   '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRoutesById {
@@ -143,6 +152,7 @@ export interface FileRoutesById {
   '/properties/$slug': typeof PropertiesSlugRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/properties/': typeof PropertiesIndexRoute
+  '/api/public/listing-brochure/$': typeof ApiPublicListingBrochureSplatRoute
   '/api/public/listing-image/$': typeof ApiPublicListingImageSplatRoute
 }
 export interface FileRouteTypes {
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio/'
     | '/properties/'
+    | '/api/public/listing-brochure/$'
     | '/api/public/listing-image/$'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio'
     | '/properties'
+    | '/api/public/listing-brochure/$'
     | '/api/public/listing-image/$'
   id:
     | '__root__'
@@ -193,6 +205,7 @@ export interface FileRouteTypes {
     | '/properties/$slug'
     | '/portfolio/'
     | '/properties/'
+    | '/api/public/listing-brochure/$'
     | '/api/public/listing-image/$'
   fileRoutesById: FileRoutesById
 }
@@ -210,6 +223,7 @@ export interface RootRouteChildren {
   PropertiesSlugRoute: typeof PropertiesSlugRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   PropertiesIndexRoute: typeof PropertiesIndexRoute
+  ApiPublicListingBrochureSplatRoute: typeof ApiPublicListingBrochureSplatRoute
   ApiPublicListingImageSplatRoute: typeof ApiPublicListingImageSplatRoute
 }
 
@@ -306,6 +320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PropertiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/listing-brochure/$': {
+      id: '/api/public/listing-brochure/$'
+      path: '/api/public/listing-brochure/$'
+      fullPath: '/api/public/listing-brochure/$'
+      preLoaderRoute: typeof ApiPublicListingBrochureSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/listing-image/$': {
       id: '/api/public/listing-image/$'
       path: '/api/public/listing-image/$'
@@ -330,6 +351,7 @@ const rootRouteChildren: RootRouteChildren = {
   PropertiesSlugRoute: PropertiesSlugRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
   PropertiesIndexRoute: PropertiesIndexRoute,
+  ApiPublicListingBrochureSplatRoute: ApiPublicListingBrochureSplatRoute,
   ApiPublicListingImageSplatRoute: ApiPublicListingImageSplatRoute,
 }
 export const routeTree = rootRouteImport

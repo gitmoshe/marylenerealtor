@@ -1,0 +1,1 @@
+CREATE POLICY "Published listing brochures are readable" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'listing-brochures' AND EXISTS (SELECT 1 FROM public.listings WHERE brochure_url = '/api/public/listing-brochure/' || storage.objects.name));
