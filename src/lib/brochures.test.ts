@@ -1,17 +1,18 @@
-import { describe, expect, test } from "bun:test";
+import { describe, test } from "node:test";
+import { strict as assert } from "node:assert";
 import { brochurePath, isPdf } from "./brochures";
 
 describe("property brochure attachments", () => {
   test("accepts a PDF with application/pdf content type", () => {
-    expect(isPdf("application/pdf", new TextEncoder().encode("%PDF-1.7"))).toBe(true);
+    assert.equal(isPdf("application/pdf", new TextEncoder().encode("%PDF-1.7")), true);
   });
   test("rejects non-PDF content even if its content type claims PDF", () => {
-    expect(isPdf("application/pdf", new TextEncoder().encode("<html>"))).toBe(false);
+    assert.equal(isPdf("application/pdf", new TextEncoder().encode("<html>")), false);
   });
   test("rejects image content types", () => {
-    expect(isPdf("image/png", new TextEncoder().encode("%PDF-1.7"))).toBe(false);
+    assert.equal(isPdf("image/png", new TextEncoder().encode("%PDF-1.7")), false);
   });
   test("keeps uploaded filenames within one PDF storage path", () => {
-    expect(brochurePath("../../Amares Brochure.PDF", "abc")).toBe("abc--amares-brochure.pdf");
+    assert.equal(brochurePath("../../Amares Brochure.PDF", "abc"), "abc--amares-brochure.pdf");
   });
 });
