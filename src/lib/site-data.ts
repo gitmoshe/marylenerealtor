@@ -3,6 +3,7 @@ import property2 from "@/assets/property-2.jpg?w=1600&format=webp";
 import property3 from "@/assets/property-3.jpg?w=1600&format=webp";
 import coastline from "@/assets/coastline.jpg?w=1600&format=webp";
 import cenote from "@/assets/cenote.jpg?w=1600&format=webp";
+import cozumel from "@/assets/cozumel.jpg?w=1600&format=webp";
 
 export type Film = {
   id: string;
@@ -144,5 +145,11 @@ export const areas = [
     label: "The Gateway",
     image: property3,
     copy: "Direct flights from thirty cities, established towers with real rental histories, and the infrastructure the rest of the coast depends upon.",
+  },
+  {
+    name: "Cozumel",
+    label: "The Island",
+    image: cozumel,
+    copy: "An island apart, reached by ferry from Playa del Carmen. World-class diving on the Mesoamerican reef, quiet residential lanes and a slower rhythm that keeps buyers coming back.",
   },
 ];
