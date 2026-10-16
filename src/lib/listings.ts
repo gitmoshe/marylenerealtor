@@ -8,13 +8,13 @@
  */
 
 export const listingLocations = [
-  "Tulum",
   "Playacar",
-  "Playa del Carmen",
-  "Cancún",
+  "Tulum",
   "Puerto Morelos",
+  "Cancún",
+  "Playa del Carmen",
+  "Cozumel",
   "Akumal",
-  "Riviera Maya",
 ] as const;
 
 export const listingTypes = [

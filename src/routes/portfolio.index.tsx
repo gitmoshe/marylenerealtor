@@ -249,7 +249,7 @@ function PortfolioPage() {
     () => [
       { value: "1700+", label: tf("portfolio.counts.properties", "Properties") },
       { value: "13", label: tf("portfolio.counts.developments", "Developments") },
-      { value: "11", label: tf("portfolio.counts.destinations", "Destinations") },
+      { value: "7", label: tf("portfolio.counts.destinations", "Destinations") },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [t],

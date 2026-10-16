@@ -44,7 +44,7 @@ const emptyDraft: Draft = {
   slug: "",
   name: "",
   developer: "To be confirmed",
-  location: "Riviera Maya",
+  location: "Playa del Carmen",
   type: "Pre-construction",
   tier: "portfolio",
   status: "Selling now",
