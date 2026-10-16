@@ -8,6 +8,13 @@
       "when": 1792178457900,
       "tag": "0000_add_listing_brochure",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792178489284,
+      "tag": "0001_allow_attached_brochure_downloads",
+      "breakpoints": true
     }
   ]
 }
