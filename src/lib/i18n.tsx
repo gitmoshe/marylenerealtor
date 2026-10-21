@@ -64,9 +64,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored && (LANGS as readonly string[]).includes(stored)) {
-      setLangState(stored as Lang);
+    try {
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (stored && (LANGS as readonly string[]).includes(stored)) {
+        setLangState(stored as Lang);
+      }
+    } catch {
+      // Private browsing may deny storage; language selection still works in memory.
     }
   }, []);
 

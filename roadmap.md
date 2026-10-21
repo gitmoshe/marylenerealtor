@@ -1,3 +1,11 @@
+# Browser loading reliability
+- [x] Remove exchange-rate failures from the page-blocking path
+- [x] Make content and language selection safe when browser services are unavailable
+- [x] Serve brand fonts locally and verify blocked-service browsing
+- [x] Verify navigation, property images and details end to end
+- [ ] Live deployment waits for permission to publish; exact Brave behavior needs a post-deployment Brave check
+- [ ] Connect the non-www domain — blocked on missing DNS records at the domain provider
+
 # Brochure downloads and property contact
 - [x] Add admin PDF attachment storage and secure upload
 - [x] Add brochure downloads and email, WhatsApp and Instagram contact in three languages

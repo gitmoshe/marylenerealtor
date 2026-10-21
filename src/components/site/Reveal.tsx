@@ -17,7 +17,7 @@ export function Reveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -38,7 +38,7 @@ export function Reveal({
   return (
     <Component
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ animationDelay: `${delay}ms` }}
       className={cn("reveal", shown && "reveal-in", className)}
     >
       {children}
