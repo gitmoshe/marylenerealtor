@@ -38,6 +38,11 @@ export const Route = createFileRoute("/portfolio/$slug")({
       return {
         meta: [
           { title: "Listing unavailable — Riviera Maya | Marylene Maglio, Realtor" },
+          { name: "description", content: "This property is unavailable. Browse Marylene Maglio's Riviera Maya portfolio for current listings." },
+          { property: "og:title", content: "Property unavailable | Marylene Realtor" },
+          { property: "og:description", content: "Browse Marylene Maglio's Riviera Maya portfolio for current listings." },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary_large_image" },
           { name: "robots", content: "noindex" },
         ],
       };
@@ -107,7 +112,7 @@ function EnquireStickyBar({ listing }: { listing: Listing }) {
 
   useEffect(() => {
     const el = sentinelRef.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       ([entry]) => setShow(!entry.isIntersecting),
       { threshold: 0 },
