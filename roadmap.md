@@ -1,3 +1,9 @@
+# Browser loading reliability
+- [ ] Remove exchange-rate failures from the page-blocking path
+- [ ] Make content and language selection safe when browser services are unavailable
+- [ ] Serve brand fonts locally and verify blocked-service browsing
+- [ ] Verify navigation, property images and details end to end
+
 # Brochure downloads and property contact
 - [x] Add admin PDF attachment storage and secure upload
 - [x] Add brochure downloads and email, WhatsApp and Instagram contact in three languages
