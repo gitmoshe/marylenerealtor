@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useI18n } from "./i18n";
 import { exchangeRateOptions } from "./exchange-rate.functions";
 import { convertPrice, displayMoneyText, displayPrice, formatAmount, languageCurrency } from "./pricing";
@@ -6,7 +6,7 @@ import type { ListingCurrency } from "./listings";
 
 export function usePricing() {
   const { lang, t } = useI18n();
-  const { data } = useSuspenseQuery(exchangeRateOptions);
+  const { data } = useQuery(exchangeRateOptions);
   const rate = data?.mxnPerUsd ?? null;
   const onRequest = t("portfolio.priceOnRequest");
   return {

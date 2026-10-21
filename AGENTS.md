@@ -14,3 +14,6 @@
 - Prebundle React and the booking dialog together in Vite to prevent first-use optimization from mixing React module instances in the preview.
 - Brochure uploads require the existing admin session; public PDF reads use storage RLS scoped to attached listing URLs so unassigned files stay private.
 - Admin saves preserve the complete listing draft so attaching media cannot reset optional property details.
+- Public RPCs do not attach browser auth; admin handlers verify their signed HttpOnly cookie, avoiding public-page dependency on browser storage.
+- Exchange-rate queries are non-blocking and return unavailable rather than crashing public pages; valid server rates are cached for one hour.
+- Serve brand fonts from bundled font packages and render Reveal content visibly by default so third-party blocking or missing browser observers cannot hide it.

@@ -17,7 +17,6 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { LanguageProvider, useI18n } from "@/lib/i18n";
 import { ButtonLink } from "@/components/site/ui";
 import { SITE_URL } from "@/lib/site-url";
-import { exchangeRateOptions } from "@/lib/exchange-rate.functions";
 
 function NotFoundComponent() {
   const { t } = useI18n();
@@ -79,7 +78,6 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  loader: ({ context }) => context.queryClient.ensureQueryData(exchangeRateOptions),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -101,18 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      // Brand fonts: preload the stylesheet, then the two families actually used above the fold.
-      {
-        rel: "preload",
-        as: "style",
-        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Manrope:wght@400;500;600&family=Pinyon+Script&display=swap",
-      },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Manrope:wght@400;500;600&family=Pinyon+Script&display=swap",
-      },
       { rel: "icon", type: "image/png", href: "/monogram.png" },
       { rel: "apple-touch-icon", href: "/monogram.png" },
     ],
