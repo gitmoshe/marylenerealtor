@@ -1,3 +1,7 @@
+# Domain and Search Console setup
+- [ ] Diagnose and complete the non-www domain connection
+- [ ] Link Google Search Console, verify ownership and submit the sitemap — connection approval pending
+
 # Browser loading reliability
 - [x] Remove exchange-rate failures from the page-blocking path
 - [x] Make content and language selection safe when browser services are unavailable
